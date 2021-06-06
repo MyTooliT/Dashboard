@@ -1,0 +1,235 @@
+# C-RIO Dashboard en
+
+User manual for the C-RIO Dashboard
+
+## ICOtronic System components 		  			
+
+The graphic below provides an overview about the ICOtronic system components. It consists of the following main parts:
+
+- Sensory Tool Holder (STH)
+- Signal Processing Unit (SPU)
+- Stationary Transceiver Unit (STU)
+- Charging Cradle (CC)
+
+![Komponenten](assets/Komponenten.png)
+
+## Software and network Settings for your PC			  			
+
+First, you need a Laptop running Windows and administrator  privileges. You need the “LabView Runtime” installed on the Laptop,  download link ->
+
+http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
+
+CAUTION: it has to be the 2019 SP1 version !!!
+
+Not all browsers can use this plugin, Microsoft Internet Explorer (NOT MICROSOFT EDGE) was tested and worked well.
+
+Before connecting the Laptop via the Ethernet Cable to the SPU, the  correct network settings have to be configured. Therefore, set the  network configuration of the interface that is going to be used with the SPU as illustrated below.
+
+![ip](assets/ip.png)
+ If required, please reboot your Laptop after changing the network settings.
+
+## Real-Time-Dashboard 			  			
+
+Open your Microsoft Internet explorer and go to:
+
+http://192.168.1.113:8000/ICOtronicSPU.html
+
+This should open the real-time-Dashboard on your PC.
+
+The Dashboard contains two tabs: **Stability** and **System**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic-logo.
+
+If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
+
+![connected_w](assets/connected_w.png)   <------->   ![connected_b](assets/connected_b.png)
+
+### System Tab 		
+
+![system](assets/system.png)
+
+In the section "Can configuration" of the system tab, all STHs are  listed that are found by the system and are ready to connect. You can  see the name and the Bluetooth address of the STHs. To establish a  connection, select the STH of your choice and press “Connect”. With  “Stop”, you can disconnect from the STH. After disconnection the  Dashboard needs a few seconds before it starts searching for STHs again.
+
+![halterauswahl](assets/halterauswahl.png)
+
+### Stability tab 						  			
+
+In the Stability tab, you can change the mode of the system, the  parameter of the in-process control and you can view the system’s live  data.
+
+CAUTION: The tabs System and Stability tab are not connected.  Therefore, if you disconnect the STH, the mode and the parameter set up  in the Stability tab stay the same, even if you connect a new STH. These parameters only reset when the SPU got a reset.
+
+In the upper left, you can change the active mode (For detailed descriptions of the modes, see chapter “Modes”).
+
+![modeauswahl](assets/modeauswahl.png)
+
+Below the mode selection are the configuration parameters (For  detailed descriptions of the parameters, see chapter “Parameters”).
+
+On the right-hand side you can see the live data of the system,  change the shown time window length (in seconds) and you can choose to  stop the data-print.
+
+![grafhistory](assets/grafhistory.png)
+
+The newest data point is on the left-hand side. The oldest one to the right. The timeline on the bottom gives information on how many seconds ago a specific value occured. So to say, 5s means that this point is 5s in the past. The live data is categorized into three prints.
+
+#### IFT-Value 		  			
+
+The IFT-Value is the system's criteria to find out if the process is  stable or instable. If the value is above a chosen threshold and an  in-process control mode is selected, the system generates new setpoints  for the overrides feed rate and spindle speed in order to stabilize the  process again.
+
+![signal](assets/signal-1622407122141.png)
+
+#### Overrides 		
+
+The override graph shows the active override values of the system.
+
+![overrides](assets/overrides.png)
+
+#### Control indicators 				  			
+
+This graph shows the Sens and the Active lines. These are digital  information. If the values are 1 they are active and if the values are 0 they are inactive. Sens indicates that the M-command is set to activate the adaptive control loop. The Active signal shows if the IFT-Value is above the given threshold and the overrides are actively changed by the system. The Active value can only become 1 if the Sens value is 1 too.
+
+![active](assets/active.png)
+
+## Parameters 					  			
+
+Depending on which mode is set active, different parameters can be  changed. To change said parameters to new values, press the "update"  Button on the bottom (with "Window length" being the only exception in  "Watch" mode).
+
+![parameter](assets/parameter.png)
+
+### Window length 			  			
+
+{ms} window length
+
+This parameter changes the time window for the calculation of the  IFT-Value. The larger the window, the more sluggish the system reacts to changes. For example, a single spike in the process is weighted less on the IFT-Value calculation in a larger window. In “Watch” mode this  parameter can be adjusted live. In all other modes, this can only be  done using the "update" button as mentioned before.
+
+### Upper threshold 		
+
+{-} upper threshold
+
+If the IFT value exceeds the threshold, the overrides are set to the  defined values by the SPU. The bigger this value, the more “instable”  the process is allowed to become, before override adaptions are  activated.
+
+### Lower threshold 			  			
+
+{-} lower threshold
+
+If the IFT-value falls below the lower threshold, the override values will start rising up towards 100% again, following a defined ramp. The  lower this value, the more “stable” the process has to become for the  overrides to be reset.
+
+### Ramp 				
+
+{%/ms} ramp
+
+This parameter changes the speed of the override reset. The overrides are not reset instantly, as they follow a ramp to change back to 100%.  The bigger this value, the steeper the ramp and the faster the system  goes back to 100% spindle speed and feed rate.
+
+A value of e.g. 0.01 %/ms would increase the feed rate and/or spindle speed to 10 % within 1 second.
+
+### Feed override 			
+
+{0-100%} Setpoint for feed rate
+
+This parameter is used in the modes “Stability 2 Level” and “Direct  output”. This value defines the override applied to the machine tool  control system, the moment the ICOtronic system activates the feed rate  adaption of the machine.
+
+### Spindle override 		  			
+
+{0-100%} Setpoint for spindle speed
+
+This parameter is used in “Stability 2 Level” and “Direct output”.  This value defines the override applied to the machine tool control  system, the moment the ICOtronic system activates the spindle speed  reduction of the machine.
+
+### Feed override min 				
+
+{0-100%} Setpoint for minimum feed rate
+
+This parameter is used in the “Stability reduction” mode. This value  defines the minimal feed rate override, which is sent to the machine by  the ICOtronic system. The reduction cannot fall below this value.
+
+### Feed reduction factor 					
+
+{0-100%} Reduction factor
+
+This parameter is used in the “Stability reduction” mode. This value  controls the intensity of the reduction steps of the feed rate.
+
+As an example: A value of 5 % for "Feed reduction factor" results in continuous reduction of 5% of the override as long as the IFT-Value  is bigger than the upper threshold at each calculation interval.
+
+Reduction step 1: Reduction from 100 % to 95 %
+Reduction step 2: Reduction from 95 % to 90 %
+…and so on.
+
+### Spindle override min 			  			
+
+{0-100%} Setpoint for minimum spindle speed
+
+This parameter is used in the “Stability reduction” mode. This value  defines the minimal spindle speed override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
+
+### Spindle reduction factor 				
+
+{0-100%} Reduction factor
+
+This parameter is used in the “Stability reduction” mode. This value  controls the intensity of the reduction steps of the spindle speed.
+
+As an example: A value of 5 % for "Spindle reduction factor" results in continuous reduction of 5% of the override as long as the IFT-Value  is bigger than the upper threshold at each calculation interval.
+
+Reduction step 1: Reduction from 100 % to 95 %
+Reduction step 2: Reduction from 95 % to 90 %
+…and so on.
+
+### Deadtime 					
+
+{ms} deadtime
+
+This parameter is only used in the “Stability reduction” mode. This  value equals the time in ms the system pauses before checking if it  should reduce the spindle speed and feed rate again. The smaller this  value, the quicker the ICOtronic system reduces the speed. As a  reference value for first tests 300 ms can be mentioned. This means,  each 300 ms feed rate and/or spindle speed are adapted as long as the  IFT value exceeds the threshold.
+
+Examples:
+
+In the pictures below, there are 2 different Deadtimes set. The first picture has a shorter Deadtime than the second one. It can be seen that the minimal Overrides are reached quicker with a lower Deadtime.
+
+Feed reduction factor: 8%; Feed override min: 10%; Spindle reduction factor: 5%; Spindle override min: 20%
+
+Deadtime: 100ms
+
+![deadtime1](assets/deadtime1.png)
+Deadtime: 300ms
+
+![deadtime2](assets/deadtime2.png)
+
+### IFT value factor 		  			
+
+{-} IFT value factor
+
+This is a multiplicative factor for the IFT-Value in the  corresponding diagram and for the analogue port number 0 of the SPU (NI  9263). With it, the signal can be set to a desired value.
+
+### IFT value offset 					
+
+{-} IFT value offset
+
+This is an additive value, to the IFT-Value in the corresponding  diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. 
+
+## Modes 					
+
+The modes are:
+
+![modes](assets/modes.png)
+
+### WATCH 				
+
+The STH and the STU are connected in this mode. Moreover, the  IFT-Value will be evaluated in order to watch the signal generated in  cutting processes. However, this mode is not a control mode and thus not taking any actions in the machine control system. This mode is also  suitable for testing the connection between STH and STU. In this mode,  the “IFT value factor” and “IFT value offset” can be changed.  Furthermore, this is the only mode where you can instantly change the  "Window length" without having to use the "update" button.
+
+### STABILITY 2 LEVEL 			  			
+
+This is one of the two modes which can be used to control the  machining process. In this mode, the parameters used are the “Upper  threshold”, “Lower threshold”, “Ramp”, “Feed override” and “Spindle  override”. If the IFT value exceeds the “Upper threshold”, the system  will directly set the overrides to the values of “Feed override” and  “Spindle override” defined in the Dashboard. If the IFT value reduces  and falls below the “Lower threshold”, the system will start to increase Spindle speed and Feed rate back to 100% in form of a ramp. The speed  of this increase is defined by the “Ramp” parameter.
+
+### STABILITY REDUCTION 				  			
+
+This is one of the two modes which can be used to control the  machining process. In this mode, the parameters used are the “Upper  threshold”, “Lower threshold”, “Ramp”, “Feed override min”, “Feed  reduction factor”, “Spindle override min”, “Spindle reduction factor”  and “Deadtime”. If the IFT value exceeds the “Upper threshold”, the  system will reduce spindle speed and feed rate. The factors of how much  they are reduced are the two “override" factors. After a reduction step, the system waits the “Deadtime” to see if the IFT value is still above  the “Upper threshold”. If it is still above, the system will reduce the  overrides again. If the “override min” values are reached, the system  will no longer reduce the spindle speed and feed rate. If the IFT-Value  falls below the “Upper threshold”, the system holds the active overrides applied by the SPU. If the IFT-Value sinks below the “Lower threshold”, the system starts to increase spindle speed and feed rate. The speed of this increase is defined by the “Ramp” parameter.
+
+### DIRECT OUTPUT 					  			
+
+This mode is primary used while installing the system. Beside the  “IFT value factor” and the “IFT value offset”, the “Feed override” and  “Spindle override” can be changed. The values given for the overrides  will be directly sent to the output, independent from the IFT-Value.  Therefore, a specific spindle speed or feed rate can be applied without  any sensor-input or activation signal from the machine-control-system  (M-command). This mode should be used to check if the connection  between the SPU and the machine-control-system is working as designed. 
+
+## Example use-case 			  			
+
+Open the internet explorer and connect to the Dashboard. After the  page is loaded, go to the “System” tab and wait for the holder inside  the machine to be listed. Now press “Connect” and go to the “Stability”  tab. The STH’s LED should start blinking and the STU’s LEDs in the  corners should stop blinking and instead shine continuously. After a  short moment, the IFT-Value graph should start to display values  different from zero. Change the mode to “Watch” and choose a “Window  length” with about 70 ms as a first orientation. Change the “Graph  History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order  to take look at the whole process, press the “pause graph” button after  the process. Remember that the seconds below the graphs show how many  seconds in the past this point was. The following figure represents an  example of cut in the watch mode.
+
+![example](assets/example.png)
+
+Now change to on of the two control modes and set the parameters of  the “Upper threshold” and “Lower threshold” to plausible values, for the in-process parameter adaption. Repeat the cut, in which the override  adaption is now activated.
+
+![example2](assets/example2.png)
+
+
+Look if the parameters are chosen appropriately in order to control the process. If not, change them in an adequate way.
+
+The time required to optimize the system for the use case varies.  This depends on the intensity of chatter, the process time, the  experience for configuring the Dashboard and the experience of the  machine operator. This optimization procedure can take between one hour  and several hours.
