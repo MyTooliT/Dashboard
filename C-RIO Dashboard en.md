@@ -44,11 +44,91 @@ If the system is connected to a sensory tool holder, the identifier turns blue. 
 
 ### System Tab 		
 
-![system](assets/system.png)
+![system](assets/system_tab.png)
 
-In the section "Can configuration" of the system tab, all STHs are  listed that are found by the system and are ready to connect. You can  see the name and the Bluetooth address of the STHs. To establish a  connection, select the STH of your choice and press “Connect”. With  “Stop”, you can disconnect from the STH. After disconnection the  Dashboard needs a few seconds before it starts searching for STHs again.
+In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "Update" button. On the right side are some system informations. On the bottom left side are a few tabs for specific uses.
 
-![halterauswahl](assets/halterauswahl.png)
+#### Logging
+
+![logging](assets/logging_tab.png)
+
+This tab is used for recording of a process. If the check-box is clicked the recording will start at connection to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The two identifier below are showing if a storage device like a USB is connected and if the system is recording at the moment. The two boxes at the bottom show how big the momentary recorded file is and the bottom most box shows how much space is left on the storage device.
+
+#### Replay
+
+![replay](assets/replay_tab.png)
+
+This tab is used to replay a recorded process. If a storage device is mounted on the system the recoding files are shown here in form of a list. Then the file can be chosen and loaded with a press of the "Load File" button. To switch the system between the "Live mode" and a recording you just have to press the button on the left side.
+
+#### FOCAS
+
+![focas](assets/focas_tab.png)
+
+**Attention: This connection is only possible on specific machines.**
+
+This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. And then start the connection with the "FOCAS Start" button. If you want to stop the control via FOCAS you have to press the "FOCAS Stop" button which is there instead of the "FOCAS Start" if the connection is active.
+
+#### System
+
+![can_monitor](assets/can_monitor.png)
+
+This tab shows information about the CAN messages send between the system and the dashboard.
+
+#### Connection types
+
+![connection_type](assets/connection_type.png)
+
+##### Dashboard / OPC UA
+
+With this mode you can select the STH of your choice from the "Device list" and press “Connect”. With  “Stop”, you can disconnect from the STH. After disconnection the  Dashboard needs a few seconds before it starts searching for STHs again.
+
+![halterauswahl](assets/Holder_Connection.png)
+
+##### Static / DI
+
+In this connection mode you can define one static MAC-Address. Every holder has his own unique address. This address is shown on the right side of the device list. If this mode is selected and the holder with the defined MAC-Address is in range the system will automatically connect to this holder.
+
+![mac](assets/MAC_Adress.png)
+
+##### First available /DI
+
+In this mode the system will connect to the first holder it finds within its range. 
+
+### Breakout detection Tab
+
+**<u>IN DEVELOPMENT!!!!</u>**
+
+![breakout](assets/Breakout_detection.png)
+
+This tab is used when you want to detect breakout of cutting edges. 
+
+On the top left side are the parameters for the detection. On the top right side is the graph of the quality factor which indicates a breakout. On the bottom left side is a graph of the signal power. And on the bottom right is a graph of the frequency spectrum. In the frequency spectrum graph you can move the cursor to see the amplitude and frequency on this cursor position on the top left of the spectrum graph. On the right side you can change the zoom of the x-axis(frequency) and the y-axis(amplitude) of this graph.
+
+#### Breakout parameters
+
+![breakout_paramter](assets/Breakout_parameter.png)
+
+These parameters are used to configure the breakout detection. To activate the new parameters the "Update" button has to be clicked.
+
+##### Spindle speed
+
+This parameter is the spindle speed which is used in the cutting process.
+
+##### Order limit
+
+This parameter is the number of orders of the tooth passing frequency which should be used to detect the breakouts.
+
+##### Comb width
+
+This parameter defines the comb width which is used to analyze the frequency spectrum to detect the breakouts. This is needed since the frequencies are not a peak with only 1 value but more like a plateau because we are in a real and not ideal situation.
+
+##### Number of teeth
+
+This parameter is the number of teeth the cutting tool posses.
+
+##### Signal power limit
+
+This value defines a signal power. Everything below this signal power will be ignored. This is needed so that the detection only works when the tool is cutting. Without the quality factor could be signaling a breakout even if the tool is not cutting at the moment.
 
 ### Stability tab 						  			
 
@@ -86,7 +166,7 @@ This graph shows the Sens and the Active lines. These are digital  information. 
 
 ![active](assets/active.png)
 
-## Parameters 					  			
+## Stability-Parameters 					  			
 
 Depending on which mode is set active, different parameters can be  changed. To change said parameters to new values, press the "update"  Button on the bottom (with "Window length" being the only exception in  "Watch" mode).
 
