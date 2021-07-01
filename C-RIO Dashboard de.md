@@ -28,7 +28,7 @@ Download Link:
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
-ACHTUNG: Es muss die 2019 SP1 Version gewählt werden !!!
+ACHTUNG: Es muss die 2020 SP1 (32-bit) Version gewählt werden !!!
 
 Nicht jeder Browser unterstützt dieses Plugin. Microsoft Internet  Explorer (NICHT MICROSOFT EDGE) wurde getestet und funktioniert  einwandfrei.
 

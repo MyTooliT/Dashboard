@@ -19,7 +19,7 @@ First, you need a Laptop running Windows and administrator  privileges. You need
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
-CAUTION: it has to be the 2019 SP1 version !!!
+CAUTION: it has to be the 2020 SP1 (32-bit) version !!!
 
 Not all browsers can use this plugin, Microsoft Internet Explorer (NOT MICROSOFT EDGE) was tested and worked well.
 
