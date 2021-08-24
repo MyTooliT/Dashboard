@@ -13,15 +13,7 @@ Die nachfolgende Grafik verleiht einen Überblick über die Komponenten des ICOt
 
 ![Komponenten](assets/Komponenten.png)
 
-## Software- und Netzwerkeinstellungen des Computers 		
-
-​						  				
-
-
-
-​					
-
-​					  			
+## Software- und Netzwerkeinstellungen des Computers 						  			
 
 Es wird ein Computer mit Windows Betriebssystem (Windows 7  Servicepack 1; Windows 8.1 Update 1; Windows 10) und  Administratorrechten benötigt. Auf diesem Computer muss „LabView  Runtime“ installiert sein. 
 Download Link:
@@ -54,11 +46,91 @@ Wenn das System mit einem sensorischen Werkzeughalter verbunden ist,  ändert si
 
 ### System Reiter 		
 
-![system](assets/system.png)
+![system](assets/system_tab.png)
 
-Im Untermenü „Can configuration“ des System Reiters, befindet sich  eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des  Systems gefunden wurden, mit denen sich das System verbinden kann. Zu  sehen sind der Name und die Bluetooth Adresse dieser STHs. Um sich mit  einem Halter zu verbinden, muss der gewünschte Halter gewählt und danach der „Connect“ Button gedrückt werden. Mit dem „Stop“ Button kann die  Verbindung zum aktuell verbundenen Halter getrennt werden. Nach Trennen  einer Verbindung benötigt das Dashboard einige Sekunden, bevor es wieder nach Haltern sucht und diese listen.
+Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "Update" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
 
-![halterauswahl](assets/halterauswahl.png)
+#### Logging
+
+![logging](assets/logging_tab.png)
+
+Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn die Checkbox markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn die Checkbox nicht markiert ist kann Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Die 2 Identifikatoren unterhalb zeigen an ob ein Speichergerät wie z.B. ein USB-Stick verbunden ist und ob gerade eine Aufnahme stattfindet. Die beiden Anzeigen am unteren Ende zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
+
+#### Replay
+
+![replay](assets/replay_tab.png)
+
+Dieser Reiter wird verwendet um sich aufgenommene Prozesse anschauen zu können. Wenn ein Speichermedium angeschlossen ist zeigt die Liste alle aufgenommenen Prozesse auf diesem Medium an. Wenn eine Aufnahme ausgewählt ist kann diese mittels eines Drucks auf den "Load File" Button eingelesen werden. Um das System zwischen dem Live Mode und dem Wiedergeben eines aufgenommenen Prozesses zu wechseln muss nur der "Live mode" Button betätigt werden.
+
+#### FOCAS
+
+![focas](assets/focas_tab.png)
+
+**Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!**
+
+Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des "FOCAS Start" Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der "FOCAS Stop" Button gedrückt werden welcher den "FOCAS Start" bei aktiver Kontrolle ersetzt.
+
+#### System
+
+![can_monitor](assets/can_monitor.png)
+
+Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an.
+
+#### Verbindungsarten
+
+![connection_type](assets/connection_type.png)
+
+##### Dashboard / OPC UA
+
+Um sich mit  einem Halter zu verbinden, muss der gewünschte Halter aus der "Device list" gewählt werden und danach der „Connect“ Button gedrückt werden. Mit dem „Stop“ Button kann die Verbindung zum aktuell verbundenen Halter getrennt werden. Nach Trennen einer Verbindung benötigt das Dashboard einige Sekunden, bevor es wieder nach Haltern sucht und diese listen.
+
+![halterauswahl](assets/Holder_Connection.png)
+
+##### Static / DI
+
+Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, verbindet sich dieses automatisch mit dem Halter. 
+
+![mac](assets/MAC_Adress.png)
+
+##### First available /DI
+
+Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt. 
+
+### Breakout detection Reiter
+
+**<u>IN ENTWICKLUNG!!!!</u>**
+
+![breakout](assets/Breakout_detection.png)
+
+Dieser Reiter wird benutz wenn man Schneidenausbrüche detektieren will.
+
+in der oberen, linken Ecke können die Parameter für die Detektion eingestellt werden. Oben, rechts befindet sich ein Graph der den Qualitätsfaktor anzeigt welcher genutzt wird um einen Schneidenausbruch zu detektieren. In der unteren, linken Ecke befindet sich ein Graph mit Informationen über die Signalenergie. Untern, rechts befindet sich noch ein Graph welcher das Frequenzspektrum anzeigt. In diesem Frequenzspektrum kann mittels der Maus die rote Linie verschoben werden. Oberhalb des Frequenzspektrums befindet sich einer Anzeige über Frequenz und Amplitude an der gewählten Stelle. Auf der rechten Seite befinden sich 2 Schieberegler mit denen der Zoom der X-Achse(Frequenz) und der Y-Achse(Amplitude) eingestellt werden können.
+
+#### Schneidenausbruchs Parameter
+
+![breakout_paramter](assets/Breakout_parameter.png)
+
+Diese Parameter werden dazu genutzt die Detektion von Schneidenausbrüchen einstellen zu können. Um die neu eingestellten Parameter zu aktivieren muss der "Update" Button gedrückt werden.
+
+##### Spindle speed
+
+Dieser Parameter ist die eingestellte Drehzahl des Prozesses.
+
+##### Order limit
+
+Dieser Parameter ist die Ordnung der Schneideneingriffsfrequenz die für die Berechnung herangezogen wird.
+
+##### Comb width
+
+Dieser Parameter gibt die Kammbreite an mit welcher das Frequenzspektrum analysiert wird. Diese ist notwendig da Frequenzen nicht nur als 1 eindeutiger Wert auftreten sondern eher in Form eines Plateaus auftreten da es sich um einen realen und keinen idealen Prozess handelt.
+
+##### Number of teeth
+
+Dieser Parameter ist die Anzahl der Zähne die das benutzte Werkzeug besitzt.
+
+##### Signal power limit
+
+Dieser Parameter definiert eine Signalenergie. Alles unterhalb dieses Wertes wird ignoriert. Diese Einstellung ist nötig damit das System nur dann Werte berechnet wenn das Werkzeug benutzt wird und nicht wenn es gerade nicht im Schnitt ist. Ohne diesen Wert könnte der Qualitätsfaktor einen Schneidenausbruch anzeigen selbst wenn das Werkzeug sich gerade nicht in Verwendung befindet.
 
 ### Stability Reiter 		
 

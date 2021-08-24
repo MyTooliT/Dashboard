@@ -64,7 +64,7 @@ This tab is used to replay a recorded process. If a storage device is mounted on
 
 ![focas](assets/focas_tab.png)
 
-**Attention: This connection is only possible on specific machines.**
+**Attention: This connection is only possible on specific machines!**
 
 This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. And then start the connection with the "FOCAS Start" button. If you want to stop the control via FOCAS you have to press the "FOCAS Stop" button which is there instead of the "FOCAS Start" if the connection is active.
 
