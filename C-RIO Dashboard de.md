@@ -320,3 +320,35 @@ Nun ändern Sie den Modus auf einen der beiden Regelmodi und stellen  sie die Pa
 Sollten die Parameter noch nicht optimal eingestellt sein, so passen  Sie diese nun entsprechend an und wiederholen Sie den Schnittprozess.
 
 Die benötigte Zeit, um die Einstellungen für einen gegebenen  Schnittprozess optimal einzustellen, kann variieren. Die benötigte Zeit  ist abhängig von der Intensität des Ratterns, der Schnittdauer, der  Erfahrung des Dashboard Bedieners bezüglich der Einstellungen und der  Erfahrung des Maschinenbedieners. Dieser Optimierungsprozess kann  durchaus länger als eine Stunde dauern.
+
+## Nutzen des OPCUA-Server der SPU
+
+### Verbinden mit dem OPCUA-Server
+
+Um den OPCUA-Server nutzen zu können wird als erstes ein OPCUA-Client benötigt. Hierzu muss einer auf dem Computer installiert werden. Wir empfehlen UaExpert und haben auch alle Bilder dieser Anleitung mit UaExpert erstellt. Der Client(UaExpert v1.5.1) kann unter nachstehendem Link gedownloadet werden. Zu beachten ist das ein User-Account benötigt wird.
+Download link: https://www.unified-automation.com/downloads/opc-ua-clients.html  
+Nach erfolgreicher Installation muss der Client gestartet werden indem das Programm geöffnet wird.Wenn das Programm geöffnet ist muss man im Menü auf „Server“ und „Add…“ gehen um den SPU-OPCUA-Server zu suchen und sich mit diesem verbinden zu können.
+ ![img](assets/clip_image001-16311724074231.png)
+ Hier nun im Menüpunkt „Custom Discovery“ auf den Unterpunkt „< Double click to Add Server… >“ doppelklicken und in dem Fenster welches sich nun öffnet folgende Adresse eingeben:
+
+Opc.tcp://192.168.1.113:49580
+ ![img](assets/clip_image002.png)
+
+Nun sollte der Server gefunden werden und ein paar Unterpunkte aufklappen, wenn dieser ausgewählt wird. Wenn dies der Fall ist auf „OK“ drücken. ![img](assets/clip_image003.png)
+ Nun sollte der Server auf der linken Seite im Menüreiter aufscheinen. Diesen nun mit einem Rechtsklick auswählen und auf „Connect“ drücken.
+ ![img](assets/clip_image004.png)
+
+### Variablen anzeigen lassen
+
+Nun sollte im unteren linken Reiter mehrere Variablem des Servers aufgelistet sein.
+ ![img](assets/clip_image005.png)
+Nun kann durch Auswahl eines dieser Elemente (Doppelklick), dieses Element im oberen rechten Reiter geöffnet werden.
+ ![img](assets/clip_image007-16311724074242.jpg)
+
+In diesem Reiter können nun die Parameter des jeweiligen Elementes ausgelesen werden wie zum Beispiel der aktuelle Wert, der Variablen Identifier oder der Zeitstempel des letzten gemessenen Datenwertes. Unter „Value“ befindet sich auch der aktuelle Wert, dieses Elementes, der zuletzt eingelesen wurde. Im Falle eines einstellbaren Wertes, wie zum Beispiel dem minimalen Override der Drehzahl, kann dieser mit einem Doppelklick auch verändert werden. Zu beachten ist das Ausgangsvariablen wie zum Beispiel der aktuelle Drehzahloverride nicht geändert werden können.
+
+Um einen Parameter dauerhaft in dem großen mittleren Reiter anzuzeigen muss dieser Reiter rechtsgeklickt werden. Im folgenden Menü nun auf „Add custom node…“ klicken. ![img](assets/clip_image008-16311724074243.png)
+Danach muss der Variablenname des Elementes angegeben werden. Jedes Element des OPCUA-Servers ist über seinen Identifier definiert und auslesbar. Dieser kann wenn das Element vorher ausgewählt wurde im rechten oberen Reiter bei den Element Parametern ausgelesen werden. Die benötigten Daten befinden sich unter dem Menüpunkt „NodeId“.
+
+![img](assets/clip_image010-16311724074244.jpg)
+Danach auf „OK“ drücken. Nun sollte das gewählte Element in der Mitte angezeigt werden. Im Falle eines einstellbaren Parameters kann dieser ebenso bei „Value“ verändert werden wie auch vorher in seinen Eigenschaften.

@@ -313,3 +313,46 @@ Now change to on of the two control modes and set the parameters of  the “Uppe
 Look if the parameters are chosen appropriately in order to control the process. If not, change them in an adequate way.
 
 The time required to optimize the system for the use case varies.  This depends on the intensity of chatter, the process time, the  experience for configuring the Dashboard and the experience of the  machine operator. This optimization procedure can take between one hour  and several hours.
+
+## How to use the OPCUA-server of the SPU
+
+### Connecting the OPCUA-Server
+
+First, a OPC UA client is required on your PC. Please, find subsequently as a suggestion the download link of a UaExpert client (UaExpert v1.5.1). A user account is required.
+Download link: https://www.unified-automation.com/downloads/opc-ua-clients.html  
+Afterwards open the UaExpert client-program. When the program is open you have to click on “Server” at the top menu and then on “Add…”. This opens a window to search for and connect with the OPC UA-Server of the Signal Processing Unit (SPU) of the ICOtronic system.
+
+ ![img](assets/clip_image001.png)
+In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „< Double click to Add Server… >“. Now a little new window will open. Here you have to input the following address:
+
+opc.tcp://192.168.1.113:49580
+ ![img](assets/clip_image003.jpg)
+
+Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.
+
+![img](assets/clip_image005.jpg)
+
+After that, the server should be visible on the left side of the menu. Now you have to right-click the server and then click on “Connect”.
+ ![img](assets/clip_image007.jpg)
+
+### Visualisation of the variables
+
+After connecting to the OPCUA-Server you should now be able to see variables on the left side of the menu.
+
+ ![img](assets/clip_image008.png)
+
+With a double click, these variables can be opened and shown on the upper right-hand side of the menu.
+
+ ![img](assets/clip_image010.jpg)
+
+In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu entry “Value” shows the last read value of this element. If the element is editable for, example the minimal override of the spindle, you can change it by double clicking the value parameter. If the element is an output variable, for example the actual spindle override, you cannot change it.
+
+In order to show an element permanently in the middle tab of the screen, you have to right click in this tab. Now a menu should open and you have to click on „Add custom node…“.
+
+![img](assets/clip_image011.png)
+After that, you have to state the variable name of the element you want to show. Every element of the OPC UA-Server can be chosen via its identifier. If an element is selected, the identifier can be read out at the element parameters in the right upper tab. There, you can pick the entry “NodeId” and find the required information.
+
+![img](assets/clip_image013.jpg)
+After inputting the NodeId you can press the “OK” button. Now the chosen element should be shown in the middle part of the program. If the chosen element is an editable variable you can change it with its “Value” element directly in this list, like you could change it in the upper right menu before. It is possible to show more than one element in the middle of the screen by repeating this process.
+
+ 
