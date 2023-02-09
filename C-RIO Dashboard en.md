@@ -36,15 +36,20 @@ http://192.168.1.113:8000/ICOtronicSPU.html
 
 This should open the real-time-Dashboard on your PC.
 
-The Dashboard contains two tabs: **Stability** and **System**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic-logo.
+The Dashboard contains at least two tabs: **Stability** and **System**. Newer versions can have additional tabs. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic-logo.
 
 If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
 
 ![connected_w](assets/connected_w.png)   <------->   ![connected_b](assets/connected_b.png)
 
-### System Tab 		
+### System Tab 	
+##### Old Interface
 
 ![system](assets/system_tab.png)
+
+##### New Interface
+
+![system-new](assets/System_Reiter_Update.png)
 
 In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "Update" button. On the right side are some system informations. On the bottom left side are a few tabs for specific uses.
 
@@ -56,10 +61,10 @@ This tab is used for recording of a process. If the check-box is clicked the rec
 
 #### Replay
 
-![replay](assets/replay_tab.png)
-
+![replay2](assets/Replay Modus.PNG)
 This tab is used to replay a recorded process. If a storage device is mounted on the system the recoding files are shown here in form of a list. Then the file can be chosen and loaded with a press of the "Load File" button. To switch the system between the "Live mode" and a recording you just have to press the button on the left side.
-
+The whole recording will be shown on the top above the tabs when the recording is loaded. The playback of the recording can be started by pressing the "Run" button.
+![replay-run](assets/Replay_Run.png)
 #### FOCAS
 
 ![focas](assets/focas_tab.png)
@@ -90,9 +95,39 @@ In this connection mode you can define one static MAC-Address. Every holder has 
 
 ![mac](assets/MAC_Adress.png)
 
+In newer versions of the Dashboard it is possible to connect to up to 3 different static MAC-Addresses. Which of the 3 defined holders is to be connected can be chosen by using the digital input port 6&7 of the SPU.
+
+![mac-new](assets/Connection_Holder.png)
+
 ##### First available /DI
 
 In this mode the system will connect to the first holder it finds within its range. 
+
+##### Recording of multiple channels
+
+In newer versions of the Dashboard it is possible to record multiple channels simultaneously. (Given that the connected tool holder also is able to record multiple channels.) To choose between 1 and 3 channels use the radio button below the connection type drop down list.
+
+#### Configuration of tools and processes
+
+**<u>IN DEVELOPMENT!!!!</u>**
+
+In the system tab you can see 2 additional tabs used to load preset configurations called "Rule Engine confis" and "Sensor configs". With a press of the "Load config from USB" you can load then configuration file from a connected USB-Stick or a Micro-SD Card (Formatting ext4) into the SPU Unit. The XML Files with a predefined structure can be used to configure the rule engine and/or the sensory tool holder. Pressing the "Load config" Button will load and apply the chosen configuration file. With this function you can predefine your parameters and load them via the press of a button. This has the advantage that you don't have to manually change all the parameters after a reset of the SPU or change of process.
+
+A possible example looks like this:
+
+A sensory tool holder with a defined MAC address, single channel measurement, and Connection Type 1 (Dashboard / OPC UA = 0, Static / DI = 1, First available / DI = 2), which corresponds to an automatic connection, is defined in the configuration file. Additionally, a stability Rule Engine with all parameters for the corresponding cutting process and the respective Rule config ID 5 is set for this tool holder. If this Rule Engine ID is also loaded, the values contained in it will be inserted in the stability tab.
+
+**Currently, the feature is in the development phase**, so it is not yet possible to directly assign the respective sensory tools to assigned lines of tools for automatic tool selection based on digital inputs.
+
+![rule-config](assets/Rule Engine Config.PNG)
+
+![sensor-config](assets/Sensor Config.PNG)
+
+### Raw Data View Tab
+
+![raw](assets/RawDataView.PNG)
+
+If this tab is chosen it will show the raw data of the connected sensory tool holder, depending if 1 or 3 channels were chosen, This is used if you want to plot the raw not computed signals of the tool holder.
 
 ### Breakout detection Tab
 
@@ -102,7 +137,7 @@ In this mode the system will connect to the first holder it finds within its ran
 
 This tab is used when you want to detect breakout of cutting edges. 
 
-On the top left side are the parameters for the detection. On the top right side is the graph of the quality factor which indicates a breakout. On the bottom left side is a graph of the signal power. And on the bottom right is a graph of the frequency spectrum. In the frequency spectrum graph you can move the cursor to see the amplitude and frequency on this cursor position on the top left of the spectrum graph. On the right side you can change the zoom of the x-axis(frequency) and the y-axis(amplitude) of this graph.
+On the top left side are the parameters for the detection. On the top right side is the graph of the quality factor which indicates a breakout. On the bottom left side is a graph of the signal power. And on the bottom right is a graph of the frequency spectrum. In the frequency spectrum graph you can move the cursor to see the amplitude and frequency on this cursor position on the top left of the spectrum graph. If the parameters are set you can additionally see green vertical bars. These bars represent the areas used by the breakout detection algorithm based on the chosen parameters. When using a new cutting tool the multiples of the meshing frequency should be visible. On the right side you can change the zoom of the x-axis(frequency) and the y-axis(amplitude) of this graph.
 
 #### Breakout parameters
 

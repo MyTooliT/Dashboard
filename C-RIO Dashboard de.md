@@ -38,7 +38,7 @@ http://192.168.1.113:8000/ICOtronicSPU.html
 
 Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.
 
-Das Dashboard verfügt über 2 Reiter: **Stability** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist,  eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
+Das Dashboard verfügt über mindestens 2 Reiter: **Stability** und **System**. In neueren Versionen gibt es zusätzliche Reiter. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist,  eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
 
 Wenn das System mit einem sensorischen Werkzeughalter verbunden ist,  ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die  Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.
 
@@ -46,7 +46,13 @@ Wenn das System mit einem sensorischen Werkzeughalter verbunden ist,  ändert si
 
 ### System Reiter 		
 
+##### Ansicht von älteren Versionen
+
 ![system](assets/system_tab.png)
+
+##### Ansicht von neueren Versionen
+
+![system-new](assets/System_Reiter_Update.png)
 
 Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "Update" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
 
@@ -57,10 +63,11 @@ Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste al
 Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn die Checkbox markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn die Checkbox nicht markiert ist kann Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Die 2 Identifikatoren unterhalb zeigen an ob ein Speichergerät wie z.B. ein USB-Stick verbunden ist und ob gerade eine Aufnahme stattfindet. Die beiden Anzeigen am unteren Ende zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
 
 #### Replay
-
-![replay](assets/replay_tab.png)
-
+![replay2](assets/Replay Modus.PNG)
 Dieser Reiter wird verwendet um sich aufgenommene Prozesse anschauen zu können. Wenn ein Speichermedium angeschlossen ist zeigt die Liste alle aufgenommenen Prozesse auf diesem Medium an. Wenn eine Aufnahme ausgewählt ist kann diese mittels eines Drucks auf den "Load File" Button eingelesen werden. Um das System zwischen dem Live Mode und dem Wiedergeben eines aufgenommenen Prozesses zu wechseln muss nur der "Live mode" Button betätigt werden.
+Nach Laden des Recordings wird ein gesamter Zeitverlauf oberhalb der Reiterauswahl angezeigt. Mittels druck auf den "Run" Button kann dieser nun gestartet werden.
+
+![replay-run](assets/Replay_Run.png)
 
 #### FOCAS
 
@@ -92,9 +99,39 @@ Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jede
 
 ![mac](assets/MAC_Adress.png)
 
+In neueren Versionen können bis zu 3 Halter mittels statischer MAC-Adresse gewählt werden. Welcher Halter dann verbunden werden soll kann mittels der Digitalen Eingänge 6&7 auf der SPU Hardwareseitig entschieden werden.
+
+![mac-new](assets/Connection_Holder.png)
+
 ##### First available /DI
 
 Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt. 
+
+##### Mehrkanäliges Aufzeichnen
+
+In neueren Versionen des Dashboards können nun auch mehrere Kanäle aufgezeichnet werden. (Solange der verbundene Halter ebenfalls mehrere Kanäle aufzeichnen kann.) Die Auswahl hierfür befindet sich unterhalb der Connection Type Auswahl in Form von Radio-Buttons. 
+
+#### Konfigurationen für Werkzeug und Prozesse
+
+**<u>IN ENTWICKLUNG!!!!</u>**
+
+Im System Reiter unter "Rule Engine confis" und "Sensor configs" können verschiedenste Konfigurationen geladen werden. Dazu muss mittels des angeschlossenen USB-Sticks oder einer Micro-SD Karte (Formatierung ext4) eine Konfigurationsdatei (IcoConfig.xml) übertragen werden. Mit dem Button „Load config file from USB“ wird das File vom USB-Stick auf die SPU Unit geladen. Über den definierten Aufbau des XML Files, können die jeweiligen Rule Engine oder auch Sensorischen Werkzeuge konfiguriert werden. Mithilfe des „Load config“ Buttons wird die jeweilige markierte Rule Engine oder Sensor configuration aus dem zuvor geladenen File ausgelesen & appliziert. Darin können nun bestimmte Rule Engine Parameter definiert werden, welche dann über einen Knopfdruck geladen werden können. Dies bringt den Vorteil mit sich, dass nicht jedes Mal nach einem Neustart oder auch bei einem Prozesswechsel die jeweiligen Parameter neu eingetippt werden müssen. 
+
+Ein mögliches Beispiel sieht folgendermaßen aus:
+
+Es wird in der Konfigurationsdatei ein Sensorischer Werkzeughalter mit definierter Mac-Adresse, einkanaliger Messung und dem Connection Type 1 (Dashboard / OPC UA = 0, Static / DI = 1, First available / DI = 2), welcher einer automatischen Verbindung entspricht, definiert. Zusätzlich wird für diesen Werkzeughalter eine Stability Rule Engine mit allen Parametern zum dazugehörenden Schlichtprozess und der jeweiligen Rule config ID 5 festgelegt. Wenn diese Rule Engine ID ebenso geladen wird, werden die darin befindlichen Werte in dem Reiter Stability eingefügt.
+
+**Aktuell befindet sich das Feature in der Entwicklungsphase**, somit ist es noch nicht möglich, die jeweiligen Sensorischen Werkzeuge direkt in zugewiesene Zeilen der Werkzeuge für die Automatische Werkzeugauswahl anhand von Digitalen Eingängen zuzuweisen.
+
+![rule-config](assets/Rule Engine Config.PNG)
+
+![sensor-config](assets/Sensor Config.PNG)
+
+### Raw Data View Reiter
+
+![raw](assets/RawDataView.PNG)
+
+Wird dieser Reiter ausgewählt, werden die Rohdaten des Sensorischen Werkzeughalters, abhängig davon ob nur ein oder drei Channels ausgewählt wurden, angezeigt. Dieser dient dazu, die unverrechneten Werte der jeweiligen Eingangskanäle darzustellen. 
 
 ### Breakout detection Reiter
 
@@ -102,9 +139,9 @@ Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbest
 
 ![breakout](assets/Breakout_detection.png)
 
-Dieser Reiter wird benutz wenn man Schneidenausbrüche detektieren will.
+Dieser Reiter wird benutzt, wenn man Schneidenausbrüche detektieren will.
 
-in der oberen, linken Ecke können die Parameter für die Detektion eingestellt werden. Oben, rechts befindet sich ein Graph der den Qualitätsfaktor anzeigt welcher genutzt wird um einen Schneidenausbruch zu detektieren. In der unteren, linken Ecke befindet sich ein Graph mit Informationen über die Signalenergie. Untern, rechts befindet sich noch ein Graph welcher das Frequenzspektrum anzeigt. In diesem Frequenzspektrum kann mittels der Maus die rote Linie verschoben werden. Oberhalb des Frequenzspektrums befindet sich einer Anzeige über Frequenz und Amplitude an der gewählten Stelle. Auf der rechten Seite befinden sich 2 Schieberegler mit denen der Zoom der X-Achse(Frequenz) und der Y-Achse(Amplitude) eingestellt werden können.
+In der oberen, linken Ecke können die Parameter für die Detektion eingestellt werden. Oben, rechts befindet sich ein Graph der den Qualitätsfaktor anzeigt welcher genutzt wird um einen Schneidenausbruch zu detektieren. In der unteren, linken Ecke befindet sich ein Graph mit Informationen über die Signalenergie. Untern, rechts befindet sich noch ein Graph welcher das Frequenzspektrum anzeigt. In diesem Frequenzspektrum kann mittels der Maus die rote Linie verschoben werden. Oberhalb des Frequenzspektrums befindet sich einer Anzeige über Frequenz und Amplitude an der gewählten Stelle. Ebenso werden im Frequenzspektrum, sofern die jeweiligen Parameter eingestellt wurden (siehe nächster Absatz), grüne vertikale Balken dargestellt. Diese Balken repräsentieren die in den Parametern definierten Bereiche, welche für die Berechnung des Schneidenausbruchs-Algorithmus verwendet werden. Darin sollten sich bei einem neuen Werkzeug die Vielfachen der Zahneingriffsfrequenzen, gemessen mit dem mitrotierenden Beschleunigungssensor, abbilden. Auf der rechten Seite befinden sich 2 Schieberegler mit denen der Zoom der X-Achse(Frequenz) und der Y-Achse(Amplitude) eingestellt werden können.
 
 #### Schneidenausbruchs Parameter
 
