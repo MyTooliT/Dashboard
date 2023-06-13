@@ -2,6 +2,11 @@
 
 User manual for the C-RIO Dashboard
 
+## Version
+This version of the documentation was written for the Dashboard version v4.0.1.4.
+For older documentation look at the following link:
+https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20en.md
+
 ## ICOtronic System components 		  			
 
 The graphic below provides an overview about the ICOtronic system components. It consists of the following main parts:
@@ -21,63 +26,61 @@ http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
 CAUTION: it has to be the 2020 SP1 (32-bit) version !!!
 
-Not all browsers can use this plugin, Microsoft Internet Explorer (NOT MICROSOFT EDGE) was tested and worked well.
+Not all browsers can use this plugin. Microsoft Edge works if you run the Dashboard tab in the "Internet Explorer Mode". 
+Alternatively you can also use the ICOtronicRemotePanel. When using the panel you also need to have the "LabView Runtime" installed on your device.
 
-Before connecting the Laptop via the Ethernet Cable to the SPU, the  correct network settings have to be configured. Therefore, set the  network configuration of the interface that is going to be used with the SPU as illustrated below.
+Before connecting the Laptop via the Ethernet Cable to the SPU, the correct network settings have to be configured. Therefore, set the network configuration of the interface that is going to be used with the SPU as illustrated below.
 
 ![ip](assets/ip.png)
  If required, please reboot your Laptop after changing the network settings.
 
 ## Real-Time-Dashboard 			  			
 
-Open your Microsoft Internet explorer and go to:
+If you use Microsoft Edge open the explorer and go to:
+http://192.168.1.115:8000/ICOtronicSPU.html
+If the Dashboard doesn't open check if you are opening the side in the "Internet Explorer Mode".
 
-http://192.168.1.113:8000/ICOtronicSPU.html
+If you use the "ICOtronicRemotePanel" then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
+**192.168.1.115**
+
+![Remote_IP](assets/Remote_IP.png)
 
 This should open the real-time-Dashboard on your PC.
 
-The Dashboard contains at least two tabs: **Stability** and **System**. Newer versions can have additional tabs. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic-logo.
+The Dashboard contains four tabs: **Stability**, **Breakout detection**, **Raw data view** and **System**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier, a field where you can see the name and MAC-Address of the connected holder and the ICOtronic-logo.
 
 If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
-
-![connected_w](assets/connected_w.png)   <------->   ![connected_b](assets/connected_b.png)
+![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
+If no sensory tool holder is connected the fields for name and MAC-Address will be empty. When connected to a sensory tool holder the name and MAC-Address will show until disconnection.
+![connected_w](assets/disconnected-name.png)   <------->   ![connected_b](assets/connected-name.png)
 
 ### System Tab 	
-##### Old Interface
 
 ![system](assets/system_tab.png)
 
-##### New Interface
-
-![system-new](assets/System_Reiter_Update.png)
-
-In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "Update" button. On the right side are some system informations. On the bottom left side are a few tabs for specific uses.
+In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "->" button. On the right side are some system informations. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.
 
 #### Logging
 
 ![logging](assets/logging_tab.png)
 
-This tab is used for recording of a process. If the check-box is clicked the recording will start at connection to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The two identifier below are showing if a storage device like a USB is connected and if the system is recording at the moment. The two boxes at the bottom show how big the momentary recorded file is and the bottom most box shows how much space is left on the storage device.
+This tab is used for recording of a process. If the "Record at connect"-button is clicked it will turn green and show that the recording will start at connection to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The Identifier below shows green if a USB-device is connected. Below it shows the size of the momentary recording and the free space of the mounted USB. 
+**Attention: the system only works with USB-devices formatted to FAT32-format!!!**
+The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 status identifier at the bottom show if the system is recording at the moment, if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules.
 
-#### Replay
-
-![replay2](assets/Replay Modus.PNG)
-This tab is used to replay a recorded process. If a storage device is mounted on the system the recoding files are shown here in form of a list. Then the file can be chosen and loaded with a press of the "Load File" button. To switch the system between the "Live mode" and a recording you just have to press the button on the left side.
-The whole recording will be shown on the top above the tabs when the recording is loaded. The playback of the recording can be started by pressing the "Run" button.
-![replay-run](assets/Replay_Run.png)
 #### FOCAS
 
 ![focas](assets/focas_tab.png)
 
 **Attention: This connection is only possible on specific machines!**
 
-This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. And then start the connection with the "FOCAS Start" button. If you want to stop the control via FOCAS you have to press the "FOCAS Stop" button which is there instead of the "FOCAS Start" if the connection is active.
+This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. Additionally you can define the used IP-Address of the FOCAS connection. Then start the connection with the "FOCAS Start" button. If you want to stop the control via FOCAS you have to press the "FOCAS Stop" button which is there instead of the "FOCAS Start" if the connection is active. Note that if you are connected to a holder und you press "FOCAS Start" the system will disconnect the holder and you have to connect again to the holder.
 
-#### System
+#### CAN Monitor
 
 ![can_monitor](assets/can_monitor.png)
 
-This tab shows information about the CAN messages send between the system and the dashboard.
+This tab shows information about the CAN messages send between the system and the dashboard. The "Reboot System" button below can be used to trigger a software side reboot of the SPU.
 
 #### Connection types
 
