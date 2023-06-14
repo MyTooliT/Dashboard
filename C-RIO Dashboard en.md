@@ -52,7 +52,7 @@ The Dashboard contains four tabs: **Stability**, **Breakout detection**, **Raw d
 If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
 ![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
 If no sensory tool holder is connected the fields for name and MAC-Address will be empty. When connected to a sensory tool holder the name and MAC-Address will show until disconnection.
-![connected_w](assets/disconnected-name.png)   <------->   ![connected_b](assets/connected-name.png)
+![connected_name_w](assets/disconnected-name.png)   <------->   ![connected_name_b](assets/connected-name.png)
 
 ### System Tab 	
 
@@ -84,53 +84,48 @@ This tab shows information about the CAN messages send between the system and th
 
 #### Connection types
 
+On the left side you can choose the connection type you want to use with the drop down menu. On the right side you can see the momentary active type. By pressing the "->" button between these two you can change the active type to the chosen type.
 ![connection_type](assets/connection_type.png)
+You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the hardware connected digital inputs of the SPU.
+![channel_numbers](assets/channel_numbers.png)
 
 ##### Dashboard / OPC UA
 
-With this mode you can select the STH of your choice from the "Device list" and press “Connect”. With  “Stop”, you can disconnect from the STH. After disconnection the  Dashboard needs a few seconds before it starts searching for STHs again.
+With this mode you can select the STH of your choice from the "Device list" and press “Connect”. With  “Stop”, you can disconnect from the STH. After disconnection the Dashboard needs a few seconds before it starts searching for STHs again.
 
 ![halterauswahl](assets/Holder_Connection.png)
 
 ##### Static / DI
 
-In this connection mode you can define one static MAC-Address. Every holder has his own unique address. This address is shown on the right side of the device list. If this mode is selected and the holder with the defined MAC-Address is in range the system will automatically connect to this holder.
-
+In this connection mode you can define static MAC-Addresses. Every holder has his own unique address. This address is shown on the right side of the device list. If this mode is selected, the digital input on the hardware is set to "1" and the holder with the defined MAC-Address is in range the system will automatically connect to this holder.
+Up to three holders can be defined and connected via there digital inputs. The fields for configuration of the static connection mode can be found below the connection-mode selection.
 ![mac](assets/MAC_Adress.png)
-
-In newer versions of the Dashboard it is possible to connect to up to 3 different static MAC-Addresses. Which of the 3 defined holders is to be connected can be chosen by using the digital input port 6&7 of the SPU.
-
-![mac-new](assets/Connection_Holder.png)
-
+There are three tabs, one for each of the defined holders to configure. The upper part is used to change the parameters, the lower part (the one with the grey background) shows the momentary active state of the configuration. To write the changed configuration into the active part press the "Update" button on the top right. 
+The "MacAdr" is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With "Channels" you can define how many channels the holder has. If there is anything beside "1" inside this box it will take it that the holder has thee channels. With a "1" the SPU will connect to it as a holder with one channel. The "Rule config ID" box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a "0" it will use the parameters which are set in the "Stability" tab at the moment. With the "IFT value factor" and the "IFT value offset" you can adapt the calculated IFT-value.
 ##### First available /DI
 
-In this mode the system will connect to the first holder it finds within its range. 
-
-##### Recording of multiple channels
-
-In newer versions of the Dashboard it is possible to record multiple channels simultaneously. (Given that the connected tool holder also is able to record multiple channels.) To choose between 1 and 3 channels use the radio button below the connection type drop down list.
+In this mode the system will connect to the first holder it finds within its range. When the digital input to enable the ruling is set.
 
 #### Configuration of tools and processes
 
+In the system tab you can see 2 additional tabs used to load preset configurations called "Rule Engine configs" and "Sensor configs". Pressing the "Load Rule" Button will load and apply the chosen configuration file. With this function you can define your parameters and load them via the press of a button. This has the advantage that you don't have to manually change all the parameters of the SPU and can use different defined configurations for different holders with different processes to be used in.
+![rule-config](assets/Rule_Engine_Config.PNG)
+
+![sensor-config](assets/Sensor_Config.PNG)
+
 **<u>IN DEVELOPMENT!!!!</u>**
+The rules and sensor configs can be edited via the following link:
+http://192.168.1.115:8000/MainConfig.html
+The configuration is working, but the design and user friendliness is **still in development!**
 
-In the system tab you can see 2 additional tabs used to load preset configurations called "Rule Engine confis" and "Sensor configs". With a press of the "Load config from USB" you can load then configuration file from a connected USB-Stick or a Micro-SD Card (Formatting ext4) into the SPU Unit. The XML Files with a predefined structure can be used to configure the rule engine and/or the sensory tool holder. Pressing the "Load config" Button will load and apply the chosen configuration file. With this function you can predefine your parameters and load them via the press of a button. This has the advantage that you don't have to manually change all the parameters after a reset of the SPU or change of process.
-
-A possible example looks like this:
-
-A sensory tool holder with a defined MAC address, single channel measurement, and Connection Type 1 (Dashboard / OPC UA = 0, Static / DI = 1, First available / DI = 2), which corresponds to an automatic connection, is defined in the configuration file. Additionally, a stability Rule Engine with all parameters for the corresponding cutting process and the respective Rule config ID 5 is set for this tool holder. If this Rule Engine ID is also loaded, the values contained in it will be inserted in the stability tab.
-
-**Currently, the feature is in the development phase**, so it is not yet possible to directly assign the respective sensory tools to assigned lines of tools for automatic tool selection based on digital inputs.
-
-![rule-config](assets/Rule Engine Config.PNG)
-
-![sensor-config](assets/Sensor Config.PNG)
-
+#### OPC-UA Server Address
+On the right side, beside the rule and sensor configs you can find the OPCUA-Server address of the SPU which you need if you want to connect via OPCUA with the SPU.
+![opcua](assets/opcua.png)
 ### Raw Data View Tab
 
 ![raw](assets/RawDataView.PNG)
 
-If this tab is chosen it will show the raw data of the connected sensory tool holder, depending if 1 or 3 channels were chosen, This is used if you want to plot the raw not computed signals of the tool holder.
+If this tab is chosen it will show the raw data of the connected sensory tool holder, depending if 1 or 3 channels were chosen you can see 1 or 3 signals. This is used if you want to plot the raw not computed signals of the tool holder. If you right-click the y-axis you can change from auto scale mode to defined values. 
 
 ### Breakout detection Tab
 
@@ -204,9 +199,12 @@ This graph shows the Sens and the Active lines. These are digital  information. 
 
 ![active](assets/active.png)
 
+#### Controls for the rule
+There are two buttons at the bottom of the screen. The "freigabe Regler" button can be used like the digital input which activates the rule engine. If you press the button it will change the name to "Regler freigegeben" and the "Sens" graph will change to 1. If you press it again it will change it's name back and the "Sens" graph will go back to 0. The "Reset Regler" button is only needed if the system is used in the "stop" mode.
+
 ## Stability-Parameters 					  			
 
-Depending on which mode is set active, different parameters can be  changed. To change said parameters to new values, press the "update"  Button on the bottom (with "Window length" being the only exception in  "Watch" mode).
+Depending on which mode is set active, different parameters can be  changed. To change said parameters to new values, press the "update" button on the bottom (with "Window length" being the only exception in  "Watch" mode).
 
 ![parameter](assets/parameter.png)
 
@@ -240,19 +238,14 @@ A value of e.g. 0.01 %/ms would increase the feed rate and/or spindle speed to 1
 
 {0-100%} Setpoint for feed rate
 
-This parameter is used in the modes “Stability 2 Level” and “Direct  output”. This value defines the override applied to the machine tool  control system, the moment the ICOtronic system activates the feed rate  adaption of the machine.
-
+This parameter is used in the modes "Stop", “Stability reduction”, “Stability 2 Level” and “Direct  output”. In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool  control system, the moment the ICOtronic system activates the feed rate  adaption of the machine.
+In "Stability reduction" this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
 ### Spindle override 		  			
 
 {0-100%} Setpoint for spindle speed
 
-This parameter is used in “Stability 2 Level” and “Direct output”.  This value defines the override applied to the machine tool control  system, the moment the ICOtronic system activates the spindle speed  reduction of the machine.
-
-### Feed override min 				
-
-{0-100%} Setpoint for minimum feed rate
-
-This parameter is used in the “Stability reduction” mode. This value  defines the minimal feed rate override, which is sent to the machine by  the ICOtronic system. The reduction cannot fall below this value.
+This parameter is used in  "Stop", “Stability reduction”, “Stability 2 Level” and “Direct output”.  In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control  system, the moment the ICOtronic system activates the spindle speed reduction of the machine.
+In "Stability reduction" this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
 
 ### Feed reduction factor 					
 
@@ -265,12 +258,6 @@ As an example: A value of 5 % for "Feed reduction factor" results in continuous 
 Reduction step 1: Reduction from 100 % to 95 %
 Reduction step 2: Reduction from 95 % to 90 %
 …and so on.
-
-### Spindle override min 			  			
-
-{0-100%} Setpoint for minimum spindle speed
-
-This parameter is used in the “Stability reduction” mode. This value  defines the minimal spindle speed override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
 
 ### Spindle reduction factor 				
 
@@ -289,6 +276,7 @@ Reduction step 2: Reduction from 95 % to 90 %
 {ms} deadtime
 
 This parameter is only used in the “Stability reduction” mode. This  value equals the time in ms the system pauses before checking if it  should reduce the spindle speed and feed rate again. The smaller this  value, the quicker the ICOtronic system reduces the speed. As a  reference value for first tests 300 ms can be mentioned. This means,  each 300 ms feed rate and/or spindle speed are adapted as long as the  IFT value exceeds the threshold.
+**<u>Note:</u>** if this value is to low it can happen that the machine needs longer to set the new parameters than the system waits to see if something changed. This would have the problem that even it the process stabilises the machine still changes values from the last instance and the process gets unstable again. 
 
 Examples:
 
@@ -303,17 +291,23 @@ Deadtime: 300ms
 
 ![deadtime2](assets/deadtime2.png)
 
+### Channels 		  			
+
+{-} channels
+
+If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.
+
 ### IFT value factor 		  			
 
 {-} IFT value factor
 
-This is a multiplicative factor for the IFT-Value in the  corresponding diagram and for the analogue port number 0 of the SPU (NI  9263). With it, the signal can be set to a desired value.
+This is a multiplicative factor for the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI  9263). With it, the signal can be set to a desired value. The values for the different channels can be changed separately.
 
 ### IFT value offset 					
 
 {-} IFT value offset
 
-This is an additive value, to the IFT-Value in the corresponding  diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. 
+This is an additive value, to the IFT-Value in the corresponding  diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. The values for the different channels can be changed separately.
 
 ## Modes 					
 
@@ -336,6 +330,10 @@ This is one of the two modes which can be used to control the  machining process
 ### DIRECT OUTPUT 					  			
 
 This mode is primary used while installing the system. Beside the  “IFT value factor” and the “IFT value offset”, the “Feed override” and  “Spindle override” can be changed. The values given for the overrides  will be directly sent to the output, independent from the IFT-Value.  Therefore, a specific spindle speed or feed rate can be applied without  any sensor-input or activation signal from the machine-control-system  (M-command). This mode should be used to check if the connection  between the SPU and the machine-control-system is working as designed. 
+
+### STOP 					  			
+
+This mode works nearly identical to "stability 2 level" mode. The only difference is that the system doesn't use the lower threshold. If the system changed the overrides these overrides will stay active until ether the digital input of rule enable is reset to 0 or the "Reset Regler" button was pressed.
 
 ## Example use-case 			  			
 
