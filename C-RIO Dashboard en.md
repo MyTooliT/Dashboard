@@ -32,6 +32,7 @@ Alternatively you can also use the ICOtronicRemotePanel. When using the panel yo
 Before connecting the Laptop via the Ethernet Cable to the SPU, the correct network settings have to be configured. Therefore, set the network configuration of the interface that is going to be used with the SPU as illustrated below.
 
 ![ip](assets/ip.png)
+
  If required, please reboot your Laptop after changing the network settings.
 
 ## Real-Time-Dashboard 			  			
@@ -85,8 +86,11 @@ This tab shows information about the CAN messages send between the system and th
 #### Connection types
 
 On the left side you can choose the connection type you want to use with the drop down menu. On the right side you can see the momentary active type. By pressing the "->" button between these two you can change the active type to the chosen type.
+
 ![connection_type](assets/connection_type.png)
+
 You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the hardware connected digital inputs of the SPU.
+
 ![channel_numbers](assets/channel_numbers.png)
 
 ##### Dashboard / OPC UA
@@ -99,7 +103,9 @@ With this mode you can select the STH of your choice from the "Device list" and 
 
 In this connection mode you can define static MAC-Addresses. Every holder has his own unique address. This address is shown on the right side of the device list. If this mode is selected, the digital input on the hardware is set to "1" and the holder with the defined MAC-Address is in range the system will automatically connect to this holder.
 Up to three holders can be defined and connected via there digital inputs. The fields for configuration of the static connection mode can be found below the connection-mode selection.
+
 ![mac](assets/MAC_Adress.png)
+
 There are three tabs, one for each of the defined holders to configure. The upper part is used to change the parameters, the lower part (the one with the grey background) shows the momentary active state of the configuration. To write the changed configuration into the active part press the "Update" button on the top right. 
 The "MacAdr" is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With "Channels" you can define how many channels the holder has. If there is anything beside "1" inside this box it will take it that the holder has thee channels. With a "1" the SPU will connect to it as a holder with one channel. The "Rule config ID" box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a "0" it will use the parameters which are set in the "Stability" tab at the moment. With the "IFT value factor" and the "IFT value offset" you can adapt the calculated IFT-value.
 ##### First available /DI
@@ -109,6 +115,7 @@ In this mode the system will connect to the first holder it finds within its ran
 #### Configuration of tools and processes
 
 In the system tab you can see 2 additional tabs used to load preset configurations called "Rule Engine configs" and "Sensor configs". Pressing the "Load Rule" Button will load and apply the chosen configuration file. With this function you can define your parameters and load them via the press of a button. This has the advantage that you don't have to manually change all the parameters of the SPU and can use different defined configurations for different holders with different processes to be used in.
+
 ![rule-config](assets/Rule_Engine_Config.PNG)
 
 ![sensor-config](assets/Sensor_Config.PNG)
@@ -287,6 +294,7 @@ Feed reduction factor: 8%; Feed override min: 10%; Spindle reduction factor: 5%;
 Deadtime: 100ms
 
 ![deadtime1](assets/deadtime1.png)
+
 Deadtime: 300ms
 
 ![deadtime2](assets/deadtime2.png)
@@ -359,9 +367,11 @@ Download link: https://www.unified-automation.com/downloads/opc-ua-clients.html
 Afterwards open the UaExpert client-program. When the program is open you have to click on “Server” at the top menu and then on “Add…”. This opens a window to search for and connect with the OPC UA-Server of the Signal Processing Unit (SPU) of the ICOtronic system.
 
  ![img](assets/clip_image001.png)
+ 
 In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „< Double click to Add Server… >“. Now a little new window will open. Here you have to input the following address:
 
 opc.tcp://192.168.1.113:49580
+
  ![img](assets/clip_image003.jpg)
 
 Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.
@@ -369,6 +379,7 @@ Now the server should be found and you can open some sub menu entries. Double cl
 ![img](assets/clip_image005.jpg)
 
 After that, the server should be visible on the left side of the menu. Now you have to right-click the server and then click on “Connect”.
+
  ![img](assets/clip_image007.jpg)
 
 ### Visualisation of the variables
@@ -386,9 +397,11 @@ In this window, it is possible to read the different value parameters of the cho
 In order to show an element permanently in the middle tab of the screen, you have to right click in this tab. Now a menu should open and you have to click on „Add custom node…“.
 
 ![img](assets/clip_image011.png)
+
 After that, you have to state the variable name of the element you want to show. Every element of the OPC UA-Server can be chosen via its identifier. If an element is selected, the identifier can be read out at the element parameters in the right upper tab. There, you can pick the entry “NodeId” and find the required information.
 
 ![img](assets/clip_image013.jpg)
+
 After inputting the NodeId you can press the “OK” button. Now the chosen element should be shown in the middle part of the program. If the chosen element is an editable variable you can change it with its “Value” element directly in this list, like you could change it in the upper right menu before. It is possible to show more than one element in the middle of the screen by repeating this process.
 
  
