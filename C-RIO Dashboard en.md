@@ -2,7 +2,7 @@
 
 User manual for the C-RIO Dashboard
 
-- [[#Version|Version]]
+- [[#Version]]
 - [[#ICOtronic System components|ICOtronic System components]]
 - [[#Software and network Settings for your PC|Software and network Settings for your PC]]
 - [[#Real-Time-Dashboard|Real-Time-Dashboard]]
