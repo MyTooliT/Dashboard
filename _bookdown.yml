@@ -3,5 +3,5 @@ book_filename:
 delete_merged_file: true
 output_dir: Bookdown
 rmd_files:
-  - C-RIO Dashboard de.md
-  - C-RIO Dashboard en.md
+  - C-RIO_Dashboard_de.md
+  - C-RIO_Dashboard_en.md

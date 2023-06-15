@@ -1,7 +1,7 @@
 # -- Variables -----------------------------------------------------------------
 
 OUTPUT_DIRECTORY := Bookdown
-INDEX_FILE := C-RIO Dashboard de.md
+INDEX_FILE := C-RIO_Dashboard_de.md
 OUTPUT_NAME := Documentation
 
 HTML_FILE := $(OUTPUT_DIRECTORY)/$(OUTPUT_NAME).html
