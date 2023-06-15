@@ -1,0 +1,7 @@
+bookdown::gitbook:
+  fig_caption: false
+  split_by: none
+  config:
+      download: ["epub"]
+      sharing: null
+bookdown::epub_book: default

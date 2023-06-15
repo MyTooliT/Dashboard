@@ -1,0 +1,7 @@
+book_filename:
+  Documentation
+delete_merged_file: true
+output_dir: Bookdown
+rmd_files:
+  - C-RIO Dashboard de.md
+  - C-RIO Dashboard en.md
