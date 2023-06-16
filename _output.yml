@@ -1,6 +1,6 @@
 bookdown::gitbook:
+  toc_depth: 4
   fig_caption: false
-  toc_depth: 6
   split_by: none
   config:
       download: ["epub"]
