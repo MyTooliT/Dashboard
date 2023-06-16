@@ -198,56 +198,55 @@ Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.</p>
 <div id="system-reiter" class="section level3 hasAnchor" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> System Reiter<a href="#system-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/system_tab.png" alt="system-new" /></p>
-<p>Im Untermenü “Holder connection” des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü “Connection type” mittels Drop-Down Auswahl gewählt werden und mittels des “Update” Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.</p>
+<p>Im Untermenü “Holder connection” des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü “Connection type” mittels Drop-Down Auswahl gewählt werden und mittels des “-&gt;” Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit 2 Reitern welche benutzt werden um vordefinierte Regelparameter und Sensoreinstellungen zu benutzen. Unten rechts befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.</p>
 <div id="logging" class="section level4 hasAnchor" number="1.4.1.1">
 <h4><span class="header-section-number">1.4.1.1</span> Logging<a href="#logging" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/logging_tab.png" alt="logging" /></p>
-<p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn die Checkbox markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn die Checkbox nicht markiert ist kann Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Die 2 Identifikatoren unterhalb zeigen an ob ein Speichergerät wie z.B. ein USB-Stick verbunden ist und ob gerade eine Aufnahme stattfindet. Die beiden Anzeigen am unteren Ende zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.</p>
+<p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect” Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
+<strong>Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!</strong>
+Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen).
+Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt.</p>
 </div>
-<div id="replay" class="section level4 hasAnchor" number="1.4.1.2">
-<h4><span class="header-section-number">1.4.1.2</span> Replay<a href="#replay" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="assets/Replay%20Modus.PNG" alt="replay2" />
-Dieser Reiter wird verwendet um sich aufgenommene Prozesse anschauen zu können. Wenn ein Speichermedium angeschlossen ist zeigt die Liste alle aufgenommenen Prozesse auf diesem Medium an. Wenn eine Aufnahme ausgewählt ist kann diese mittels eines Drucks auf den “Load File” Button eingelesen werden. Um das System zwischen dem Live Mode und dem Wiedergeben eines aufgenommenen Prozesses zu wechseln muss nur der “Live mode” Button betätigt werden.
-Nach Laden des Recordings wird ein gesamter Zeitverlauf oberhalb der Reiterauswahl angezeigt. Mittels druck auf den “Run” Button kann dieser nun gestartet werden.</p>
-<p><img src="assets/Replay_Run.png" alt="replay-run" /></p>
-</div>
-<div id="focas" class="section level4 hasAnchor" number="1.4.1.3">
-<h4><span class="header-section-number">1.4.1.3</span> FOCAS<a href="#focas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="focas" class="section level4 hasAnchor" number="1.4.1.2">
+<h4><span class="header-section-number">1.4.1.2</span> FOCAS<a href="#focas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/focas_tab.png" alt="focas" /></p>
 <p><strong>Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!</strong></p>
 <p>Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des “FOCAS Start” Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der “FOCAS Stop” Button gedrückt werden welcher den “FOCAS Start” bei aktiver Kontrolle ersetzt.</p>
 </div>
-<div id="system" class="section level4 hasAnchor" number="1.4.1.4">
-<h4><span class="header-section-number">1.4.1.4</span> System<a href="#system" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="can-monitor" class="section level4 hasAnchor" number="1.4.1.3">
+<h4><span class="header-section-number">1.4.1.3</span> CAN Monitor<a href="#can-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/can_monitor.png" alt="can_monitor" /></p>
-<p>Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an.</p>
+<p>Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an. Mit dem Button “Reboot System” kann ein Software seitiger Reset der SPU ausgelöst werden.</p>
 </div>
-<div id="verbindungsarten" class="section level4 hasAnchor" number="1.4.1.5">
-<h4><span class="header-section-number">1.4.1.5</span> Verbindungsarten<a href="#verbindungsarten" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="verbindungsarten" class="section level4 hasAnchor" number="1.4.1.4">
+<h4><span class="header-section-number">1.4.1.4</span> Verbindungsarten<a href="#verbindungsarten" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart ausgewählt werden. Auf der rechten Seite wird die momentane Verbindungsart angezeigt. Durch das Drücken des “-&gt;” Buttons kann die ausgewählte Verbindungsart auf die aktive Verbindungsart geschrieben werden.</p>
 <p><img src="assets/connection_type.png" alt="connection_type" /></p>
-<div id="dashboard-opc-ua" class="section level5 hasAnchor" number="1.4.1.5.1">
-<h5><span class="header-section-number">1.4.1.5.1</span> Dashboard / OPC UA<a href="#dashboard-opc-ua" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Mittels der Radiobuttons unterhalb der Liste von gefundenen Haltern kann zwischen 1 und 3 Kanälen umgestellt werden, mit der Ausnahme von “Static / DI” Verbindung bei welcher diese Auswahl an einer anderen Stelle getroffen wird. Zu beachten ist, dass wenn 3 Kanäle ausgewählt werden obwohl der verbundene Halter nur 1 Kanal besitz die beiden anderen Kanäle unbrauchbare Daten liefern, da die zwei PINs in solchen Haltern nicht verbunden sind. Links neben den Radiobuttons kann abgelesen werden ob momentan durch die digitalen Eingänge eine Verbindungsanfrage besteht und wenn ja welche Halter ID gesetzt wurde.</p>
+<p><img src="assets/channel_numbers.png" alt="channel_numbers" /></p>
+<div id="dashboard-opc-ua" class="section level5 hasAnchor" number="1.4.1.4.1">
+<h5><span class="header-section-number">1.4.1.4.1</span> Dashboard / OPC UA<a href="#dashboard-opc-ua" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Um sich mit einem Halter zu verbinden, muss der gewünschte Halter aus der “Device list” gewählt werden und danach der „Connect“ Button gedrückt werden. Mit dem „Stop“ Button kann die Verbindung zum aktuell verbundenen Halter getrennt werden. Nach Trennen einer Verbindung benötigt das Dashboard einige Sekunden, bevor es wieder nach Haltern sucht und diese listen.</p>
 <p><img src="assets/Holder_Connection.png" alt="halterauswahl" /></p>
 </div>
-<div id="static-di" class="section level5 hasAnchor" number="1.4.1.5.2">
-<h5><span class="header-section-number">1.4.1.5.2</span> Static / DI<a href="#static-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="static-di" class="section level5 hasAnchor" number="1.4.1.4.2">
+<h5><span class="header-section-number">1.4.1.4.2</span> Static / DI<a href="#static-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, verbindet sich dieses automatisch mit dem Halter.</p>
 <p><img src="assets/MAC_Adress.png" alt="mac" /></p>
 <p>In neueren Versionen können bis zu 3 Halter mittels statischer MAC-Adresse gewählt werden. Welcher Halter dann verbunden werden soll kann mittels der Digitalen Eingänge 6&amp;7 auf der SPU Hardwareseitig entschieden werden.</p>
 <p><img src="assets/Connection_Holder.png" alt="mac-new" /></p>
 </div>
-<div id="first-available-di" class="section level5 hasAnchor" number="1.4.1.5.3">
-<h5><span class="header-section-number">1.4.1.5.3</span> First available /DI<a href="#first-available-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="first-available-di" class="section level5 hasAnchor" number="1.4.1.4.3">
+<h5><span class="header-section-number">1.4.1.4.3</span> First available /DI<a href="#first-available-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt.</p>
 </div>
-<div id="mehrkanäliges-aufzeichnen" class="section level5 hasAnchor" number="1.4.1.5.4">
-<h5><span class="header-section-number">1.4.1.5.4</span> Mehrkanäliges Aufzeichnen<a href="#mehrkanäliges-aufzeichnen" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="mehrkanäliges-aufzeichnen" class="section level5 hasAnchor" number="1.4.1.4.4">
+<h5><span class="header-section-number">1.4.1.4.4</span> Mehrkanäliges Aufzeichnen<a href="#mehrkanäliges-aufzeichnen" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>In neueren Versionen des Dashboards können nun auch mehrere Kanäle aufgezeichnet werden. (Solange der verbundene Halter ebenfalls mehrere Kanäle aufzeichnen kann.) Die Auswahl hierfür befindet sich unterhalb der Connection Type Auswahl in Form von Radio-Buttons.</p>
 </div>
 </div>
-<div id="konfigurationen-für-werkzeug-und-prozesse" class="section level4 hasAnchor" number="1.4.1.6">
-<h4><span class="header-section-number">1.4.1.6</span> Konfigurationen für Werkzeug und Prozesse<a href="#konfigurationen-für-werkzeug-und-prozesse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="konfigurationen-für-werkzeug-und-prozesse" class="section level4 hasAnchor" number="1.4.1.5">
+<h4><span class="header-section-number">1.4.1.5</span> Konfigurationen für Werkzeug und Prozesse<a href="#konfigurationen-für-werkzeug-und-prozesse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong><u>IN ENTWICKLUNG!!!!</u></strong></p>
 <p>Im System Reiter unter “Rule Engine confis” und “Sensor configs” können verschiedenste Konfigurationen geladen werden. Dazu muss mittels des angeschlossenen USB-Sticks oder einer Micro-SD Karte (Formatierung ext4) eine Konfigurationsdatei (IcoConfig.xml) übertragen werden. Mit dem Button „Load config file from USB“ wird das File vom USB-Stick auf die SPU Unit geladen. Über den definierten Aufbau des XML Files, können die jeweiligen Rule Engine oder auch Sensorischen Werkzeuge konfiguriert werden. Mithilfe des „Load config“ Buttons wird die jeweilige markierte Rule Engine oder Sensor configuration aus dem zuvor geladenen File ausgelesen &amp; appliziert. Darin können nun bestimmte Rule Engine Parameter definiert werden, welche dann über einen Knopfdruck geladen werden können. Dies bringt den Vorteil mit sich, dass nicht jedes Mal nach einem Neustart oder auch bei einem Prozesswechsel die jeweiligen Parameter neu eingetippt werden müssen.</p>
 <p>Ein mögliches Beispiel sieht folgendermaßen aus:</p>
@@ -520,7 +519,7 @@ This should open the real-time-Dashboard on your PC.</p>
 <div id="system-tab" class="section level3 hasAnchor" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> System Tab<a href="#system-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/system_tab.png" alt="system" /></p>
-<p>In the section “Holder connection” of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the “Connection type” drop-down menu and activated with the “-&gt;” button. On the right side are some system informations. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.</p>
+<p>In the section “Holder connection” of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the “Connection type” drop-down menu and activated with the “-&gt;” button. On the right side are some system information. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.</p>
 <div id="logging-1" class="section level4 hasAnchor" number="2.4.1.1">
 <h4><span class="header-section-number">2.4.1.1</span> Logging<a href="#logging-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/logging_tab.png" alt="logging" /></p>
@@ -534,8 +533,8 @@ The two identifier below show if the digital inputs for recording and enabling o
 <p><strong>Attention: This connection is only possible on specific machines!</strong></p>
 <p>This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. Additionally you can define the used IP-Address of the FOCAS connection. Then start the connection with the “FOCAS Start” button. If you want to stop the control via FOCAS you have to press the “FOCAS Stop” button which is there instead of the “FOCAS Start” if the connection is active. Note that if you are connected to a holder und you press “FOCAS Start” the system will disconnect the holder and you have to connect again to the holder.</p>
 </div>
-<div id="can-monitor" class="section level4 hasAnchor" number="2.4.1.3">
-<h4><span class="header-section-number">2.4.1.3</span> CAN Monitor<a href="#can-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="can-monitor-1" class="section level4 hasAnchor" number="2.4.1.3">
+<h4><span class="header-section-number">2.4.1.3</span> CAN Monitor<a href="#can-monitor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/can_monitor.png" alt="can_monitor" /></p>
 <p>This tab shows information about the CAN messages send between the system and the dashboard. The “Reboot System” button below can be used to trigger a software side reboot of the SPU.</p>
 </div>
@@ -839,8 +838,7 @@ gitbook.start({
 },
 "toc": {
 "collapse": "subsection"
-},
-"toc_depth": 4
+}
 });
 });
 </script>

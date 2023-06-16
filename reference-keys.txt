@@ -5,9 +5,8 @@ software--und-netzwerkeinstellungen-des-computers
 echtzeit-dashboard
 system-reiter
 logging
-replay
 focas
-system
+can-monitor
 verbindungsarten
 dashboard-opc-ua
 static-di
@@ -57,7 +56,7 @@ real-time-dashboard
 system-tab
 logging-1
 focas-1
-can-monitor
+can-monitor-1
 connection-types
 dashboard-opc-ua-1
 static-di-1
