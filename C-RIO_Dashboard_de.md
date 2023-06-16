@@ -1,6 +1,10 @@
-# C-RIO Dashboard de
+# Dashboard Benutzeranleitung [Deutsch]
 
 Benutzeranleitung für ICOcrt Dashboard
+
+## Version
+Diese Benutzeranleitung wurde für die Dashboardversion v4.0.1.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20de.md
 
 ## ICOtronic System Komponenten 				  			
 
@@ -22,7 +26,8 @@ http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
 ACHTUNG: Es muss die 2020 SP1 (32-bit) Version gewählt werden !!!
 
-Nicht jeder Browser unterstützt dieses Plugin. Microsoft Internet  Explorer (NICHT MICROSOFT EDGE) wurde getestet und funktioniert  einwandfrei.
+Nicht jeder Browser unterstützt dieses Plugin. Microsoft Edge funktioniert, solange die Dashboard Seite im "Internet Explorer Modus" geöffnet wird.
+Alternativ kann auch das ICOtronicRemotePanel Programm verwendet werden.
 
 Bevor der Computer mittels Ethernet Kabel mit der SPU verbunden wird, müssen die Netzwerkeinstellungen des Computers eingestellt werden.  Dafür muss die IP-Adresse des Computers, welcher mit der SPU verbunden  wird, folgendermaßen eingestellt werden.
 
@@ -32,27 +37,31 @@ Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.
 
 ## Echtzeit-Dashboard 					  			
 
-Öffnen Sie den Microsoft Internet Explorer und geben sie folgende Adresse ein:
-
-http://192.168.1.113:8000/ICOtronicSPU.html
-
+Öffnen Sie den Microsoft Edge und geben sie folgende Adresse ein:
+http://192.168.1.115:8000/ICOtronicSPU.html
+Sollte sich das Dashboard nicht öffnen überprüfen sie ob die Seite im "Internet Explorer Modus" geöffnet wurde.
 Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.
 
-Das Dashboard verfügt über mindestens 2 Reiter: **Stability** und **System**. In neueren Versionen gibt es zusätzliche Reiter. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist,  eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
+Wenn das "ICOtronicRemotePanel" verwendet wird, öffnen sie das Programm. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
+**192.168.1.115**
+
+![Remote_IP](assets/Remote_IP.png)
+
+Durch drücken von "connect to SPU" sollte das Dashboard geöffnet werden.
+
+Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems, ein Feld in dem der name und die MAC-Adresse des momentan verbundenen Werkzeughalters angezeigt wird und das ICOTronic-Logo.
 
 Wenn das System mit einem sensorischen Werkzeughalter verbunden ist,  ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die  Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.
 
-![connected_w](assets/connected_w.png)   <------->   ![connected_b](assets/connected_b.png)
+![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
+
+Wenn kein Werkzeughalter verbunden ist sind die Felder für Rufname und MAC-Adresse leer. Bei Verbindung mit einem Werkzeughalter wird der Rufname und die MAC-Adresse angezeigt bis die Verbindung zum Werkzeughalter wieder getrennt wird.
+
+![connected_name_w](assets/disconnected-name.png)   <------->   ![connected_name_b](assets/connected-name.png)
 
 ### System Reiter 		
 
-##### Ansicht von älteren Versionen
-
-![system](assets/system_tab.png)
-
-##### Ansicht von neueren Versionen
-
-![system-new](assets/System_Reiter_Update.png)
+![system-new](assets/system_tab.png)
 
 Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "Update" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
 

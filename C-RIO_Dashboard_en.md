@@ -1,4 +1,4 @@
-# C-RIO Dashboard en
+# Dashboard user manual [English]
 
 User manual for the C-RIO Dashboard
 
@@ -40,17 +40,19 @@ Before connecting the Laptop via the Ethernet Cable to the SPU, the correct netw
 If you use Microsoft Edge open the explorer and go to:
 http://192.168.1.115:8000/ICOtronicSPU.html
 If the Dashboard doesn't open check if you are opening the side in the "Internet Explorer Mode".
+This should open the real-time-Dashboard on your PC.
 
 If you use the "ICOtronicRemotePanel" then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
 **192.168.1.115**
 
 ![Remote_IP](assets/Remote_IP.png)
 
-This should open the real-time-Dashboard on your PC.
+With a press on "connect to SPU" the program should connect to the Dashboard.
+
 
 The Dashboard contains four tabs: **Stability**, **Breakout detection**, **Raw data view** and **System**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier, a field where you can see the name and MAC-Address of the connected holder and the ICOtronic-logo.
 
-If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.+
+If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
 
 ![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
 
