@@ -1,10 +1,9 @@
-c-rio-dashboard-de
+dashboard-benutzeranleitung-deutsch
+version
 icotronic-system-komponenten
 software--und-netzwerkeinstellungen-des-computers
 echtzeit-dashboard
 system-reiter
-ansicht-von-älteren-versionen
-ansicht-von-neueren-versionen
 logging
 replay
 focas
@@ -50,8 +49,8 @@ anwendungsbeispiel
 nutzen-des-opcua-server-der-spu
 verbinden-mit-dem-opcua-server
 variablen-anzeigen-lassen
-c-rio-dashboard-en
-version
+dashboard-user-manual-english
+version-1
 icotronic-system-components
 software-and-network-settings-for-your-pc
 real-time-dashboard
