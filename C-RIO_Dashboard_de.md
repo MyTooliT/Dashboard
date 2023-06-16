@@ -63,20 +63,16 @@ Wenn kein Werkzeughalter verbunden ist sind die Felder für Rufname und MAC-Adre
 
 ![system-new](assets/system_tab.png)
 
-Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "Update" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
+Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "->" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit 2 Reitern welche benutzt werden um vordefinierte Regelparameter und Sensoreinstellungen zu benutzen. Unten rechts befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
 
 #### Logging
 
 ![logging](assets/logging_tab.png)
 
-Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn die Checkbox markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn die Checkbox nicht markiert ist kann Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Die 2 Identifikatoren unterhalb zeigen an ob ein Speichergerät wie z.B. ein USB-Stick verbunden ist und ob gerade eine Aufnahme stattfindet. Die beiden Anzeigen am unteren Ende zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
-
-#### Replay
-![replay2](assets/Replay Modus.PNG)
-Dieser Reiter wird verwendet um sich aufgenommene Prozesse anschauen zu können. Wenn ein Speichermedium angeschlossen ist zeigt die Liste alle aufgenommenen Prozesse auf diesem Medium an. Wenn eine Aufnahme ausgewählt ist kann diese mittels eines Drucks auf den "Load File" Button eingelesen werden. Um das System zwischen dem Live Mode und dem Wiedergeben eines aufgenommenen Prozesses zu wechseln muss nur der "Live mode" Button betätigt werden.
-Nach Laden des Recordings wird ein gesamter Zeitverlauf oberhalb der Reiterauswahl angezeigt. Mittels druck auf den "Run" Button kann dieser nun gestartet werden.
-
-![replay-run](assets/Replay_Run.png)
+Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect" Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
+**Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!**
+Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen). 
+Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt. 
 
 #### FOCAS
 
@@ -86,15 +82,20 @@ Nach Laden des Recordings wird ein gesamter Zeitverlauf oberhalb der Reiterauswa
 
 Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des "FOCAS Start" Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der "FOCAS Stop" Button gedrückt werden welcher den "FOCAS Start" bei aktiver Kontrolle ersetzt.
 
-#### System
+#### CAN Monitor
 
 ![can_monitor](assets/can_monitor.png)
 
-Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an.
+Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an. Mit dem Button "Reboot System" kann ein Software seitiger Reset der SPU ausgelöst werden.
 
 #### Verbindungsarten
+Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart ausgewählt werden. Auf der rechten Seite wird die momentane Verbindungsart angezeigt. Durch das Drücken des "->" Buttons kann die ausgewählte Verbindungsart auf die aktive Verbindungsart geschrieben werden.
 
 ![connection_type](assets/connection_type.png)
+
+Mittels der Radiobuttons unterhalb der Liste von gefundenen Haltern kann zwischen 1 und 3 Kanälen umgestellt werden, mit der Ausnahme von "Static / DI" Verbindung bei welcher diese Auswahl an einer anderen Stelle getroffen wird. Zu beachten ist, dass wenn 3 Kanäle ausgewählt werden obwohl der verbundene Halter nur 1 Kanal besitz die beiden anderen Kanäle unbrauchbare Daten liefern, da die zwei PINs in solchen Haltern nicht verbunden sind. Links neben den Radiobuttons kann abgelesen werden ob momentan durch die digitalen Eingänge eine Verbindungsanfrage besteht und wenn ja welche Halter ID gesetzt wurde.
+
+![channel_numbers](assets/channel_numbers.png)
 
 ##### Dashboard / OPC UA
 

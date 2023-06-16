@@ -64,7 +64,7 @@ If no sensory tool holder is connected the fields for name and MAC-Address will 
 
 ![system](assets/system_tab.png)
 
-In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "->" button. On the right side are some system informations. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.
+In the section "Holder connection" of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the "Connection type" drop-down menu and activated with the "->" button. On the right side are some system information. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.
 
 #### Logging
 
