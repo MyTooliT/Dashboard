@@ -386,25 +386,23 @@ Afterwards open the UaExpert client-program. When the program is open you have t
 
  ![img](assets/clip_image001.png)
  
-In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „< Double click to Add Server… >“. Now a little new window will open. Here you have to input the following address:
+In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „< Double click to Add Server… >“. Now a little new window will open. Here you have to input the address which you can find in the dashboard of the SPU:
 
-opc.tcp://192.168.1.113:49580
-
- ![img](assets/clip_image003.jpg)
+![img](assets/opcua.png)
 
 Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.
 
-![img](assets/clip_image005.jpg)
+![img](assets/clip_image003.png)
 
 After that, the server should be visible on the left side of the menu. Now you have to right-click the server and then click on “Connect”.
 
- ![img](assets/clip_image007.jpg)
+ ![img](assets/clip_image004.png)
 
 ### Visualisation of the variables
 
 After connecting to the OPCUA-Server you should now be able to see variables on the left side of the menu.
 
- ![img](assets/clip_image008.png)
+ ![img](assets/clip_image005.png)
 
 With a double click, these variables can be opened and shown on the upper right-hand side of the menu.
 
