@@ -5,6 +5,6 @@ bookdown::gitbook:
       download: ["epub"]
       sharing: null
       toc:
-        collapse: none
+        collapse: subsection
         toc_depth: 5
 bookdown::epub_book: default
