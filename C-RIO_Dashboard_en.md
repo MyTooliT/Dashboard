@@ -209,7 +209,7 @@ The newest data point is on the right-hand side. The oldest one to the left.
 
 The IFT-Value is the system's criteria to find out if the process is stable or instable. If the value is above a chosen threshold and an in-process control mode is selected, the system generates new setpoints for the overrides feed rate and spindle speed in order to stabilize the process again.
 
-![signal](assets/signal-1622407122141.png)
+![signal](assets/signal.png)
 
 #### Overrides 		
 

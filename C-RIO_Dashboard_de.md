@@ -208,7 +208,7 @@ Der neueste Datenpunkt befindet sich auf der rechten Seite des Schriebs, der Äl
 
 Der IFT-Wert ist ein Systemparameter, mit dessen Hilfe erkannt werden kann, ob das System stabil oder instabil ist. Wenn der Modus einer der Regelungsmodi ist und der IFT-Wert über einen eingestellten Parameter hinaussteigt, stellt das System anhand eingegebener Parameter neue Werte für Vorschub und Drehzahl Overrides ein, um das System wieder stabil zu bekommen.
 
-![signal](assets/signal-1622407122141.png)
+![signal](assets/signal.png)
 
 #### Overrides 				  			
 
