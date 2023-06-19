@@ -185,29 +185,29 @@ This value defines a signal power. Everything below this signal power will be ig
 
 ![stability-tab](assets/stability-tab.png)
 
-In the Stability tab, you can change the mode of the system, the  parameter of the in-process control and you can view the system’s live  data.
+In the Stability tab, you can change the mode of the system, the parameter of the in-process control and you can view the system’s live data.
 
-CAUTION: The tabs System and Stability tab are not connected.  Therefore, if you disconnect the STH, the mode and the parameter set up  in the Stability tab stay the same, even if you connect a new STH. These parameters only reset when the SPU got a reset.
+CAUTION: The tabs System and Stability tab are not connected. Therefore, if you disconnect the STH, the mode and the parameter set up in the Stability tab stay the same, even if you connect a new STH. These parameters only reset when the SPU got a reset.
 
 In the upper left, you can change the active mode (For detailed descriptions of the modes, see chapter “Modes”).
 
 ![modeauswahl](assets/modeauswahl.png)
 
-Below the mode selection are the configuration parameters (For  detailed descriptions of the parameters, see chapter “Parameters”).
+Below the mode selection are the configuration parameters (For detailed descriptions of the parameters, see chapter “Parameters”).
 
 Beside the mode selection you can find an indicator which shows if the system is recording at the moment. If the system is recording the indicator will turn bright green. 
 
 ![recording-off](assets/record-off.png) <-------> ![recording-on](assets/record-on.png)
 
-On the right-hand side you can see the live data of the system,  change the shown time window length (in seconds) and you can choose to  stop the data-print.
+On the right-hand side you can see the live data of the system, change the shown time window length (in seconds) and you can choose to stop the data-print.
 
 ![grafhistory](assets/grafhistory.png)
 
-The newest data point is on the left-hand side. The oldest one to the right. The timeline on the bottom gives information on how many seconds ago a specific value occured. So to say, 5s means that this point is 5s in the past. The live data is categorized into three prints.
+The newest data point is on the right-hand side. The oldest one to the left.
 
 #### IFT-Value 		  			
 
-The IFT-Value is the system's criteria to find out if the process is  stable or instable. If the value is above a chosen threshold and an  in-process control mode is selected, the system generates new setpoints  for the overrides feed rate and spindle speed in order to stabilize the  process again.
+The IFT-Value is the system's criteria to find out if the process is stable or instable. If the value is above a chosen threshold and an in-process control mode is selected, the system generates new setpoints for the overrides feed rate and spindle speed in order to stabilize the process again.
 
 ![signal](assets/signal-1622407122141.png)
 
@@ -224,11 +224,11 @@ This graph shows the Sens and the Active lines. These are digital  information. 
 ![active](assets/active.png)
 
 #### Controls for the rule
-There are two buttons at the bottom of the screen. The "freigabe Regler" button can be used like the digital input which activates the rule engine. If you press the button it will change the name to "Regler freigegeben" and the "Sens" graph will change to 1. If you press it again it will change it's name back and the "Sens" graph will go back to 0. The "Reset Regler" button is only needed if the system is used in the "stop" mode.
+There are two buttons at the bottom of the screen. The "freigabe Regler" button can be used like the digital input which activates the rule engine. If you press the button it will change the name to "Regler freigegeben" and the "Sens" graph will change to 1. If you press it again it will change it's name back and the "Sens" graph will go back to "0". The "Reset Regler" button is only needed if the system is used in the "stop" mode.
 
 #### Stability-Parameters 					  			
 
-Depending on which mode is set active, different parameters can be  changed. To change said parameters to new values, press the "update" button on the bottom (with "Window length" being the only exception in  "Watch" mode).
+Depending on which mode is set active, different parameters can be changed. To change said parameters to new values, press the "update" button on the bottom (with "Window length" being the only exception in "Watch" mode).
 
 ![parameter](assets/parameter.png)
 
@@ -262,8 +262,9 @@ A value of e.g. 0.01 %/ms would increase the feed rate and/or spindle speed to 1
 
 {0-100%} Setpoint for feed rate
 
-This parameter is used in the modes "Stop", “Stability reduction”, “Stability 2 Level” and “Direct  output”. In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool  control system, the moment the ICOtronic system activates the feed rate  adaption of the machine.
+This parameter is used in the modes "Stop", “Stability reduction”, “Stability 2 Level” and “Direct  output”. In "Stop", “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control system, the moment the ICOtronic system activates the feed rate adaption of the machine.
 In "Stability reduction" this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
+
 ##### Spindle override 		  			
 
 {0-100%} Setpoint for spindle speed
@@ -358,7 +359,7 @@ This mode is primary used while installing the system. Beside the  “IFT value 
 
 ##### STOP 					  			
 
-This mode works nearly identical to "stability 2 level" mode. The only difference is that the system doesn't use the lower threshold. If the system changed the overrides these overrides will stay active until ether the digital input of rule enable is reset to 0 or the "Reset Regler" button was pressed.
+This mode works nearly identical to "stability 2 level" mode. The only difference is that the system doesn't use the "lower threshold". If the system changed the overrides these overrides will stay active until ether the digital input of rule enable is reset to "0" or the "Reset Regler" button was pressed.
 
 ### Example use-case 			  			
 
