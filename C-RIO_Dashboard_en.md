@@ -71,7 +71,9 @@ In the section "Holder connection" of the system tab, all STHs are listed that a
 ![logging](assets/logging_tab.png)
 
 This tab is used for recording of a process. If the "Record at connect"-button is clicked it will turn green and show that the recording will start at connection to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The Identifier below shows green if a USB-device is connected. Below it shows the size of the momentary recording and the free space of the mounted USB. 
+
 **Attention: the system only works with USB-devices formatted to FAT32-format!!!**
+
 The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 status identifier at the bottom show if the system is recording at the moment, if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules.
 
 #### FOCAS
@@ -113,6 +115,7 @@ Up to three holders can be defined and connected via there digital inputs. The f
 
 There are three tabs, one for each of the defined holders to configure. The upper part is used to change the parameters, the lower part (the one with the grey background) shows the momentary active state of the configuration. To write the changed configuration into the active part press the "Update" button on the top right. 
 The "MacAdr" is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With "Channels" you can define how many channels the holder has. If there is anything beside "1" inside this box it will take it that the holder has thee channels. With a "1" the SPU will connect to it as a holder with one channel. The "Rule config ID" box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a "0" it will use the parameters which are set in the "Stability" tab at the moment. With the "IFT value factor" and the "IFT value offset" you can adapt the calculated IFT-value.
+
 ##### First available /DI
 
 In this mode the system will connect to the first holder it finds within its range. When the digital input to enable the ruling is set.
@@ -131,8 +134,11 @@ http://192.168.1.115:8000/MainConfig.html
 The configuration is working, but the design and user friendliness is **still in development!**
 
 #### OPC-UA Server Address
+
 On the right side, beside the rule and sensor configs you can find the OPCUA-Server address of the SPU which you need if you want to connect via OPCUA with the SPU.
+
 ![opcua](assets/opcua.png)
+
 ### Raw Data View Tab
 
 ![raw](assets/RawDataView.PNG)

@@ -70,7 +70,9 @@ Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste al
 ![logging](assets/logging_tab.png)
 
 Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect" Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
+
 **Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!**
+
 Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen). 
 Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt. 
 
@@ -105,37 +107,36 @@ Um sich mit  einem Halter zu verbinden, muss der gewünschte Halter aus der "Dev
 
 ##### Static / DI
 
-Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, verbindet sich dieses automatisch mit dem Halter. 
+Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, während das digitale Eingangssignal für diesen Halter auf "1" gesetzt ist, verbindet sich dieses automatisch mit dem Halter. 
+Bis zu 3 verschiedene Halter können mittels der digitalen Eingänge gewählt werden. Die Felder für die Einstellungen der statischen Verbindung befinden sich unterhalb der Auswahl der Verbindungsarten.
 
 ![mac](assets/MAC_Adress.png)
 
-In neueren Versionen können bis zu 3 Halter mittels statischer MAC-Adresse gewählt werden. Welcher Halter dann verbunden werden soll kann mittels der Digitalen Eingänge 6&7 auf der SPU Hardwareseitig entschieden werden.
-
-![mac-new](assets/Connection_Holder.png)
+Es existieren 3 Reiter mit denen jeweils 1 Halter, für die statische Verbindung, konfiguriert werden kann. Die oberen Felder können genutzt werden um die Parameter zu ändern. Die unteren (mit grauem Hintergrund) zeigen die momentan aktiven Parameter an. Um die in den oberen Feldern eingetragenen Parameter aktiv zu schalten muss der "Update" Button oben rechts gedrückt werden.
+Das Feld "MacAdr" ist die MAC-Adresse des gewählten Halters. Die Adresse kann z.B. aus der rechten Spalte der Halterliste ausgelesen werden. Mittels "Channels" kann eingestellt werden wie viele Kanäle der zu verbindende Halter besitzt. Wenn etwas anderes als "1" eingegeben wird dann wendet das System alles an als ob 3 Kanäle verfügbar sind. Mit einer "1" verbindet sich die SPU mit dem Halter mit nur 1 Kanal. Das "Rule config ID" Feld kann benutzt werden um im vorhinein definierte Regelparameter für diesen Halter auszuwählen. Die Regeleinstellung "0" wird hierbei verwendet um die momentan eingestellten Parameter im "Stability" Reiter zu benutzen. Mittels "IFT value factor" und "IFT value offset" können die berechneten IFT Werte mittels eines Faktors und eines Offset angepasst werden.
 
 ##### First available /DI
 
 Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt. 
 
-##### Mehrkanäliges Aufzeichnen
-
-In neueren Versionen des Dashboards können nun auch mehrere Kanäle aufgezeichnet werden. (Solange der verbundene Halter ebenfalls mehrere Kanäle aufzeichnen kann.) Die Auswahl hierfür befindet sich unterhalb der Connection Type Auswahl in Form von Radio-Buttons. 
-
 #### Konfigurationen für Werkzeug und Prozesse
 
-**<u>IN ENTWICKLUNG!!!!</u>**
+Im "System" Reiter befinden sich 2 weitere Reiter, "Rule Engine configs" und "Sensor configs", mit denen im vorhinein erstellte Regel- und Sensoreinstellungen geladen werden können. Mit einem Druck auf den "Load Rule" Button können die ausgewählten Einstellungen übernommen werden. Mittels dieser Funktion können zuvor getätigte Einstellungen durch den Druck eines Buttons direkt geladen werden. Dies hat den Vorteil das nicht alle Einstellungen immer durch Hand getätigt werden müssen und man für unterschiedliche Halter und unterschiedliche Prozesse unterschiedliche Einstellungen leicht verwenden kann.
 
-Im System Reiter unter "Rule Engine confis" und "Sensor configs" können verschiedenste Konfigurationen geladen werden. Dazu muss mittels des angeschlossenen USB-Sticks oder einer Micro-SD Karte (Formatierung ext4) eine Konfigurationsdatei (IcoConfig.xml) übertragen werden. Mit dem Button „Load config file from USB“ wird das File vom USB-Stick auf die SPU Unit geladen. Über den definierten Aufbau des XML Files, können die jeweiligen Rule Engine oder auch Sensorischen Werkzeuge konfiguriert werden. Mithilfe des „Load config“ Buttons wird die jeweilige markierte Rule Engine oder Sensor configuration aus dem zuvor geladenen File ausgelesen & appliziert. Darin können nun bestimmte Rule Engine Parameter definiert werden, welche dann über einen Knopfdruck geladen werden können. Dies bringt den Vorteil mit sich, dass nicht jedes Mal nach einem Neustart oder auch bei einem Prozesswechsel die jeweiligen Parameter neu eingetippt werden müssen. 
+![rule-config](assets/Rule_Engine_Config.PNG)
 
-Ein mögliches Beispiel sieht folgendermaßen aus:
+![sensor-config](assets/Sensor_Config.PNG)
 
-Es wird in der Konfigurationsdatei ein Sensorischer Werkzeughalter mit definierter Mac-Adresse, einkanaliger Messung und dem Connection Type 1 (Dashboard / OPC UA = 0, Static / DI = 1, First available / DI = 2), welcher einer automatischen Verbindung entspricht, definiert. Zusätzlich wird für diesen Werkzeughalter eine Stability Rule Engine mit allen Parametern zum dazugehörenden Schlichtprozess und der jeweiligen Rule config ID 5 festgelegt. Wenn diese Rule Engine ID ebenso geladen wird, werden die darin befindlichen Werte in dem Reiter Stability eingefügt.
+**<u>In Entwicklung</u>**
+Die Regel- und Sensoreinstellungen können mittels folgendem Link eingestellt werden:
+http://192.168.1.115:8000/MainConfig.html
+Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlichkeit sind noch **<u>in Entwicklung!</u>**
 
-**Aktuell befindet sich das Feature in der Entwicklungsphase**, somit ist es noch nicht möglich, die jeweiligen Sensorischen Werkzeuge direkt in zugewiesene Zeilen der Werkzeuge für die Automatische Werkzeugauswahl anhand von Digitalen Eingängen zuzuweisen.
+#### OPC-UA Server Adresse
 
-![rule-config](assets/Rule Engine Config.PNG)
+Rechts neben den Regel- und Sensoreinstellungen kann die OPCUA-Adresse der SPU gefunden werden, die für eine Verbindung mittels OPCUA Client benötigt wird.
 
-![sensor-config](assets/Sensor Config.PNG)
+![opcua](assets/opcua.png)
 
 ### Raw Data View Reiter
 
