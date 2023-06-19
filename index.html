@@ -434,26 +434,27 @@ Reduzierungsschritt 2: Reduktion von 95% auf 90%
 <h3><span class="header-section-number">1.5.1</span> Verbinden mit dem OPCUA-Server<a href="#verbinden-mit-dem-opcua-server" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Um den OPCUA-Server nutzen zu können wird als erstes ein OPCUA-Client benötigt. Hierzu muss einer auf dem Computer installiert werden. Wir empfehlen UaExpert und haben auch alle Bilder dieser Anleitung mit UaExpert erstellt. Der Client(UaExpert v1.5.1) kann unter nachstehendem Link gedownloadet werden. Zu beachten ist das ein User-Account benötigt wird.
 Download link: <a href="https://www.unified-automation.com/downloads/opc-ua-clients.html" class="uri">https://www.unified-automation.com/downloads/opc-ua-clients.html</a><br />
-Nach erfolgreicher Installation muss der Client gestartet werden indem das Programm geöffnet wird.Wenn das Programm geöffnet ist muss man im Menü auf “Server“ und”Add…“ gehen um den SPU-OPCUA-Server zu suchen und sich mit diesem verbinden zu können.
-<img src="assets/clip_image001-16311724074231.png" alt="img" />
-Hier nun im Menüpunkt “Custom Discovery“ auf den Unterpunkt”&lt; Double click to Add Server… &gt;“ doppelklicken und in dem Fenster welches sich nun öffnet folgende Adresse eingeben:</p>
-<p>Opc.tcp://192.168.1.113:49580
-<img src="assets/clip_image002.png" alt="img" /></p>
-<p>Nun sollte der Server gefunden werden und ein paar Unterpunkte aufklappen, wenn dieser ausgewählt wird. Wenn dies der Fall ist auf “OK“ drücken. <img src="assets/clip_image003.png" alt="img" />
-Nun sollte der Server auf der linken Seite im Menüreiter aufscheinen. Diesen nun mit einem Rechtsklick auswählen und auf”Connect“ drücken.
-<img src="assets/clip_image004.png" alt="img" /></p>
+Nach erfolgreicher Installation muss der Client gestartet werden indem das Programm geöffnet wird.Wenn das Programm geöffnet ist muss man im Menü auf “Server“ und”Add…“ gehen um den SPU-OPCUA-Server zu suchen und sich mit diesem verbinden zu können.</p>
+<p><img src="assets/clip_image001.png" alt="img" /></p>
+<p>Hier nun im Menüpunkt “Custom Discovery“ auf den Unterpunkt”&lt; Double click to Add Server… &gt;“ doppelklicken und in dem Fenster welches sich nun öffnet die Adresse eingeben, welche im Dashboard der SPU abgelesen werden kann:</p>
+<p><img src="assets/opcua.png" alt="img" /></p>
+<p>Nun sollte der Server gefunden werden und ein paar Unterpunkte aufklappen, wenn dieser ausgewählt wird. Wenn dies der Fall ist auf “OK“ drücken.</p>
+<p><img src="assets/clip_image003.png" alt="img" /></p>
+<p>Nun sollte der Server auf der linken Seite im Menüreiter aufscheinen. Diesen nun mit einem Rechtsklick auswählen und auf “Connect“ drücken.</p>
+<p><img src="assets/clip_image004.png" alt="img" /></p>
 </div>
 <div id="variablen-anzeigen-lassen" class="section level3 hasAnchor" number="1.5.2">
 <h3><span class="header-section-number">1.5.2</span> Variablen anzeigen lassen<a href="#variablen-anzeigen-lassen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Nun sollte im unteren linken Reiter mehrere Variablem des Servers aufgelistet sein.
-<img src="assets/clip_image005.png" alt="img" />
-Nun kann durch Auswahl eines dieser Elemente (Doppelklick), dieses Element im oberen rechten Reiter geöffnet werden.
-<img src="assets/clip_image007-16311724074242.jpg" alt="img" /></p>
+<p>Nun sollte im unteren linken Reiter mehrere Variablem des Servers aufgelistet sein.</p>
+<p><img src="assets/clip_image005.png" alt="img" /></p>
+<p>Nun kann durch Auswahl eines dieser Elemente (Doppelklick), dieses Element im oberen rechten Reiter geöffnet werden.</p>
+<p><img src="assets/clip_image010.jpg" alt="img" /></p>
 <p>In diesem Reiter können nun die Parameter des jeweiligen Elementes ausgelesen werden wie zum Beispiel der aktuelle Wert, der Variablen Identifier oder der Zeitstempel des letzten gemessenen Datenwertes. Unter “Value“ befindet sich auch der aktuelle Wert, dieses Elementes, der zuletzt eingelesen wurde. Im Falle eines einstellbaren Wertes, wie zum Beispiel dem minimalen Override der Drehzahl, kann dieser mit einem Doppelklick auch verändert werden. Zu beachten ist das Ausgangsvariablen wie zum Beispiel der aktuelle Drehzahloverride nicht geändert werden können.</p>
-<p>Um einen Parameter dauerhaft in dem großen mittleren Reiter anzuzeigen muss dieser Reiter rechtsgeklickt werden. Im folgenden Menü nun auf “Add custom node…“ klicken. <img src="assets/clip_image008-16311724074243.png" alt="img" />
-Danach muss der Variablenname des Elementes angegeben werden. Jedes Element des OPCUA-Servers ist über seinen Identifier definiert und auslesbar. Dieser kann wenn das Element vorher ausgewählt wurde im rechten oberen Reiter bei den Element Parametern ausgelesen werden. Die benötigten Daten befinden sich unter dem Menüpunkt”NodeId“.</p>
-<p><img src="assets/clip_image010-16311724074244.jpg" alt="img" />
-Danach auf “OK“ drücken. Nun sollte das gewählte Element in der Mitte angezeigt werden. Im Falle eines einstellbaren Parameters kann dieser ebenso bei”Value“ verändert werden wie auch vorher in seinen Eigenschaften.</p>
+<p>Um einen Parameter dauerhaft in dem großen mittleren Reiter anzuzeigen muss dieser Reiter rechtsgeklickt werden. Im folgenden Menü nun auf “Add custom node…“ klicken.</p>
+<p><img src="assets/clip_image011.png" alt="img" /></p>
+<p>Danach muss der Variablenname des Elementes angegeben werden. Jedes Element des OPCUA-Servers ist über seinen Identifier definiert und auslesbar. Dieser kann wenn das Element vorher ausgewählt wurde im rechten oberen Reiter bei den Element Parametern ausgelesen werden. Die benötigten Daten befinden sich unter dem Menüpunkt “NodeId“.</p>
+<p><img src="assets/clip_image013.jpg" alt="img" /></p>
+<p>Danach auf “OK“ drücken. Nun sollte das gewählte Element in der Mitte angezeigt werden. Im Falle eines einstellbaren Parameters kann dieser ebenso bei”Value“ verändert werden wie auch vorher in seinen Eigenschaften.</p>
 
 </div>
 </div>
@@ -763,18 +764,17 @@ Reduction step 2: Reduction from 95 % to 90 %
 Download link: <a href="https://www.unified-automation.com/downloads/opc-ua-clients.html" class="uri">https://www.unified-automation.com/downloads/opc-ua-clients.html</a><br />
 Afterwards open the UaExpert client-program. When the program is open you have to click on “Server” at the top menu and then on “Add…”. This opens a window to search for and connect with the OPC UA-Server of the Signal Processing Unit (SPU) of the ICOtronic system.</p>
 <p><img src="assets/clip_image001.png" alt="img" /></p>
-<p>In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „&lt; Double click to Add Server… &gt;“. Now a little new window will open. Here you have to input the following address:</p>
-<p>opc.tcp://192.168.1.113:49580</p>
-<p><img src="assets/clip_image003.jpg" alt="img" /></p>
+<p>In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „&lt; Double click to Add Server… &gt;“. Now a little new window will open. Here you have to input the address which you can find in the dashboard of the SPU:</p>
+<p><img src="assets/opcua.png" alt="img" /></p>
 <p>Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.</p>
-<p><img src="assets/clip_image005.jpg" alt="img" /></p>
+<p><img src="assets/clip_image003.png" alt="img" /></p>
 <p>After that, the server should be visible on the left side of the menu. Now you have to right-click the server and then click on “Connect”.</p>
-<p><img src="assets/clip_image007.jpg" alt="img" /></p>
+<p><img src="assets/clip_image004.png" alt="img" /></p>
 </div>
 <div id="visualisation-of-the-variables" class="section level3 hasAnchor" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Visualisation of the variables<a href="#visualisation-of-the-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>After connecting to the OPCUA-Server you should now be able to see variables on the left side of the menu.</p>
-<p><img src="assets/clip_image008.png" alt="img" /></p>
+<p><img src="assets/clip_image005.png" alt="img" /></p>
 <p>With a double click, these variables can be opened and shown on the upper right-hand side of the menu.</p>
 <p><img src="assets/clip_image010.jpg" alt="img" /></p>
 <p>In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu entry “Value” shows the last read value of this element. If the element is editable for, example the minimal override of the spindle, you can change it by double clicking the value parameter. If the element is an output variable, for example the actual spindle override, you cannot change it.</p>
