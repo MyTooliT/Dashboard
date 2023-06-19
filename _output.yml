@@ -1,8 +1,10 @@
 bookdown::gitbook:
   fig_caption: false
   split_by: none
-  toc_depth: 5
   config:
       download: ["epub"]
       sharing: null
+      toc:
+        collapse: none
+        toc_depth: 5
 bookdown::epub_book: default
