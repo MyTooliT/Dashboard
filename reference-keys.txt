@@ -11,8 +11,8 @@ verbindungsarten
 dashboard-opc-ua
 static-di
 first-available-di
-mehrkanäliges-aufzeichnen
 konfigurationen-für-werkzeug-und-prozesse
+opc-ua-server-adresse
 raw-data-view-reiter
 breakout-detection-reiter
 schneidenausbruchs-parameter
@@ -60,8 +60,10 @@ can-monitor-1
 connection-types
 dashboard-opc-ua-1
 static-di-1
+first-available-di-1
 configuration-of-tools-and-processes
 opc-ua-server-address
+raw-data-view-tab
 breakout-detection-tab
 breakout-parameters
 spindle-speed-1

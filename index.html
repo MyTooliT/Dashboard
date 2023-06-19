@@ -120,9 +120,10 @@
 <li class="chapter" data-level="2.4" data-path=""><a href="#real-time-dashboard"><i class="fa fa-check"></i><b>2.4</b> Real-Time-Dashboard</a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path=""><a href="#system-tab"><i class="fa fa-check"></i><b>2.4.1</b> System Tab</a></li>
-<li class="chapter" data-level="2.4.2" data-path=""><a href="#breakout-detection-tab"><i class="fa fa-check"></i><b>2.4.2</b> Breakout detection Tab</a></li>
-<li class="chapter" data-level="2.4.3" data-path=""><a href="#stability-tab"><i class="fa fa-check"></i><b>2.4.3</b> Stability tab</a></li>
-<li class="chapter" data-level="2.4.4" data-path=""><a href="#example-use-case"><i class="fa fa-check"></i><b>2.4.4</b> Example use-case</a></li>
+<li class="chapter" data-level="2.4.2" data-path=""><a href="#raw-data-view-tab"><i class="fa fa-check"></i><b>2.4.2</b> Raw Data View Tab</a></li>
+<li class="chapter" data-level="2.4.3" data-path=""><a href="#breakout-detection-tab"><i class="fa fa-check"></i><b>2.4.3</b> Breakout detection Tab</a></li>
+<li class="chapter" data-level="2.4.4" data-path=""><a href="#stability-tab"><i class="fa fa-check"></i><b>2.4.4</b> Stability tab</a></li>
+<li class="chapter" data-level="2.4.5" data-path=""><a href="#example-use-case"><i class="fa fa-check"></i><b>2.4.5</b> Example use-case</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path=""><a href="#how-to-use-the-opcua-server-of-the-spu"><i class="fa fa-check"></i><b>2.5</b> How to use the OPCUA-server of the SPU</a>
 <ul>
@@ -202,9 +203,9 @@ Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.</p>
 <div id="logging" class="section level4 hasAnchor" number="1.4.1.1">
 <h4><span class="header-section-number">1.4.1.1</span> Logging<a href="#logging" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/logging_tab.png" alt="logging" /></p>
-<p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect” Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
-<strong>Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!</strong>
-Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen).
+<p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect” Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.</p>
+<p><strong>Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!</strong></p>
+<p>Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen).
 Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt.</p>
 </div>
 <div id="focas" class="section level4 hasAnchor" number="1.4.1.2">
@@ -231,29 +232,31 @@ Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Rege
 </div>
 <div id="static-di" class="section level5 hasAnchor" number="1.4.1.4.2">
 <h5><span class="header-section-number">1.4.1.4.2</span> Static / DI<a href="#static-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, verbindet sich dieses automatisch mit dem Halter.</p>
+<p>Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, während das digitale Eingangssignal für diesen Halter auf “1” gesetzt ist, verbindet sich dieses automatisch mit dem Halter.
+Bis zu 3 verschiedene Halter können mittels der digitalen Eingänge gewählt werden. Die Felder für die Einstellungen der statischen Verbindung befinden sich unterhalb der Auswahl der Verbindungsarten.</p>
 <p><img src="assets/MAC_Adress.png" alt="mac" /></p>
-<p>In neueren Versionen können bis zu 3 Halter mittels statischer MAC-Adresse gewählt werden. Welcher Halter dann verbunden werden soll kann mittels der Digitalen Eingänge 6&amp;7 auf der SPU Hardwareseitig entschieden werden.</p>
-<p><img src="assets/Connection_Holder.png" alt="mac-new" /></p>
+<p>Es existieren 3 Reiter mit denen jeweils 1 Halter, für die statische Verbindung, konfiguriert werden kann. Die oberen Felder können genutzt werden um die Parameter zu ändern. Die unteren (mit grauem Hintergrund) zeigen die momentan aktiven Parameter an. Um die in den oberen Feldern eingetragenen Parameter aktiv zu schalten muss der “Update” Button oben rechts gedrückt werden.
+Das Feld “MacAdr” ist die MAC-Adresse des gewählten Halters. Die Adresse kann z.B. aus der rechten Spalte der Halterliste ausgelesen werden. Mittels “Channels” kann eingestellt werden wie viele Kanäle der zu verbindende Halter besitzt. Wenn etwas anderes als “1” eingegeben wird dann wendet das System alles an als ob 3 Kanäle verfügbar sind. Mit einer “1” verbindet sich die SPU mit dem Halter mit nur 1 Kanal. Das “Rule config ID” Feld kann benutzt werden um im vorhinein definierte Regelparameter für diesen Halter auszuwählen. Die Regeleinstellung “0” wird hierbei verwendet um die momentan eingestellten Parameter im “Stability” Reiter zu benutzen. Mittels “IFT value factor” und “IFT value offset” können die berechneten IFT Werte mittels eines Faktors und eines Offset angepasst werden.</p>
 </div>
 <div id="first-available-di" class="section level5 hasAnchor" number="1.4.1.4.3">
 <h5><span class="header-section-number">1.4.1.4.3</span> First available /DI<a href="#first-available-di" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt.</p>
 </div>
-<div id="mehrkanäliges-aufzeichnen" class="section level5 hasAnchor" number="1.4.1.4.4">
-<h5><span class="header-section-number">1.4.1.4.4</span> Mehrkanäliges Aufzeichnen<a href="#mehrkanäliges-aufzeichnen" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p>In neueren Versionen des Dashboards können nun auch mehrere Kanäle aufgezeichnet werden. (Solange der verbundene Halter ebenfalls mehrere Kanäle aufzeichnen kann.) Die Auswahl hierfür befindet sich unterhalb der Connection Type Auswahl in Form von Radio-Buttons.</p>
-</div>
 </div>
 <div id="konfigurationen-für-werkzeug-und-prozesse" class="section level4 hasAnchor" number="1.4.1.5">
 <h4><span class="header-section-number">1.4.1.5</span> Konfigurationen für Werkzeug und Prozesse<a href="#konfigurationen-für-werkzeug-und-prozesse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><strong><u>IN ENTWICKLUNG!!!!</u></strong></p>
-<p>Im System Reiter unter “Rule Engine confis” und “Sensor configs” können verschiedenste Konfigurationen geladen werden. Dazu muss mittels des angeschlossenen USB-Sticks oder einer Micro-SD Karte (Formatierung ext4) eine Konfigurationsdatei (IcoConfig.xml) übertragen werden. Mit dem Button „Load config file from USB“ wird das File vom USB-Stick auf die SPU Unit geladen. Über den definierten Aufbau des XML Files, können die jeweiligen Rule Engine oder auch Sensorischen Werkzeuge konfiguriert werden. Mithilfe des „Load config“ Buttons wird die jeweilige markierte Rule Engine oder Sensor configuration aus dem zuvor geladenen File ausgelesen &amp; appliziert. Darin können nun bestimmte Rule Engine Parameter definiert werden, welche dann über einen Knopfdruck geladen werden können. Dies bringt den Vorteil mit sich, dass nicht jedes Mal nach einem Neustart oder auch bei einem Prozesswechsel die jeweiligen Parameter neu eingetippt werden müssen.</p>
-<p>Ein mögliches Beispiel sieht folgendermaßen aus:</p>
-<p>Es wird in der Konfigurationsdatei ein Sensorischer Werkzeughalter mit definierter Mac-Adresse, einkanaliger Messung und dem Connection Type 1 (Dashboard / OPC UA = 0, Static / DI = 1, First available / DI = 2), welcher einer automatischen Verbindung entspricht, definiert. Zusätzlich wird für diesen Werkzeughalter eine Stability Rule Engine mit allen Parametern zum dazugehörenden Schlichtprozess und der jeweiligen Rule config ID 5 festgelegt. Wenn diese Rule Engine ID ebenso geladen wird, werden die darin befindlichen Werte in dem Reiter Stability eingefügt.</p>
-<p><strong>Aktuell befindet sich das Feature in der Entwicklungsphase</strong>, somit ist es noch nicht möglich, die jeweiligen Sensorischen Werkzeuge direkt in zugewiesene Zeilen der Werkzeuge für die Automatische Werkzeugauswahl anhand von Digitalen Eingängen zuzuweisen.</p>
-<p><img src="assets/Rule%20Engine%20Config.PNG" alt="rule-config" /></p>
-<p><img src="assets/Sensor%20Config.PNG" alt="sensor-config" /></p>
+<p>Im “System” Reiter befinden sich 2 weitere Reiter, “Rule Engine configs” und “Sensor configs”, mit denen im vorhinein erstellte Regel- und Sensoreinstellungen geladen werden können. Mit einem Druck auf den “Load Rule” Button können die ausgewählten Einstellungen übernommen werden. Mittels dieser Funktion können zuvor getätigte Einstellungen durch den Druck eines Buttons direkt geladen werden. Dies hat den Vorteil das nicht alle Einstellungen immer durch Hand getätigt werden müssen und man für unterschiedliche Halter und unterschiedliche Prozesse unterschiedliche Einstellungen leicht verwenden kann.</p>
+<p><img src="assets/Rule_Engine_Config.PNG" alt="rule-config" /></p>
+<p><img src="assets/Sensor_Config.PNG" alt="sensor-config" /></p>
+<p><strong><u>In Entwicklung</u></strong>
+Die Regel- und Sensoreinstellungen können mittels folgendem Link eingestellt werden:
+<a href="http://192.168.1.115:8000/MainConfig.html" class="uri">http://192.168.1.115:8000/MainConfig.html</a>
+Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlichkeit sind noch <strong><u>in Entwicklung!</u></strong></p>
+</div>
+<div id="opc-ua-server-adresse" class="section level4 hasAnchor" number="1.4.1.6">
+<h4><span class="header-section-number">1.4.1.6</span> OPC-UA Server Adresse<a href="#opc-ua-server-adresse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Rechts neben den Regel- und Sensoreinstellungen kann die OPCUA-Adresse der SPU gefunden werden, die für eine Verbindung mittels OPCUA Client benötigt wird.</p>
+<p><img src="assets/opcua.png" alt="opcua" /></p>
 </div>
 </div>
 <div id="raw-data-view-reiter" class="section level3 hasAnchor" number="1.4.2">
@@ -523,9 +526,9 @@ This should open the real-time-Dashboard on your PC.</p>
 <div id="logging-1" class="section level4 hasAnchor" number="2.4.1.1">
 <h4><span class="header-section-number">2.4.1.1</span> Logging<a href="#logging-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/logging_tab.png" alt="logging" /></p>
-<p>This tab is used for recording of a process. If the “Record at connect”-button is clicked it will turn green and show that the recording will start at connection to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier below shows green if a USB-device is connected. Below it shows the size of the momentary recording and the free space of the mounted USB.
-<strong>Attention: the system only works with USB-devices formatted to FAT32-format!!!</strong>
-The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 status identifier at the bottom show if the system is recording at the moment, if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules.</p>
+<p>This tab is used for recording of a process. If the “Record at connect”-button is clicked it will turn green and show that the recording will start at connection to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier below shows green if a USB-device is connected. Below it shows the size of the momentary recording and the free space of the mounted USB.</p>
+<p><strong>Attention: the system only works with USB-devices formatted to FAT32-format!!!</strong></p>
+<p>The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 status identifier at the bottom show if the system is recording at the moment, if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules.</p>
 </div>
 <div id="focas-1" class="section level4 hasAnchor" number="2.4.1.2">
 <h4><span class="header-section-number">2.4.1.2</span> FOCAS<a href="#focas-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -555,8 +558,10 @@ The two identifier below show if the digital inputs for recording and enabling o
 Up to three holders can be defined and connected via there digital inputs. The fields for configuration of the static connection mode can be found below the connection-mode selection.</p>
 <p><img src="assets/MAC_Adress.png" alt="mac" /></p>
 <p>There are three tabs, one for each of the defined holders to configure. The upper part is used to change the parameters, the lower part (the one with the grey background) shows the momentary active state of the configuration. To write the changed configuration into the active part press the “Update” button on the top right.
-The “MacAdr” is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With “Channels” you can define how many channels the holder has. If there is anything beside “1” inside this box it will take it that the holder has thee channels. With a “1” the SPU will connect to it as a holder with one channel. The “Rule config ID” box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a “0” it will use the parameters which are set in the “Stability” tab at the moment. With the “IFT value factor” and the “IFT value offset” you can adapt the calculated IFT-value.
-##### First available /DI</p>
+The “MacAdr” is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With “Channels” you can define how many channels the holder has. If there is anything beside “1” inside this box it will take it that the holder has thee channels. With a “1” the SPU will connect to it as a holder with one channel. The “Rule config ID” box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a “0” it will use the parameters which are set in the “Stability” tab at the moment. With the “IFT value factor” and the “IFT value offset” you can adapt the calculated IFT-value.</p>
+</div>
+<div id="first-available-di-1" class="section level5 hasAnchor" number="2.4.1.4.3">
+<h5><span class="header-section-number">2.4.1.4.3</span> First available /DI<a href="#first-available-di-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>In this mode the system will connect to the first holder it finds within its range. When the digital input to enable the ruling is set.</p>
 </div>
 </div>
@@ -572,47 +577,49 @@ The configuration is working, but the design and user friendliness is <strong>st
 </div>
 <div id="opc-ua-server-address" class="section level4 hasAnchor" number="2.4.1.6">
 <h4><span class="header-section-number">2.4.1.6</span> OPC-UA Server Address<a href="#opc-ua-server-address" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>On the right side, beside the rule and sensor configs you can find the OPCUA-Server address of the SPU which you need if you want to connect via OPCUA with the SPU.
-<img src="assets/opcua.png" alt="opcua" />
-### Raw Data View Tab</p>
+<p>On the right side, beside the rule and sensor configs you can find the OPCUA-Server address of the SPU which you need if you want to connect via OPCUA with the SPU.</p>
+<p><img src="assets/opcua.png" alt="opcua" /></p>
+</div>
+</div>
+<div id="raw-data-view-tab" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Raw Data View Tab<a href="#raw-data-view-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/RawDataView.PNG" alt="raw" /></p>
 <p>If this tab is chosen it will show the raw data of the connected sensory tool holder, depending if 1 or 3 channels were chosen you can see 1 or 3 signals. This is used if you want to plot the raw not computed signals of the tool holder. If you right-click the y-axis you can change from auto scale mode to defined values.</p>
 </div>
-</div>
-<div id="breakout-detection-tab" class="section level3 hasAnchor" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Breakout detection Tab<a href="#breakout-detection-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="breakout-detection-tab" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Breakout detection Tab<a href="#breakout-detection-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong><u>IN DEVELOPMENT!!!!</u></strong></p>
 <p><img src="assets/Breakout_detection.png" alt="breakout" /></p>
 <p>This tab is used when you want to detect breakout of cutting edges.</p>
 <p>On the top left side are the parameters for the detection. On the top right side is the graph of the quality factor which indicates a breakout. On the bottom left side is a graph of the signal power. And on the bottom right is a graph of the frequency spectrum. In the frequency spectrum graph you can move the cursor to see the amplitude and frequency on this cursor position on the top left of the spectrum graph. If the parameters are set you can additionally see green vertical bars. These bars represent the areas used by the breakout detection algorithm based on the chosen parameters. When using a new cutting tool the multiples of the meshing frequency should be visible. On the right side you can change the zoom of the x-axis(frequency) and the y-axis(amplitude) of this graph.</p>
-<div id="breakout-parameters" class="section level4 hasAnchor" number="2.4.2.1">
-<h4><span class="header-section-number">2.4.2.1</span> Breakout parameters<a href="#breakout-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="breakout-parameters" class="section level4 hasAnchor" number="2.4.3.1">
+<h4><span class="header-section-number">2.4.3.1</span> Breakout parameters<a href="#breakout-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="assets/Breakout_parameter.png" alt="breakout_paramter" /></p>
 <p>These parameters are used to configure the breakout detection. To activate the new parameters the “Update” button has to be clicked.</p>
-<div id="spindle-speed-1" class="section level5 hasAnchor" number="2.4.2.1.1">
-<h5><span class="header-section-number">2.4.2.1.1</span> Spindle speed<a href="#spindle-speed-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="spindle-speed-1" class="section level5 hasAnchor" number="2.4.3.1.1">
+<h5><span class="header-section-number">2.4.3.1.1</span> Spindle speed<a href="#spindle-speed-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This parameter is the spindle speed which is used in the cutting process.</p>
 </div>
-<div id="order-limit-1" class="section level5 hasAnchor" number="2.4.2.1.2">
-<h5><span class="header-section-number">2.4.2.1.2</span> Order limit<a href="#order-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="order-limit-1" class="section level5 hasAnchor" number="2.4.3.1.2">
+<h5><span class="header-section-number">2.4.3.1.2</span> Order limit<a href="#order-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This parameter is the number of orders of the tooth passing frequency which should be used to detect the breakouts.</p>
 </div>
-<div id="comb-width-1" class="section level5 hasAnchor" number="2.4.2.1.3">
-<h5><span class="header-section-number">2.4.2.1.3</span> Comb width<a href="#comb-width-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="comb-width-1" class="section level5 hasAnchor" number="2.4.3.1.3">
+<h5><span class="header-section-number">2.4.3.1.3</span> Comb width<a href="#comb-width-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This parameter defines the comb width which is used to analyze the frequency spectrum to detect the breakouts. This is needed since the frequencies are not a peak with only 1 value but more like a plateau because we are in a real and not ideal situation.</p>
 </div>
-<div id="number-of-teeth-1" class="section level5 hasAnchor" number="2.4.2.1.4">
-<h5><span class="header-section-number">2.4.2.1.4</span> Number of teeth<a href="#number-of-teeth-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="number-of-teeth-1" class="section level5 hasAnchor" number="2.4.3.1.4">
+<h5><span class="header-section-number">2.4.3.1.4</span> Number of teeth<a href="#number-of-teeth-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This parameter is the number of teeth the cutting tool posses.</p>
 </div>
-<div id="signal-power-limit-1" class="section level5 hasAnchor" number="2.4.2.1.5">
-<h5><span class="header-section-number">2.4.2.1.5</span> Signal power limit<a href="#signal-power-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="signal-power-limit-1" class="section level5 hasAnchor" number="2.4.3.1.5">
+<h5><span class="header-section-number">2.4.3.1.5</span> Signal power limit<a href="#signal-power-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This value defines a signal power. Everything below this signal power will be ignored. This is needed so that the detection only works when the tool is cutting. Without the quality factor could be signaling a breakout even if the tool is not cutting at the moment.</p>
 </div>
 </div>
 </div>
-<div id="stability-tab" class="section level3 hasAnchor" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Stability tab<a href="#stability-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="stability-tab" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Stability tab<a href="#stability-tab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/stability-tab.png" alt="stability-tab" /></p>
 <p>In the Stability tab, you can change the mode of the system, the parameter of the in-process control and you can view the system’s live data.</p>
 <p>CAUTION: The tabs System and Stability tab are not connected. Therefore, if you disconnect the STH, the mode and the parameter set up in the Stability tab stay the same, even if you connect a new STH. These parameters only reset when the SPU got a reset.</p>
@@ -624,52 +631,52 @@ The configuration is working, but the design and user friendliness is <strong>st
 <p>On the right-hand side you can see the live data of the system, change the shown time window length (in seconds) and you can choose to stop the data-print.</p>
 <p><img src="assets/grafhistory.png" alt="grafhistory" /></p>
 <p>The newest data point is on the left-hand side. The oldest one to the right. The timeline on the bottom gives information on how many seconds ago a specific value occured. So to say, 5s means that this point is 5s in the past. The live data is categorized into three prints.</p>
-<div id="ift-value" class="section level4 hasAnchor" number="2.4.3.1">
-<h4><span class="header-section-number">2.4.3.1</span> IFT-Value<a href="#ift-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="ift-value" class="section level4 hasAnchor" number="2.4.4.1">
+<h4><span class="header-section-number">2.4.4.1</span> IFT-Value<a href="#ift-value" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The IFT-Value is the system’s criteria to find out if the process is stable or instable. If the value is above a chosen threshold and an in-process control mode is selected, the system generates new setpoints for the overrides feed rate and spindle speed in order to stabilize the process again.</p>
 <p><img src="assets/signal-1622407122141.png" alt="signal" /></p>
 </div>
-<div id="overrides-1" class="section level4 hasAnchor" number="2.4.3.2">
-<h4><span class="header-section-number">2.4.3.2</span> Overrides<a href="#overrides-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="overrides-1" class="section level4 hasAnchor" number="2.4.4.2">
+<h4><span class="header-section-number">2.4.4.2</span> Overrides<a href="#overrides-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The override graph shows the active override values of the system.</p>
 <p><img src="assets/overrides.png" alt="overrides" /></p>
 </div>
-<div id="control-indicators" class="section level4 hasAnchor" number="2.4.3.3">
-<h4><span class="header-section-number">2.4.3.3</span> Control indicators<a href="#control-indicators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="control-indicators" class="section level4 hasAnchor" number="2.4.4.3">
+<h4><span class="header-section-number">2.4.4.3</span> Control indicators<a href="#control-indicators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This graph shows the Sens and the Active lines. These are digital information. If the values are 1 they are active and if the values are 0 they are inactive. Sens indicates that the M-command is set to activate the adaptive control loop. The Active signal shows if the IFT-Value is above the given threshold and the overrides are actively changed by the system. The Active value can only become 1 if the Sens value is 1 too.</p>
 <p><img src="assets/active.png" alt="active" /></p>
 </div>
-<div id="controls-for-the-rule" class="section level4 hasAnchor" number="2.4.3.4">
-<h4><span class="header-section-number">2.4.3.4</span> Controls for the rule<a href="#controls-for-the-rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="controls-for-the-rule" class="section level4 hasAnchor" number="2.4.4.4">
+<h4><span class="header-section-number">2.4.4.4</span> Controls for the rule<a href="#controls-for-the-rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>There are two buttons at the bottom of the screen. The “freigabe Regler” button can be used like the digital input which activates the rule engine. If you press the button it will change the name to “Regler freigegeben” and the “Sens” graph will change to 1. If you press it again it will change it’s name back and the “Sens” graph will go back to 0. The “Reset Regler” button is only needed if the system is used in the “stop” mode.</p>
 </div>
-<div id="stability-parameters" class="section level4 hasAnchor" number="2.4.3.5">
-<h4><span class="header-section-number">2.4.3.5</span> Stability-Parameters<a href="#stability-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="stability-parameters" class="section level4 hasAnchor" number="2.4.4.5">
+<h4><span class="header-section-number">2.4.4.5</span> Stability-Parameters<a href="#stability-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Depending on which mode is set active, different parameters can be changed. To change said parameters to new values, press the “update” button on the bottom (with “Window length” being the only exception in “Watch” mode).</p>
 <p><img src="assets/parameter.png" alt="parameter" /></p>
-<div id="window-length-1" class="section level5 hasAnchor" number="2.4.3.5.1">
-<h5><span class="header-section-number">2.4.3.5.1</span> Window length<a href="#window-length-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="window-length-1" class="section level5 hasAnchor" number="2.4.4.5.1">
+<h5><span class="header-section-number">2.4.4.5.1</span> Window length<a href="#window-length-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{ms} window length</p>
 <p>This parameter changes the time window for the calculation of the IFT-Value. The larger the window, the more sluggish the system reacts to changes. For example, a single spike in the process is weighted less on the IFT-Value calculation in a larger window. In “Watch” mode this parameter can be adjusted live. In all other modes, this can only be done using the “update” button as mentioned before.</p>
 </div>
-<div id="upper-threshold-1" class="section level5 hasAnchor" number="2.4.3.5.2">
-<h5><span class="header-section-number">2.4.3.5.2</span> Upper threshold<a href="#upper-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="upper-threshold-1" class="section level5 hasAnchor" number="2.4.4.5.2">
+<h5><span class="header-section-number">2.4.4.5.2</span> Upper threshold<a href="#upper-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{-} upper threshold</p>
 <p>If the IFT value exceeds the threshold, the overrides are set to the defined values by the SPU. The bigger this value, the more “instable” the process is allowed to become, before override adaptions are activated.</p>
 </div>
-<div id="lower-threshold-1" class="section level5 hasAnchor" number="2.4.3.5.3">
-<h5><span class="header-section-number">2.4.3.5.3</span> Lower threshold<a href="#lower-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="lower-threshold-1" class="section level5 hasAnchor" number="2.4.4.5.3">
+<h5><span class="header-section-number">2.4.4.5.3</span> Lower threshold<a href="#lower-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{-} lower threshold</p>
 <p>If the IFT-value falls below the lower threshold, the override values will start rising up towards 100% again, following a defined ramp. The lower this value, the more “stable” the process has to become for the overrides to be reset.</p>
 </div>
-<div id="ramp-1" class="section level5 hasAnchor" number="2.4.3.5.4">
-<h5><span class="header-section-number">2.4.3.5.4</span> Ramp<a href="#ramp-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="ramp-1" class="section level5 hasAnchor" number="2.4.4.5.4">
+<h5><span class="header-section-number">2.4.4.5.4</span> Ramp<a href="#ramp-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{%/ms} ramp</p>
 <p>This parameter changes the speed of the override reset. The overrides are not reset instantly, as they follow a ramp to change back to 100%. The bigger this value, the steeper the ramp and the faster the system goes back to 100% spindle speed and feed rate.</p>
 <p>A value of e.g. 0.01 %/ms would increase the feed rate and/or spindle speed to 10 % within 1 second.</p>
 </div>
-<div id="feed-override-1" class="section level5 hasAnchor" number="2.4.3.5.5">
-<h5><span class="header-section-number">2.4.3.5.5</span> Feed override<a href="#feed-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="feed-override-1" class="section level5 hasAnchor" number="2.4.4.5.5">
+<h5><span class="header-section-number">2.4.4.5.5</span> Feed override<a href="#feed-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{0-100%} Setpoint for feed rate</p>
 <p>This parameter is used in the modes “Stop”, “Stability reduction”, “Stability 2 Level” and “Direct output”. In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control system, the moment the ICOtronic system activates the feed rate adaption of the machine.
 In “Stability reduction” this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.
@@ -678,8 +685,8 @@ In “Stability reduction” this value defines the minimal feed rate override, 
 <p>This parameter is used in “Stop”, “Stability reduction”, “Stability 2 Level” and “Direct output”. In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control system, the moment the ICOtronic system activates the spindle speed reduction of the machine.
 In “Stability reduction” this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.</p>
 </div>
-<div id="feed-reduction-factor-1" class="section level5 hasAnchor" number="2.4.3.5.6">
-<h5><span class="header-section-number">2.4.3.5.6</span> Feed reduction factor<a href="#feed-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="feed-reduction-factor-1" class="section level5 hasAnchor" number="2.4.4.5.6">
+<h5><span class="header-section-number">2.4.4.5.6</span> Feed reduction factor<a href="#feed-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{0-100%} Reduction factor</p>
 <p>This parameter is used in the “Stability reduction” mode. This value controls the intensity of the reduction steps of the feed rate.</p>
 <p>As an example: A value of 5 % for “Feed reduction factor” results in continuous reduction of 5% of the override as long as the IFT-Value is bigger than the upper threshold at each calculation interval.</p>
@@ -687,8 +694,8 @@ In “Stability reduction” this value defines the minimal feed rate override, 
 Reduction step 2: Reduction from 95 % to 90 %
 …and so on.</p>
 </div>
-<div id="spindle-reduction-factor-1" class="section level5 hasAnchor" number="2.4.3.5.7">
-<h5><span class="header-section-number">2.4.3.5.7</span> Spindle reduction factor<a href="#spindle-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="spindle-reduction-factor-1" class="section level5 hasAnchor" number="2.4.4.5.7">
+<h5><span class="header-section-number">2.4.4.5.7</span> Spindle reduction factor<a href="#spindle-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{0-100%} Reduction factor</p>
 <p>This parameter is used in the “Stability reduction” mode. This value controls the intensity of the reduction steps of the spindle speed.</p>
 <p>As an example: A value of 5 % for “Spindle reduction factor” results in continuous reduction of 5% of the override as long as the IFT-Value is bigger than the upper threshold at each calculation interval.</p>
@@ -696,8 +703,8 @@ Reduction step 2: Reduction from 95 % to 90 %
 Reduction step 2: Reduction from 95 % to 90 %
 …and so on.</p>
 </div>
-<div id="deadtime-1" class="section level5 hasAnchor" number="2.4.3.5.8">
-<h5><span class="header-section-number">2.4.3.5.8</span> Deadtime<a href="#deadtime-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="deadtime-1" class="section level5 hasAnchor" number="2.4.4.5.8">
+<h5><span class="header-section-number">2.4.4.5.8</span> Deadtime<a href="#deadtime-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{ms} deadtime</p>
 <p>This parameter is only used in the “Stability reduction” mode. This value equals the time in ms the system pauses before checking if it should reduce the spindle speed and feed rate again. The smaller this value, the quicker the ICOtronic system reduces the speed. As a reference value for first tests 300 ms can be mentioned. This means, each 300 ms feed rate and/or spindle speed are adapted as long as the IFT value exceeds the threshold.
 <strong><u>Note:</u></strong> if this value is to low it can happen that the machine needs longer to set the new parameters than the system waits to see if something changed. This would have the problem that even it the process stabilises the machine still changes values from the last instance and the process gets unstable again.</p>
@@ -709,50 +716,50 @@ Reduction step 2: Reduction from 95 % to 90 %
 <p>Deadtime: 300ms</p>
 <p><img src="assets/deadtime2.png" alt="deadtime2" /></p>
 </div>
-<div id="channels" class="section level5 hasAnchor" number="2.4.3.5.9">
-<h5><span class="header-section-number">2.4.3.5.9</span> Channels<a href="#channels" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="channels" class="section level5 hasAnchor" number="2.4.4.5.9">
+<h5><span class="header-section-number">2.4.4.5.9</span> Channels<a href="#channels" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{-} channels</p>
 <p>If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.</p>
 </div>
-<div id="ift-value-factor-1" class="section level5 hasAnchor" number="2.4.3.5.10">
-<h5><span class="header-section-number">2.4.3.5.10</span> IFT value factor<a href="#ift-value-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="ift-value-factor-1" class="section level5 hasAnchor" number="2.4.4.5.10">
+<h5><span class="header-section-number">2.4.4.5.10</span> IFT value factor<a href="#ift-value-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{-} IFT value factor</p>
 <p>This is a multiplicative factor for the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI 9263). With it, the signal can be set to a desired value. The values for the different channels can be changed separately.</p>
 </div>
-<div id="ift-value-offset-1" class="section level5 hasAnchor" number="2.4.3.5.11">
-<h5><span class="header-section-number">2.4.3.5.11</span> IFT value offset<a href="#ift-value-offset-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="ift-value-offset-1" class="section level5 hasAnchor" number="2.4.4.5.11">
+<h5><span class="header-section-number">2.4.4.5.11</span> IFT value offset<a href="#ift-value-offset-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>{-} IFT value offset</p>
 <p>This is an additive value, to the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. The values for the different channels can be changed separately.</p>
 </div>
 </div>
-<div id="modes" class="section level4 hasAnchor" number="2.4.3.6">
-<h4><span class="header-section-number">2.4.3.6</span> Modes<a href="#modes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="modes" class="section level4 hasAnchor" number="2.4.4.6">
+<h4><span class="header-section-number">2.4.4.6</span> Modes<a href="#modes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The modes are:</p>
 <p><img src="assets/modes.png" alt="modes" /></p>
-<div id="watch-1" class="section level5 hasAnchor" number="2.4.3.6.1">
-<h5><span class="header-section-number">2.4.3.6.1</span> WATCH<a href="#watch-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="watch-1" class="section level5 hasAnchor" number="2.4.4.6.1">
+<h5><span class="header-section-number">2.4.4.6.1</span> WATCH<a href="#watch-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>The STH and the STU are connected in this mode. Moreover, the IFT-Value will be evaluated in order to watch the signal generated in cutting processes. However, this mode is not a control mode and thus not taking any actions in the machine control system. This mode is also suitable for testing the connection between STH and STU. In this mode, the “IFT value factor” and “IFT value offset” can be changed. Furthermore, this is the only mode where you can instantly change the “Window length” without having to use the “update” button.</p>
 </div>
-<div id="stability-2-level-1" class="section level5 hasAnchor" number="2.4.3.6.2">
-<h5><span class="header-section-number">2.4.3.6.2</span> STABILITY 2 LEVEL<a href="#stability-2-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="stability-2-level-1" class="section level5 hasAnchor" number="2.4.4.6.2">
+<h5><span class="header-section-number">2.4.4.6.2</span> STABILITY 2 LEVEL<a href="#stability-2-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This is one of the two modes which can be used to control the machining process. In this mode, the parameters used are the “Upper threshold”, “Lower threshold”, “Ramp”, “Feed override” and “Spindle override”. If the IFT value exceeds the “Upper threshold”, the system will directly set the overrides to the values of “Feed override” and “Spindle override” defined in the Dashboard. If the IFT value reduces and falls below the “Lower threshold”, the system will start to increase Spindle speed and Feed rate back to 100% in form of a ramp. The speed of this increase is defined by the “Ramp” parameter.</p>
 </div>
-<div id="stability-reduction-1" class="section level5 hasAnchor" number="2.4.3.6.3">
-<h5><span class="header-section-number">2.4.3.6.3</span> STABILITY REDUCTION<a href="#stability-reduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="stability-reduction-1" class="section level5 hasAnchor" number="2.4.4.6.3">
+<h5><span class="header-section-number">2.4.4.6.3</span> STABILITY REDUCTION<a href="#stability-reduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This is one of the two modes which can be used to control the machining process. In this mode, the parameters used are the “Upper threshold”, “Lower threshold”, “Ramp”, “Feed override min”, “Feed reduction factor”, “Spindle override min”, “Spindle reduction factor” and “Deadtime”. If the IFT value exceeds the “Upper threshold”, the system will reduce spindle speed and feed rate. The factors of how much they are reduced are the two “override” factors. After a reduction step, the system waits the “Deadtime” to see if the IFT value is still above the “Upper threshold”. If it is still above, the system will reduce the overrides again. If the “override min” values are reached, the system will no longer reduce the spindle speed and feed rate. If the IFT-Value falls below the “Upper threshold”, the system holds the active overrides applied by the SPU. If the IFT-Value sinks below the “Lower threshold”, the system starts to increase spindle speed and feed rate. The speed of this increase is defined by the “Ramp” parameter.</p>
 </div>
-<div id="direct-output-1" class="section level5 hasAnchor" number="2.4.3.6.4">
-<h5><span class="header-section-number">2.4.3.6.4</span> DIRECT OUTPUT<a href="#direct-output-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="direct-output-1" class="section level5 hasAnchor" number="2.4.4.6.4">
+<h5><span class="header-section-number">2.4.4.6.4</span> DIRECT OUTPUT<a href="#direct-output-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This mode is primary used while installing the system. Beside the “IFT value factor” and the “IFT value offset”, the “Feed override” and “Spindle override” can be changed. The values given for the overrides will be directly sent to the output, independent from the IFT-Value. Therefore, a specific spindle speed or feed rate can be applied without any sensor-input or activation signal from the machine-control-system (M-command). This mode should be used to check if the connection between the SPU and the machine-control-system is working as designed.</p>
 </div>
-<div id="stop" class="section level5 hasAnchor" number="2.4.3.6.5">
-<h5><span class="header-section-number">2.4.3.6.5</span> STOP<a href="#stop" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="stop" class="section level5 hasAnchor" number="2.4.4.6.5">
+<h5><span class="header-section-number">2.4.4.6.5</span> STOP<a href="#stop" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>This mode works nearly identical to “stability 2 level” mode. The only difference is that the system doesn’t use the lower threshold. If the system changed the overrides these overrides will stay active until ether the digital input of rule enable is reset to 0 or the “Reset Regler” button was pressed.</p>
 </div>
 </div>
 </div>
-<div id="example-use-case" class="section level3 hasAnchor" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Example use-case<a href="#example-use-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="example-use-case" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Example use-case<a href="#example-use-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Open the internet explorer and connect to the Dashboard. After the page is loaded, go to the “System” tab and wait for the holder inside the machine to be listed. Now press “Connect” and go to the “Stability” tab. The STH’s LED should start blinking and the STU’s LEDs in the corners should stop blinking and instead shine continuously. After a short moment, the IFT-Value graph should start to display values different from zero. Change the mode to “Watch” and choose a “Window length” with about 70 ms as a first orientation. Change the “Graph History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order to take look at the whole process, press the “pause graph” button after the process. Remember that the seconds below the graphs show how many seconds in the past this point was. The following figure represents an example of cut in the watch mode.</p>
 <p><img src="assets/example.png" alt="example" /></p>
 <p>Now change to on of the two control modes and set the parameters of the “Upper threshold” and “Lower threshold” to plausible values, for the in-process parameter adaption. Repeat the cut, in which the override adaption is now activated.</p>
