@@ -4,7 +4,7 @@ bookdown::gitbook:
   config:
       download: ["epub"]
       sharing: null
-      toc_depth: 5
+      toc_depth: 6
       toc:
         collapse: none
 bookdown::epub_book: default
