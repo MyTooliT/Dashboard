@@ -49,6 +49,8 @@ example-use-case
 how-to-use-the-opcua-server-of-the-spu
 connecting-the-opcua-server
 visualisation-of-the-variables
+changing-of-variables
+recording-of-variables
 dashboard-benutzeranleitung-deutsch
 version-1
 icotronic-system-komponenten
@@ -100,3 +102,5 @@ anwendungsbeispiel
 nutzen-des-opcua-server-der-spu
 verbinden-mit-dem-opcua-server
 variablen-anzeigen-lassen
+ändern-von-variablen
+aufnahmen-von-variablen-erstellen
