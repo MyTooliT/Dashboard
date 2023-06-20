@@ -384,40 +384,81 @@ First, a OPC UA client is required on your PC. Please, find subsequently as a su
 Download link: https://www.unified-automation.com/downloads/opc-ua-clients.html  
 Afterwards open the UaExpert client-program. When the program is open you have to click on “Server” at the top menu and then on “Add…”. This opens a window to search for and connect with the OPC UA-Server of the Signal Processing Unit (SPU) of the ICOtronic system.
 
- ![img](assets/clip_image001.png)
+ ![find_server](assets/find_server.png)
  
 In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „< Double click to Add Server… >“. Now a little new window will open. Here you have to input the address which you can find in the dashboard of the SPU:
 
-![img](assets/opcua.png)
+![opcua-adress](assets/opcua.png)
 
 Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.
 
-![img](assets/clip_image003.png)
+![add_server](assets/add_server.png)
 
 After that, the server should be visible on the left side of the menu. Now you have to right-click the server and then click on “Connect”.
 
- ![img](assets/clip_image004.png)
+ ![connect_server-server](assets/connect_server.png)
 
 ### Visualisation of the variables
 
 After connecting to the OPCUA-Server you should now be able to see variables on the left side of the menu.
 
- ![img](assets/clip_image005.png)
+ ![variables_opcua](assets/variables_opcua.png)
+
+The variables can be sorted into 3 groups: "command", "data" and "param".
+In the "command" group you can find bool variables which activate a command if set to "true". An example would be that setting the variable "disconnectHolder" to "true" the system will disconnect the momentary connected holder.
+The "data" group contains values which are calculated/set by the system. An example would be that you can find the momentary IFT-value in the variable "iftValue".
+The "param" group can be split into 2 subgroups. The "active" subgroup contains the momentary set parameters of the rule engine. The "set" subgroup can be used to change the parameters of the rule engine.
 
 With a double click, these variables can be opened and shown on the upper right-hand side of the menu.
 
- ![img](assets/clip_image010.jpg)
+ ![note_details](assets/note_details.jpg)
 
-In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu entry “Value” shows the last read value of this element. If the element is editable for, example the minimal override of the spindle, you can change it by double clicking the value parameter. If the element is an output variable, for example the actual spindle override, you cannot change it.
+In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu entry “Value” shows the last read value of this element.
+In order to show an element permanently in the middle tab of the screen, you can drag&drop it from the bottom left into the big tab in the middle. Alternativly you can right click in the big middle tab. Now a menu should open and you have to click on „Add custom node…“.
 
-In order to show an element permanently in the middle tab of the screen, you have to right click in this tab. Now a menu should open and you have to click on „Add custom node…“.
-
-![img](assets/clip_image011.png)
+![add_note](assets/add_note.png)
 
 After that, you have to state the variable name of the element you want to show. Every element of the OPC UA-Server can be chosen via its identifier. If an element is selected, the identifier can be read out at the element parameters in the right upper tab. There, you can pick the entry “NodeId” and find the required information.
 
-![img](assets/clip_image013.jpg)
+![note_id](assets/note_id.jpg)
 
-After inputting the NodeId you can press the “OK” button. Now the chosen element should be shown in the middle part of the program. If the chosen element is an editable variable you can change it with its “Value” element directly in this list, like you could change it in the upper right menu before. It is possible to show more than one element in the middle of the screen by repeating this process.
+After inputting the NodeId you can press the “OK” button. Now the chosen element should be shown in the middle part of the program. It is possible to show more than one element in the middle of the screen by repeating this process.
 
- 
+![note_main_window](assets/note_main_window.png)
+
+### Changing of variables
+
+To change variables, for example the "windowLength" you have to choose the corresponding variable in the "set" subgroup of the "param" group. Now you can change the "Value" of this variable. If you also look at the "active" parameter of the variable you can see that the value wasn't changed automatically.
+
+![note_value_change](assets/note_value_change.png)
+
+The value will only be written into the active parameter after the "setStabilityParam" parameter of the "command" group was written "true". Afterwards you can see that the active parameter was written with the set value.
+Note that the "setStabilityParam" command changes all changed parameters at once.
+
+![note_changed](assets/note_changed.png)
+
+### Recording of variables
+
+With UaExpert you can also save the variables into a ".csv" file. To use this function you have to go to "Documents -> Add Document" and in the following window you have to choose "Data Logger View".
+
+![add_data_logger](assets/add_data_logger.png)
+
+The "Data Logger View" should now open itself.
+
+![data_logger](assets/data_logger.png)
+
+Now you can add the variables just like you did in the "Data Access View" window before. On the right side you can edit various parameters for the recording of the variables.
+
+![logger_variables](assets/logger_variables.png)
+
+Below the chosen variables you can find the parameters of the recorded files. There you can define the data path for the recording, the maximum number of lines written into the file and how many files into the past should be kept before overwriting the files.
+
+![logger_output_details](assets/logger_output_details.png)
+
+**ATTENTION:** If a new recording is started the old recordings get a number at the end of the name and will get an increment of this number thereafter. Therefor you have to be careful when recording so that you can later still know which file was which recording.
+
+![logger_output_files](assets/logger_output_files.png)
+
+Direct below you find the "Start" and "Stop" button and an information about how many values were written in the momentary recording.
+
+![logger_runtime](assets/logger_runtime.png)

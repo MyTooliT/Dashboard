@@ -386,38 +386,82 @@ Um den OPCUA-Server nutzen zu können wird als erstes ein OPCUA-Client benötigt
 Download link: https://www.unified-automation.com/downloads/opc-ua-clients.html  
 Nach erfolgreicher Installation muss der Client gestartet werden indem das Programm geöffnet wird.Wenn das Programm geöffnet ist muss man im Menü auf "Server“ und "Add…“ gehen um den SPU-OPCUA-Server zu suchen und sich mit diesem verbinden zu können.
 
- ![img](assets/clip_image001.png)
+ ![find_server](assets/find_server.png)
  
 Hier nun im Menüpunkt "Custom Discovery“ auf den Unterpunkt "< Double click to Add Server… >“ doppelklicken und in dem Fenster welches sich nun öffnet die Adresse eingeben, welche im Dashboard der SPU abgelesen werden kann:
 
-![img](assets/opcua.png)
+![opcua-adress](assets/opcua.png)
 
 Nun sollte der Server gefunden werden und ein paar Unterpunkte aufklappen, wenn dieser ausgewählt wird. Wenn dies der Fall ist auf "OK“ drücken.
 
-![img](assets/clip_image003.png)
+![add_server](assets/add_server.png)
 
 Nun sollte der Server auf der linken Seite im Menüreiter aufscheinen. Diesen nun mit einem Rechtsklick auswählen und auf "Connect“ drücken.
 
-![img](assets/clip_image004.png)
+![connect_server](assets/connect_server.png)
 
 ### Variablen anzeigen lassen
 
 Nun sollte im unteren linken Reiter mehrere Variablem des Servers aufgelistet sein.
 
-![img](assets/clip_image005.png)
+![variables_opcua](assets/variables_opcua.png)
+
+Die Variablen können in 3 Gruppen unterteilt werden: "command", "data" und "param".
+In "command" befinden sich bool variablen. Wenn diese auf "true" gesetzt werden führen sie das entsprechende Kommando aus. Zum Beispiel trennt "disconnectHolder" die Verbindung zum aktuell verbundenen Halter.
+In "data" befinden sich die Daten die vom System berechnet/gemessen werden. Zum Beispiel kann in "iftValue" der momentane IFT-Wert ausgelesen werden.
+Die Kategorie "param" kann wiederum in 2 Kategorien aufgeteilt werden. In "active" befinden sich die aktuellen eingestellten Parameter der Regelung. In "set" befinden sich Variablen die genutzt werden können um die Parameter zu verändern. 
 
 Nun kann durch Auswahl eines dieser Elemente (Doppelklick), dieses Element im oberen rechten Reiter geöffnet werden.
 
-![img](assets/clip_image010.jpg)
+![note_details](assets/note_details.jpg)
 
-In diesem Reiter können nun die Parameter des jeweiligen Elementes ausgelesen werden wie zum Beispiel der aktuelle Wert, der Variablen Identifier oder der Zeitstempel des letzten gemessenen Datenwertes. Unter "Value“ befindet sich auch der aktuelle Wert, dieses Elementes, der zuletzt eingelesen wurde. Im Falle eines einstellbaren Wertes, wie zum Beispiel dem minimalen Override der Drehzahl, kann dieser mit einem Doppelklick auch verändert werden. Zu beachten ist das Ausgangsvariablen wie zum Beispiel der aktuelle Drehzahloverride nicht geändert werden können.
+In diesem Reiter können nun die Parameter des jeweiligen Elementes ausgelesen werden wie zum Beispiel der aktuelle Wert, der Variablen Identifier oder der Zeitstempel des letzten gemessenen Datenwertes. Unter "Value“ befindet sich auch der aktuelle Wert, dieses Elementes, der zuletzt eingelesen wurde.
+Um einen Parameter dauerhaft in dem großen mittleren Reiter anzuzeigen kann dieser links unten ausgewählt und dann per Drag&Drop in das große Fenster gezogen werden.
+Alternativ kann dieser Reiter rechtsgeklickt werden. Im folgenden Menü nun auf "Add custom node…“ klicken.
 
-Um einen Parameter dauerhaft in dem großen mittleren Reiter anzuzeigen muss dieser Reiter rechtsgeklickt werden. Im folgenden Menü nun auf "Add custom node…“ klicken.
+![add_note](assets/add_note.png)
 
-![img](assets/clip_image011.png)
+Danach muss der Variablenname des Elementes angegeben werden. Jedes Element des OPCUA-Servers ist über seinen Identifier definiert und auslesebar. Dieser kann wenn das Element vorher ausgewählt wurde im rechten oberen Reiter bei den Element Parametern ausgelesen werden. Die benötigten Daten befinden sich unter dem Menüpunkt "NodeId“.
 
-Danach muss der Variablenname des Elementes angegeben werden. Jedes Element des OPCUA-Servers ist über seinen Identifier definiert und auslesbar. Dieser kann wenn das Element vorher ausgewählt wurde im rechten oberen Reiter bei den Element Parametern ausgelesen werden. Die benötigten Daten befinden sich unter dem Menüpunkt "NodeId“.
+![note_id](assets/note_id.jpg)
 
-![img](assets/clip_image013.jpg)
+Danach auf "OK“ drücken. Nun sollte das gewählte Element in der Mitte angezeigt werden. Es ist auch möglich mehrere Variablen in diesem Reiter zeitgleich anzuzeigen indem diese Schritte wiederholt werden.
 
-Danach auf "OK“ drücken. Nun sollte das gewählte Element in der Mitte angezeigt werden. Im Falle eines einstellbaren Parameters kann dieser ebenso bei "Value“ verändert werden wie auch vorher in seinen Eigenschaften.
+![note_main_window](assets/note_main_window.png)
+
+### Ändern von Variablen
+
+Um eine Variable zu verändern, z.B. die "windowLength" muss die dazugehörige Variable aus "param" und "set" gewählt werden. Nun kann man den "Value" verändern. Wenn der dazugehörige "active" Parameter auch angezeigt wird kann gesehen werden, dass der Wert noch nicht verändert wurde. 
+
+![note_value_change](assets/note_value_change.png)
+
+Die Änderungen werden erst übernommen wenn aus "command" das Kommando "setStabilityParam" ein "true" bekommt. Anschließend kann beobachtet werden das der "active" Parameter sich nun verändert hat.
+Zu beachten ist, dass das "setStabilityParam" Kommando alle gesetzten Parameter in die aktiven Parameter schreibt.
+
+![note_changed](assets/note_changed.png)
+
+### Aufnahmen von Variablen erstellen
+
+In UaExpert können Variablen auch aufgenommen und in ".csv" Files abgespeichert werden. Hierfür muss unter "Documents -> Add Document" der Typ "Data Logger View" ausgewählt werden.
+
+![add_data_logger](assets/add_data_logger.png)
+
+Nun sollte sich der "Data Logger View" öffnen.
+
+![data_logger](assets/data_logger.png)
+
+Hier können genau wie zuvor beim "Data Access View" die Variablen in das Fenster geladen werden. Rechts befinden sich diverse Einstellungen um die Abtastung anzupassen.
+
+![logger_variables](assets/logger_variables.png)
+
+Unterhalb befinden sich die Einstellungen für die Ausgabe. Hier können der Dateipfad, die maximalen Zeilen die geschrieben werden eingestellt werden und wie viele Files in die Vergangenheit behalten werden sollen.
+
+![logger_output_details](assets/logger_output_details.png)
+
+**ACHTUNG:** Wenn eine neue Aufnahme gestartet werden dann werden alle alten Aufnahmen im Namen mit einer Zahl am Ende inkrementiert. Daher sollte sehr aufgepasst werden beim Aufnehmen, damit die Daten im Nachhinein noch zuordenbar sind zu den Versuchen.
+
+![logger_output_files](assets/logger_output_files.png)
+
+Direkt darunter befinden sich der "Start" und "Stop" Button und eine Anzeige darüber wie viele Daten aktuell geschrieben worden sind.
+
+![logger_runtime](assets/logger_runtime.png)
