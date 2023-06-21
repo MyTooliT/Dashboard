@@ -1,10 +1,11 @@
 # (PART\*) Dashboard Benutzeranleitung [Deutsch] {-}
 
 # Dashboard Benutzeranleitung [Deutsch] {-}
-Benutzeranleitung für ICOcrt Dashboard
+Benutzeranleitung für das ICOtronic Dashboard.
 
 # Version
 Diese Benutzeranleitung wurde für die Dashboardversion v4.0.1.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+
 https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20de.md
 
 # ICOtronic System Komponenten 				  			
