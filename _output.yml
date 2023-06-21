@@ -1,10 +1,10 @@
 bookdown::gitbook:
   fig_caption: false
-  split_by: none
+  split_by: chapter
   config:
       download: ["epub"]
       sharing: null
-      toc_depth: 5
+      toc_depth: 4
       toc:
         collapse: none
         scroll_highlight: true
