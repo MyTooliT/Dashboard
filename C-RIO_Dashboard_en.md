@@ -1,4 +1,4 @@
-# Dashboard user manual [English]
+# (PART\*) Dashboard user manual [English]
 
 User manual for the C-RIO Dashboard
 
