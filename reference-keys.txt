@@ -1,4 +1,4 @@
-dashboard-user-manual-english
+part-dashboard-user-manual-english
 version
 icotronic-system-components
 software-and-network-settings-for-your-pc
@@ -51,7 +51,7 @@ connecting-the-opcua-server
 visualisation-of-the-variables
 changing-of-variables
 recording-of-variables
-dashboard-benutzeranleitung-deutsch
+part-dashboard-benutzeranleitung-deutsch
 version-1
 icotronic-system-komponenten
 software--und-netzwerkeinstellungen-des-computers
