@@ -1,4 +1,4 @@
-# (PART\*) Dashboard user manual [English] {-}
+# (PART\*) [English] {-}
 
 # Dashboard user manual [English] {-}
 User manual for the ICOtronic Dashboard.
