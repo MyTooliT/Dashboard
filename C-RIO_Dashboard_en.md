@@ -40,7 +40,9 @@ Before connecting the Laptop via the Ethernet Cable to the SPU, the correct netw
 # Real-Time-Dashboard 			  			
 
 If you use Microsoft Edge open the explorer and go to:
+
 http://192.168.1.115:8000/ICOtronicSPU.html
+
 If the Dashboard doesn't open check if you are opening the side in the "Internet Explorer Mode".
 This should open the real-time-Dashboard on your PC.
 
