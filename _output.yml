@@ -1,4 +1,5 @@
 bookdown::gitbook:
+  css: "custom.css"
   fig_caption: false
   split_by: none
   config:

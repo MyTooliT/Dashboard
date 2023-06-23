@@ -84,7 +84,7 @@ Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Rege
 
 **Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!**
 
-Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des "FOCAS Start" Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der "FOCAS Stop" Button gedrückt werden welcher den "FOCAS Start" bei aktiver Kontrolle ersetzt.
+Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Zusätzlich kann die IP-Adresse der FOCAS Schnittstelle angegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des "FOCAS Start" Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der "FOCAS Stop" Button gedrückt werden welcher den "FOCAS Start" bei aktiver Kontrolle ersetzt. Zu beachten ist, dass wenn ein Halter verbunden ist wenn "FOCAS Start" betätigt wird, dieser disconnected wird und erneut ein Halter verbunden werden muss.
 
 ### CAN Monitor
 
