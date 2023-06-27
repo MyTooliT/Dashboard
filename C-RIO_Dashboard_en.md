@@ -7,7 +7,7 @@ User manual for the ICOtronic Dashboard.
 This version of the documentation was written for the Dashboard version v4.0.1.4.
 For older documentation look at the following link:
 
-https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20en.md
+[older Version](https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20en.md)
 
 # ICOtronic System components 		  			
 
