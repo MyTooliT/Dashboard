@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Dashboard_Documentation.knit</title>
   <meta name="description" content="" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Dashboard_Documentation.knit" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -80,19 +144,20 @@
 <ul>
 <li class="chapter" data-level="4.1" data-path=""><a href="#system-tab"><i class="fa fa-check"></i><b>4.1</b> System Tab</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path=""><a href="#logging"><i class="fa fa-check"></i><b>4.1.1</b> Logging</a></li>
-<li class="chapter" data-level="4.1.2" data-path=""><a href="#focas"><i class="fa fa-check"></i><b>4.1.2</b> FOCAS</a></li>
-<li class="chapter" data-level="4.1.3" data-path=""><a href="#can-monitor"><i class="fa fa-check"></i><b>4.1.3</b> CAN Monitor</a></li>
+<li class="chapter" data-level="4.1.1" data-path=""><a href="#connection-sub-part"><i class="fa fa-check"></i><b>4.1.1</b> Connection sub part</a></li>
+<li class="chapter" data-level="4.1.2" data-path=""><a href="#rule-sensor-config-sub-part"><i class="fa fa-check"></i><b>4.1.2</b> Rule &amp; Sensor config sub part</a></li>
+<li class="chapter" data-level="4.1.3" data-path=""><a href="#logging-sub-part"><i class="fa fa-check"></i><b>4.1.3</b> Logging sub part</a></li>
 <li class="chapter" data-level="4.1.4" data-path=""><a href="#connection-types"><i class="fa fa-check"></i><b>4.1.4</b> Connection types</a></li>
-<li class="chapter" data-level="4.1.5" data-path=""><a href="#configuration-of-tools-and-processes"><i class="fa fa-check"></i><b>4.1.5</b> Configuration of tools and processes</a></li>
-<li class="chapter" data-level="4.1.6" data-path=""><a href="#opc-ua-server-address"><i class="fa fa-check"></i><b>4.1.6</b> OPC-UA Server Address</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path=""><a href="#raw-data-view-tab"><i class="fa fa-check"></i><b>4.2</b> Raw Data View Tab</a></li>
-<li class="chapter" data-level="4.3" data-path=""><a href="#breakout-detection-tab"><i class="fa fa-check"></i><b>4.3</b> Breakout detection Tab</a>
+<li class="chapter" data-level="4.2" data-path=""><a href="#database"><i class="fa fa-check"></i><b>4.2</b> Database</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path=""><a href="#breakout-parameters"><i class="fa fa-check"></i><b>4.3.1</b> Breakout parameters</a></li>
+<li class="chapter" data-level="4.2.1" data-path=""><a href="#system-sub-part"><i class="fa fa-check"></i><b>4.2.1</b> System sub part</a></li>
+<li class="chapter" data-level="4.2.2" data-path=""><a href="#sensor-sub-part"><i class="fa fa-check"></i><b>4.2.2</b> Sensor sub part</a></li>
+<li class="chapter" data-level="4.2.3" data-path=""><a href="#rule-sub-part"><i class="fa fa-check"></i><b>4.2.3</b> Rule sub part</a></li>
+<li class="chapter" data-level="4.2.4" data-path=""><a href="#auto-importing-rule-configurations"><i class="fa fa-check"></i><b>4.2.4</b> Auto importing rule configurations</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path=""><a href="#stability-tab"><i class="fa fa-check"></i><b>4.4</b> Stability tab</a>
+<li class="chapter" data-level="4.3" data-path=""><a href="#replay-tab"><i class="fa fa-check"></i><b>4.3</b> Replay Tab</a></li>
+<li class="chapter" data-level="4.4" data-path=""><a href="#stability-tab"><i class="fa fa-check"></i><b>4.4</b> Stability Tab</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path=""><a href="#ift-value"><i class="fa fa-check"></i><b>4.4.1</b> IFT-Value</a></li>
 <li class="chapter" data-level="4.4.2" data-path=""><a href="#overrides"><i class="fa fa-check"></i><b>4.4.2</b> Overrides</a></li>
@@ -103,9 +168,9 @@
 </ul></li>
 <li class="chapter" data-level="4.5" data-path=""><a href="#example-use-case"><i class="fa fa-check"></i><b>4.5</b> Example use-case</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path=""><a href="#how-to-use-the-opcua-server-of-the-spu"><i class="fa fa-check"></i><b>5</b> How to use the OPCUA-server of the SPU</a>
+<li class="chapter" data-level="5" data-path=""><a href="#how-to-use-the-opc-ua-server-of-the-spu"><i class="fa fa-check"></i><b>5</b> How to use the OPC UA-Server of the SPU</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path=""><a href="#connecting-the-opcua-server"><i class="fa fa-check"></i><b>5.1</b> Connecting the OPCUA-Server</a></li>
+<li class="chapter" data-level="5.1" data-path=""><a href="#connecting-the-opc-ua-server"><i class="fa fa-check"></i><b>5.1</b> Connecting the OPC UA-Server</a></li>
 <li class="chapter" data-level="5.2" data-path=""><a href="#visualisation-of-the-variables"><i class="fa fa-check"></i><b>5.2</b> Visualisation of the variables</a></li>
 <li class="chapter" data-level="5.3" data-path=""><a href="#changing-of-variables"><i class="fa fa-check"></i><b>5.3</b> Changing of variables</a></li>
 <li class="chapter" data-level="5.4" data-path=""><a href="#recording-of-variables"><i class="fa fa-check"></i><b>5.4</b> Recording of variables</a></li>
@@ -119,9 +184,9 @@
 <ul>
 <li class="chapter" data-level="9.1" data-path=""><a href="#system-reiter"><i class="fa fa-check"></i><b>9.1</b> System Reiter</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path=""><a href="#logging-1"><i class="fa fa-check"></i><b>9.1.1</b> Logging</a></li>
-<li class="chapter" data-level="9.1.2" data-path=""><a href="#focas-1"><i class="fa fa-check"></i><b>9.1.2</b> FOCAS</a></li>
-<li class="chapter" data-level="9.1.3" data-path=""><a href="#can-monitor-1"><i class="fa fa-check"></i><b>9.1.3</b> CAN Monitor</a></li>
+<li class="chapter" data-level="9.1.1" data-path=""><a href="#logging"><i class="fa fa-check"></i><b>9.1.1</b> Logging</a></li>
+<li class="chapter" data-level="9.1.2" data-path=""><a href="#focas"><i class="fa fa-check"></i><b>9.1.2</b> FOCAS</a></li>
+<li class="chapter" data-level="9.1.3" data-path=""><a href="#can-monitor"><i class="fa fa-check"></i><b>9.1.3</b> CAN Monitor</a></li>
 <li class="chapter" data-level="9.1.4" data-path=""><a href="#verbindungsarten"><i class="fa fa-check"></i><b>9.1.4</b> Verbindungsarten</a></li>
 <li class="chapter" data-level="9.1.5" data-path=""><a href="#konfigurationen-für-werkzeug-und-prozesse"><i class="fa fa-check"></i><b>9.1.5</b> Konfigurationen für Werkzeug und Prozesse</a></li>
 <li class="chapter" data-level="9.1.6" data-path=""><a href="#opc-ua-server-adresse"><i class="fa fa-check"></i><b>9.1.6</b> OPC-UA Server Adresse</a></li>
@@ -177,18 +242,17 @@
 </div>
 <div id="version" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Version<a href="#version" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This version of the documentation was written for the Dashboard version v4.0.1.4.
+<p>This version of the documentation was written for the Dashboard version v5.1.1.9.
 For older documentation look at the following link:</p>
-<p><a href="https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20en.md">older Version</a></p>
+<p><a href="https://github.com/MyTooliT/Dashboard/blob/version_4_0_1_4/C-RIO_Dashboard_en.md">older Version</a></p>
 </div>
 <div id="icotronic-system-components" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> ICOtronic System components<a href="#icotronic-system-components" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The graphic below provides an overview about the ICOtronic system components. It consists of the following main parts:</p>
 <ul>
 <li>Sensory Tool Holder (STH)</li>
-<li>Signal Processing Unit (SPU)</li>
 <li>Stationary Transceiver Unit (STU)</li>
-<li>Charging Cradle (CC)</li>
+<li>Signal Processing Unit (SPU)</li>
 </ul>
 <p><img src="assets/Komponenten.png" alt="Komponenten" /></p>
 </div>
@@ -196,140 +260,144 @@ For older documentation look at the following link:</p>
 <h1><span class="header-section-number">3</span> Software and network Settings for your PC<a href="#software-and-network-settings-for-your-pc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>First, you need a Laptop running Windows and administrator privileges. You need the “LabView Runtime” installed on the Laptop, download link -&gt;</p>
 <p><a href="http://www.ni.com/download/labview-run-time-engine-2018/7383/en/" class="uri">http://www.ni.com/download/labview-run-time-engine-2018/7383/en/</a></p>
-<p>CAUTION: it has to be the 2020 SP1 (32-bit) version !!!</p>
-<p>Not all browsers can use this plugin. Microsoft Edge works if you run the Dashboard tab in the “Internet Explorer Mode”.
-Alternatively you can also use the ICOtronicRemotePanel. When using the panel you also need to have the “LabView Runtime” installed on your device.</p>
-<p>Before connecting the Laptop via the Ethernet Cable to the SPU, the correct network settings have to be configured. Therefore, set the network configuration of the interface that is going to be used with the SPU as illustrated below.</p>
+<p>CAUTION: it has to be the 2021 SP1 (32-bit) version !!!</p>
+<p>You have to use the ICOtronicRemotePanel to connect to the Dashboard.</p>
+<p>After connecting the Laptop via the Ethernet Cable to the SPU, the correct network settings have to be configured. Therefore, set the network configuration of the interface that is going to be used with the SPU as illustrated below.</p>
 <p><img src="assets/ip.png" alt="ip" /></p>
 <p>If required, please reboot your Laptop after changing the network settings.</p>
 </div>
 <div id="real-time-dashboard" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Real-Time-Dashboard<a href="#real-time-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>If you use Microsoft Edge open the explorer and go to:</p>
-<p><a href="http://192.168.1.115:8000/ICOtronicSPU.html" class="uri">http://192.168.1.115:8000/ICOtronicSPU.html</a></p>
-<p>If the Dashboard doesn’t open check if you are opening the side in the “Internet Explorer Mode”.
-This should open the real-time-Dashboard on your PC.</p>
-<p>If you use the “ICOtronicRemotePanel” then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
+<p>Use the “ICOtronicRemotePanel” then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
 <strong>192.168.1.115</strong></p>
 <p><img src="assets/Remote_IP.png" alt="Remote_IP" /></p>
 <p>With a press on “connect to SPU” the program should connect to the Dashboard.</p>
-<p>The Dashboard contains four tabs: <strong>Stability</strong>, <strong>Breakout detection</strong>, <strong>Raw data view</strong> and <strong>System</strong>. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier, a field where you can see the name and MAC-Address of the connected holder and the ICOtronic-logo.</p>
+<p>The Dashboard contains five tabs: <strong>Stability</strong>, <strong>Raw data view</strong>, <strong>Replay</strong>, <strong>System</strong> and <strong>Database</strong>. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic logo.</p>
 <p>If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.</p>
 <p><img src="assets/disconnected.png" alt="connected_w" /> &lt;——-&gt; <img src="assets/connected.png" alt="connected_b" /></p>
-<p>If no sensory tool holder is connected the fields for name and MAC-Address will be empty. When connected to a sensory tool holder the name and MAC-Address will show until disconnection.</p>
-<p><img src="assets/disconnected-name.png" alt="connected_name_w" /> &lt;——-&gt; <img src="assets/connected-name.png" alt="connected_name_b" /></p>
 <div id="system-tab" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> System Tab<a href="#system-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The system tab consists of 4 quarters. The lower right corner containing information about the signal quality and the CPU load.</p>
 <p><img src="assets/system_tab.png" alt="system" /></p>
-<p>In the section “Holder connection” of the system tab, all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. To establish a connection there are 3 different methods which can be used. The used method can be chosen with the “Connection type” drop-down menu and activated with the “-&gt;” button. On the right side are some system information. On the bottom left side are two tabs for using predefined rule and sensor configurations. On the bottom right side are a few tabs with additional functions.</p>
-<div id="logging" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Logging<a href="#logging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/logging_tab.png" alt="logging" /></p>
-<p>This tab is used for recording of a process. If the “Record at connect”-button is clicked it will turn green and show that the recording will start at connection to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier below shows green if a USB-device is connected. Below it shows the size of the momentary recording and the free space of the mounted USB.</p>
+<div id="connection-sub-part" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Connection sub part<a href="#connection-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the “-&gt;” button it can be activated. On the right side of the “-&gt;” button is the momentary active connection type. The right most button “AutoConnect Off/On” can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the “Static DI” mode. If it is set to “AutoConnect On” the system will connect to a holder without a TRUE on the connection pin. <strong>Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!</strong>
+The left list contains all the momentary defined “Static DI” sensor&amp;rule configurations. Below this list you can see the momentary per Digital INS chosen ID. With the “Delete Connect ID” button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The “STOP” , “CONNECT” buttons and the radio button with 1 &amp; 3 Channels labels are used to connect/disconnect the system in the “Dashboard” connection mode.</p>
+</div>
+<div id="rule-sensor-config-sub-part" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Rule &amp; Sensor config sub part<a href="#rule-sensor-config-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>2 tabs can be found on the upper right side. These are the “Rule Engine configs” and “Sensor configs”. In these 2 tabs you can see the momentary loaded configurations for “Static DI” on the system. Additionally in the “Sensor configs” tab you can highlight a holder by clicking on it and at the bottom below you can choose a rule from the drop-down menu and choose a connection ID you want to set. When pressing the “Load Sensor” button you can load the sensor&amp;rule config into the list of loaded connection options on the top left. Beside the 2 tabs you can see the OPC server URL which is needed if you want to connect/control the system via OPCUA.</p>
+</div>
+<div id="logging-sub-part" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Logging sub part<a href="#logging-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On the lower left side you can find the “Logging” tab. This tab is used for recording a process and shows the status of the digital inputs. If the “AutoRecord Off/On” button is clicked, it will start the recording when connected to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier “Storage mounted” shows blue if a USB-device is connected. Below it shows the “Recording” identifier which is blue if a record is beeing made at the moment. On the right side you can see the size of the momentary recording and the free space of the mounted USB.</p>
 <p><strong>Attention: the system only works with USB-devices formatted to FAT32-format!!!</strong></p>
-<p>The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 status identifier at the bottom show if the system is recording at the moment, if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules.</p>
-</div>
-<div id="focas" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> FOCAS<a href="#focas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/focas_tab.png" alt="focas" /></p>
-<p><strong>Attention: This connection is only possible on specific machines!</strong></p>
-<p>This tab is used if you want to control the system with the FOCAS connection. For this control you have to give the system the NC line number of the start and the end of the process which should be controlled. Additionally you can define the used IP-Address of the FOCAS connection. Then start the connection with the “FOCAS Start” button. If you want to stop the control via FOCAS you have to press the “FOCAS Stop” button which is there instead of the “FOCAS Start” if the connection is active. Note that if you are connected to a holder und you press “FOCAS Start” the system will disconnect the holder and you have to connect again to the holder.</p>
-</div>
-<div id="can-monitor" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> CAN Monitor<a href="#can-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/can_monitor.png" alt="can_monitor" /></p>
-<p>This tab shows information about the CAN messages send between the system and the dashboard. The “Reboot System” button below can be used to trigger a software side reboot of the SPU.</p>
+<p>The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 2 status identifier at the bottom show if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules. The last button “Autoenable Rule Off/On” can be used to let the rule always been enabled at the connection or if it will be controlled via the “Rule enabled” direct input.</p>
 </div>
 <div id="connection-types" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Connection types<a href="#connection-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>On the left side you can choose the connection type you want to use with the drop down menu. On the right side you can see the momentary active type. By pressing the “-&gt;” button between these two you can change the active type to the chosen type.</p>
+<p>On the left side you can choose a connection type with the drop down menu. On the right side you can see the momentary active connection type. By pressing the “-&gt;” button between these two you can update the active type to the chosen type.</p>
 <p><img src="assets/connection_type.png" alt="connection_type" /></p>
-<p>You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the “Static / DI” mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the hardware connected digital inputs of the SPU.</p>
-<p><img src="assets/channel_numbers.png" alt="channel_numbers" /></p>
+<p>You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the “Static / DI” mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the connected digital inputs of the SPU.</p>
+<p><img src="assets/Connect_request_id.png" alt="channel_numbers" />
+<img src="assets/channel_numbers.png" alt="channel_numbers" /></p>
 <div id="dashboard-opc-ua" class="section level4 hasAnchor" number="4.1.4.1">
 <h4><span class="header-section-number">4.1.4.1</span> Dashboard / OPC UA<a href="#dashboard-opc-ua" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>With this mode you can select the STH of your choice from the “Device list” and press “Connect”. With “Stop”, you can disconnect from the STH. After disconnection the Dashboard needs a few seconds before it starts searching for STHs again.</p>
+<p>In this mode you can select the STH of your choice from the “Device list” and press “Connect”. With “Stop”, you can disconnect from the STH. After disconnection the Dashboard needs a few seconds before it starts searching for STHs again.</p>
 <p><img src="assets/Holder_Connection.png" alt="halterauswahl" /></p>
 </div>
 <div id="static-di" class="section level4 hasAnchor" number="4.1.4.2">
 <h4><span class="header-section-number">4.1.4.2</span> Static / DI<a href="#static-di" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In this connection mode you can define static MAC-Addresses. Every holder has his own unique address. This address is shown on the right side of the device list. If this mode is selected, the digital input on the hardware is set to “1” and the holder with the defined MAC-Address is in range the system will automatically connect to this holder.
-Up to three holders can be defined and connected via there digital inputs. The fields for configuration of the static connection mode can be found below the connection-mode selection.</p>
-<p><img src="assets/MAC_Adress.png" alt="mac" /></p>
-<p>There are three tabs, one for each of the defined holders to configure. The upper part is used to change the parameters, the lower part (the one with the grey background) shows the momentary active state of the configuration. To write the changed configuration into the active part press the “Update” button on the top right.
-The “MacAdr” is the MAC-Address of the holder you want to chose. You can see the Address on the right column of the holder list. With “Channels” you can define how many channels the holder has. If there is anything beside “1” inside this box it will take it that the holder has thee channels. With a “1” the SPU will connect to it as a holder with one channel. The “Rule config ID” box can be used to set a predefined ruling configuration to be used when connecting to this holder. With a “0” it will use the parameters which are set in the “Stability” tab at the moment. With the “IFT value factor” and the “IFT value offset” you can adapt the calculated IFT-value.</p>
+<p>In this connection mode you can use the predefined connection list (seen on the “System” tab) and the digital inputs of the system to control the connection and parameters of the system. (How to add a rule&amp;sensor combination to the connection list see the chapter “Rule &amp; Sensor config sub part” of the “System tab” chapter) The ID of the connection list corresponds to the digital holder inputs of the system in a binary format. (Example: ID 3 represents an input of 00000011 on the 8 input pins) To start a connection you need to set the digital input for connection to high. At this moment the system will connect to the element of the list chosen by the digital inputs. The momentary chosen input can be seen below the connection list.</p>
+<p><img src="assets/Connect_request_id.png" alt="channel_numbers" /></p>
+<p>If the “AutoConnect Off/On” button is set to “ON” then the system will connect without the need to set the connection pin to high the moment the ID pins are set to TRUE. (Be careful that the connection ID pins have to be set in a time frame of 10ms)</p>
+<p><strong>Attention: Never change the given ID while the system is connected to a holder. First disconnect the system, then change the ID and after that start a new connection!!!</strong></p>
 </div>
 <div id="first-available-di" class="section level4 hasAnchor" number="4.1.4.3">
 <h4><span class="header-section-number">4.1.4.3</span> First available /DI<a href="#first-available-di" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In this mode the system will connect to the first holder it finds within its range. When the digital input to enable the ruling is set.</p>
+<p>In this mode the system will connect to the first holder it finds within its range the moment the connection pin is set to high.</p>
 </div>
 </div>
-<div id="configuration-of-tools-and-processes" class="section level3 hasAnchor" number="4.1.5">
-<h3><span class="header-section-number">4.1.5</span> Configuration of tools and processes<a href="#configuration-of-tools-and-processes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In the system tab you can see 2 additional tabs used to load preset configurations called “Rule Engine configs” and “Sensor configs”. Pressing the “Load Rule” Button will load and apply the chosen configuration file. With this function you can define your parameters and load them via the press of a button. This has the advantage that you don’t have to manually change all the parameters of the SPU and can use different defined configurations for different holders with different processes to be used in.</p>
-<p><img src="assets/Rule_Engine_Config.PNG" alt="rule-config" /></p>
-<p><img src="assets/Sensor_Config.PNG" alt="sensor-config" /></p>
-<p><strong><u>IN DEVELOPMENT!!!!</u></strong>
-The rules and sensor configs can be edited via the following link:
-<a href="http://192.168.1.115:8000/MainConfig.html" class="uri">http://192.168.1.115:8000/MainConfig.html</a>
-The configuration is working, but the design and user friendliness is <strong>still in development!</strong></p>
 </div>
-<div id="opc-ua-server-address" class="section level3 hasAnchor" number="4.1.6">
-<h3><span class="header-section-number">4.1.6</span> OPC-UA Server Address<a href="#opc-ua-server-address" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>On the right side, beside the rule and sensor configs you can find the OPCUA-Server address of the SPU which you need if you want to connect via OPCUA with the SPU.</p>
-<p><img src="assets/opcua.png" alt="opcua" /></p>
+<div id="database" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Database<a href="#database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="assets/Database.png" alt="system" /></p>
+<p>This tab is used to load and save the configuration of rules and sensors. It can be split into 4 parts. The first part is on the top and has the system controls. The middle part is used to configure the sensors. The bottom part on the bottom is used to configure the rules. The right most part of this sub part is the message screen. It shows the last few operations done in the “Database” tab. With a click on the “Clear Messagehistory” button the message history can be cleared.</p>
+<div id="system-sub-part" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> System sub part<a href="#system-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_control.png" alt="system" /></p>
+<p>The leftmost buttons are used to load the momentary detected sensor and rule lists into the running system or load the momentary used lists from the running system back to the lists below. The lists can also be saved to the local memory of the system or an USB-stick. The “Load/Save to local Config” buttons can be used to load/save a configuration on the local system. With “Load/Save from/to file” it will not use the local config file but the parameters on the right side of these 2 buttons. The “Speicherort” drop down can be used to change between local system and USB. The “file” text field can be used to give a name to the configuration or name the to be loaded file.</p>
+</div>
+<div id="sensor-sub-part" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Sensor sub part<a href="#sensor-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_sensors.png" alt="system" /></p>
+<p>In this subpart you can see the defined sensors of the sensor list and change them. The list on the left side shows the defined sensors. You can highlight a sensor by clicking on it. With the “Delete Sensor” button you can delete the chosen sensor from the list. If you press the “Sensor -&gt;” button the values of the chosen sensor will be loaded from the left list into the configuration fields on the right side. The list on the right side shows all holders momentary found by the system in close proximity. By clicking one holder it will be highlighted. If you press the “-&gt;” button the values of the chosen holder will be loaded into the configuration fields below. In the fields below you can find the configurations of the holder for the sensor list. You can change the IFT value offsets/factors of the holder on the rightmost fields. The “Sensor ID” is the ID you want to give the holder configuration in the sensor list. If this ID is already defined will it be overwritten when saving. The “MacAdr” is the MAC-Address of the holder and defines which holder will be connected. The “name” is a name which can be given to the sensor which will be shown on the “Stability” tab when the sensor is connected and can be chosen freely. The “description” can be filled for example with information about this sensor. The “Channels” field is used to define how many channels the chosen holder uses in this sensor entry. All values except “1” will be seen as 3 channels whereas “1” activates 1 channel. With the “Add/Update Sensor” button the parameters can be written into the sensor list on the left.</p>
+</div>
+<div id="rule-sub-part" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Rule sub part<a href="#rule-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_rule.png" alt="system" /></p>
+<p>This sub part has a list of all defined rules on the left side. The rule “0” is always there, can not be deleted and is using the momentary parameters of the dashboard instead of predefined parameters. The “Parameters” box shows a list of all the parameters of the chosen rule. With the button “Delete Rule” the highlighted rule will be deleted. When pressing the “Rule -&gt;” button the parameter of the chosen rule will be loaded into the configuration fields on the right side. In the fields on the right side you can chose a “Rule ID” and give it a name. In the fields below you can set the parameters for the “Stability” tab. A description of these parameters can be found in this manual in the chapter “Stability tab”. Additionally you can chose a “Base Rule ID” here. If you choose a rule different from “0” then all parameters which are given <strong>NEGATIVE</strong> will load parameters of the chosen “Base Rule”. (The rule mode and the stability_Channel also have a “From Base Rule” option to chose if wanted) This can be used if you want to use the same parameter from a predefined set and only have to change this rule to change more rules automatically. In the “description” field the rule can be given a description. With the “Add/Update Rule” button the configuration can be written into the list. If a rule with the chosen “Rule ID” already exists, it will be overwritten with the new values.</p>
+</div>
+<div id="auto-importing-rule-configurations" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Auto importing rule configurations<a href="#auto-importing-rule-configurations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is possible to import rules automatically via the network into the system. To do this you have to copy a .json file with the right inputs to the following path:
+“<a href="http://192.168.1.115/files/c/autoload" class="uri">http://192.168.1.115/files/c/autoload</a>”
+<strong>Attention: everything has to be written in lower cases!!!</strong>
+If a file in the right format is moved to this path it will automatically be added to the rules.
+Below you can find the necessary .json file format:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="dt">&quot;mode&quot;</span><span class="fu">:</span><span class="st">&quot;watch&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    <span class="dt">&quot;description&quot;</span><span class="fu">:</span><span class="st">&quot;&quot;</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    <span class="dt">&quot;#attributes&quot;</span><span class="fu">:{</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>        <span class="dt">&quot;id&quot;</span><span class="fu">:</span><span class="dv">-1</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>        <span class="dt">&quot;name&quot;</span><span class="fu">:</span><span class="st">&quot;&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>    <span class="dt">&quot;stabilityParam&quot;</span><span class="fu">:{</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>        <span class="dt">&quot;windowLength&quot;</span><span class="fu">:</span><span class="dv">126</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>        <span class="dt">&quot;upperThreshold&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="er">.00000</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>        <span class="dt">&quot;lowerThreshold&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="er">.00000</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>        <span class="dt">&quot;ramp&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="er">.00000</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>        <span class="dt">&quot;feedOverride&quot;</span><span class="fu">:</span><span class="dv">-1</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>        <span class="dt">&quot;spindleOverride&quot;</span><span class="fu">:</span><span class="dv">-1</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>        <span class="dt">&quot;feedReductionFactor&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="er">.00000</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>        <span class="dt">&quot;spindleReductionFactor&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="er">.00000</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>        <span class="dt">&quot;deadtime&quot;</span><span class="fu">:</span><span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>        <span class="dt">&quot;stability_Channel&quot;</span><span class="fu">:</span><span class="st">&quot;Channel 1&quot;</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>    <span class="dt">&quot;Base Rule ID&quot;</span><span class="fu">:</span><span class="dv">0</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>The input parameters “mode” &amp; “stability_Channel” have to be the exact same string as used in the dashboard.
+The input parameters “description” &amp; “name” can be freely chosen strings.
+All the other parameters have to be numbers as in the dashboard configuration. As in the dashboard configuration negative numbers dedicate that this value should be taken from the chosen “Base Rule ID”.
+The input parameter “id” defines the Rule ID. This means the “id” defines the identification number of the rule. If this value is given a negativ number the rule will be put in the next free spot of the rule configuration.
+When the file was successfully added to the rules it will be automatically moved to the folder “done”.</p>
 </div>
 </div>
-<div id="raw-data-view-tab" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Raw Data View Tab<a href="#raw-data-view-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="assets/RawDataView.PNG" alt="raw" /></p>
-<p>If this tab is chosen it will show the raw data of the connected sensory tool holder, depending if 1 or 3 channels were chosen you can see 1 or 3 signals. This is used if you want to plot the raw not computed signals of the tool holder. If you right-click the y-axis you can change from auto scale mode to defined values.</p>
-</div>
-<div id="breakout-detection-tab" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Breakout detection Tab<a href="#breakout-detection-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong><u>IN DEVELOPMENT!!!!</u></strong></p>
-<p><img src="assets/Breakout_detection.png" alt="breakout" /></p>
-<p>This tab is used when you want to detect breakout of cutting edges.</p>
-<p>On the top left side are the parameters for the detection. On the top right side is the graph of the quality factor which indicates a breakout. On the bottom left side is a graph of the signal power. And on the bottom right is a graph of the frequency spectrum. In the frequency spectrum graph you can move the cursor to see the amplitude and frequency on this cursor position on the top left of the spectrum graph. If the parameters are set you can additionally see green vertical bars. These bars represent the areas used by the breakout detection algorithm based on the chosen parameters. When using a new cutting tool the multiples of the meshing frequency should be visible. On the right side you can change the zoom of the x-axis(frequency) and the y-axis(amplitude) of this graph.</p>
-<div id="breakout-parameters" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Breakout parameters<a href="#breakout-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/Breakout_parameter.png" alt="breakout_paramter" /></p>
-<p>These parameters are used to configure the breakout detection. To activate the new parameters the “Update” button has to be clicked.</p>
-<div id="spindle-speed" class="section level4 hasAnchor" number="4.3.1.1">
-<h4><span class="header-section-number">4.3.1.1</span> Spindle speed<a href="#spindle-speed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This parameter is the spindle speed which is used in the cutting process.</p>
-</div>
-<div id="order-limit" class="section level4 hasAnchor" number="4.3.1.2">
-<h4><span class="header-section-number">4.3.1.2</span> Order limit<a href="#order-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This parameter is the number of orders of the tooth passing frequency which should be used to detect the breakouts.</p>
-</div>
-<div id="comb-width" class="section level4 hasAnchor" number="4.3.1.3">
-<h4><span class="header-section-number">4.3.1.3</span> Comb width<a href="#comb-width" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This parameter defines the comb width which is used to analyze the frequency spectrum to detect the breakouts. This is needed since the frequencies are not a peak with only 1 value but more like a plateau because we are in a real and not ideal situation.</p>
-</div>
-<div id="number-of-teeth" class="section level4 hasAnchor" number="4.3.1.4">
-<h4><span class="header-section-number">4.3.1.4</span> Number of teeth<a href="#number-of-teeth" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This parameter is the number of teeth the cutting tool posses.</p>
-</div>
-<div id="signal-power-limit" class="section level4 hasAnchor" number="4.3.1.5">
-<h4><span class="header-section-number">4.3.1.5</span> Signal power limit<a href="#signal-power-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This value defines a signal power. Everything below this signal power will be ignored. This is needed so that the detection only works when the tool is cutting. Without the quality factor could be signaling a breakout even if the tool is not cutting at the moment.</p>
-</div>
-</div>
+<div id="replay-tab" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Replay Tab<a href="#replay-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="assets/Replay_filled.png" alt="system" /></p>
+<p>In this tab old recorded files from the USB are shown. Furthermore it allows you to recalculate the IFT value for the stored files.</p>
+<p>You will see a list with all the recordings stored on the connected USB. Choose the recording you want to see, highlight it by pressing it and the press the “Load File” button to start the replay. Now the chosen file will be loaded.</p>
+<p><img src="assets/Replay.png" alt="system" /></p>
+<p>You can see the information of the chosen recording (like the recording start time, filename, device name,…) on the top side. With the “Close File” button you can close the recording and go back to the list of recordings.
+On the left side are the parameters which were active when the recording was taken.
+Right below the recorded parameters is a box in which you can change the “IFT value factor”, “IFT value offset”, “Stability Channel” and the “WindowLength”. When you change these parameters and press the “Recalculate” button the system will calculate a new IFT value recalc for the whole file and print it together with the original recording.</p>
+<p><img src="assets/Replay_recalc.png" alt="system" /></p>
+<p>On the right side are two graphs. The top one shows the timeline. The red line can be moved via drag and drop and symbolises the starting point of the “Zoom” below. The lower graph shows the IFT value from the chosen starting point till 20 seconds thereafter. After changing the starting point you have to press the “Recalculate” button to reload this graph to the chosen timeframe.</p>
 </div>
 <div id="stability-tab" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Stability tab<a href="#stability-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.4</span> Stability Tab<a href="#stability-tab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="assets/stability-tab.png" alt="stability-tab" /></p>
 <p>In the Stability tab, you can change the mode of the system, the parameter of the in-process control and you can view the system’s live data.</p>
-<p>CAUTION: The tabs System and Stability tab are not connected. Therefore, if you disconnect the STH, the mode and the parameter set up in the Stability tab stay the same, even if you connect a new STH. These parameters only reset when the SPU got a reset.</p>
-<p>In the upper left, you can change the active mode (For detailed descriptions of the modes, see chapter “Modes”).</p>
+<p>CAUTION: The tabs System and Stability tab are not connected. Therefore, if you disconnect the STH, the mode and the parameter set up in the Stability tab stay the same, even if you connect a new STH (in “Dashboard Connection” Mode, in “Static DI” Mode the chosen rule parameters are loaded). These parameters only reset when the SPU got a reset.</p>
+<p>On the top is a graph showing the Signal Quality. This percentage value shows how many packets are successfully received. If the connection is bad and it comes to packet loss then this value will fall below the 100% mark. There are 5 fields on the right side of this graph. “STH Name” shows the name of the connected holder. “STH Rule” shows the number and name of the rule which is chosen. “MO Number”, “NC Program Number” and “Part Number” will be saved in the recording file, if filled in.</p>
+<p>On the left, you can change the active mode (For detailed descriptions of the modes, see chapter “Modes”).</p>
 <p><img src="assets/modeauswahl.png" alt="modeauswahl" /></p>
 <p>Below the mode selection are the configuration parameters (For detailed descriptions of the parameters, see chapter “Parameters”).</p>
-<p>Beside the mode selection you can find an indicator which shows if the system is recording at the moment. If the system is recording the indicator will turn bright green.</p>
+<p>On the right-hand side you can see the live data of the system, change the shown time window length (in seconds). You can also choose to stop the data-print. There is also an indicator which shows, if the system is recording at the moment. If the system is recording the indicator will turn blue.</p>
 <p><img src="assets/record-off.png" alt="recording-off" /> &lt;——-&gt; <img src="assets/record-on.png" alt="recording-on" /></p>
-<p>On the right-hand side you can see the live data of the system, change the shown time window length (in seconds) and you can choose to stop the data-print.</p>
-<p><img src="assets/grafhistory.png" alt="grafhistory" /></p>
 <p>The newest data point is on the right-hand side. The oldest one to the left.</p>
+<p><img src="assets/grafhistory.png" alt="grafhistory" /></p>
 <div id="ift-value" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> IFT-Value<a href="#ift-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The IFT-Value is the system’s criteria to find out if the process is stable or instable. If the value is above a chosen threshold and an in-process control mode is selected, the system generates new setpoints for the overrides feed rate and spindle speed in order to stabilize the process again.</p>
@@ -347,11 +415,11 @@ The configuration is working, but the design and user friendliness is <strong>st
 </div>
 <div id="controls-for-the-rule" class="section level3 hasAnchor" number="4.4.4">
 <h3><span class="header-section-number">4.4.4</span> Controls for the rule<a href="#controls-for-the-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There are two buttons at the bottom of the screen. The “freigabe Regler” button can be used like the digital input which activates the rule engine. If you press the button it will change the name to “Regler freigegeben” and the “Sens” graph will change to 1. If you press it again it will change it’s name back and the “Sens” graph will go back to “0”. The “Reset Regler” button is only needed if the system is used in the “stop” mode.</p>
+<p>There are two buttons at the bottom of the screen. The “Update” Button loads the left side of the parameters into the running values on the right side. The “Rule Reset” button can be used when using the “Stop” Mode to reset the overrides back to 0% reduction.</p>
 </div>
 <div id="stability-parameters" class="section level3 hasAnchor" number="4.4.5">
 <h3><span class="header-section-number">4.4.5</span> Stability-Parameters<a href="#stability-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Depending on which mode is set active, different parameters can be changed. To change said parameters to new values, press the “update” button on the bottom (with “Window length” being the only exception in “Watch” mode).</p>
+<p>Depending on which mode is set active, different parameters can be changed. To change these parameters to new values, press the “update” button on the bottom. An exception is the window length in watch mode. It can always be changed.</p>
 <p><img src="assets/parameter.png" alt="parameter" /></p>
 <div id="window-length" class="section level4 hasAnchor" number="4.4.5.1">
 <h4><span class="header-section-number">4.4.5.1</span> Window length<a href="#window-length" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -409,16 +477,16 @@ Reduction step 2: Reduction from 95 % to 90 %
 <p>{ms} deadtime</p>
 <p>This parameter is only used in the “Stability reduction” mode. This value equals the time in ms the system pauses before checking if it should reduce the spindle speed and feed rate again. The smaller this value, the quicker the ICOtronic system reduces the speed. As a reference value for first tests 300 ms can be mentioned. This means, each 300 ms feed rate and/or spindle speed are adapted as long as the IFT value exceeds the threshold.
 <strong><u>Note:</u></strong> if this value is to low it can happen that the machine needs longer to set the new parameters than the system waits to see if something changed. This would have the problem that even it the process stabilises the machine still changes values from the last instance and the process gets unstable again.</p>
-<p>Examples:</p>
+<p><strong>Examples</strong>:</p>
 <p>In the pictures below, there are 2 different Deadtimes set. The first picture has a shorter Deadtime than the second one. It can be seen that the minimal Overrides are reached quicker with a lower Deadtime.</p>
-<p>Feed reduction factor: 8%; Feed override min: 10%; Spindle reduction factor: 5%; Spindle override min: 20%</p>
+<p>Feed reduction factor: 5%; Feed override min: 40%; Spindle reduction factor: 7%; Spindle override min: 10%</p>
 <p>Deadtime: 100ms</p>
 <p><img src="assets/deadtime1.png" alt="deadtime1" /></p>
 <p>Deadtime: 300ms</p>
 <p><img src="assets/deadtime2.png" alt="deadtime2" /></p>
 </div>
-<div id="channels" class="section level4 hasAnchor" number="4.4.5.10">
-<h4><span class="header-section-number">4.4.5.10</span> Channels<a href="#channels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="stability_channel" class="section level4 hasAnchor" number="4.4.5.10">
+<h4><span class="header-section-number">4.4.5.10</span> Stability_Channel<a href="#stability_channel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} channels</p>
 <p>If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.</p>
 </div>
@@ -461,23 +529,23 @@ Reduction step 2: Reduction from 95 % to 90 %
 </div>
 <div id="example-use-case" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Example use-case<a href="#example-use-case" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Open the internet explorer and connect to the Dashboard. After the page is loaded, go to the “System” tab and wait for the holder inside the machine to be listed. Now press “Connect” and go to the “Stability” tab. The STH’s LED should start blinking and the STU’s LEDs in the corners should stop blinking and instead shine continuously. After a short moment, the IFT-Value graph should start to display values different from zero. Change the mode to “Watch” and choose a “Window length” with about 70 ms as a first orientation. Change the “Graph History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order to take look at the whole process, press the “pause graph” button after the process. Remember that the seconds below the graphs show how many seconds in the past this point was. The following figure represents an example of cut in the watch mode.</p>
+<p>Open the Remote Control Panel and connect to the Dashboard. After the page is loaded, go to the “System” tab and wait for the holder inside the machine to be listed. Now press “Connect” and go to the “Stability” tab. The STH’s LED should start blinking and the STU’s LEDs in the corners should stop blinking and instead shine continuously. After a short moment, the IFT-Value graph should start to display values different from zero. Change the mode to “Watch” and choose a “Window length” with about 70 ms as a first orientation. Change the “Graph History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order to take look at the whole process, press the “pause graph” button after the process. Remember that the seconds below the graphs show how many seconds in the past this point was. The following figure represents an example cut in the watch mode.</p>
 <p><img src="assets/example.png" alt="example" /></p>
 <p>Now change to on of the two control modes and set the parameters of the “Upper threshold” and “Lower threshold” to plausible values, for the in-process parameter adaption. Repeat the cut, in which the override adaption is now activated.</p>
 <p><img src="assets/example2.png" alt="example2" /></p>
 <p>Look if the parameters are chosen appropriately in order to control the process. If not, change them in an adequate way.</p>
-<p>The time required to optimize the system for the use case varies. This depends on the intensity of chatter, the process time, the experience for configuring the Dashboard and the experience of the machine operator. This optimization procedure can take between one hour and several hours.</p>
+<p>The time required to optimize the system for the use case varies. This depends on the intensity of chatter, the process time, the experience for configuring the Dashboard and the experience of the machine operator.</p>
 </div>
 </div>
-<div id="how-to-use-the-opcua-server-of-the-spu" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> How to use the OPCUA-server of the SPU<a href="#how-to-use-the-opcua-server-of-the-spu" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="connecting-the-opcua-server" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Connecting the OPCUA-Server<a href="#connecting-the-opcua-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>First, a OPC UA client is required on your PC. Please, find subsequently as a suggestion the download link of a UaExpert client (UaExpert v1.5.1). A user account is required.
+<div id="how-to-use-the-opc-ua-server-of-the-spu" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> How to use the OPC UA-Server of the SPU<a href="#how-to-use-the-opc-ua-server-of-the-spu" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="connecting-the-opc-ua-server" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Connecting the OPC UA-Server<a href="#connecting-the-opc-ua-server" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, an OPC UA client is required on your PC. For example use the UaExpert client UaExpert v1.5.1. A user account is required.
 Download link: <a href="https://www.unified-automation.com/downloads/opc-ua-clients.html" class="uri">https://www.unified-automation.com/downloads/opc-ua-clients.html</a><br />
 Afterwards open the UaExpert client-program. When the program is open you have to click on “Server” at the top menu and then on “Add…”. This opens a window to search for and connect with the OPC UA-Server of the Signal Processing Unit (SPU) of the ICOtronic system.</p>
 <p><img src="assets/find_server.png" alt="find_server" /></p>
-<p>In the new window you now have to go to the menu entry “Custom Discovery” and double click the sub menu entry „&lt; Double click to Add Server… &gt;“. Now a little new window will open. Here you have to input the address which you can find in the dashboard of the SPU:</p>
+<p>In the new window you have to go to the menu entry “Custom Discovery” and double click the sub menu entry „&lt; Double click to Add Server… &gt;“. Now a new window will open. Here you have to input the address which you can find in the dashboard of the SPU:</p>
 <p><img src="assets/opcua.png" alt="opcua-adress" /></p>
 <p>Now the server should be found and you can open some sub menu entries. Double click the “None – None (uatcp-uasc-uabinary)”. Now the “OK” button should be usable and you can click it to exit this window.</p>
 <p><img src="assets/add_server.png" alt="add_server" /></p>
@@ -486,7 +554,7 @@ Afterwards open the UaExpert client-program. When the program is open you have t
 </div>
 <div id="visualisation-of-the-variables" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Visualisation of the variables<a href="#visualisation-of-the-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>After connecting to the OPCUA-Server you should now be able to see variables on the left side of the menu.</p>
+<p>After connecting to the OPC UA-Server you should be able to see variables on the left side of the menu.</p>
 <p><img src="assets/variables_opcua.png" alt="variables_opcua" /></p>
 <p>The variables can be sorted into 3 groups: “command”, “data” and “param”.
 In the “command” group you can find bool variables which activate a command if set to “true”. An example would be that setting the variable “disconnectHolder” to “true” the system will disconnect the momentary connected holder.
@@ -494,8 +562,8 @@ The “data” group contains values which are calculated/set by the system. An 
 The “param” group can be split into 2 subgroups. The “active” subgroup contains the momentary set parameters of the rule engine. The “set” subgroup can be used to change the parameters of the rule engine.</p>
 <p>With a double click, these variables can be opened and shown on the upper right-hand side of the menu.</p>
 <p><img src="assets/note_details.jpg" alt="note_details" /></p>
-<p>In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu entry “Value” shows the last read value of this element.
-In order to show an element permanently in the middle tab of the screen, you can drag&amp;drop it from the bottom left into the big tab in the middle. Alternativly you can right click in the big middle tab. Now a menu should open and you have to click on „Add custom node…“.</p>
+<p>In this window, it is possible to read the different value parameters of the chosen element. For example, the actual value of the element or the timestamp of the last time, this element was updated. The menu item “Value” shows the last read value of this element.
+In order to show an element permanently in the middle tab of the screen, you can drag&amp;drop it from the bottom left into the big tab in the middle. Alternatively you can right click in the big middle tab. Now a menu should open and you have to click on „Add custom node…“.</p>
 <p><img src="assets/add_note.png" alt="add_note" /></p>
 <p>After that, you have to state the variable name of the element you want to show. Every element of the OPC UA-Server can be chosen via its identifier. If an element is selected, the identifier can be read out at the element parameters in the right upper tab. There, you can pick the entry “NodeId” and find the required information.</p>
 <p><img src="assets/note_id.jpg" alt="note_id" /></p>
@@ -504,9 +572,9 @@ In order to show an element permanently in the middle tab of the screen, you can
 </div>
 <div id="changing-of-variables" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Changing of variables<a href="#changing-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To change variables, for example the “windowLength” you have to choose the corresponding variable in the “set” subgroup of the “param” group. Now you can change the “Value” of this variable. If you also look at the “active” parameter of the variable you can see that the value wasn’t changed automatically.</p>
+<p>To change variables, for example the “windowLength” you have to choose the corresponding variable in the “set” subgroup of the “param” group. Now you can change the “Value” of this variable. If you look at the “active” parameter of the variable you will notice that the value wasn’t changed automatically.</p>
 <p><img src="assets/note_value_change.png" alt="note_value_change" /></p>
-<p>The value will only be written into the active parameter after the “setStabilityParam” parameter of the “command” group was written “true”. Afterwards you can see that the active parameter was written with the set value.
+<p>The value will only be written into the active parameter after the “setStabilityParam” parameter of the “command” group has been written “true”. Afterwards you can see that the active parameter was written with the set value.
 Note that the “setStabilityParam” command changes all changed parameters at once.</p>
 <p><img src="assets/note_changed.png" alt="note_changed" /></p>
 </div>
@@ -514,15 +582,15 @@ Note that the “setStabilityParam” command changes all changed parameters at 
 <h2><span class="header-section-number">5.4</span> Recording of variables<a href="#recording-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>With UaExpert you can also save the variables into a “.csv” file. To use this function you have to go to “Documents -&gt; Add Document” and in the following window you have to choose “Data Logger View”.</p>
 <p><img src="assets/add_data_logger.png" alt="add_data_logger" /></p>
-<p>The “Data Logger View” should now open itself.</p>
+<p>The “Data Logger View” will open.</p>
 <p><img src="assets/data_logger.png" alt="data_logger" /></p>
 <p>Now you can add the variables just like you did in the “Data Access View” window before. On the right side you can edit various parameters for the recording of the variables.</p>
 <p><img src="assets/logger_variables.png" alt="logger_variables" /></p>
-<p>Below the chosen variables you can find the parameters of the recorded files. There you can define the data path for the recording, the maximum number of lines written into the file and how many files into the past should be kept before overwriting the files.</p>
+<p>Below the chosen variables you can find the parameters of the recorded files. There you can define the data path for the recording, the maximum number of lines written into the file and how many files from the past should be kept before overwriting the files.</p>
 <p><img src="assets/logger_output_details.png" alt="logger_output_details" /></p>
-<p><strong>ATTENTION:</strong> If a new recording is started the old recordings get a number at the end of the name and will get an increment of this number thereafter. Therefor you have to be careful when recording so that you can later still know which file was which recording.</p>
+<p><strong>ATTENTION:</strong> If a new recording is started the old recordings get a number at the end of the name and will get an increment of this number thereafter. Therefor you have to be careful when recording so that later you still know which file was which recording.</p>
 <p><img src="assets/logger_output_files.png" alt="logger_output_files" /></p>
-<p>Direct below you find the “Start” and “Stop” button and an information about how many values were written in the momentary recording.</p>
+<p>At the bottom of the Data Logger View you find the “Start” and “Stop” button and an information about how many values were written in the momentary recording.</p>
 <p><img src="assets/logger_runtime.png" alt="logger_runtime" /></p>
 
 </div>
@@ -581,22 +649,22 @@ Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.</p>
 <h2><span class="header-section-number">9.1</span> System Reiter<a href="#system-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="assets/system_tab.png" alt="system-new" /></p>
 <p>Im Untermenü “Holder connection” des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü “Connection type” mittels Drop-Down Auswahl gewählt werden und mittels des “-&gt;” Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit 2 Reitern welche benutzt werden um vordefinierte Regelparameter und Sensoreinstellungen zu benutzen. Unten rechts befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.</p>
-<div id="logging-1" class="section level3 hasAnchor" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Logging<a href="#logging-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="logging" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Logging<a href="#logging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/logging_tab.png" alt="logging" /></p>
 <p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect” Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.</p>
 <p><strong>Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!</strong></p>
 <p>Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen).
 Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt.</p>
 </div>
-<div id="focas-1" class="section level3 hasAnchor" number="9.1.2">
-<h3><span class="header-section-number">9.1.2</span> FOCAS<a href="#focas-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="focas" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> FOCAS<a href="#focas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/focas_tab.png" alt="focas" /></p>
 <p><strong>Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!</strong></p>
 <p>Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Zusätzlich kann die IP-Adresse der FOCAS Schnittstelle angegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des “FOCAS Start” Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der “FOCAS Stop” Button gedrückt werden welcher den “FOCAS Start” bei aktiver Kontrolle ersetzt. Zu beachten ist, dass wenn ein Halter verbunden ist wenn “FOCAS Start” betätigt wird, dieser disconnected wird und erneut ein Halter verbunden werden muss.</p>
 </div>
-<div id="can-monitor-1" class="section level3 hasAnchor" number="9.1.3">
-<h3><span class="header-section-number">9.1.3</span> CAN Monitor<a href="#can-monitor-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="can-monitor" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> CAN Monitor<a href="#can-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/can_monitor.png" alt="can_monitor" /></p>
 <p>Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an. Mit dem Button “Reboot System” kann ein Software seitiger Reset der SPU ausgelöst werden.</p>
 </div>
@@ -655,24 +723,24 @@ Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlich
 <h3><span class="header-section-number">9.3.1</span> Schneidenausbruchs Parameter<a href="#schneidenausbruchs-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="assets/Breakout_parameter.png" alt="breakout_paramter" /></p>
 <p>Diese Parameter werden dazu genutzt die Detektion von Schneidenausbrüchen einstellen zu können. Um die neu eingestellten Parameter zu aktivieren muss der “Update” Button gedrückt werden.</p>
-<div id="spindle-speed-1" class="section level4 hasAnchor" number="9.3.1.1">
-<h4><span class="header-section-number">9.3.1.1</span> Spindle speed<a href="#spindle-speed-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="spindle-speed" class="section level4 hasAnchor" number="9.3.1.1">
+<h4><span class="header-section-number">9.3.1.1</span> Spindle speed<a href="#spindle-speed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dieser Parameter ist die eingestellte Drehzahl des Prozesses.</p>
 </div>
-<div id="order-limit-1" class="section level4 hasAnchor" number="9.3.1.2">
-<h4><span class="header-section-number">9.3.1.2</span> Order limit<a href="#order-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="order-limit" class="section level4 hasAnchor" number="9.3.1.2">
+<h4><span class="header-section-number">9.3.1.2</span> Order limit<a href="#order-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dieser Parameter ist die Ordnung der Schneideneingriffsfrequenz die für die Berechnung herangezogen wird.</p>
 </div>
-<div id="comb-width-1" class="section level4 hasAnchor" number="9.3.1.3">
-<h4><span class="header-section-number">9.3.1.3</span> Comb width<a href="#comb-width-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="comb-width" class="section level4 hasAnchor" number="9.3.1.3">
+<h4><span class="header-section-number">9.3.1.3</span> Comb width<a href="#comb-width" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dieser Parameter gibt die Kammbreite an mit welcher das Frequenzspektrum analysiert wird. Diese ist notwendig da Frequenzen nicht nur als 1 eindeutiger Wert auftreten sondern eher in Form eines Plateaus auftreten da es sich um einen realen und keinen idealen Prozess handelt.</p>
 </div>
-<div id="number-of-teeth-1" class="section level4 hasAnchor" number="9.3.1.4">
-<h4><span class="header-section-number">9.3.1.4</span> Number of teeth<a href="#number-of-teeth-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="number-of-teeth" class="section level4 hasAnchor" number="9.3.1.4">
+<h4><span class="header-section-number">9.3.1.4</span> Number of teeth<a href="#number-of-teeth" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dieser Parameter ist die Anzahl der Zähne die das benutzte Werkzeug besitzt.</p>
 </div>
-<div id="signal-power-limit-1" class="section level4 hasAnchor" number="9.3.1.5">
-<h4><span class="header-section-number">9.3.1.5</span> Signal power limit<a href="#signal-power-limit-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="signal-power-limit" class="section level4 hasAnchor" number="9.3.1.5">
+<h4><span class="header-section-number">9.3.1.5</span> Signal power limit<a href="#signal-power-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dieser Parameter definiert eine Signalenergie. Alles unterhalb dieses Wertes wird ignoriert. Diese Einstellung ist nötig damit das System nur dann Werte berechnet wenn das Werkzeug benutzt wird und nicht wenn es gerade nicht im Schnitt ist. Ohne diesen Wert könnte der Qualitätsfaktor einen Schneidenausbruch anzeigen selbst wenn das Werkzeug sich gerade nicht in Verwendung befindet.</p>
 </div>
 </div>
@@ -780,8 +848,8 @@ Reduzierungsschritt 2: Reduktion von 95% auf 90%
 <p>Deadtime: 300ms</p>
 <p><img src="assets/deadtime2.png" alt="deadtime2" /></p>
 </div>
-<div id="channels-1" class="section level4 hasAnchor" number="9.4.5.10">
-<h4><span class="header-section-number">9.4.5.10</span> Channels<a href="#channels-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="channels" class="section level4 hasAnchor" number="9.4.5.10">
+<h4><span class="header-section-number">9.4.5.10</span> Channels<a href="#channels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} channels</p>
 <p>Mit diesem Drop-Down Menü kann der Kanal gewechselt werden, mit welchem der IFT-Wert berechnet wird, sollte das System mit einem 3 Kanal fähigen Halter verbunden sein. Es kann ein einzelner Kanal gewählt werden oder mehrere Kanäle gleichzeitig. Wenn ein Halter mit 1 Kanal verbunden wurde wird dieses Menü vom System ignoriert und die IFT-Wert Berechnung erfolgt mit dem einen zur Verfügung stehenden Kanal.</p>
 </div>
