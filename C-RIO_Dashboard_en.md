@@ -4,10 +4,10 @@
 User manual for the ICOtronic Dashboard.
 
 # Version
-This version of the documentation was written for the Dashboard version v5.1.1.9.
+This version of the documentation was written for the Dashboard version v5.3.0.4.
 For older documentation look at the following link:
 
-[older Version](https://github.com/MyTooliT/Dashboard/blob/version_4_0_1_4/C-RIO_Dashboard_en.md)
+[older Version](https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_en.md)
 
 # ICOtronic System components 		  			
 
@@ -59,19 +59,31 @@ The system tab consists of 4 quarters. The lower right corner containing informa
 ### Connection sub part
 
 In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the "->" button it can be activated. On the right side of the "->" button is the momentary active connection type. The right most button "AutoConnect Off/On" can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the "Static DI" mode. If it is set to "AutoConnect On" the system will connect to a holder without a TRUE on the connection pin. **Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!**
-The left list contains all the momentary defined "Static DI" sensor&rule configurations. Below this list you can see the momentary per Digital INS chosen ID. With the "Delete Connect ID" button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The "STOP" , "CONNECT" buttons and the radio button with 1 & 3 Channels labels are used to connect/disconnect the system in the "Dashboard" connection mode.
+The left list contains all the momentary defined "Static DI" sensor&rule configurations. Below this list you can see the momentary per Digital INS chosen ID.
+
+![channel_numbers](assets/Connect_request_id.png)
+
+With the "Delete Connect ID" button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The "STOP" , "CONNECT" buttons are used to connect/disconnect the system in the "Dashboard" connection mode. The multiple green radio-buttons are used to select the chosen Sensors if the system is used in the "Dashboard" connection mode.
 
 ### Rule & Sensor config sub part
 
 2 tabs can be found on the upper right side. These are the "Rule Engine configs" and "Sensor configs". In these 2 tabs you can see the momentary loaded configurations for "Static DI" on the system. Additionally in the "Sensor configs" tab you can highlight a holder by clicking on it and at the bottom below you can choose a rule from the drop-down menu and choose a connection ID you want to set. When pressing the "Load Sensor" button you can load the sensor&rule config into the list of loaded connection options on the top left. Beside the 2 tabs you can see the OPC server URL which is needed if you want to connect/control the system via OPCUA.
 
-### Logging sub part
+### Logging & Settings sub part
 
-On the lower left side you can find the "Logging" tab. This tab is used for recording a process and shows the status of the digital inputs. If the "AutoRecord Off/On" button is clicked, it will start the recording when connected to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The Identifier "Storage mounted" shows blue if a USB-device is connected. Below it shows the "Recording" identifier which is blue if a record is beeing made at the moment. On the right side you can see the size of the momentary recording and the free space of the mounted USB. 
+On the lower left side you can find the "Logging" tab. This tab is used for recording a process and shows the status of the digital inputs. If the "Record at connect" button is clicked, it will start the recording when connected to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The Identifier "Storage mounted" shows blue if a USB-device is connected. Below it shows the "Recording" identifier which is red if a record is being made at the moment. Below you can see the size of the momentary recording and the free space of the mounted USB. 
 
 **Attention: the system only works with USB-devices formatted to FAT32-format!!!**
 
-The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 2 status identifier at the bottom show if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules. The last button "Autoenable Rule Off/On" can be used to let the rule always been enabled at the connection or if it will be controlled via the "Rule enabled" direct input.
+The one identifier to the right show if the digital input for recording is set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 rightmost status identifier show if the DI for the activation of the momentary used rule is set, the rule is allowed to change parameters (meaning the rule is set to active) and the last one shows if the system is momentary changing the overrides because of the defined rules.
+
+![settings](assets/settings.png)
+
+The "Settings" tab is used to reboot the system and to change the system time. On the bottom you can see the "Reboot System" button. The SPU will initialise a reboot of the system when this button is pressed. On top you can 2 text-fields. The upper one is to define the new system time and the lower one is to set the format of the time, shown on the topmost right part of the dashboard. The button "Set Time" is used to set the time given in the text-field to the system time. The button with the calendar and clock can be used to open a new window with a calendar and the clock to set the time.
+
+![clock](assets/clock.png)
+
+In this new window you can use the "Aktuelle Zeit verwenden" button to set the date and time to the momentary system time. With a press of the "OK" button will the selected time be written into the text-field.
 
 ### Connection types
 
@@ -79,10 +91,9 @@ On the left side you can choose a connection type with the drop down menu. On th
 
 ![connection_type](assets/connection_type.png)
 
-You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the connected digital inputs of the SPU.
+You can chose which sensors of the chosen holder you want to use with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Chosen sensors are green. Note that if you use more than one sensor with a holder which only has one sensor the other two channels will be useless signals from not connected PINs inside the holder. The system will connect in the 1-channel mode if only 1 sensor is selected. The system will connect in the 3-channel mode if more than 1 sensors are selected. If you select more than 3 sensors will the system only use the first 3 selected sensors. The channels are always from the lowest sensor number as channel 1 and the highest channel number as channel 3. 
 
-![channel_numbers](assets/Connect_request_id.png)
-![channel_numbers](assets/channel_numbers.png)
+![channel_numbers](assets/sensors.png)
 
 #### Dashboard / OPC UA
 
@@ -241,6 +252,18 @@ Depending on which mode is set active, different parameters can be changed. To c
 
 This parameter changes the time window for the calculation of the IFT-Value. The larger the window, the more sluggish the system reacts to changes. For example, a single spike in the process is weighted less on the IFT-Value calculation in a larger window. In “Watch” mode this parameter can be adjusted live. In all other modes, this can only be done using the "update" button as mentioned before.
 
+#### Minimum IFT Level
+
+{-} ift value level
+
+This parameter is the minimum used value for the rule. All values below this will be ignored. For example is this needed if you use the filter options and scale it to the unfiltered values. When you move quick with the tool inside the machine there could be high frequency parts in the signal and set the system to interfere. So you can use this value to get the system not interfering while it is only moving.
+
+#### Stability_Channel 		  			
+
+{-} channels
+
+If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.
+
 #### Upper threshold 		
 
 {-} upper threshold
@@ -320,11 +343,26 @@ Deadtime: 300ms
 
 ![deadtime2](assets/deadtime2.png)
 
-#### Stability_Channel 		  			
 
-{-} channels
+#### Low-Pass Filter
 
-If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.
+{Hz} cutoff frequency
+{-} active/inactive
+
+This parameter is used as low pass filter cutoff frequency when calculating the IFT values. The text-field is used to give the cutoff frequency and the circle is a button to activate the low-pass filter. The button will turn blue if the filter is set to active.
+
+#### High-Pass Filter
+
+{Hz} cutoff frequency
+{-} active/inactive
+
+This parameter is used as high-pass filter cutoff frequency when calculating the IFT values. The text-field is used to give the cutoff frequency and the circle is a button to activate the high-pass filter. The button will turn blue if the filter is set to active.
+
+#### Scale to unfiltered
+
+{-} active/inactive
+
+This circle shaped button shines blue if activated. The filtered (high-pass and low-pass filtered) signal will be set in relation to the unfiltered signal if the function is activated. Following the activation the IFT value can be at maximum a "1". **If the low-pass AND high-pass filters are deactivated the signal will always be a "1".**
 
 #### IFT value factor 		  			
 
