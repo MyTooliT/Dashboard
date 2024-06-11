@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1.1" data-path=""><a href="#connection-sub-part"><i class="fa fa-check"></i><b>4.1.1</b> Connection sub part</a></li>
 <li class="chapter" data-level="4.1.2" data-path=""><a href="#rule-sensor-config-sub-part"><i class="fa fa-check"></i><b>4.1.2</b> Rule &amp; Sensor config sub part</a></li>
-<li class="chapter" data-level="4.1.3" data-path=""><a href="#logging-sub-part"><i class="fa fa-check"></i><b>4.1.3</b> Logging sub part</a></li>
+<li class="chapter" data-level="4.1.3" data-path=""><a href="#logging-settings-sub-part"><i class="fa fa-check"></i><b>4.1.3</b> Logging &amp; Settings sub part</a></li>
 <li class="chapter" data-level="4.1.4" data-path=""><a href="#connection-types"><i class="fa fa-check"></i><b>4.1.4</b> Connection types</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path=""><a href="#database"><i class="fa fa-check"></i><b>4.2</b> Database</a>
@@ -242,9 +242,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="version" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Version<a href="#version" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This version of the documentation was written for the Dashboard version v5.1.1.9.
+<p>This version of the documentation was written for the Dashboard version v5.3.0.4.
 For older documentation look at the following link:</p>
-<p><a href="https://github.com/MyTooliT/Dashboard/blob/version_4_0_1_4/C-RIO_Dashboard_en.md">older Version</a></p>
+<p><a href="https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_en.md">older Version</a></p>
 </div>
 <div id="icotronic-system-components" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> ICOtronic System components<a href="#icotronic-system-components" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -282,25 +282,30 @@ For older documentation look at the following link:</p>
 <div id="connection-sub-part" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Connection sub part<a href="#connection-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the “-&gt;” button it can be activated. On the right side of the “-&gt;” button is the momentary active connection type. The right most button “AutoConnect Off/On” can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the “Static DI” mode. If it is set to “AutoConnect On” the system will connect to a holder without a TRUE on the connection pin. <strong>Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!</strong>
-The left list contains all the momentary defined “Static DI” sensor&amp;rule configurations. Below this list you can see the momentary per Digital INS chosen ID. With the “Delete Connect ID” button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The “STOP” , “CONNECT” buttons and the radio button with 1 &amp; 3 Channels labels are used to connect/disconnect the system in the “Dashboard” connection mode.</p>
+The left list contains all the momentary defined “Static DI” sensor&amp;rule configurations. Below this list you can see the momentary per Digital INS chosen ID.</p>
+<p><img src="assets/Connect_request_id.png" alt="channel_numbers" /></p>
+<p>With the “Delete Connect ID” button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The “STOP” , “CONNECT” buttons are used to connect/disconnect the system in the “Dashboard” connection mode. The multiple green radio-buttons are used to select the chosen Sensors if the system is used in the “Dashboard” connection mode.</p>
 </div>
 <div id="rule-sensor-config-sub-part" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Rule &amp; Sensor config sub part<a href="#rule-sensor-config-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>2 tabs can be found on the upper right side. These are the “Rule Engine configs” and “Sensor configs”. In these 2 tabs you can see the momentary loaded configurations for “Static DI” on the system. Additionally in the “Sensor configs” tab you can highlight a holder by clicking on it and at the bottom below you can choose a rule from the drop-down menu and choose a connection ID you want to set. When pressing the “Load Sensor” button you can load the sensor&amp;rule config into the list of loaded connection options on the top left. Beside the 2 tabs you can see the OPC server URL which is needed if you want to connect/control the system via OPCUA.</p>
 </div>
-<div id="logging-sub-part" class="section level3 hasAnchor" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Logging sub part<a href="#logging-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>On the lower left side you can find the “Logging” tab. This tab is used for recording a process and shows the status of the digital inputs. If the “AutoRecord Off/On” button is clicked, it will start the recording when connected to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier “Storage mounted” shows blue if a USB-device is connected. Below it shows the “Recording” identifier which is blue if a record is beeing made at the moment. On the right side you can see the size of the momentary recording and the free space of the mounted USB.</p>
+<div id="logging-settings-sub-part" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Logging &amp; Settings sub part<a href="#logging-settings-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>On the lower left side you can find the “Logging” tab. This tab is used for recording a process and shows the status of the digital inputs. If the “Record at connect” button is clicked, it will start the recording when connected to a holder. If not it can be started with the “Start Record” button. When the system is recording this button will become a button to stop the recording. The Identifier “Storage mounted” shows blue if a USB-device is connected. Below it shows the “Recording” identifier which is red if a record is being made at the moment. Below you can see the size of the momentary recording and the free space of the mounted USB.</p>
 <p><strong>Attention: the system only works with USB-devices formatted to FAT32-format!!!</strong></p>
-<p>The two identifier below show if the digital inputs for recording and enabling of the rule are set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 2 status identifier at the bottom show if the rule is allowed to change parameters and the last one shows if the system is momentary changing the overrides because of the defined rules. The last button “Autoenable Rule Off/On” can be used to let the rule always been enabled at the connection or if it will be controlled via the “Rule enabled” direct input.</p>
+<p>The one identifier to the right show if the digital input for recording is set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 rightmost status identifier show if the DI for the activation of the momentary used rule is set, the rule is allowed to change parameters (meaning the rule is set to active) and the last one shows if the system is momentary changing the overrides because of the defined rules.</p>
+<p><img src="assets/settings.png" alt="settings" /></p>
+<p>The “Settings” tab is used to reboot the system and to change the system time. On the bottom you can see the “Reboot System” button. The SPU will initialise a reboot of the system when this button is pressed. On top you can 2 text-fields. The upper one is to define the new system time and the lower one is to set the format of the time, shown on the topmost right part of the dashboard. The button “Set Time” is used to set the time given in the text-field to the system time. The button with the calendar and clock can be used to open a new window with a calendar and the clock to set the time.</p>
+<p><img src="assets/clock.png" alt="clock" /></p>
+<p>In this new window you can use the “Aktuelle Zeit verwenden” button to set the date and time to the momentary system time. With a press of the “OK” button will the selected time be written into the text-field.</p>
 </div>
 <div id="connection-types" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Connection types<a href="#connection-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On the left side you can choose a connection type with the drop down menu. On the right side you can see the momentary active connection type. By pressing the “-&gt;” button between these two you can update the active type to the chosen type.</p>
 <p><img src="assets/connection_type.png" alt="connection_type" /></p>
-<p>You can chose if you are using an one or 3 channel holder with the radio buttons below the list of found holders, with the exception of the “Static / DI” mode. Note that if you use the three channel option with a holder which only has one channel the other two channels will be useless signals from not connected PINs inside the holder. On the left side of the radio buttons you can see if a static connection request is set by the connected digital inputs of the SPU.</p>
-<p><img src="assets/Connect_request_id.png" alt="channel_numbers" />
-<img src="assets/channel_numbers.png" alt="channel_numbers" /></p>
+<p>You can chose which sensors of the chosen holder you want to use with the radio buttons below the list of found holders, with the exception of the “Static / DI” mode. Chosen sensors are green. Note that if you use more than one sensor with a holder which only has one sensor the other two channels will be useless signals from not connected PINs inside the holder. The system will connect in the 1-channel mode if only 1 sensor is selected. The system will connect in the 3-channel mode if more than 1 sensors are selected. If you select more than 3 sensors will the system only use the first 3 selected sensors. The channels are always from the lowest sensor number as channel 1 and the highest channel number as channel 3.</p>
+<p><img src="assets/sensors.png" alt="channel_numbers" /></p>
 <div id="dashboard-opc-ua" class="section level4 hasAnchor" number="4.1.4.1">
 <h4><span class="header-section-number">4.1.4.1</span> Dashboard / OPC UA<a href="#dashboard-opc-ua" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In this mode you can select the STH of your choice from the “Device list” and press “Connect”. With “Stop”, you can disconnect from the STH. After disconnection the Dashboard needs a few seconds before it starts searching for STHs again.</p>
@@ -426,36 +431,46 @@ Right below the recorded parameters is a box in which you can change the “IFT 
 <p>{ms} window length</p>
 <p>This parameter changes the time window for the calculation of the IFT-Value. The larger the window, the more sluggish the system reacts to changes. For example, a single spike in the process is weighted less on the IFT-Value calculation in a larger window. In “Watch” mode this parameter can be adjusted live. In all other modes, this can only be done using the “update” button as mentioned before.</p>
 </div>
-<div id="upper-threshold" class="section level4 hasAnchor" number="4.4.5.2">
-<h4><span class="header-section-number">4.4.5.2</span> Upper threshold<a href="#upper-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="minimum-ift-level" class="section level4 hasAnchor" number="4.4.5.2">
+<h4><span class="header-section-number">4.4.5.2</span> Minimum IFT Level<a href="#minimum-ift-level" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} ift value level</p>
+<p>This parameter is the minimum used value for the rule. All values below this will be ignored. For example is this needed if you use the filter options and scale it to the unfiltered values. When you move quick with the tool inside the machine there could be high frequency parts in the signal and set the system to interfere. So you can use this value to get the system not interfering while it is only moving.</p>
+</div>
+<div id="stability_channel" class="section level4 hasAnchor" number="4.4.5.3">
+<h4><span class="header-section-number">4.4.5.3</span> Stability_Channel<a href="#stability_channel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} channels</p>
+<p>If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.</p>
+</div>
+<div id="upper-threshold" class="section level4 hasAnchor" number="4.4.5.4">
+<h4><span class="header-section-number">4.4.5.4</span> Upper threshold<a href="#upper-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} upper threshold</p>
 <p>If the IFT value exceeds the threshold, the overrides are set to the defined values by the SPU. The bigger this value, the more “instable” the process is allowed to become, before override adaptions are activated.</p>
 </div>
-<div id="lower-threshold" class="section level4 hasAnchor" number="4.4.5.3">
-<h4><span class="header-section-number">4.4.5.3</span> Lower threshold<a href="#lower-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="lower-threshold" class="section level4 hasAnchor" number="4.4.5.5">
+<h4><span class="header-section-number">4.4.5.5</span> Lower threshold<a href="#lower-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} lower threshold</p>
 <p>If the IFT-value falls below the lower threshold, the override values will start rising up towards 100% again, following a defined ramp. The lower this value, the more “stable” the process has to become for the overrides to be reset.</p>
 </div>
-<div id="ramp" class="section level4 hasAnchor" number="4.4.5.4">
-<h4><span class="header-section-number">4.4.5.4</span> Ramp<a href="#ramp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="ramp" class="section level4 hasAnchor" number="4.4.5.6">
+<h4><span class="header-section-number">4.4.5.6</span> Ramp<a href="#ramp" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{%/ms} ramp</p>
 <p>This parameter changes the speed of the override reset. The overrides are not reset instantly, as they follow a ramp to change back to 100%. The bigger this value, the steeper the ramp and the faster the system goes back to 100% spindle speed and feed rate.</p>
 <p>A value of e.g. 0.01 %/ms would increase the feed rate and/or spindle speed to 10 % within 1 second.</p>
 </div>
-<div id="feed-override" class="section level4 hasAnchor" number="4.4.5.5">
-<h4><span class="header-section-number">4.4.5.5</span> Feed override<a href="#feed-override" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="feed-override" class="section level4 hasAnchor" number="4.4.5.7">
+<h4><span class="header-section-number">4.4.5.7</span> Feed override<a href="#feed-override" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Setpoint for feed rate</p>
 <p>This parameter is used in the modes “Stop”, “Stability reduction”, “Stability 2 Level” and “Direct output”. In “Stop”, “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control system, the moment the ICOtronic system activates the feed rate adaption of the machine.
 In “Stability reduction” this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.</p>
 </div>
-<div id="spindle-override" class="section level4 hasAnchor" number="4.4.5.6">
-<h4><span class="header-section-number">4.4.5.6</span> Spindle override<a href="#spindle-override" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="spindle-override" class="section level4 hasAnchor" number="4.4.5.8">
+<h4><span class="header-section-number">4.4.5.8</span> Spindle override<a href="#spindle-override" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Setpoint for spindle speed</p>
 <p>This parameter is used in “Stop”, “Stability reduction”, “Stability 2 Level” and “Direct output”. In “Stability 2 Level” and “Direct output” this value defines the override applied to the machine tool control system, the moment the ICOtronic system activates the spindle speed reduction of the machine.
 In “Stability reduction” this value defines the minimal feed rate override, which is sent to the machine by the ICOtronic system. The reduction cannot fall below this value.</p>
 </div>
-<div id="feed-reduction-factor" class="section level4 hasAnchor" number="4.4.5.7">
-<h4><span class="header-section-number">4.4.5.7</span> Feed reduction factor<a href="#feed-reduction-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="feed-reduction-factor" class="section level4 hasAnchor" number="4.4.5.9">
+<h4><span class="header-section-number">4.4.5.9</span> Feed reduction factor<a href="#feed-reduction-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Reduction factor</p>
 <p>This parameter is used in the “Stability reduction” mode. This value controls the intensity of the reduction steps of the feed rate.</p>
 <p>As an example: A value of 5 % for “Feed reduction factor” results in continuous reduction of 5% of the override as long as the IFT-Value is bigger than the upper threshold at each calculation interval.</p>
@@ -463,8 +478,8 @@ In “Stability reduction” this value defines the minimal feed rate override, 
 Reduction step 2: Reduction from 95 % to 90 %
 …and so on.</p>
 </div>
-<div id="spindle-reduction-factor" class="section level4 hasAnchor" number="4.4.5.8">
-<h4><span class="header-section-number">4.4.5.8</span> Spindle reduction factor<a href="#spindle-reduction-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="spindle-reduction-factor" class="section level4 hasAnchor" number="4.4.5.10">
+<h4><span class="header-section-number">4.4.5.10</span> Spindle reduction factor<a href="#spindle-reduction-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Reduction factor</p>
 <p>This parameter is used in the “Stability reduction” mode. This value controls the intensity of the reduction steps of the spindle speed.</p>
 <p>As an example: A value of 5 % for “Spindle reduction factor” results in continuous reduction of 5% of the override as long as the IFT-Value is bigger than the upper threshold at each calculation interval.</p>
@@ -472,8 +487,8 @@ Reduction step 2: Reduction from 95 % to 90 %
 Reduction step 2: Reduction from 95 % to 90 %
 …and so on.</p>
 </div>
-<div id="deadtime" class="section level4 hasAnchor" number="4.4.5.9">
-<h4><span class="header-section-number">4.4.5.9</span> Deadtime<a href="#deadtime" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="deadtime" class="section level4 hasAnchor" number="4.4.5.11">
+<h4><span class="header-section-number">4.4.5.11</span> Deadtime<a href="#deadtime" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{ms} deadtime</p>
 <p>This parameter is only used in the “Stability reduction” mode. This value equals the time in ms the system pauses before checking if it should reduce the spindle speed and feed rate again. The smaller this value, the quicker the ICOtronic system reduces the speed. As a reference value for first tests 300 ms can be mentioned. This means, each 300 ms feed rate and/or spindle speed are adapted as long as the IFT value exceeds the threshold.
 <strong><u>Note:</u></strong> if this value is to low it can happen that the machine needs longer to set the new parameters than the system waits to see if something changed. This would have the problem that even it the process stabilises the machine still changes values from the last instance and the process gets unstable again.</p>
@@ -485,18 +500,30 @@ Reduction step 2: Reduction from 95 % to 90 %
 <p>Deadtime: 300ms</p>
 <p><img src="assets/deadtime2.png" alt="deadtime2" /></p>
 </div>
-<div id="stability_channel" class="section level4 hasAnchor" number="4.4.5.10">
-<h4><span class="header-section-number">4.4.5.10</span> Stability_Channel<a href="#stability_channel" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>{-} channels</p>
-<p>If you have a three channel holder you can change the channel which is used to calculate the IFT value with this drop down menu. You can use any of the three channels or multiple channels at once. If you use a one channel holder this parameter will be ignored and the IFT value calculated with the one available channel.</p>
+<div id="low-pass-filter" class="section level4 hasAnchor" number="4.4.5.12">
+<h4><span class="header-section-number">4.4.5.12</span> Low-Pass Filter<a href="#low-pass-filter" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{Hz} cutoff frequency
+{-} active/inactive</p>
+<p>This parameter is used as low pass filter cutoff frequency when calculating the IFT values. The text-field is used to give the cutoff frequency and the circle is a button to activate the low-pass filter. The button will turn blue if the filter is set to active.</p>
 </div>
-<div id="ift-value-factor" class="section level4 hasAnchor" number="4.4.5.11">
-<h4><span class="header-section-number">4.4.5.11</span> IFT value factor<a href="#ift-value-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="high-pass-filter" class="section level4 hasAnchor" number="4.4.5.13">
+<h4><span class="header-section-number">4.4.5.13</span> High-Pass Filter<a href="#high-pass-filter" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{Hz} cutoff frequency
+{-} active/inactive</p>
+<p>This parameter is used as high-pass filter cutoff frequency when calculating the IFT values. The text-field is used to give the cutoff frequency and the circle is a button to activate the high-pass filter. The button will turn blue if the filter is set to active.</p>
+</div>
+<div id="scale-to-unfiltered" class="section level4 hasAnchor" number="4.4.5.14">
+<h4><span class="header-section-number">4.4.5.14</span> Scale to unfiltered<a href="#scale-to-unfiltered" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} active/inactive</p>
+<p>This circle shaped button shines blue if activated. The filtered (high-pass and low-pass filtered) signal will be set in relation to the unfiltered signal if the function is activated. Following the activation the IFT value can be at maximum a “1”. <strong>If the low-pass AND high-pass filters are deactivated the signal will always be a “1”.</strong></p>
+</div>
+<div id="ift-value-factor" class="section level4 hasAnchor" number="4.4.5.15">
+<h4><span class="header-section-number">4.4.5.15</span> IFT value factor<a href="#ift-value-factor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} IFT value factor</p>
 <p>This is a multiplicative factor for the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI 9263). With it, the signal can be set to a desired value. The values for the different channels can be changed separately.</p>
 </div>
-<div id="ift-value-offset" class="section level4 hasAnchor" number="4.4.5.12">
-<h4><span class="header-section-number">4.4.5.12</span> IFT value offset<a href="#ift-value-offset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="ift-value-offset" class="section level4 hasAnchor" number="4.4.5.16">
+<h4><span class="header-section-number">4.4.5.16</span> IFT value offset<a href="#ift-value-offset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} IFT value offset</p>
 <p>This is an additive value, to the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. The values for the different channels can be changed separately.</p>
 </div>

@@ -5,7 +5,7 @@ real-time-dashboard
 system-tab
 connection-sub-part
 rule-sensor-config-sub-part
-logging-sub-part
+logging-settings-sub-part
 connection-types
 dashboard-opc-ua
 static-di
@@ -23,6 +23,8 @@ control-indicators
 controls-for-the-rule
 stability-parameters
 window-length
+minimum-ift-level
+stability_channel
 upper-threshold
 lower-threshold
 ramp
@@ -31,7 +33,9 @@ spindle-override
 feed-reduction-factor
 spindle-reduction-factor
 deadtime
-stability_channel
+low-pass-filter
+high-pass-filter
+scale-to-unfiltered
 ift-value-factor
 ift-value-offset
 modes
