@@ -14,7 +14,6 @@ database
 system-sub-part
 sensor-sub-part
 rule-sub-part
-auto-importing-rule-configurations
 replay-tab
 stability-tab
 ift-value
