@@ -137,45 +137,20 @@ In this subpart you can see the defined sensors of the sensor list and change th
 
 ![system](assets/Database_rule.png)
 
-This sub part has a list of all defined rules on the left side. The rule "0" is always there, can not be deleted and is using the momentary parameters of the dashboard instead of predefined parameters. The "Parameters" box shows a list of all the parameters of the chosen rule. With the button "Delete Rule" the highlighted rule will be deleted. When pressing the "Rule ->" button the parameter of the chosen rule will be loaded into the configuration fields on the right side. In the fields on the right side you can chose a "Rule ID" and give it a name. In the fields below you can set the parameters for the "Stability" tab. A description of these parameters can be found in this manual in the chapter "Stability tab". Additionally you can chose a "Base Rule ID" here. If you choose a rule different from "0" then all parameters which are given **NEGATIVE** will load parameters of the chosen "Base Rule". (The rule mode and the stability_Channel also have a "From Base Rule" option to chose if wanted) This can be used if you want to use the same parameter from a predefined set and only have to change this rule to change more rules automatically. In the "description" field the rule can be given a description. With the "Add/Update Rule" button the configuration can be written into the list. If a rule with the chosen "Rule ID" already exists, it will be overwritten with the new values.
+This sub part has a list of all defined rules on the left side. The rule "0" is always there, can not be deleted and is using the momentary parameters of the dashboard instead of predefined parameters. The "Parameters" box shows a list of all the parameters of the chosen rule. With the button "Delete Rule" the highlighted rule will be deleted. When pressing the "Rule ->" button the parameter of the chosen rule will be loaded into the configuration fields on the right side. In the fields on the right side you can chose a "Rule ID" and give it a name. In the fields below you can set the parameters for the "Stability" tab. A description of these parameters can be found in this manual in the chapter "Stability tab". Additionally you can chose a "Base Rule ID" here. If you choose a rule different from "0" then all parameters which are given as follows will load parameters of the chosen "Base Rule":
 
-### Auto importing rule configurations
+- mode: "from Baserule" option
+- window length: 0
+- upper/lower Threshold: <0
+- ramp: 0
+- stability Channel: "from Baserule" option
+- minimum IFT level: <0
+- deadtime: 0
+- feed/spindle Override: >125
+- feed/spindle Reduction Factor: >125
+- low/high-pass filter: <0
 
-It is possible to import rules automatically via the network into the system. To do this you have to copy a .json file with the right inputs to the following path:
-"http://192.168.1.115/files/c/autoload"
-**Attention: everything has to be written in lower cases!!!**
-If a file in the right format is moved to this path it will automatically be added to the rules.
-Below you can find the necessary .json file format:
-
-```json
-{
-    "mode":"watch",
-    "description":"",
-    "#attributes":{
-        "id":-1,
-        "name":""
-    },
-    "stabilityParam":{
-        "windowLength":126,
-        "upperThreshold":0.00000,
-        "lowerThreshold":0.00000,
-        "ramp":0.00000,
-        "feedOverride":-1,
-        "spindleOverride":-1,
-        "feedReductionFactor":0.00000,
-        "spindleReductionFactor":0.00000,
-        "deadtime":0,
-        "stability_Channel":"Channel 1"
-    },
-    "Base Rule ID":0
-}
-```
-
-The input parameters "mode" & "stability_Channel" have to be the exact same string as used in the dashboard.
-The input parameters "description" & "name" can be freely chosen strings.
-All the other parameters have to be numbers as in the dashboard configuration. As in the dashboard configuration negative numbers dedicate that this value should be taken from the chosen "Base Rule ID".
-The input parameter "id" defines the Rule ID. This means the "id" defines the identification number of the rule. If this value is given a negativ number the rule will be put in the next free spot of the rule configuration.
-When the file was successfully added to the rules it will be automatically moved to the folder "done".
+This can be used if you want to use the same parameter from a predefined set and only have to change this rule to change more rules automatically. In the "description" field the rule can be given a description. With the "Add/Update Rule" button the configuration can be written into the list. If a rule with the chosen "Rule ID" already exists, it will be overwritten with the new values.
 
 ## Replay Tab
 
