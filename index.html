@@ -119,18 +119,18 @@
 <ul>
 <li class="chapter" data-level="9.1" data-path=""><a href="#system-reiter"><i class="fa fa-check"></i><b>9.1</b> System Reiter</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path=""><a href="#logging"><i class="fa fa-check"></i><b>9.1.1</b> Logging</a></li>
-<li class="chapter" data-level="9.1.2" data-path=""><a href="#focas"><i class="fa fa-check"></i><b>9.1.2</b> FOCAS</a></li>
-<li class="chapter" data-level="9.1.3" data-path=""><a href="#can-monitor"><i class="fa fa-check"></i><b>9.1.3</b> CAN Monitor</a></li>
+<li class="chapter" data-level="9.1.1" data-path=""><a href="#verbindung-untermodul"><i class="fa fa-check"></i><b>9.1.1</b> Verbindung Untermodul</a></li>
+<li class="chapter" data-level="9.1.2" data-path=""><a href="#regel-sensor-konfigurationen-modul"><i class="fa fa-check"></i><b>9.1.2</b> Regel &amp; Sensor Konfigurationen Modul</a></li>
+<li class="chapter" data-level="9.1.3" data-path=""><a href="#logging-settings-modul"><i class="fa fa-check"></i><b>9.1.3</b> Logging &amp; Settings Modul</a></li>
 <li class="chapter" data-level="9.1.4" data-path=""><a href="#verbindungsarten"><i class="fa fa-check"></i><b>9.1.4</b> Verbindungsarten</a></li>
-<li class="chapter" data-level="9.1.5" data-path=""><a href="#konfigurationen-für-werkzeug-und-prozesse"><i class="fa fa-check"></i><b>9.1.5</b> Konfigurationen für Werkzeug und Prozesse</a></li>
-<li class="chapter" data-level="9.1.6" data-path=""><a href="#opc-ua-server-adresse"><i class="fa fa-check"></i><b>9.1.6</b> OPC-UA Server Adresse</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path=""><a href="#raw-data-view-reiter"><i class="fa fa-check"></i><b>9.2</b> Raw Data View Reiter</a></li>
-<li class="chapter" data-level="9.3" data-path=""><a href="#breakout-detection-reiter"><i class="fa fa-check"></i><b>9.3</b> Breakout detection Reiter</a>
+<li class="chapter" data-level="9.2" data-path=""><a href="#database-1"><i class="fa fa-check"></i><b>9.2</b> Database</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path=""><a href="#schneidenausbruchs-parameter"><i class="fa fa-check"></i><b>9.3.1</b> Schneidenausbruchs Parameter</a></li>
+<li class="chapter" data-level="9.2.1" data-path=""><a href="#system-modul"><i class="fa fa-check"></i><b>9.2.1</b> System-Modul</a></li>
+<li class="chapter" data-level="9.2.2" data-path=""><a href="#sensor-modul"><i class="fa fa-check"></i><b>9.2.2</b> Sensor-Modul</a></li>
+<li class="chapter" data-level="9.2.3" data-path=""><a href="#regel-modul"><i class="fa fa-check"></i><b>9.2.3</b> Regel-Modul</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path=""><a href="#replay-reiter"><i class="fa fa-check"></i><b>9.3</b> Replay Reiter</a></li>
 <li class="chapter" data-level="9.4" data-path=""><a href="#stability-reiter"><i class="fa fa-check"></i><b>9.4</b> Stability Reiter</a>
 <ul>
 <li class="chapter" data-level="9.4.1" data-path=""><a href="#ift-wert"><i class="fa fa-check"></i><b>9.4.1</b> IFT-Wert</a></li>
@@ -217,7 +217,7 @@ For older documentation look at the following link:</p>
 <div id="connection-sub-part" class="section level3 hasAnchor" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Connection sub part<a href="#connection-sub-part" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the “-&gt;” button it can be activated. On the right side of the “-&gt;” button is the momentary active connection type. The right most button “AutoConnect Off/On” can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the “Static DI” mode. If it is set to “AutoConnect On” the system will connect to a holder without a TRUE on the connection pin. <strong>Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!</strong>
-The left list contains all the momentary defined “Static DI” sensor&amp;rule configurations. Below this list you can see the momentary per Digital INS chosen ID.</p>
+The left list contains all the momentary defined “Static DI” sensor&amp;rule configurations. Below this list you can see the momentary per Digital IN chosen ID.</p>
 <p><img src="assets/Connect_request_id.png" alt="channel_numbers" /></p>
 <p>With the “Delete Connect ID” button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The “STOP” , “CONNECT” buttons are used to connect/disconnect the system in the “Dashboard” connection mode. The multiple green radio-buttons are used to select the chosen Sensors if the system is used in the “Dashboard” connection mode.</p>
 </div>
@@ -545,8 +545,8 @@ Note that the “setStabilityParam” command changes all changed parameters at 
 </div>
 <div id="version-1" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">6</span> Version<a href="#version-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Diese Benutzeranleitung wurde für die Dashboardversion v4.0.1.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:</p>
-<p><a href="https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20de.md">ältere Version</a></p>
+<p>Diese Benutzeranleitung wurde für die Dashboardversion v5.3.0.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:</p>
+<p><a href="https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_de.md">ältere Version</a></p>
 </div>
 <div id="icotronic-system-komponenten" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">7</span> ICOtronic System Komponenten<a href="#icotronic-system-komponenten" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -555,7 +555,6 @@ Note that the “setStabilityParam” command changes all changed parameters at 
 <li>Sensory Tool Holder (STH)</li>
 <li>Signal Processing Unit (SPU)</li>
 <li>Stationary Transceiver Unit (STU)</li>
-<li>Charging Cradle (CC)</li>
 </ul>
 <p><img src="assets/Komponenten.png" alt="Komponenten" /></p>
 </div>
@@ -564,56 +563,51 @@ Note that the “setStabilityParam” command changes all changed parameters at 
 <p>Es wird ein Computer mit Windows Betriebssystem (Windows 7 Servicepack 1; Windows 8.1 Update 1; Windows 10) und Administratorrechten benötigt. Auf diesem Computer muss “LabView Runtime“ installiert sein.
 Download Link:</p>
 <p><a href="http://www.ni.com/download/labview-run-time-engine-2018/7383/en/" class="uri">http://www.ni.com/download/labview-run-time-engine-2018/7383/en/</a></p>
-<p>ACHTUNG: Es muss die 2020 SP1 (32-bit) Version gewählt werden !!!</p>
-<p>Nicht jeder Browser unterstützt dieses Plugin. Microsoft Edge funktioniert, solange die Dashboard Seite im “Internet Explorer Modus” geöffnet wird.
-Alternativ kann auch das ICOtronicRemotePanel Programm verwendet werden.</p>
+<p>ACHTUNG: Es muss die 2021 SP1 (32-bit) Version gewählt werden !!!</p>
+<p>Für die Verbindung zum Dashboard muss das ICOtronicRemotePanel Programm verwendet werden.</p>
 <p>Bevor der Computer mittels Ethernet Kabel mit der SPU verbunden wird, müssen die Netzwerkeinstellungen des Computers eingestellt werden. Dafür muss die IP-Adresse des Computers, welcher mit der SPU verbunden wird, folgendermaßen eingestellt werden.</p>
 <p><img src="assets/ip.png" alt="ip" /></p>
 <p>Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.</p>
 </div>
 <div id="echtzeit-dashboard" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">9</span> Echtzeit-Dashboard<a href="#echtzeit-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Öffnen Sie den Microsoft Edge und geben sie folgende Adresse ein:
-<a href="http://192.168.1.115:8000/ICOtronicSPU.html" class="uri">http://192.168.1.115:8000/ICOtronicSPU.html</a>
-Sollte sich das Dashboard nicht öffnen überprüfen sie ob die Seite im “Internet Explorer Modus” geöffnet wurde.
-Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.</p>
-<p>Wenn das “ICOtronicRemotePanel” verwendet wird, öffnen sie das Programm. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
+<p>Öffnen Sie das “ICOtronicRemotePanel” um eine Verbindung zum Dashboard herzustellen. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
 <strong>192.168.1.115</strong></p>
 <p><img src="assets/Remote_IP.png" alt="Remote_IP" /></p>
 <p>Durch drücken von “connect to SPU” sollte das Dashboard geöffnet werden.</p>
-<p>Das Dashboard verfügt über 4 Reiter: <strong>Stability</strong>, <strong>Breakout detection</strong>, <strong>Raw data view</strong> und <strong>System</strong>. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems, ein Feld in dem der name und die MAC-Adresse des momentan verbundenen Werkzeughalters angezeigt wird und das ICOTronic-Logo.</p>
+<p>Das Dashboard verfügt über 4 Reiter: <strong>Stability</strong>, <strong>Breakout detection</strong>, <strong>Raw data view</strong> und <strong>System</strong>. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.</p>
 <p>Wenn das System mit einem sensorischen Werkzeughalter verbunden ist, ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.</p>
 <p><img src="assets/disconnected.png" alt="connected_w" /> &lt;——-&gt; <img src="assets/connected.png" alt="connected_b" /></p>
-<p>Wenn kein Werkzeughalter verbunden ist sind die Felder für Rufname und MAC-Adresse leer. Bei Verbindung mit einem Werkzeughalter wird der Rufname und die MAC-Adresse angezeigt bis die Verbindung zum Werkzeughalter wieder getrennt wird.</p>
-<p><img src="assets/disconnected-name.png" alt="connected_name_w" /> &lt;——-&gt; <img src="assets/connected-name.png" alt="connected_name_b" /></p>
 <div id="system-reiter" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> System Reiter<a href="#system-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der System Reiter beinhaltet 4 Untermodule. Das Modul in der unteren rechten Ecke beinhaltet Informationen über die Signalqualität und die CPU Auslastung.</p>
 <p><img src="assets/system_tab.png" alt="system-new" /></p>
-<p>Im Untermenü “Holder connection” des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü “Connection type” mittels Drop-Down Auswahl gewählt werden und mittels des “-&gt;” Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit 2 Reitern welche benutzt werden um vordefinierte Regelparameter und Sensoreinstellungen zu benutzen. Unten rechts befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.</p>
-<div id="logging" class="section level3 hasAnchor" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> Logging<a href="#logging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/logging_tab.png" alt="logging" /></p>
-<p>Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect” Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des “Start Recording” Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem “Stop Recording” Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.</p>
-<p><strong>Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!</strong></p>
-<p>Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen).
-Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt.</p>
+<div id="verbindung-untermodul" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Verbindung Untermodul<a href="#verbindung-untermodul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In der oberen linken Ecke befinden sich die Funktionen für die Halterverbindung. Oberhalb gibt es ein Dropdown-Menü, um den gewünschten Verbindungstyp auszuwählen. Mit dem “-&gt;” Button kann dieser aktiviert werden. Rechts neben dem “-&gt;” Button befindet sich der momentan aktive Verbindungstyp. Der ganz rechte Button “AutoConnect Aus/Ein” kann verwendet werden, um die Notwendigkeit zu aktivieren/deaktivieren, ein TRUE-Signal an den digitalen Verbindungspin zu senden, um sich im “Static DI” Modus zu verbinden. Wenn “AutoConnect Ein” eingestellt ist, verbindet sich das System mit einem Halter, ohne dass ein TRUE-Signal am Verbindungspin anliegt. <strong>Achtung: Die Halter-ID-Pins müssen innerhalb eines Zeitrahmens von 10 ms gesetzt werden, beginnend mit dem ersten TRUE-Signal eines Halterpins!!!</strong>
+Die linke Liste enthält alle momentan definierten “Static DI” Sensor- und Regelkonfigurationen. Unter dieser Liste sieht man die momentan für die Digital IN ausgewählte ID.</p>
+<p><img src="assets/Connect_request_id.png" alt="channel_numbers" /></p>
+<p>Mit dem “Delete Connect ID” Button kann die momentan hervorgehobene ID gelöscht werden. In der rechten Liste sind alle STHs aufgeführt, die vom System gefunden wurden und bereit zum Verbinden sind. Sie können den Namen und die Bluetooth-Adresse der STHs sehen. Die “STOP”- und “CONNECT”-Buttons werden verwendet, um das System im “Dashboard”-Verbindungsmodus zu verbinden/trennen. Die grünen Radio-Buttons werden verwendet, um die gewählten Sensoren auszuwählen, wenn das System im “Dashboard”-Verbindungsmodus verwendet wird.</p>
 </div>
-<div id="focas" class="section level3 hasAnchor" number="9.1.2">
-<h3><span class="header-section-number">9.1.2</span> FOCAS<a href="#focas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/focas_tab.png" alt="focas" /></p>
-<p><strong>Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!</strong></p>
-<p>Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Zusätzlich kann die IP-Adresse der FOCAS Schnittstelle angegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des “FOCAS Start” Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der “FOCAS Stop” Button gedrückt werden welcher den “FOCAS Start” bei aktiver Kontrolle ersetzt. Zu beachten ist, dass wenn ein Halter verbunden ist wenn “FOCAS Start” betätigt wird, dieser disconnected wird und erneut ein Halter verbunden werden muss.</p>
+<div id="regel-sensor-konfigurationen-modul" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Regel &amp; Sensor Konfigurationen Modul<a href="#regel-sensor-konfigurationen-modul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Auf der oberen rechten Seite befinden sich 2 Reiter. Diese sind “Rule Engine configs” und “Sensor configs”. In diesen beiden Tabs können Sie die momentan geladenen Konfigurationen für “Static DI” im System sehen. Zusätzlich können Sie im Tab “Sensor configs” einen Halter durch Anklicken hervorheben und unten im Dropdown-Menü eine Regel auswählen sowie eine Verbindungs-ID festlegen, die Sie setzen möchten. Durch Drücken des Buttons “Load Sensor” können Sie die Sensor- und Regelkonfiguration in die Liste der geladenen Verbindungsoptionen oben links laden. Neben den beiden Tabs sehen Sie die OPC-Server-URL, die benötigt wird, wenn Sie das System über OPCUA verbinden oder steuern möchten.</p>
 </div>
-<div id="can-monitor" class="section level3 hasAnchor" number="9.1.3">
-<h3><span class="header-section-number">9.1.3</span> CAN Monitor<a href="#can-monitor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/can_monitor.png" alt="can_monitor" /></p>
-<p>Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an. Mit dem Button “Reboot System” kann ein Software seitiger Reset der SPU ausgelöst werden.</p>
+<div id="logging-settings-modul" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Logging &amp; Settings Modul<a href="#logging-settings-modul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Auf der unteren linken Seite finden Sie den Reiter “Logging”. Dieser Tab wird zur Aufzeichnung eines Prozesses verwendet und zeigt den Status der digitalen Eingänge an. Wenn der Button “Record at connect” angeklickt wird, startet die Aufzeichnung, sobald eine Verbindung zu einem Halter hergestellt wird. Andernfalls kann die Aufzeichnung mit dem Button “Start Record” gestartet werden. Wenn das System aufzeichnet, wird dieser Button zu einem Button, um die Aufzeichnung zu stoppen. Die Statusanzeige “Storage mounted” leuchtet blau, wenn ein USB-Gerät angeschlossen ist. Darunter zeigt die Statusanzeige “Recording” rot an, wenn momentan eine Aufzeichnung gemacht wird. Darunter können Sie die Größe der aktuellen Aufzeichnung und den freien Speicherplatz des angeschlossenen USB-Geräts sehen.</p>
+<p><strong>Achtung: Das System funktioniert nur mit USB-Geräten, die im FAT32-Format formatiert sind!!!</strong></p>
+<p>Die rechte Statusanzeige zeigt an, ob der digitale Eingang für die Aufzeichnung von der Hardware gesetzt ist. (Der digitale Eingang für die Aufzeichnung kann verwendet werden, um Aufzeichnungen außerhalb des Dashboards zu starten und zu stoppen). Die drei ganz rechten Statusanzeigen zeigen an, ob der DI für die Aktivierung der momentan verwendeten Regel gesetzt ist, ob es der Regel erlaubt ist, Parameter zu ändern (was bedeutet, dass die Regel aktiv gesetzt ist), und die letzte zeigt an, ob das System momentan die Overrides aufgrund der definierten Regeln ändert.</p>
+<p><img src="assets/settings.png" alt="settings" /></p>
+<p>Der Reiter “Settings” wird verwendet, um das System neu zu starten und die Systemzeit zu ändern. Unten sehen Sie den Button “Reboot System”. Wenn dieser Button gedrückt wird, initialisiert die SPU einen Neustart des Systems. Oben sehen Sie zwei Textfelder. Das obere dient zur Definition der neuen Systemzeit, und das untere zur Festlegung des Formats der Zeit, die im rechten oberen Bereich des Dashboards angezeigt wird. Der Button “Set Time” wird verwendet, um die im Textfeld angegebene Zeit als Systemzeit festzulegen. Der Button mit dem Kalender und der Uhr kann verwendet werden, um ein neues Fenster mit einem Kalender und einer Uhr zu öffnen und die Zeit einzustellen.</p>
+<p><img src="assets/clock.png" alt="clock" /></p>
+<p>In diesem neuen Fenster können Sie den Button “Aktuelle Zeit verwenden” verwenden, um Datum und Uhrzeit auf die momentane Systemzeit einzustellen. Mit einem Druck auf den “OK”-Button wird die ausgewählte Zeit in das Textfeld übernommen.</p>
 </div>
 <div id="verbindungsarten" class="section level3 hasAnchor" number="9.1.4">
 <h3><span class="header-section-number">9.1.4</span> Verbindungsarten<a href="#verbindungsarten" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart ausgewählt werden. Auf der rechten Seite wird die momentane Verbindungsart angezeigt. Durch das Drücken des “-&gt;” Buttons kann die ausgewählte Verbindungsart auf die aktive Verbindungsart geschrieben werden.</p>
 <p><img src="assets/connection_type.png" alt="connection_type" /></p>
-<p>Mittels der Radiobuttons unterhalb der Liste von gefundenen Haltern kann zwischen 1 und 3 Kanälen umgestellt werden, mit der Ausnahme von “Static / DI” Verbindung bei welcher diese Auswahl an einer anderen Stelle getroffen wird. Zu beachten ist, dass wenn 3 Kanäle ausgewählt werden obwohl der verbundene Halter nur 1 Kanal besitz die beiden anderen Kanäle unbrauchbare Daten liefern, da die zwei PINs in solchen Haltern nicht verbunden sind. Links neben den Radiobuttons kann abgelesen werden ob momentan durch die digitalen Eingänge eine Verbindungsanfrage besteht und wenn ja welche Halter ID gesetzt wurde.</p>
+<p>Sie können wählen, welche Sensoren des ausgewählten Halters Sie verwenden wollen durch die Radiobuttons unter der Liste der gefundenen Halter. Eine Ausnahme ist der “Static / DI”-Modus. Ausgewählte Sensoren sind grün markiert. Beachten Sie, dass wenn Sie mehr als einen Sensor verwenden wenn der gewählte Halter nur einen Sensor hat, die anderen beiden Kanäle nutzlose Signale von nicht angeschlossenen PINs im Halter empfangen. Das System wird im 1-Kanal-Modus verbinden, wenn nur ein Sensor ausgewählt ist. Wenn mehr als ein Sensor ausgewählt ist, wird das System im 3-Kanal-Modus verbinden. Wenn Sie mehr als 3 Sensoren auswählen, wird das System nur die ersten 3 ausgewählten Sensoren verwenden. Die Kanäle werden immer so zugewiesen, dass der Sensor mit der niedrigsten Nummer Kanal 1 ist und der Sensor mit der höchsten Nummer Kanal 3.</p>
 <p><img src="assets/channel_numbers.png" alt="channel_numbers" /></p>
 <div id="dashboard-opc-ua-1" class="section level4 hasAnchor" number="9.1.4.1">
 <h4><span class="header-section-number">9.1.4.1</span> Dashboard / OPC UA<a href="#dashboard-opc-ua-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -622,83 +616,74 @@ Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Rege
 </div>
 <div id="static-di-1" class="section level4 hasAnchor" number="9.1.4.2">
 <h4><span class="header-section-number">9.1.4.2</span> Static / DI<a href="#static-di-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, während das digitale Eingangssignal für diesen Halter auf “1” gesetzt ist, verbindet sich dieses automatisch mit dem Halter.
-Bis zu 3 verschiedene Halter können mittels der digitalen Eingänge gewählt werden. Die Felder für die Einstellungen der statischen Verbindung befinden sich unterhalb der Auswahl der Verbindungsarten.</p>
-<p><img src="assets/MAC_Adress.png" alt="mac" /></p>
-<p>Es existieren 3 Reiter mit denen jeweils 1 Halter, für die statische Verbindung, konfiguriert werden kann. Die oberen Felder können genutzt werden um die Parameter zu ändern. Die unteren (mit grauem Hintergrund) zeigen die momentan aktiven Parameter an. Um die in den oberen Feldern eingetragenen Parameter aktiv zu schalten muss der “Update” Button oben rechts gedrückt werden.
-Das Feld “MacAdr” ist die MAC-Adresse des gewählten Halters. Die Adresse kann z.B. aus der rechten Spalte der Halterliste ausgelesen werden. Mittels “Channels” kann eingestellt werden wie viele Kanäle der zu verbindende Halter besitzt. Wenn etwas anderes als “1” eingegeben wird dann wendet das System alles an als ob 3 Kanäle verfügbar sind. Mit einer “1” verbindet sich die SPU mit dem Halter mit nur 1 Kanal. Das “Rule config ID” Feld kann benutzt werden um im vorhinein definierte Regelparameter für diesen Halter auszuwählen. Die Regeleinstellung “0” wird hierbei verwendet um die momentan eingestellten Parameter im “Stability” Reiter zu benutzen. Mittels “IFT value factor” und “IFT value offset” können die berechneten IFT Werte mittels eines Faktors und eines Offset angepasst werden.</p>
+<p>In diesem Verbindungsmodus können Sie die vordefinierte Verbindungsliste (zu sehen im “System”-Reiter) und die digitalen Eingänge des Systems verwenden, um die Verbindung und die Parameter des Systems zu steuern. (Wie man eine Regel- &amp; Sensorkombination zur Verbindungsliste hinzufügt, siehe Kapitel “Rule &amp; Sensor config Modul” im “System”-Reiter-Kapitel). Die ID der Verbindungsliste entspricht den digitalen Haltereingängen des Systems in einem Binärformat. (Beispiel: ID 3 repräsentiert einen Eingang von 00000011 an den 8 Eingabepins). Um eine Verbindung zu starten, müssen Sie den digitalen Eingang für die Verbindung auf “High” setzen. In diesem Moment wird das System eine Verbindung zu dem Element der Liste herstellen, das durch die digitalen Eingänge ausgewählt wurde. Der momentan gewählte Eingang ist unter der Verbindungsliste zu sehen.</p>
+<p><img src="assets/Connect_request_id.png" alt="channel_numbers" /></p>
+<p>Wenn der “AutoConnect Off/On”-Button auf “ON” gesetzt ist, wird das System eine Verbindung herstellen, ohne dass der Verbindungspin auf “High” gesetzt werden muss, sobald die ID-Pins auf TRUE gesetzt sind. (Achten Sie darauf, dass die Verbindungs-ID-Pins innerhalb von 10 ms gesetzt werden müssen.)</p>
+<p><strong>Achtung: Ändern Sie niemals die vorgegebene ID, während das System mit einem Halter verbunden ist. Trennen Sie zuerst das System, ändern Sie dann die ID und starten Sie danach eine neue Verbindung!!!</strong></p>
 </div>
 <div id="first-available-di-1" class="section level4 hasAnchor" number="9.1.4.3">
 <h4><span class="header-section-number">9.1.4.3</span> First available /DI<a href="#first-available-di-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt.</p>
 </div>
 </div>
-<div id="konfigurationen-für-werkzeug-und-prozesse" class="section level3 hasAnchor" number="9.1.5">
-<h3><span class="header-section-number">9.1.5</span> Konfigurationen für Werkzeug und Prozesse<a href="#konfigurationen-für-werkzeug-und-prozesse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Im “System” Reiter befinden sich 2 weitere Reiter, “Rule Engine configs” und “Sensor configs”, mit denen im vorhinein erstellte Regel- und Sensoreinstellungen geladen werden können. Mit einem Druck auf den “Load Rule” Button können die ausgewählten Einstellungen übernommen werden. Mittels dieser Funktion können zuvor getätigte Einstellungen durch den Druck eines Buttons direkt geladen werden. Dies hat den Vorteil das nicht alle Einstellungen immer durch Hand getätigt werden müssen und man für unterschiedliche Halter und unterschiedliche Prozesse unterschiedliche Einstellungen leicht verwenden kann.</p>
-<p><img src="assets/Rule_Engine_Config.PNG" alt="rule-config" /></p>
-<p><img src="assets/Sensor_Config.PNG" alt="sensor-config" /></p>
-<p><strong><u>In Entwicklung</u></strong>
-Die Regel- und Sensoreinstellungen können mittels folgendem Link eingestellt werden:
-<a href="http://192.168.1.115:8000/MainConfig.html" class="uri">http://192.168.1.115:8000/MainConfig.html</a>
-Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlichkeit sind noch <strong><u>in Entwicklung!</u></strong></p>
 </div>
-<div id="opc-ua-server-adresse" class="section level3 hasAnchor" number="9.1.6">
-<h3><span class="header-section-number">9.1.6</span> OPC-UA Server Adresse<a href="#opc-ua-server-adresse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Rechts neben den Regel- und Sensoreinstellungen kann die OPCUA-Adresse der SPU gefunden werden, die für eine Verbindung mittels OPCUA Client benötigt wird.</p>
-<p><img src="assets/opcua.png" alt="opcua" /></p>
+<div id="database-1" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Database<a href="#database-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="assets/Database.png" alt="system" /></p>
+<p>Dieser Reiter wird verwendet, um die Konfiguration von Regeln und Sensoren zu laden und zu speichern. Er kann in vier Bereiche unterteilt werden. Der erste Bereich befindet sich oben und enthält die Systemsteuerungen. Der mittlere Bereich dient zur Konfiguration der Sensoren. Der unterste Bereich unten wird zur Konfiguration der Regeln verwendet. Der ganz rechte Bereich dieses Reiters ist der Nachrichtenbildschirm. Dort werden die letzten Aktionen angezeigt, die im “Database”-Reiter ausgeführt wurden. Mit einem Klick auf den Button “Clear Messagehistory” kann der Nachrichtenverlauf gelöscht werden.</p>
+<div id="system-modul" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> System-Modul<a href="#system-modul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_control.png" alt="system" /></p>
+<p>Die linken Buttons dienen dazu, die momentan erkannten Sensor- und Regel-Listen in das laufende System zu laden oder die momentan verwendeten Listen aus dem laufenden System zurück in die Listen unten zu laden. Die Listen können auch im lokalen Speicher des Systems oder auf einem USB-Stick gespeichert werden. Die Buttons “Load/Save to local Config” können verwendet werden, um eine Konfiguration auf dem lokalen System zu laden/zu speichern. Mit “Load/Save from/to file” wird nicht die lokale Konfigurationsdatei verwendet, sondern die Parameter auf der rechten Seite dieser beiden Buttons. Das Dropdown-Menü “Speicherort” kann verwendet werden, um zwischen lokalem System und USB zu wechseln. Das Textfeld “file” kann verwendet werden, um der Konfiguration einen Namen zu geben oder die zu ladende Datei zu benennen.</p>
 </div>
+<div id="sensor-modul" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Sensor-Modul<a href="#sensor-modul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_sensors.png" alt="system" /></p>
+<p>In diesem Modul können Sie die definierten Sensoren der Sensorliste anzeigen und ändern. Die Liste auf der linken Seite zeigt die definierten Sensoren. Sie können einen Sensor durch Anklicken hervorheben. Mit dem Button “Delete Sensor” können Sie den ausgewählten Sensor aus der Liste löschen. Wenn Sie den Button “Sensor -&gt;” drücken, werden die Werte des ausgewählten Sensors aus der linken Liste in die Konfigurationsfelder auf der rechten Seite geladen. Die Liste auf der rechten Seite zeigt alle Halter, die momentan vom System in der Nähe erkannt wurden. Durch Klicken auf einen Halter wird dieser hervorgehoben. Wenn Sie den “-&gt;” Button drücken, werden die Werte des ausgewählten Halters in die Konfigurationsfelder unten geladen. In den Feldern unten finden Sie die Konfigurationen des Halters für die Sensorliste. Sie können die IFT-Wert-Offsets/Faktoren des Halters in den Feldern ganz rechts ändern. Die “Sensor ID” ist jene ID, die Sie der Halterkonfiguration in der Sensorliste zuweisen möchten. Wenn diese ID bereits definiert ist, wird sie beim Speichern überschrieben. Die “MacAdr” ist die MAC-Adresse des Halters und definiert, welcher Halter verbunden wird. Der “Name” ist ein frei wählbarer Name, der auf dem “Stability”-Reiter angezeigt wird, wenn der Sensor verbunden ist. Das Feld “Description” kann beispielsweise mit Informationen über diesen Sensor gefüllt werden. Das Feld “Channels” wird verwendet, um festzulegen, wie viele Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. Alle Werte außer “1” werden als 3 Kanäle angesehen, während “1” einen Kanal aktiviert. Mit dem Button “Add/Update Sensor” können die Parameter in die Sensorliste auf der linken Seite geschrieben werden.</p>
 </div>
-<div id="raw-data-view-reiter" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Raw Data View Reiter<a href="#raw-data-view-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="assets/RawDataView.PNG" alt="raw" /></p>
-<p>Wird dieser Reiter ausgewählt, werden die Rohdaten des Sensorischen Werkzeughalters, abhängig davon ob nur ein oder drei Channels ausgewählt wurden, angezeigt. Dieser dient dazu, die unverrechneten Werte der jeweiligen Eingangskanäle darzustellen.</p>
-</div>
-<div id="breakout-detection-reiter" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Breakout detection Reiter<a href="#breakout-detection-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong><u>IN ENTWICKLUNG!!!!</u></strong></p>
-<p><img src="assets/Breakout_detection.png" alt="breakout" /></p>
-<p>Dieser Reiter wird benutzt, wenn man Schneidenausbrüche detektieren will.</p>
-<p>In der oberen, linken Ecke können die Parameter für die Detektion eingestellt werden. Oben, rechts befindet sich ein Graph der den Qualitätsfaktor anzeigt welcher genutzt wird um einen Schneidenausbruch zu detektieren. In der unteren, linken Ecke befindet sich ein Graph mit Informationen über die Signalenergie. Untern, rechts befindet sich noch ein Graph welcher das Frequenzspektrum anzeigt. In diesem Frequenzspektrum kann mittels der Maus die rote Linie verschoben werden. Oberhalb des Frequenzspektrums befindet sich einer Anzeige über Frequenz und Amplitude an der gewählten Stelle. Ebenso werden im Frequenzspektrum, sofern die jeweiligen Parameter eingestellt wurden (siehe nächster Absatz), grüne vertikale Balken dargestellt. Diese Balken repräsentieren die in den Parametern definierten Bereiche, welche für die Berechnung des Schneidenausbruchs-Algorithmus verwendet werden. Darin sollten sich bei einem neuen Werkzeug die Vielfachen der Zahneingriffsfrequenzen, gemessen mit dem mitrotierenden Beschleunigungssensor, abbilden. Auf der rechten Seite befinden sich 2 Schieberegler mit denen der Zoom der X-Achse(Frequenz) und der Y-Achse(Amplitude) eingestellt werden können.</p>
-<div id="schneidenausbruchs-parameter" class="section level3 hasAnchor" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Schneidenausbruchs Parameter<a href="#schneidenausbruchs-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="assets/Breakout_parameter.png" alt="breakout_paramter" /></p>
-<p>Diese Parameter werden dazu genutzt die Detektion von Schneidenausbrüchen einstellen zu können. Um die neu eingestellten Parameter zu aktivieren muss der “Update” Button gedrückt werden.</p>
-<div id="spindle-speed" class="section level4 hasAnchor" number="9.3.1.1">
-<h4><span class="header-section-number">9.3.1.1</span> Spindle speed<a href="#spindle-speed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Dieser Parameter ist die eingestellte Drehzahl des Prozesses.</p>
-</div>
-<div id="order-limit" class="section level4 hasAnchor" number="9.3.1.2">
-<h4><span class="header-section-number">9.3.1.2</span> Order limit<a href="#order-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Dieser Parameter ist die Ordnung der Schneideneingriffsfrequenz die für die Berechnung herangezogen wird.</p>
-</div>
-<div id="comb-width" class="section level4 hasAnchor" number="9.3.1.3">
-<h4><span class="header-section-number">9.3.1.3</span> Comb width<a href="#comb-width" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Dieser Parameter gibt die Kammbreite an mit welcher das Frequenzspektrum analysiert wird. Diese ist notwendig da Frequenzen nicht nur als 1 eindeutiger Wert auftreten sondern eher in Form eines Plateaus auftreten da es sich um einen realen und keinen idealen Prozess handelt.</p>
-</div>
-<div id="number-of-teeth" class="section level4 hasAnchor" number="9.3.1.4">
-<h4><span class="header-section-number">9.3.1.4</span> Number of teeth<a href="#number-of-teeth" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Dieser Parameter ist die Anzahl der Zähne die das benutzte Werkzeug besitzt.</p>
-</div>
-<div id="signal-power-limit" class="section level4 hasAnchor" number="9.3.1.5">
-<h4><span class="header-section-number">9.3.1.5</span> Signal power limit<a href="#signal-power-limit" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Dieser Parameter definiert eine Signalenergie. Alles unterhalb dieses Wertes wird ignoriert. Diese Einstellung ist nötig damit das System nur dann Werte berechnet wenn das Werkzeug benutzt wird und nicht wenn es gerade nicht im Schnitt ist. Ohne diesen Wert könnte der Qualitätsfaktor einen Schneidenausbruch anzeigen selbst wenn das Werkzeug sich gerade nicht in Verwendung befindet.</p>
+<div id="regel-modul" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Regel-Modul<a href="#regel-modul" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="assets/Database_rule.png" alt="system" /></p>
+<p>Dieses Modul enthält eine Liste aller definierten Regeln auf der linken Seite. Die Regel “0” ist immer vorhanden, kann nicht gelöscht werden und verwendet die aktuellen Parameter des Dashboards anstelle von vordefinierten Parametern. Das Feld “Parameters” zeigt eine Liste aller Parameter der ausgewählten Regel. Mit dem Button “Delete Rule” wird die hervorgehobene Regel gelöscht. Wenn Sie den Button “Rule -&gt;” drücken, werden die Parameter der ausgewählten Regel in die Konfigurationsfelder auf der rechten Seite geladen. In den Feldern auf der rechten Seite können Sie eine “Rule ID” auswählen und ihr einen Namen geben. In den Feldern darunter können Sie die Parameter für den “Stability”-Reiter festlegen. Eine Beschreibung dieser Parameter finden Sie in diesem Handbuch im Kapitel “Stability Reiter”. Zusätzlich können Sie hier eine “Base Rule ID” auswählen. Wenn Sie eine andere Regel als “0” wählen, werden alle Parameter, die wie folgt angegeben sind, die Parameter der gewählten “Base Rule” laden:</p>
+<ul>
+<li>mode: “from Baserule” option</li>
+<li>window length: 0</li>
+<li>upper/lower Threshold: &lt;0</li>
+<li>ramp: 0</li>
+<li>stability Channel: “from Baserule” option</li>
+<li>minimum IFT level: &lt;0</li>
+<li>deadtime: 0</li>
+<li>feed/spindle Override: &gt;125</li>
+<li>feed/spindle Reduction Factor: &gt;125</li>
+<li>low/high-pass filter: &lt;0</li>
+</ul>
+<p>Dies kann verwendet werden, wenn Sie denselben Parameter aus einem vordefinierten Satz verwenden möchten und nur diese Regel ändern müssen, um automatisch mehrere Regeln zu ändern. Im Feld “Description” kann der Regel eine Beschreibung gegeben werden. Mit dem Button “Add/Update Rule” kann die Konfiguration in die Liste geschrieben werden. Wenn eine Regel mit der gewählten “Rule ID” bereits existiert, wird sie mit den neuen Werten überschrieben.</p>
 </div>
 </div>
+<div id="replay-reiter" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Replay Reiter<a href="#replay-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="assets/Replay_filled.png" alt="system" /></p>
+<p>In diesem Reiter werden alle alte aufgezeichnete Dateien vom angeschlossenen USB-Gerät angezeigt. Außerdem ermöglicht er die Neuberechnung des IFT-Werts für die gespeicherten Dateien.</p>
+<p>Sie sehen eine Liste aller Aufzeichnungen, die auf dem verbundenen USB-Gerät gespeichert sind. Wählen Sie die gewünschte Aufzeichnung aus, markieren Sie sie durch Anklicken und drücken Sie anschließend den Button “Load File”, um die Wiedergabe zu starten. Die ausgewählte Datei wird nun geladen.</p>
+<p><img src="assets/Replay.png" alt="system" /></p>
+<p>Oben sehen Sie die Informationen zur ausgewählten Aufzeichnung (wie die Startzeit der Aufzeichnung, Dateiname, Gerätename usw.). Mit dem Button “Close File” können Sie die Aufzeichnung schließen und zur Liste der Aufzeichnungen zurückkehren. Auf der linken Seite werden die Parameter angezeigt, die aktiv waren, als die Aufzeichnung gemacht wurde.</p>
+<p>Darunter befindet sich ein Feld, in dem Sie den “IFT value factor”, “IFT value offset”, den “Stability Channel” und die “WindowLength” ändern können. Wenn Sie diese Parameter ändern und den Button “Recalculate” drücken, berechnet das System einen neuen IFT-Wert für die gesamte Datei und zeigt diesen zusammen mit der ursprünglichen Aufzeichnung an.</p>
+<p><img src="assets/Replay_recalc.png" alt="system" /></p>
+<p>Auf der rechten Seite befinden sich zwei Grafiken. Die obere zeigt die Zeitleiste. Die rote Linie kann per Drag &amp; Drop verschoben werden und symbolisiert den Startpunkt des “Zooms” unten. Die untere Grafik zeigt den IFT-Wert vom gewählten Startpunkt bis 20 Sekunden danach. Nachdem Sie den Startpunkt geändert haben, müssen Sie den Button “Recalculate” drücken, um die Grafik für den ausgewählten Zeitraum neu zu laden.</p>
 </div>
 <div id="stability-reiter" class="section level2 hasAnchor" number="9.4">
 <h2><span class="header-section-number">9.4</span> Stability Reiter<a href="#stability-reiter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="assets/stability-tab.png" alt="stability-tab" /></p>
 <p>Im Stability Reiter des Dashboards können die Parameter der Regelung eingestellt, verschiedene Modi des Systems eingestellt und ein Graph der Echtzeitdaten eingesehen werden.</p>
-<p>ACHTUNG: Die Reiter Stability und System sind nicht miteinander verbunden. Sollten Einstellungen für die Regelung vorgenommen und das System vom aktuellen Halter getrennt werden, behält das Dashboard seine Einstellungen auch beim Verbinden eines neuen Halters. Die Einstellungen werden nur zurückgesetzt, wenn die SPU neu gestartet wird.</p>
-<p>Oben links kann der aktuell ausgewählte Modus gesehen werden und verändert werden (für eine genauere Beschreibung der verschiedenen Modi siehe das Kapitel “Modi“).</p>
+<p>ACHTUNG: Die Reiter Stability und System sind nicht miteinander verbunden. Sollten Einstellungen für die Regelung vorgenommen und das System vom aktuellen Halter getrennt werden, behält das Dashboard seine Einstellungen auch beim Verbinden eines neuen Halters (nur im Modus “Dashboard Connection”, im “Static DI” Modus werden die in den Regeln definierten Parameter übernommen). Die Einstellungen werden nur zurückgesetzt, wenn die SPU neu gestartet wird.</p>
+<p>Oben wird eine Grafik angezeigt, die die Signalqualität darstellt. Dieser Prozentwert zeigt an, wie viele Datenpakete erfolgreich empfangen werden. Wenn die Verbindung schlecht ist und es zu Paketverlusten kommt, sinkt dieser Wert unter die 100%-Marke. Rechts neben der Grafik befinden sich fünf Felder. “STH Name” zeigt den Namen des verbundenen Halters an. “STH Rule” zeigt die Nummer und den Namen der gewählten Regel an. “MO Number”, “NC Program Number” und “Part Number” werden in der Aufzeichnungsdatei gespeichert, falls sie ausgefüllt werden.</p>
+<p>Links können Sie den aktiven Modus ändern (Für detaillierte Beschreibungen der Modi siehe Kapitel “Modi”).</p>
 <p><img src="assets/modeauswahl.png" alt="modeauswahl" /></p>
 <p>Unterhalb der Modusauswahl befinden sich die Parameter Einstellungen (für eine genauere Beschreibung der verschiedenen Parameter siehe das Kapitel “Parameter”).</p>
-<p>Rechts neben der Modusauswahl befindet sich ein Indikator welcher anzeigt ob das System gerade die Daten aufzeichnet. Wenn die Aufnahme gerade eingeschalten ist, dann färbt sich der Indikator hell grün.</p>
+<p>Auf der rechten Seite sehen Sie die Live-Daten des Systems und können die angezeigte Zeitfensterlänge (in Sekunden) ändern. Sie können auch die Datenanzeige stoppen. Es gibt außerdem einen Indikator, der anzeigt, ob das System gerade aufzeichnet. Wenn das System aufzeichnet, wird der Indikator blau.</p>
 <p><img src="assets/record-off.png" alt="recording-off" /> &lt;——-&gt; <img src="assets/record-on.png" alt="recording-on" /></p>
-<p>Auf der rechten Seite befindet sich ein Live-Schrieb der Daten. Ebenso befindet sich hier eine Einstellung für das angezeigte Zeitfenster und eine Möglichkeit, den Schrieb zu stoppen.</p>
-<p><img src="assets/grafhistory.png" alt="grafhistory" /></p>
 <p>Der neueste Datenpunkt befindet sich auf der rechten Seite des Schriebs, der Älteste auf der linken Seite.</p>
+<p><img src="assets/grafhistory.png" alt="grafhistory" /></p>
 <div id="ift-wert" class="section level3 hasAnchor" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> IFT-Wert<a href="#ift-wert" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Der IFT-Wert ist ein Systemparameter, mit dessen Hilfe erkannt werden kann, ob das System stabil oder instabil ist. Wenn der Modus einer der Regelungsmodi ist und der IFT-Wert über einen eingestellten Parameter hinaussteigt, stellt das System anhand eingegebener Parameter neue Werte für Vorschub und Drehzahl Overrides ein, um das System wieder stabil zu bekommen.</p>
@@ -716,7 +701,7 @@ Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlich
 </div>
 <div id="controls-for-the-rule-1" class="section level3 hasAnchor" number="9.4.4">
 <h3><span class="header-section-number">9.4.4</span> Controls for the rule<a href="#controls-for-the-rule-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Am unteren Ende des Fensters existieren 2 Buttons. Der Button “freigabe Regler” kann benutzt werden wie der digitale Eingang um die Regelung zu aktivieren. Wenn der Button gedrückt wird ändert er seinen Namen zu “Regler freigegeben” und der “Sens” Graph wird zu “1”. Wenn der Button nun erneut gedrückt wird, wechselt er seinen Namen wieder zurück und der “Sens” Graph wird wieder “0”. Der Button “Reset Regler” wird nur benötigt wenn sich das System im “stop” Modus befindet.</p>
+<p>Am unteren Bildschirmrand befinden sich zwei Buttons. Der “Update”-Button lädt die Parameter von der linken Seite in die laufenden Werte auf der rechten Seite. Der “Rule Reset”-Button kann im “Stop”-Modus verwendet werden, um die Overrides wieder auf 0 % Reduktion zurückzusetzen.</p>
 </div>
 <div id="stabilitäts-parameter" class="section level3 hasAnchor" number="9.4.5">
 <h3><span class="header-section-number">9.4.5</span> Stabilitäts-Parameter<a href="#stabilitäts-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -727,37 +712,47 @@ Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlich
 <p>{ms} Zeitfenster</p>
 <p>Dieser Parameter gibt an, welches Zeitfenster für die Berechnung des IFT-Wertes benutzt wird. Wenn ein großes Zeitfenster gewählt wird, so reagiert das System träger auf Änderungen des Signals. Zum Beispiel wirkt sich ein einmaliger Impuls weniger auf die IFT-Wert Berechnung aus, wenn das Zeitfenster groß gewählt wird. Im “watch“ Modus kann dieser Parameter in Echtzeit verändert werden. In allen anderen Modi muss der”update“ Button geklickt werden, um Änderungen zu übernehmen.</p>
 </div>
-<div id="upper-threshold-1" class="section level4 hasAnchor" number="9.4.5.2">
-<h4><span class="header-section-number">9.4.5.2</span> Upper threshold<a href="#upper-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="minimum-ift-level-1" class="section level4 hasAnchor" number="9.4.5.2">
+<h4><span class="header-section-number">9.4.5.2</span> Minimum IFT Level<a href="#minimum-ift-level-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} IFT Wert Niveau</p>
+<p>Dieser Parameter legt den minimal verwendeten Wert für die Regel fest. Alle Werte unterhalb dieses Schwellenwerts werden ignoriert. Dies ist beispielsweise notwendig, wenn Sie die Filteroptionen verwenden und diese auf die ungefilterten Werte skalieren. Wenn das Werkzeug sich schnell innerhalb der Maschine bewegt, könnten hochfrequente Signalanteile auftreten, die das System stören. Mit diesem Parameter können Sie verhindern, dass das System reagiert, während es sich nur um Bewegungen handelt, ohne dass relevante Messwerte erfasst werden.</p>
+</div>
+<div id="stability_channel-1" class="section level4 hasAnchor" number="9.4.5.3">
+<h4><span class="header-section-number">9.4.5.3</span> Stability_Channel<a href="#stability_channel-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} channels</p>
+<p>Mit diesem Drop-Down Menü kann der Kanal gewechselt werden, mit welchem der IFT-Wert berechnet wird, sollte das System mit einem 3 Kanal fähigen Halter verbunden sein. Es kann ein einzelner Kanal gewählt werden oder mehrere Kanäle gleichzeitig. Wenn ein Halter mit 1 Kanal verbunden wurde wird dieses Menü vom System ignoriert und die IFT-Wert Berechnung erfolgt mit dem einen zur Verfügung stehenden Kanal.</p>
+</div>
+<div id="upper-threshold-1" class="section level4 hasAnchor" number="9.4.5.4">
+<h4><span class="header-section-number">9.4.5.4</span> Upper threshold<a href="#upper-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} obere Schwelle</p>
 <p>Sollte der IFT-Wert die obere Schwelle überschreiten, so werden die zuvor eingestellten Overrides von der SPU angewandt. Je größer diese Schwelle gewählt wird, umso instabiler darf das System werden, bevor die Regelung eingreift.</p>
 </div>
-<div id="lower-threshold-1" class="section level4 hasAnchor" number="9.4.5.3">
-<h4><span class="header-section-number">9.4.5.3</span> Lower threshold<a href="#lower-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="lower-threshold-1" class="section level4 hasAnchor" number="9.4.5.5">
+<h4><span class="header-section-number">9.4.5.5</span> Lower threshold<a href="#lower-threshold-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} untere Schwelle</p>
 <p>Sollte der IFT-Wert die untere Schwelle unterschreiten, so regelt die SPU wieder auf 100% Vorschub und Drehzahl zurück. Dies geschieht in Folge der eingestellten Rampe. Je kleiner diese Schwelle gewählt wird, umso stabiler muss das System werden, bevor die Overrides zurückgesetzt werden.</p>
 </div>
-<div id="ramp-1" class="section level4 hasAnchor" number="9.4.5.4">
-<h4><span class="header-section-number">9.4.5.4</span> Ramp<a href="#ramp-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="ramp-1" class="section level4 hasAnchor" number="9.4.5.6">
+<h4><span class="header-section-number">9.4.5.6</span> Ramp<a href="#ramp-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{%/ms} Rampe</p>
 <p>Dieser Parameter bestimmt die Geschwindigkeit, mit der die Overrides zurückgesetzt werden. Die Overrides werden nicht sprunghaft zurückgesetzt, sondern verlaufen entlang einer Rampe zurück auf 100%. Je größer dieser Wert, umso steiler ist die Rampe und umso schneller setzt das System Vorschub und Drehzahl zurück auf 100%.</p>
 <p>Beispiel:
 Ein Wert von 0.01%/ms würde einer Erhöhung von Drehzahl und Vorschub um 10% innerhalb von 1 Sekunde.</p>
 </div>
-<div id="feed-override-1" class="section level4 hasAnchor" number="9.4.5.5">
-<h4><span class="header-section-number">9.4.5.5</span> Feed override<a href="#feed-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="feed-override-1" class="section level4 hasAnchor" number="9.4.5.7">
+<h4><span class="header-section-number">9.4.5.7</span> Feed override<a href="#feed-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Vorschub Soll-Wert</p>
 <p>Dieser Parameter wird in den Modi “Stop”, “Stability reduction”, “Stability 2 Level“ und”Direct output“ verwendet. In den Modi “Stop”, “Stability 2 Level” und “Direct output” bestimmt dieser Wert den Override, welcher vom System angewendet wird, sollte das ICOTronic System die Regelung des Vorschubes aktivieren.
 Im Modus “Stability reduction” bestimmt dieser Wert den minimalen Wert den der Override des Vorschubs annehmen darf. Der Override kann nicht unter diesen Wert fallen.</p>
 </div>
-<div id="spindle-override-1" class="section level4 hasAnchor" number="9.4.5.6">
-<h4><span class="header-section-number">9.4.5.6</span> Spindle override<a href="#spindle-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="spindle-override-1" class="section level4 hasAnchor" number="9.4.5.8">
+<h4><span class="header-section-number">9.4.5.8</span> Spindle override<a href="#spindle-override-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Drehzahl Soll-Wert</p>
 <p>Dieser Parameter wird in den Modi “Stop”, “Stability reduction”, “Stability 2 Level“ und”Direct output“ verwendet. Dieser Wert bestimmt den Override, welcher vom System angewendet wird, sollte das ICOTronic System die Regelung der Drehzahl aktivieren.
 Im Modus “Stability reduction” bestimmt dieser Wert den minimalen Wert den der Override der Drehzahl annehmen darf. Der Override kann nicht unter diesen Wert fallen.</p>
 </div>
-<div id="feed-reduction-factor-1" class="section level4 hasAnchor" number="9.4.5.7">
-<h4><span class="header-section-number">9.4.5.7</span> Feed reduction factor<a href="#feed-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="feed-reduction-factor-1" class="section level4 hasAnchor" number="9.4.5.9">
+<h4><span class="header-section-number">9.4.5.9</span> Feed reduction factor<a href="#feed-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Vorschub Reduzierungsfaktor</p>
 <p>Dieser Parameter wird im “Stability reduction“ Modus verwendet. Dieser Wert beeinflusst die Schrittgröße, in welcher der Vorschub Override gesetzt wird.</p>
 <p>Beispiel:
@@ -766,8 +761,8 @@ Ein Wert von 5% als “Feed reduction factor“ erzeugt eine Senkung des Vorschu
 Reduzierungsschritt 2: Reduktion von 95% auf 90%
 … und so weiter.</p>
 </div>
-<div id="spindle-reduction-factor-1" class="section level4 hasAnchor" number="9.4.5.8">
-<h4><span class="header-section-number">9.4.5.8</span> Spindle reduction factor<a href="#spindle-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="spindle-reduction-factor-1" class="section level4 hasAnchor" number="9.4.5.10">
+<h4><span class="header-section-number">9.4.5.10</span> Spindle reduction factor<a href="#spindle-reduction-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{0-100%} Drehzahl Reduzierungsfaktor</p>
 <p>Dieser Parameter wird im “Stability reduction“ Modus verwendet. Dieser Wert beeinflusst die Schrittgröße, in welcher der Drehzahl Override gesetzt wird.</p>
 <p>Beispiel:
@@ -776,8 +771,8 @@ Ein Wert von 5% als “Spindle reduction factor“ erzeugt eine Senkung des Dreh
 Reduzierungsschritt 2: Reduktion von 95% auf 90%
 … und so weiter.</p>
 </div>
-<div id="deadtime-1" class="section level4 hasAnchor" number="9.4.5.9">
-<h4><span class="header-section-number">9.4.5.9</span> Deadtime<a href="#deadtime-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="deadtime-1" class="section level4 hasAnchor" number="9.4.5.11">
+<h4><span class="header-section-number">9.4.5.11</span> Deadtime<a href="#deadtime-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{ms} Totzeit</p>
 <p>Dieser Parameter wird nur im “Stability reduction“ Modus verwendet. Dieser Wert entspricht jener Zeit, die das System abwartet, bevor es erneut überprüft, ob eine Reduktion der Overrides erforderlich ist. Je kleiner dieser Wert, umso schneller reduziert das System den Vorschub und die Drehzahl. Als Referenzwert für erste Versuche kann eine Totzeit von 300ms gewählt werden. Dies bedeutet, dass alle 300ms der Vorschub und die Drehzahl reduziert werden, solange sich der IFT-Wert oberhalb der oberen Schwelle befindet.</p>
 <p>Beispiele:</p>
@@ -789,18 +784,30 @@ Reduzierungsschritt 2: Reduktion von 95% auf 90%
 <p>Deadtime: 300ms</p>
 <p><img src="assets/deadtime2.png" alt="deadtime2" /></p>
 </div>
-<div id="channels" class="section level4 hasAnchor" number="9.4.5.10">
-<h4><span class="header-section-number">9.4.5.10</span> Channels<a href="#channels" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>{-} channels</p>
-<p>Mit diesem Drop-Down Menü kann der Kanal gewechselt werden, mit welchem der IFT-Wert berechnet wird, sollte das System mit einem 3 Kanal fähigen Halter verbunden sein. Es kann ein einzelner Kanal gewählt werden oder mehrere Kanäle gleichzeitig. Wenn ein Halter mit 1 Kanal verbunden wurde wird dieses Menü vom System ignoriert und die IFT-Wert Berechnung erfolgt mit dem einen zur Verfügung stehenden Kanal.</p>
+<div id="low-pass-filter-1" class="section level4 hasAnchor" number="9.4.5.12">
+<h4><span class="header-section-number">9.4.5.12</span> Low-Pass-Filter<a href="#low-pass-filter-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{Hz} Grenzfrequenz<br />
+{-} aktiv/inaktiv</p>
+<p>Dieser Parameter dient zur Einstellung der Grenzfrequenz des Tiefpassfilters bei der Berechnung der IFT-Werte. Das Textfeld wird verwendet, um die Grenzfrequenz anzugeben, und der Kreis ist ein Button, um den Tiefpassfilter zu aktivieren. Der Button leuchtet blau, wenn der Filter aktiv ist.</p>
 </div>
-<div id="ift-value-factor-1" class="section level4 hasAnchor" number="9.4.5.11">
-<h4><span class="header-section-number">9.4.5.11</span> IFT value factor<a href="#ift-value-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="high-pass-filter-1" class="section level4 hasAnchor" number="9.4.5.13">
+<h4><span class="header-section-number">9.4.5.13</span> High-Pass-Filter<a href="#high-pass-filter-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{Hz} Grenzfrequenz<br />
+{-} aktiv/inaktiv</p>
+<p>Dieser Parameter dient zur Einstellung der Grenzfrequenz des Hochpassfilters bei der Berechnung der IFT-Werte. Das Textfeld wird verwendet, um die Grenzfrequenz anzugeben, und der Kreis ist ein Button, um den Hochpassfilter zu aktivieren. Der Button leuchtet blau, wenn der Filter aktiv ist.</p>
+</div>
+<div id="auf-ungefiltert-skalieren" class="section level4 hasAnchor" number="9.4.5.14">
+<h4><span class="header-section-number">9.4.5.14</span> Auf ungefiltert skalieren<a href="#auf-ungefiltert-skalieren" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{-} aktiv/inaktiv</p>
+<p>Dieser kreisförmige Button leuchtet blau, wenn die Funktion aktiviert ist. Das gefilterte Signal (mit Hoch- und Tiefpassfilter) wird im Verhältnis zum ungefilterten Signal gesetzt, wenn diese Funktion aktiviert ist. Ist die Funktion aktiv, kann der IFT-Wert maximal “1” betragen. <strong>Wenn sowohl der Tiefpass- als auch der Hochpassfilter deaktiviert sind, beträgt der Signalwert immer “1”.</strong></p>
+</div>
+<div id="ift-value-factor-1" class="section level4 hasAnchor" number="9.4.5.15">
+<h4><span class="header-section-number">9.4.5.15</span> IFT value factor<a href="#ift-value-factor-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} IFT-Wert Faktor</p>
 <p>Dies ist ein multiplikativer Faktor für den IFT-Wert in der korrespondierenden Grafik und dem analogen Port 0 auf der SPU (NI 9263). Mit diesem Faktor kann das Signal auf einen gewünschten Wert eingestellt werden. Die Werte für die verschiedenen Kanäle können einzeln eingestellt werden.</p>
 </div>
-<div id="ift-value-offset-1" class="section level4 hasAnchor" number="9.4.5.12">
-<h4><span class="header-section-number">9.4.5.12</span> IFT value offset<a href="#ift-value-offset-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="ift-value-offset-1" class="section level4 hasAnchor" number="9.4.5.16">
+<h4><span class="header-section-number">9.4.5.16</span> IFT value offset<a href="#ift-value-offset-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>{-} IFT-Wert Offset</p>
 <p>Dies ist ein additiver Faktor für den IFT-Wert in der korrespondierenden Grafik und dem analogen Port 0 auf der SPU (NI 9263). Mit diesem Faktor kann das Signal auf einen gewünschten Wert eingestellt werden. Die Werte für die verschiedenen Kanäle können einzeln eingestellt werden.</p>
 </div>
