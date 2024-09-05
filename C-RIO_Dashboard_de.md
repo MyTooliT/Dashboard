@@ -4,9 +4,9 @@
 Benutzeranleitung für das ICOtronic Dashboard.
 
 # Version
-Diese Benutzeranleitung wurde für die Dashboardversion v4.0.1.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+Diese Benutzeranleitung wurde für die Dashboardversion v5.3.0.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
 
-[ältere Version](https://github.com/MyTooliT/Dashboard/blob/older_than_4_0_1_4/C-RIO%20Dashboard%20de.md)
+[ältere Version](https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_de.md)
 
 # ICOtronic System Komponenten 				  			
 
@@ -15,7 +15,6 @@ Die nachfolgende Grafik verleiht einen Überblick über die Komponenten des ICOt
 - Sensory Tool Holder (STH)
 - Signal Processing Unit (SPU)
 - Stationary Transceiver Unit (STU)
-- Charging Cradle (CC)
 
 ![Komponenten](assets/Komponenten.png)
 
@@ -26,10 +25,9 @@ Download Link:
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
-ACHTUNG: Es muss die 2020 SP1 (32-bit) Version gewählt werden !!!
+ACHTUNG: Es muss die 2021 SP1 (32-bit) Version gewählt werden !!!
 
-Nicht jeder Browser unterstützt dieses Plugin. Microsoft Edge funktioniert, solange die Dashboard Seite im "Internet Explorer Modus" geöffnet wird.
-Alternativ kann auch das ICOtronicRemotePanel Programm verwendet werden.
+Für die Verbindung zum Dashboard muss das ICOtronicRemotePanel Programm verwendet werden.
 
 Bevor der Computer mittels Ethernet Kabel mit der SPU verbunden wird, müssen die Netzwerkeinstellungen des Computers eingestellt werden. Dafür muss die IP-Adresse des Computers, welcher mit der SPU verbunden wird, folgendermaßen eingestellt werden.
 
@@ -39,65 +37,60 @@ Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.
 
 # Echtzeit-Dashboard 					  			
 
-Öffnen Sie den Microsoft Edge und geben sie folgende Adresse ein:
-http://192.168.1.115:8000/ICOtronicSPU.html
-Sollte sich das Dashboard nicht öffnen überprüfen sie ob die Seite im "Internet Explorer Modus" geöffnet wurde.
-Nun sollte sich das Echtzeit Dashboard auf Ihrem Computer öffnen.
-
-Wenn das "ICOtronicRemotePanel" verwendet wird, öffnen sie das Programm. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
+Öffnen Sie das "ICOtronicRemotePanel" um eine Verbindung zum Dashboard herzustellen. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
 **192.168.1.115**
 
 ![Remote_IP](assets/Remote_IP.png)
 
 Durch drücken von "connect to SPU" sollte das Dashboard geöffnet werden.
 
-Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems, ein Feld in dem der name und die MAC-Adresse des momentan verbundenen Werkzeughalters angezeigt wird und das ICOTronic-Logo.
+Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
 
 Wenn das System mit einem sensorischen Werkzeughalter verbunden ist, ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.
 
 ![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
 
-Wenn kein Werkzeughalter verbunden ist sind die Felder für Rufname und MAC-Adresse leer. Bei Verbindung mit einem Werkzeughalter wird der Rufname und die MAC-Adresse angezeigt bis die Verbindung zum Werkzeughalter wieder getrennt wird.
-
-![connected_name_w](assets/disconnected-name.png)   <------->   ![connected_name_b](assets/connected-name.png)
-
 ## System Reiter 		
+
+Der System Reiter beinhaltet 4 Untermodule. Das Modul in der unteren rechten Ecke beinhaltet Informationen über die Signalqualität und die CPU Auslastung.
 
 ![system-new](assets/system_tab.png)
 
-Im Untermenü "Holder connection" des System Reiters befindet sich eine Liste aller sensorischen Werkzeughalter, die in der Umgebung des Systems gefunden wurden, mit denen sich das System verbinden kann. Zu sehen sind der Name und die Bluetooth Adresse dieser STHs. Es gibt 3 Möglichkeiten einen Halter mit dem System zu verbinden. Die benutzte Methode kann im Untermenü "Connection type" mittels Drop-Down Auswahl gewählt werden und mittels des "->" Buttons aktiviert werden. Auf der rechten Seite befinden sich ein paar Graphen mit System Informationen. Unten links befindet sich ein Untermenü mit 2 Reitern welche benutzt werden um vordefinierte Regelparameter und Sensoreinstellungen zu benutzen. Unten rechts befindet sich ein Untermenü mit mehreren Reitern für spezielle Anwendungen.
+### Verbindung Untermodul
 
-### Logging
+In der oberen linken Ecke befinden sich die Funktionen für die Halterverbindung. Oberhalb gibt es ein Dropdown-Menü, um den gewünschten Verbindungstyp auszuwählen. Mit dem "->" Button kann dieser aktiviert werden. Rechts neben dem "->" Button befindet sich der momentan aktive Verbindungstyp. Der ganz rechte Button "AutoConnect Aus/Ein" kann verwendet werden, um die Notwendigkeit zu aktivieren/deaktivieren, ein TRUE-Signal an den digitalen Verbindungspin zu senden, um sich im "Static DI" Modus zu verbinden. Wenn "AutoConnect Ein" eingestellt ist, verbindet sich das System mit einem Halter, ohne dass ein TRUE-Signal am Verbindungspin anliegt. **Achtung: Die Halter-ID-Pins müssen innerhalb eines Zeitrahmens von 10 ms gesetzt werden, beginnend mit dem ersten TRUE-Signal eines Halterpins!!!**
+Die linke Liste enthält alle momentan definierten "Static DI" Sensor- und Regelkonfigurationen. Unter dieser Liste sieht man die momentan für die Digital IN ausgewählte ID.
 
-![logging](assets/logging_tab.png)
+![channel_numbers](assets/Connect_request_id.png)
 
-Dieser Reiter kann benutzt werden um einen Prozess aufzuzeichnen. Wenn Record at connect" Button markiert ist startet die Aufnahme in dem Moment wenn sich das System mit einem Halter verbindet. Wenn nicht kann die Aufnahme durch Drücken des "Start Recording" Buttons gestartet werden. Dieser Button wird während einer Aufnahme zu einem "Stop Recording" Button mit dem die Aufnahme beendet werden kann. Der Identifikator darunter leuchtet grün wenn ein Speichergerät wie z.B. ein USB-Stick verbunden ist. Die beiden Anzeigen am darunter zeigen an, wie Groß die aktuelle Aufnahme Datei ist und wie viel freier Speicher auf dem angeschlossenen Speichermedium zur Verfügung steht.
+Mit dem "Delete Connect ID" Button kann die momentan hervorgehobene ID gelöscht werden. In der rechten Liste sind alle STHs aufgeführt, die vom System gefunden wurden und bereit zum Verbinden sind. Sie können den Namen und die Bluetooth-Adresse der STHs sehen. Die "STOP"- und "CONNECT"-Buttons werden verwendet, um das System im "Dashboard"-Verbindungsmodus zu verbinden/trennen. Die grünen Radio-Buttons werden verwendet, um die gewählten Sensoren auszuwählen, wenn das System im "Dashboard"-Verbindungsmodus verwendet wird.
 
-**Achtung: Es können nur USB-Sticks mit FAT32 Formatierung verwendet werden!!!**
+### Regel & Sensor Konfigurationen Modul
 
-Die 2 Identifikatoren unterhalb zeigen an ob mittels digitalem Eingang der Hardware momentan eine Datenaufnahme beziehungsweise ein Eingriff der Regelung erwünscht ist. (Der digitale Eingriff für das Recording kann genutzt werden um außerhalb des Dashboards eine Aufnahme zu starten und zu stoppen). 
-Die drei Indikatoren ganz unten zeigen an ob momentan Aufgenommen wird, die Regelung momentan eingeschalten ist und ob die Regelung momentan einen Eingriff vornimmt. 
+Auf der oberen rechten Seite befinden sich 2 Reiter. Diese sind "Rule Engine configs" und "Sensor configs". In diesen beiden Tabs können Sie die momentan geladenen Konfigurationen für "Static DI" im System sehen. Zusätzlich können Sie im Tab "Sensor configs" einen Halter durch Anklicken hervorheben und unten im Dropdown-Menü eine Regel auswählen sowie eine Verbindungs-ID festlegen, die Sie setzen möchten. Durch Drücken des Buttons "Load Sensor" können Sie die Sensor- und Regelkonfiguration in die Liste der geladenen Verbindungsoptionen oben links laden. Neben den beiden Tabs sehen Sie die OPC-Server-URL, die benötigt wird, wenn Sie das System über OPCUA verbinden oder steuern möchten.
 
-### FOCAS
+### Logging & Settings Modul
 
-![focas](assets/focas_tab.png)
+Auf der unteren linken Seite finden Sie den Reiter "Logging". Dieser Tab wird zur Aufzeichnung eines Prozesses verwendet und zeigt den Status der digitalen Eingänge an. Wenn der Button "Record at connect" angeklickt wird, startet die Aufzeichnung, sobald eine Verbindung zu einem Halter hergestellt wird. Andernfalls kann die Aufzeichnung mit dem Button "Start Record" gestartet werden. Wenn das System aufzeichnet, wird dieser Button zu einem Button, um die Aufzeichnung zu stoppen. Die Statusanzeige "Storage mounted" leuchtet blau, wenn ein USB-Gerät angeschlossen ist. Darunter zeigt die Statusanzeige "Recording" rot an, wenn momentan eine Aufzeichnung gemacht wird. Darunter können Sie die Größe der aktuellen Aufzeichnung und den freien Speicherplatz des angeschlossenen USB-Geräts sehen.
 
-**Achtung: Diese Art der Verbindung ist nur auf spezifischen Maschinen möglich!**
+**Achtung: Das System funktioniert nur mit USB-Geräten, die im FAT32-Format formatiert sind!!!**
 
-Dieser Reiter kann benutzt werden um das System mittels der FOCAS Schnittstelle zu steuern. Für diese Art der Kontrolle muss dem System die NC-Startzeile und die NC-Endzeile des zu regelnden Prozesses gegeben werden. Zusätzlich kann die IP-Adresse der FOCAS Schnittstelle angegeben werden. Um die Kontrolle über FOCAS einzuschalten muss diese nach Eingabe der NC-Zeilen mittels eines Drucks des "FOCAS Start" Buttons aktiviert werden. Um die Kontrolle über FOCAS wieder zu deaktivieren muss der "FOCAS Stop" Button gedrückt werden welcher den "FOCAS Start" bei aktiver Kontrolle ersetzt. Zu beachten ist, dass wenn ein Halter verbunden ist wenn "FOCAS Start" betätigt wird, dieser disconnected wird und erneut ein Halter verbunden werden muss.
+Die rechte Statusanzeige zeigt an, ob der digitale Eingang für die Aufzeichnung von der Hardware gesetzt ist. (Der digitale Eingang für die Aufzeichnung kann verwendet werden, um Aufzeichnungen außerhalb des Dashboards zu starten und zu stoppen). Die drei ganz rechten Statusanzeigen zeigen an, ob der DI für die Aktivierung der momentan verwendeten Regel gesetzt ist, ob es der Regel erlaubt ist, Parameter zu ändern (was bedeutet, dass die Regel aktiv gesetzt ist), und die letzte zeigt an, ob das System momentan die Overrides aufgrund der definierten Regeln ändert.
 
-### CAN Monitor
+![settings](assets/settings.png)
 
-![can_monitor](assets/can_monitor.png)
+Der Reiter "Settings" wird verwendet, um das System neu zu starten und die Systemzeit zu ändern. Unten sehen Sie den Button "Reboot System". Wenn dieser Button gedrückt wird, initialisiert die SPU einen Neustart des Systems. Oben sehen Sie zwei Textfelder. Das obere dient zur Definition der neuen Systemzeit, und das untere zur Festlegung des Formats der Zeit, die im rechten oberen Bereich des Dashboards angezeigt wird. Der Button "Set Time" wird verwendet, um die im Textfeld angegebene Zeit als Systemzeit festzulegen. Der Button mit dem Kalender und der Uhr kann verwendet werden, um ein neues Fenster mit einem Kalender und einer Uhr zu öffnen und die Zeit einzustellen.
 
-Dieser Reiter zeigt Informationen über die empfangenen CAN-Nachrichten des Systems an. Mit dem Button "Reboot System" kann ein Software seitiger Reset der SPU ausgelöst werden.
+![clock](assets/clock.png)
+
+In diesem neuen Fenster können Sie den Button "Aktuelle Zeit verwenden" verwenden, um Datum und Uhrzeit auf die momentane Systemzeit einzustellen. Mit einem Druck auf den "OK"-Button wird die ausgewählte Zeit in das Textfeld übernommen.
 
 ### Verbindungsarten
 Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart ausgewählt werden. Auf der rechten Seite wird die momentane Verbindungsart angezeigt. Durch das Drücken des "->" Buttons kann die ausgewählte Verbindungsart auf die aktive Verbindungsart geschrieben werden.
 
 ![connection_type](assets/connection_type.png)
 
-Mittels der Radiobuttons unterhalb der Liste von gefundenen Haltern kann zwischen 1 und 3 Kanälen umgestellt werden, mit der Ausnahme von "Static / DI" Verbindung bei welcher diese Auswahl an einer anderen Stelle getroffen wird. Zu beachten ist, dass wenn 3 Kanäle ausgewählt werden obwohl der verbundene Halter nur 1 Kanal besitz die beiden anderen Kanäle unbrauchbare Daten liefern, da die zwei PINs in solchen Haltern nicht verbunden sind. Links neben den Radiobuttons kann abgelesen werden ob momentan durch die digitalen Eingänge eine Verbindungsanfrage besteht und wenn ja welche Halter ID gesetzt wurde.
+Sie können wählen, welche Sensoren des ausgewählten Halters Sie verwenden wollen durch die Radiobuttons unter der Liste der gefundenen Halter. Eine Ausnahme ist der "Static / DI"-Modus. Ausgewählte Sensoren sind grün markiert. Beachten Sie, dass wenn Sie mehr als einen Sensor verwenden wenn der gewählte Halter nur einen Sensor hat, die anderen beiden Kanäle nutzlose Signale von nicht angeschlossenen PINs im Halter empfangen. Das System wird im 1-Kanal-Modus verbinden, wenn nur ein Sensor ausgewählt ist. Wenn mehr als ein Sensor ausgewählt ist, wird das System im 3-Kanal-Modus verbinden. Wenn Sie mehr als 3 Sensoren auswählen, wird das System nur die ersten 3 ausgewählten Sensoren verwenden. Die Kanäle werden immer so zugewiesen, dass der Sensor mit der niedrigsten Nummer Kanal 1 ist und der Sensor mit der höchsten Nummer Kanal 3.
 
 ![channel_numbers](assets/channel_numbers.png)
 
@@ -109,78 +102,72 @@ Um sich mit einem Halter zu verbinden, muss der gewünschte Halter aus der "Devi
 
 #### Static / DI
 
-Bei dieser Verbindungsart kann eine statische MAC-Adresse angegeben werden. Jeder sensorische Halter besitzt eine eindeutig, einmalige MAC-Adresse. Die MAC-Adresse eines Halters kann rechts in der Halterliste eingesehen werden. Wenn diese Verbindungsart gewählt ist und der Halter mit der eingestellten MAC-Adresse in Reichweite des Systems kommt, während das digitale Eingangssignal für diesen Halter auf "1" gesetzt ist, verbindet sich dieses automatisch mit dem Halter. 
-Bis zu 3 verschiedene Halter können mittels der digitalen Eingänge gewählt werden. Die Felder für die Einstellungen der statischen Verbindung befinden sich unterhalb der Auswahl der Verbindungsarten.
+In diesem Verbindungsmodus können Sie die vordefinierte Verbindungsliste (zu sehen im "System"-Reiter) und die digitalen Eingänge des Systems verwenden, um die Verbindung und die Parameter des Systems zu steuern. (Wie man eine Regel- & Sensorkombination zur Verbindungsliste hinzufügt, siehe Kapitel "Rule & Sensor config Modul" im "System"-Reiter-Kapitel). Die ID der Verbindungsliste entspricht den digitalen Haltereingängen des Systems in einem Binärformat. (Beispiel: ID 3 repräsentiert einen Eingang von 00000011 an den 8 Eingabepins). Um eine Verbindung zu starten, müssen Sie den digitalen Eingang für die Verbindung auf "High" setzen. In diesem Moment wird das System eine Verbindung zu dem Element der Liste herstellen, das durch die digitalen Eingänge ausgewählt wurde. Der momentan gewählte Eingang ist unter der Verbindungsliste zu sehen.
 
-![mac](assets/MAC_Adress.png)
+![channel_numbers](assets/Connect_request_id.png)
 
-Es existieren 3 Reiter mit denen jeweils 1 Halter, für die statische Verbindung, konfiguriert werden kann. Die oberen Felder können genutzt werden um die Parameter zu ändern. Die unteren (mit grauem Hintergrund) zeigen die momentan aktiven Parameter an. Um die in den oberen Feldern eingetragenen Parameter aktiv zu schalten muss der "Update" Button oben rechts gedrückt werden.
-Das Feld "MacAdr" ist die MAC-Adresse des gewählten Halters. Die Adresse kann z.B. aus der rechten Spalte der Halterliste ausgelesen werden. Mittels "Channels" kann eingestellt werden wie viele Kanäle der zu verbindende Halter besitzt. Wenn etwas anderes als "1" eingegeben wird dann wendet das System alles an als ob 3 Kanäle verfügbar sind. Mit einer "1" verbindet sich die SPU mit dem Halter mit nur 1 Kanal. Das "Rule config ID" Feld kann benutzt werden um im vorhinein definierte Regelparameter für diesen Halter auszuwählen. Die Regeleinstellung "0" wird hierbei verwendet um die momentan eingestellten Parameter im "Stability" Reiter zu benutzen. Mittels "IFT value factor" und "IFT value offset" können die berechneten IFT Werte mittels eines Faktors und eines Offset angepasst werden.
+Wenn der "AutoConnect Off/On"-Button auf "ON" gesetzt ist, wird das System eine Verbindung herstellen, ohne dass der Verbindungspin auf "High" gesetzt werden muss, sobald die ID-Pins auf TRUE gesetzt sind. (Achten Sie darauf, dass die Verbindungs-ID-Pins innerhalb von 10 ms gesetzt werden müssen.)
+
+**Achtung: Ändern Sie niemals die vorgegebene ID, während das System mit einem Halter verbunden ist. Trennen Sie zuerst das System, ändern Sie dann die ID und starten Sie danach eine neue Verbindung!!!**
 
 #### First available /DI
 
 Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt. 
 
-### Konfigurationen für Werkzeug und Prozesse
+## Database
 
-Im "System" Reiter befinden sich 2 weitere Reiter, "Rule Engine configs" und "Sensor configs", mit denen im vorhinein erstellte Regel- und Sensoreinstellungen geladen werden können. Mit einem Druck auf den "Load Rule" Button können die ausgewählten Einstellungen übernommen werden. Mittels dieser Funktion können zuvor getätigte Einstellungen durch den Druck eines Buttons direkt geladen werden. Dies hat den Vorteil das nicht alle Einstellungen immer durch Hand getätigt werden müssen und man für unterschiedliche Halter und unterschiedliche Prozesse unterschiedliche Einstellungen leicht verwenden kann.
+![system](assets/Database.png)
 
-![rule-config](assets/Rule_Engine_Config.PNG)
+Dieser Reiter wird verwendet, um die Konfiguration von Regeln und Sensoren zu laden und zu speichern. Er kann in vier Bereiche unterteilt werden. Der erste Bereich befindet sich oben und enthält die Systemsteuerungen. Der mittlere Bereich dient zur Konfiguration der Sensoren. Der unterste Bereich unten wird zur Konfiguration der Regeln verwendet. Der ganz rechte Bereich dieses Reiters ist der Nachrichtenbildschirm. Dort werden die letzten Aktionen angezeigt, die im "Database"-Reiter ausgeführt wurden. Mit einem Klick auf den Button "Clear Messagehistory" kann der Nachrichtenverlauf gelöscht werden.
 
-![sensor-config](assets/Sensor_Config.PNG)
+### System-Modul
 
-**<u>In Entwicklung</u>**
-Die Regel- und Sensoreinstellungen können mittels folgendem Link eingestellt werden:
-http://192.168.1.115:8000/MainConfig.html
-Diese Konfigurationsseite funktioniert, aber das Design und die Bedienfreundlichkeit sind noch **<u>in Entwicklung!</u>**
+![system](assets/Database_control.png)
 
-### OPC-UA Server Adresse
+Die linken Buttons dienen dazu, die momentan erkannten Sensor- und Regel-Listen in das laufende System zu laden oder die momentan verwendeten Listen aus dem laufenden System zurück in die Listen unten zu laden. Die Listen können auch im lokalen Speicher des Systems oder auf einem USB-Stick gespeichert werden. Die Buttons "Load/Save to local Config" können verwendet werden, um eine Konfiguration auf dem lokalen System zu laden/zu speichern. Mit "Load/Save from/to file" wird nicht die lokale Konfigurationsdatei verwendet, sondern die Parameter auf der rechten Seite dieser beiden Buttons. Das Dropdown-Menü "Speicherort" kann verwendet werden, um zwischen lokalem System und USB zu wechseln. Das Textfeld "file" kann verwendet werden, um der Konfiguration einen Namen zu geben oder die zu ladende Datei zu benennen.
 
-Rechts neben den Regel- und Sensoreinstellungen kann die OPCUA-Adresse der SPU gefunden werden, die für eine Verbindung mittels OPCUA Client benötigt wird.
+### Sensor-Modul
 
-![opcua](assets/opcua.png)
+![system](assets/Database_sensors.png)
 
-## Raw Data View Reiter
+In diesem Modul können Sie die definierten Sensoren der Sensorliste anzeigen und ändern. Die Liste auf der linken Seite zeigt die definierten Sensoren. Sie können einen Sensor durch Anklicken hervorheben. Mit dem Button "Delete Sensor" können Sie den ausgewählten Sensor aus der Liste löschen. Wenn Sie den Button "Sensor ->" drücken, werden die Werte des ausgewählten Sensors aus der linken Liste in die Konfigurationsfelder auf der rechten Seite geladen. Die Liste auf der rechten Seite zeigt alle Halter, die momentan vom System in der Nähe erkannt wurden. Durch Klicken auf einen Halter wird dieser hervorgehoben. Wenn Sie den "->" Button drücken, werden die Werte des ausgewählten Halters in die Konfigurationsfelder unten geladen. In den Feldern unten finden Sie die Konfigurationen des Halters für die Sensorliste. Sie können die IFT-Wert-Offsets/Faktoren des Halters in den Feldern ganz rechts ändern. Die "Sensor ID" ist jene ID, die Sie der Halterkonfiguration in der Sensorliste zuweisen möchten. Wenn diese ID bereits definiert ist, wird sie beim Speichern überschrieben. Die "MacAdr" ist die MAC-Adresse des Halters und definiert, welcher Halter verbunden wird. Der "Name" ist ein frei wählbarer Name, der auf dem "Stability"-Reiter angezeigt wird, wenn der Sensor verbunden ist. Das Feld "Description" kann beispielsweise mit Informationen über diesen Sensor gefüllt werden. Das Feld "Channels" wird verwendet, um festzulegen, wie viele Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. Alle Werte außer "1" werden als 3 Kanäle angesehen, während "1" einen Kanal aktiviert. Mit dem Button "Add/Update Sensor" können die Parameter in die Sensorliste auf der linken Seite geschrieben werden.
 
-![raw](assets/RawDataView.PNG)
+### Regel-Modul
 
-Wird dieser Reiter ausgewählt, werden die Rohdaten des Sensorischen Werkzeughalters, abhängig davon ob nur ein oder drei Channels ausgewählt wurden, angezeigt. Dieser dient dazu, die unverrechneten Werte der jeweiligen Eingangskanäle darzustellen. 
+![system](assets/Database_rule.png)
 
-## Breakout detection Reiter
+Dieses Modul enthält eine Liste aller definierten Regeln auf der linken Seite. Die Regel "0" ist immer vorhanden, kann nicht gelöscht werden und verwendet die aktuellen Parameter des Dashboards anstelle von vordefinierten Parametern. Das Feld "Parameters" zeigt eine Liste aller Parameter der ausgewählten Regel. Mit dem Button "Delete Rule" wird die hervorgehobene Regel gelöscht. Wenn Sie den Button "Rule ->" drücken, werden die Parameter der ausgewählten Regel in die Konfigurationsfelder auf der rechten Seite geladen. In den Feldern auf der rechten Seite können Sie eine "Rule ID" auswählen und ihr einen Namen geben. In den Feldern darunter können Sie die Parameter für den "Stability"-Reiter festlegen. Eine Beschreibung dieser Parameter finden Sie in diesem Handbuch im Kapitel "Stability Reiter". Zusätzlich können Sie hier eine "Base Rule ID" auswählen. Wenn Sie eine andere Regel als "0" wählen, werden alle Parameter, die wie folgt angegeben sind, die Parameter der gewählten "Base Rule" laden:
 
-**<u>IN ENTWICKLUNG!!!!</u>**
+- mode: "from Baserule" option
+- window length: 0
+- upper/lower Threshold: <0
+- ramp: 0
+- stability Channel: "from Baserule" option
+- minimum IFT level: <0
+- deadtime: 0
+- feed/spindle Override: >125
+- feed/spindle Reduction Factor: >125
+- low/high-pass filter: <0
 
-![breakout](assets/Breakout_detection.png)
+Dies kann verwendet werden, wenn Sie denselben Parameter aus einem vordefinierten Satz verwenden möchten und nur diese Regel ändern müssen, um automatisch mehrere Regeln zu ändern. Im Feld "Description" kann der Regel eine Beschreibung gegeben werden. Mit dem Button "Add/Update Rule" kann die Konfiguration in die Liste geschrieben werden. Wenn eine Regel mit der gewählten "Rule ID" bereits existiert, wird sie mit den neuen Werten überschrieben.
 
-Dieser Reiter wird benutzt, wenn man Schneidenausbrüche detektieren will.
+## Replay Reiter
 
-In der oberen, linken Ecke können die Parameter für die Detektion eingestellt werden. Oben, rechts befindet sich ein Graph der den Qualitätsfaktor anzeigt welcher genutzt wird um einen Schneidenausbruch zu detektieren. In der unteren, linken Ecke befindet sich ein Graph mit Informationen über die Signalenergie. Untern, rechts befindet sich noch ein Graph welcher das Frequenzspektrum anzeigt. In diesem Frequenzspektrum kann mittels der Maus die rote Linie verschoben werden. Oberhalb des Frequenzspektrums befindet sich einer Anzeige über Frequenz und Amplitude an der gewählten Stelle. Ebenso werden im Frequenzspektrum, sofern die jeweiligen Parameter eingestellt wurden (siehe nächster Absatz), grüne vertikale Balken dargestellt. Diese Balken repräsentieren die in den Parametern definierten Bereiche, welche für die Berechnung des Schneidenausbruchs-Algorithmus verwendet werden. Darin sollten sich bei einem neuen Werkzeug die Vielfachen der Zahneingriffsfrequenzen, gemessen mit dem mitrotierenden Beschleunigungssensor, abbilden. Auf der rechten Seite befinden sich 2 Schieberegler mit denen der Zoom der X-Achse(Frequenz) und der Y-Achse(Amplitude) eingestellt werden können.
+![system](assets/Replay_filled.png)
 
-### Schneidenausbruchs Parameter
+In diesem Reiter werden alle alte aufgezeichnete Dateien vom angeschlossenen USB-Gerät angezeigt. Außerdem ermöglicht er die Neuberechnung des IFT-Werts  für die gespeicherten Dateien.
 
-![breakout_paramter](assets/Breakout_parameter.png)
+Sie sehen eine Liste aller Aufzeichnungen, die auf dem verbundenen USB-Gerät gespeichert sind. Wählen Sie die gewünschte Aufzeichnung aus, markieren Sie sie durch Anklicken und drücken Sie anschließend den Button "Load File", um die Wiedergabe zu starten. Die ausgewählte Datei wird nun geladen.
 
-Diese Parameter werden dazu genutzt die Detektion von Schneidenausbrüchen einstellen zu können. Um die neu eingestellten Parameter zu aktivieren muss der "Update" Button gedrückt werden.
+![system](assets/Replay.png)
 
-#### Spindle speed
+Oben sehen Sie die Informationen zur ausgewählten Aufzeichnung (wie die Startzeit der Aufzeichnung, Dateiname, Gerätename usw.). Mit dem Button "Close File" können Sie die Aufzeichnung schließen und zur Liste der Aufzeichnungen zurückkehren. Auf der linken Seite werden die Parameter angezeigt, die aktiv waren, als die Aufzeichnung gemacht wurde.
 
-Dieser Parameter ist die eingestellte Drehzahl des Prozesses.
+Darunter befindet sich ein Feld, in dem Sie den "IFT value factor", "IFT value offset", den "Stability Channel" und die "WindowLength" ändern können. Wenn Sie diese Parameter ändern und den Button "Recalculate" drücken, berechnet das System einen neuen IFT-Wert für die gesamte Datei und zeigt diesen zusammen mit der ursprünglichen Aufzeichnung an.
 
-#### Order limit
+![system](assets/Replay_recalc.png)
 
-Dieser Parameter ist die Ordnung der Schneideneingriffsfrequenz die für die Berechnung herangezogen wird.
-
-#### Comb width
-
-Dieser Parameter gibt die Kammbreite an mit welcher das Frequenzspektrum analysiert wird. Diese ist notwendig da Frequenzen nicht nur als 1 eindeutiger Wert auftreten sondern eher in Form eines Plateaus auftreten da es sich um einen realen und keinen idealen Prozess handelt.
-
-#### Number of teeth
-
-Dieser Parameter ist die Anzahl der Zähne die das benutzte Werkzeug besitzt.
-
-#### Signal power limit
-
-Dieser Parameter definiert eine Signalenergie. Alles unterhalb dieses Wertes wird ignoriert. Diese Einstellung ist nötig damit das System nur dann Werte berechnet wenn das Werkzeug benutzt wird und nicht wenn es gerade nicht im Schnitt ist. Ohne diesen Wert könnte der Qualitätsfaktor einen Schneidenausbruch anzeigen selbst wenn das Werkzeug sich gerade nicht in Verwendung befindet.
+Auf der rechten Seite befinden sich zwei Grafiken. Die obere zeigt die Zeitleiste. Die rote Linie kann per Drag & Drop verschoben werden und symbolisiert den Startpunkt des "Zooms" unten. Die untere Grafik zeigt den IFT-Wert vom gewählten Startpunkt bis 20 Sekunden danach. Nachdem Sie den Startpunkt geändert haben, müssen Sie den Button "Recalculate" drücken, um die Grafik für den ausgewählten Zeitraum neu zu laden.
 
 ## Stability Reiter 		
 
@@ -188,23 +175,25 @@ Dieser Parameter definiert eine Signalenergie. Alles unterhalb dieses Wertes wir
 
 Im Stability Reiter des Dashboards können die Parameter der Regelung eingestellt, verschiedene Modi des Systems eingestellt und ein Graph der Echtzeitdaten eingesehen werden.
 
-ACHTUNG: Die Reiter Stability und System sind nicht miteinander verbunden. Sollten Einstellungen für die Regelung vorgenommen und das System vom aktuellen Halter getrennt werden, behält das Dashboard seine Einstellungen auch beim Verbinden eines neuen Halters. Die Einstellungen werden nur zurückgesetzt, wenn die SPU neu gestartet wird.
+ACHTUNG: Die Reiter Stability und System sind nicht miteinander verbunden. Sollten Einstellungen für die Regelung vorgenommen und das System vom aktuellen Halter getrennt werden, behält das Dashboard seine Einstellungen auch beim Verbinden eines neuen Halters (nur im Modus "Dashboard Connection", im "Static DI" Modus werden die in den Regeln definierten Parameter übernommen). Die Einstellungen werden nur zurückgesetzt, wenn die SPU neu gestartet wird.
 
-Oben links kann der aktuell ausgewählte Modus gesehen werden und verändert werden (für eine genauere Beschreibung der verschiedenen Modi siehe das Kapitel "Modi“).
+Oben wird eine Grafik angezeigt, die die Signalqualität darstellt. Dieser Prozentwert zeigt an, wie viele Datenpakete erfolgreich empfangen werden. Wenn die Verbindung schlecht ist und es zu Paketverlusten kommt, sinkt dieser Wert unter die 100%-Marke. Rechts neben der Grafik befinden sich fünf Felder. "STH Name" zeigt den Namen des verbundenen Halters an. "STH Rule" zeigt die Nummer und den Namen der gewählten Regel an. "MO Number", "NC Program Number" und "Part Number" werden in der Aufzeichnungsdatei gespeichert, falls sie ausgefüllt werden.
+
+Links können Sie den aktiven Modus ändern (Für detaillierte Beschreibungen der Modi siehe Kapitel "Modi").
 
 ![modeauswahl](assets/modeauswahl.png)
 
 Unterhalb der Modusauswahl befinden sich die Parameter Einstellungen (für eine genauere Beschreibung der verschiedenen Parameter siehe das Kapitel “Parameter”).
 
-Rechts neben der Modusauswahl befindet sich ein Indikator welcher anzeigt ob das System gerade die Daten aufzeichnet. Wenn die Aufnahme gerade eingeschalten ist, dann färbt sich der Indikator hell grün.
+Auf der rechten Seite sehen Sie die Live-Daten des Systems und können die angezeigte Zeitfensterlänge (in Sekunden) ändern. Sie können auch die Datenanzeige stoppen. Es gibt außerdem einen Indikator, der anzeigt, ob das System gerade aufzeichnet. Wenn das System aufzeichnet, wird der Indikator blau.
 
 ![recording-off](assets/record-off.png) <-------> ![recording-on](assets/record-on.png)
 
-Auf der rechten Seite befindet sich ein Live-Schrieb der Daten. Ebenso befindet sich hier eine Einstellung für das angezeigte Zeitfenster und eine Möglichkeit, den Schrieb zu stoppen.
+Der neueste Datenpunkt befindet sich auf der rechten Seite des Schriebs, der Älteste auf der linken Seite. 
 
 ![grafhistory](assets/grafhistory.png)
 
-Der neueste Datenpunkt befindet sich auf der rechten Seite des Schriebs, der Älteste auf der linken Seite. 
+
 
 ### IFT-Wert 				  			
 
@@ -225,7 +214,8 @@ Dieser Graph zeigt 2 Linien, Sens (Blau) und Active (Rot). Bei jenen Werten hand
 ![active](assets/active.png)
 
 ### Controls for the rule
-Am unteren Ende des Fensters existieren 2 Buttons. Der Button "freigabe Regler" kann benutzt werden wie der digitale Eingang um die Regelung zu aktivieren. Wenn der Button gedrückt wird ändert er seinen Namen zu "Regler freigegeben" und der "Sens" Graph wird zu "1". Wenn der Button nun erneut gedrückt wird, wechselt er seinen Namen wieder zurück und der "Sens" Graph wird wieder "0". Der Button "Reset Regler" wird nur benötigt wenn sich das System im "stop" Modus befindet.
+
+Am unteren Bildschirmrand befinden sich zwei Buttons. Der "Update"-Button lädt die Parameter von der linken Seite in die laufenden Werte auf der rechten Seite. Der "Rule Reset"-Button kann im "Stop"-Modus verwendet werden, um die Overrides wieder auf 0 % Reduktion zurückzusetzen.
 
 ### Stabilitäts-Parameter 					  			
 
@@ -238,6 +228,18 @@ Je nachdem, welcher Modus gerade aktiv geschalten ist, können unterschiedliche 
 {ms} Zeitfenster
 
 Dieser Parameter gibt an, welches Zeitfenster für die Berechnung des IFT-Wertes benutzt wird. Wenn ein großes Zeitfenster gewählt wird, so reagiert das System träger auf Änderungen des Signals. Zum Beispiel wirkt sich ein einmaliger Impuls weniger auf die IFT-Wert Berechnung aus, wenn das Zeitfenster groß gewählt wird. Im "watch“ Modus kann dieser Parameter in Echtzeit verändert werden. In allen anderen Modi muss der "update“ Button geklickt werden, um Änderungen zu übernehmen.
+
+#### Minimum IFT Level
+
+{-} IFT Wert Niveau
+
+Dieser Parameter legt den minimal verwendeten Wert für die Regel fest. Alle Werte unterhalb dieses Schwellenwerts werden ignoriert. Dies ist beispielsweise notwendig, wenn Sie die Filteroptionen verwenden und diese auf die ungefilterten Werte skalieren. Wenn das Werkzeug sich schnell innerhalb der Maschine bewegt, könnten hochfrequente Signalanteile auftreten, die das System stören. Mit diesem Parameter können Sie verhindern, dass das System reagiert, während es sich nur um Bewegungen handelt, ohne dass relevante Messwerte erfasst werden.
+
+#### Stability_Channel
+
+{-} channels
+
+Mit diesem Drop-Down Menü kann der Kanal gewechselt werden, mit welchem der IFT-Wert berechnet wird, sollte das System mit einem 3 Kanal fähigen Halter verbunden sein. Es kann ein einzelner Kanal gewählt werden oder mehrere Kanäle gleichzeitig. Wenn ein Halter mit 1 Kanal verbunden wurde wird dieses Menü vom System ignoriert und die IFT-Wert Berechnung erfolgt mit dem einen zur Verfügung stehenden Kanal.
 
 #### Upper threshold 		
 
@@ -322,11 +324,25 @@ Deadtime: 300ms
 
 ![deadtime2](assets/deadtime2.png)
 
-#### Channels
+#### Low-Pass-Filter
 
-{-} channels
+{Hz} Grenzfrequenz  
+{-} aktiv/inaktiv
 
-Mit diesem Drop-Down Menü kann der Kanal gewechselt werden, mit welchem der IFT-Wert berechnet wird, sollte das System mit einem 3 Kanal fähigen Halter verbunden sein. Es kann ein einzelner Kanal gewählt werden oder mehrere Kanäle gleichzeitig. Wenn ein Halter mit 1 Kanal verbunden wurde wird dieses Menü vom System ignoriert und die IFT-Wert Berechnung erfolgt mit dem einen zur Verfügung stehenden Kanal.
+Dieser Parameter dient zur Einstellung der Grenzfrequenz des Tiefpassfilters bei der Berechnung der IFT-Werte. Das Textfeld wird verwendet, um die Grenzfrequenz anzugeben, und der Kreis ist ein Button, um den Tiefpassfilter zu aktivieren. Der Button leuchtet blau, wenn der Filter aktiv ist.
+
+#### High-Pass-Filter
+
+{Hz} Grenzfrequenz  
+{-} aktiv/inaktiv
+
+Dieser Parameter dient zur Einstellung der Grenzfrequenz des Hochpassfilters bei der Berechnung der IFT-Werte. Das Textfeld wird verwendet, um die Grenzfrequenz anzugeben, und der Kreis ist ein Button, um den Hochpassfilter zu aktivieren. Der Button leuchtet blau, wenn der Filter aktiv ist.
+
+#### Auf ungefiltert skalieren
+
+{-} aktiv/inaktiv
+
+Dieser kreisförmige Button leuchtet blau, wenn die Funktion aktiviert ist. Das gefilterte Signal (mit Hoch- und Tiefpassfilter) wird im Verhältnis zum ungefilterten Signal gesetzt, wenn diese Funktion aktiviert ist. Ist die Funktion aktiv, kann der IFT-Wert maximal "1" betragen. **Wenn sowohl der Tiefpass- als auch der Hochpassfilter deaktiviert sind, beträgt der Signalwert immer "1".**
 
 #### IFT value factor 				
 

@@ -59,7 +59,7 @@ The system tab consists of 4 quarters. The lower right corner containing informa
 ### Connection sub part
 
 In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the "->" button it can be activated. On the right side of the "->" button is the momentary active connection type. The right most button "AutoConnect Off/On" can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the "Static DI" mode. If it is set to "AutoConnect On" the system will connect to a holder without a TRUE on the connection pin. **Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!**
-The left list contains all the momentary defined "Static DI" sensor&rule configurations. Below this list you can see the momentary per Digital INS chosen ID.
+The left list contains all the momentary defined "Static DI" sensor&rule configurations. Below this list you can see the momentary per Digital IN chosen ID.
 
 ![channel_numbers](assets/Connect_request_id.png)
 
@@ -317,7 +317,6 @@ Deadtime: 100ms
 Deadtime: 300ms
 
 ![deadtime2](assets/deadtime2.png)
-
 
 #### Low-Pass Filter
 
