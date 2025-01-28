@@ -4,10 +4,10 @@
 User manual for the ICOtronic Dashboard.
 
 # Version
-This version of the documentation was written for the Dashboard version v5.3.0.4.
+This version of the documentation was written for the Dashboard version v5.3.2.16.
 For older documentation look at the following link:
 
-[older Version](https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_en.md)
+[older Version](https://github.com/MyTooliT/Dashboard/blob/07021f2d55188e47bdf2cb417bd4a4016ef03118/C-RIO_Dashboard_en.md)
 
 # ICOtronic System components 		  			
 
@@ -43,6 +43,7 @@ Use the "ICOtronicRemotePanel" then open the program. Now it will open the follo
 
 With a press on "connect to SPU" the program should connect to the Dashboard.
 
+The momentary system time of the computer can be set as the momentary system time of the SPU with the "Sync Time" button.
 
 The Dashboard contains five tabs: **Stability**, **Raw data view**, **Replay**, **System** and **Database**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic logo.
 
@@ -79,7 +80,7 @@ The one identifier to the right show if the digital input for recording is set b
 
 ![settings](assets/settings.png)
 
-The "Settings" tab is used to reboot the system and to change the system time. On the bottom you can see the "Reboot System" button. The SPU will initialise a reboot of the system when this button is pressed. On top you can 2 text-fields. The upper one is to define the new system time and the lower one is to set the format of the time, shown on the topmost right part of the dashboard. The button "Set Time" is used to set the time given in the text-field to the system time. The button with the calendar and clock can be used to open a new window with a calendar and the clock to set the time.
+The "Settings" tab is used to reboot the system and to change the system time. On the bottom you can see the "Reboot System" button. The SPU will initialise a reboot of the system when this button is pressed. The "Reboot STU" button can be used to reset the connected Transceiver Unit. The "Average data OPC-SErver [ms]" configuration is used to change the datarate of the system if the OPCUA connection is used. On top you can 2 text-fields. The upper one is to define the new system time and the lower one is to set the format of the time, shown on the topmost right part of the dashboard. The button "Set Time" is used to set the time given in the text-field to the system time. The button with the calendar and clock can be used to open a new window with a calendar and the clock to set the time.
 
 ![clock](assets/clock.png)
 
@@ -94,6 +95,9 @@ On the left side you can choose a connection type with the drop down menu. On th
 You can chose which sensors of the chosen holder you want to use with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Chosen sensors are green. Note that if you use more than one sensor with a holder which only has one sensor the other two channels will be useless signals from not connected PINs inside the holder. The system will connect in the 1-channel mode if only 1 sensor is selected. The system will connect in the 3-channel mode if more than 1 sensors are selected. If you select more than 3 sensors will the system only use the first 3 selected sensors. The channels are always from the lowest sensor number as channel 1 and the highest channel number as channel 3. 
 
 ![channel_numbers](assets/sensors.png)
+
+If the radio button "1,8V Ref" is used to change the ADC-reference Value of the connected holder from the VDD(3,3V) to 1,8V. This has to be used when you for example use the +-40g 3-axis accelerometer.
+**Attention: The holder can only use 1 reference voltage at the same time so if you use multiple sensors which have different needed reference voltages then at least 1 will always give wrong values!!!**
 
 #### Dashboard / OPC UA
 
@@ -131,7 +135,12 @@ The leftmost buttons are used to load the momentary detected sensor and rule lis
 
 ![system](assets/Database_sensors.png)
 
-In this subpart you can see the defined sensors of the sensor list and change them. The list on the left side shows the defined sensors. You can highlight a sensor by clicking on it. With the "Delete Sensor" button you can delete the chosen sensor from the list. If you press the "Sensor ->" button the values of the chosen sensor will be loaded from the left list into the configuration fields on the right side. The list on the right side shows all holders momentary found by the system in close proximity. By clicking one holder it will be highlighted. If you press the "->" button the values of the chosen holder will be loaded into the configuration fields below. In the fields below you can find the configurations of the holder for the sensor list. You can change the IFT value offsets/factors of the holder on the rightmost fields. The "Sensor ID" is the ID you want to give the holder configuration in the sensor list. If this ID is already defined will it be overwritten when saving. The "MacAdr" is the MAC-Address of the holder and defines which holder will be connected. The "name" is a name which can be given to the sensor which will be shown on the "Stability" tab when the sensor is connected and can be chosen freely. The "description" can be filled for example with information about this sensor. The "Channels" field is used to define how many channels the chosen holder uses in this sensor entry. All values except "1" will be seen as 3 channels whereas "1" activates 1 channel. With the "Add/Update Sensor" button the parameters can be written into the sensor list on the left. 
+In this subpart you can see the defined sensors of the sensor list and change them. The list on the left side shows the defined sensors. You can highlight a sensor by clicking on it. With the "Delete Sensor" button you can delete the chosen sensor from the list. If you press the "Sensor ->" button the values of the chosen sensor will be loaded from the left list into the configuration fields on the right side. The list on the right side shows all holders momentary found by the system in close proximity. By clicking one holder it will be highlighted. If you press the "->" button the values of the chosen holder will be loaded into the configuration fields below. In the fields below you can find the configurations of the holder for the sensor list. You can change the IFT value offsets/factors of the holder on the rightmost fields. The "Sensor ID" is the ID you want to give the holder configuration in the sensor list. If this ID is already defined will it be overwritten when saving. The "MacAdr" is the MAC-Address of the holder and defines which holder will be connected. The "name" is a name which can be given to the sensor which will be shown on the "Stability" tab when the sensor is connected and can be chosen freely. The "description" can be filled for example with information about this sensor. The "Channels" drop-down menu is used to define which channels the chosen holder uses in this sensor entry. 
+
+![system](assets/sensorauswahl.png)
+
+There are some predefined selections. Different selections can be made by choosing the "<Andere...>" option. Now it will want an binary 16-bit input for the chosen senors. All "0" before the first used "1" kann be left out. The sensor 1 is here the LSB. So for example if you want to connect to the 1st, 5th and 10th sensor you have to type in "1000010001". The MSB bit is used to define the Reference voltage. If it is "1" the 1,8V reference voltage will be used. 
+With the "Add/Update Sensor" button the parameters can be written into the sensor list on the left. 
 
 ### Rule sub part
 

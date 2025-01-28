@@ -4,9 +4,9 @@
 Benutzeranleitung für das ICOtronic Dashboard.
 
 # Version
-Diese Benutzeranleitung wurde für die Dashboardversion v5.3.0.4 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+Diese Benutzeranleitung wurde für die Dashboardversion v5.3.2.16 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
 
-[ältere Version](https://github.com/MyTooliT/Dashboard/blob/7f87fe9a3be55a1fabbaa3e65d0878818b1d4ac3/C-RIO_Dashboard_de.md)
+[ältere Version](https://github.com/MyTooliT/Dashboard/blob/07021f2d55188e47bdf2cb417bd4a4016ef03118/C-RIO_Dashboard_de.md)
 
 # ICOtronic System Komponenten 				  			
 
@@ -44,6 +44,8 @@ Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.
 
 Durch drücken von "connect to SPU" sollte das Dashboard geöffnet werden.
 
+Durch drücken des "Sync Time" Buttons kann die aktuelle PC Zeit als die aktuelle Systemzeit der SPU gesetzt werden.
+
 Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
 
 Wenn das System mit einem sensorischen Werkzeughalter verbunden ist, ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.
@@ -79,7 +81,7 @@ Die rechte Statusanzeige zeigt an, ob der digitale Eingang für die Aufzeichnung
 
 ![settings](assets/settings.png)
 
-Der Reiter "Settings" wird verwendet, um das System neu zu starten und die Systemzeit zu ändern. Unten sehen Sie den Button "Reboot System". Wenn dieser Button gedrückt wird, initialisiert die SPU einen Neustart des Systems. Oben sehen Sie zwei Textfelder. Das obere dient zur Definition der neuen Systemzeit, und das untere zur Festlegung des Formats der Zeit, die im rechten oberen Bereich des Dashboards angezeigt wird. Der Button "Set Time" wird verwendet, um die im Textfeld angegebene Zeit als Systemzeit festzulegen. Der Button mit dem Kalender und der Uhr kann verwendet werden, um ein neues Fenster mit einem Kalender und einer Uhr zu öffnen und die Zeit einzustellen.
+Der Reiter "Settings" wird verwendet, um das System neu zu starten und die Systemzeit zu ändern. Unten sehen Sie den Button "Reboot System". Wenn dieser Button gedrückt wird, initialisiert die SPU einen Neustart des Systems. Der Button "Reboot STU" kann benutzt werden um einen Reset der angeschlossenen STU zu erwirken. Die "Average data OPC-SErver [ms]" Einstellung kann genutzt werden um die Datenrate bei aktiver OPCUA Verbindung einzustellen. Oben sehen Sie zwei Textfelder. Das obere dient zur Definition der neuen Systemzeit, und das untere zur Festlegung des Formats der Zeit, die im rechten oberen Bereich des Dashboards angezeigt wird. Der Button "Set Time" wird verwendet, um die im Textfeld angegebene Zeit als Systemzeit festzulegen. Der Button mit dem Kalender und der Uhr kann verwendet werden, um ein neues Fenster mit einem Kalender und einer Uhr zu öffnen und die Zeit einzustellen.
 
 ![clock](assets/clock.png)
 
@@ -92,7 +94,10 @@ Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart
 
 Sie können wählen, welche Sensoren des ausgewählten Halters Sie verwenden wollen durch die Radiobuttons unter der Liste der gefundenen Halter. Eine Ausnahme ist der "Static / DI"-Modus. Ausgewählte Sensoren sind grün markiert. Beachten Sie, dass wenn Sie mehr als einen Sensor verwenden wenn der gewählte Halter nur einen Sensor hat, die anderen beiden Kanäle nutzlose Signale von nicht angeschlossenen PINs im Halter empfangen. Das System wird im 1-Kanal-Modus verbinden, wenn nur ein Sensor ausgewählt ist. Wenn mehr als ein Sensor ausgewählt ist, wird das System im 3-Kanal-Modus verbinden. Wenn Sie mehr als 3 Sensoren auswählen, wird das System nur die ersten 3 ausgewählten Sensoren verwenden. Die Kanäle werden immer so zugewiesen, dass der Sensor mit der niedrigsten Nummer Kanal 1 ist und der Sensor mit der höchsten Nummer Kanal 3.
 
-![channel_numbers](assets/channel_numbers.png)
+![channel_numbers](assets/sensors.png)
+
+Wenn der "1,8V Ref" Radiobutton aktiv ist, benutzt der verbundene Halter anstelle der internen Versorgung (3,3V), als Referenzspannung des ADCs, eine Spannung von 1,8V. Dies wird von manchen Sensoren wie zum Beispiel vom +-40g 3-Achsen Beschleunigungssensor benötigt.
+**Achtung: Es kann immer nur 1 Referenz benutzt werden. Das bedeutet wenn mehrere Sensoren benutzt werden und diese unterschiedliche Spannungen als Referenz benutzen wird immer mindestens 1 Signal fehlerhaft sein!!!**
 
 #### Dashboard / OPC UA
 
@@ -130,7 +135,12 @@ Die linken Buttons dienen dazu, die momentan erkannten Sensor- und Regel-Listen 
 
 ![system](assets/Database_sensors.png)
 
-In diesem Modul können Sie die definierten Sensoren der Sensorliste anzeigen und ändern. Die Liste auf der linken Seite zeigt die definierten Sensoren. Sie können einen Sensor durch Anklicken hervorheben. Mit dem Button "Delete Sensor" können Sie den ausgewählten Sensor aus der Liste löschen. Wenn Sie den Button "Sensor ->" drücken, werden die Werte des ausgewählten Sensors aus der linken Liste in die Konfigurationsfelder auf der rechten Seite geladen. Die Liste auf der rechten Seite zeigt alle Halter, die momentan vom System in der Nähe erkannt wurden. Durch Klicken auf einen Halter wird dieser hervorgehoben. Wenn Sie den "->" Button drücken, werden die Werte des ausgewählten Halters in die Konfigurationsfelder unten geladen. In den Feldern unten finden Sie die Konfigurationen des Halters für die Sensorliste. Sie können die IFT-Wert-Offsets/Faktoren des Halters in den Feldern ganz rechts ändern. Die "Sensor ID" ist jene ID, die Sie der Halterkonfiguration in der Sensorliste zuweisen möchten. Wenn diese ID bereits definiert ist, wird sie beim Speichern überschrieben. Die "MacAdr" ist die MAC-Adresse des Halters und definiert, welcher Halter verbunden wird. Der "Name" ist ein frei wählbarer Name, der auf dem "Stability"-Reiter angezeigt wird, wenn der Sensor verbunden ist. Das Feld "Description" kann beispielsweise mit Informationen über diesen Sensor gefüllt werden. Das Feld "Channels" wird verwendet, um festzulegen, wie viele Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. Alle Werte außer "1" werden als 3 Kanäle angesehen, während "1" einen Kanal aktiviert. Mit dem Button "Add/Update Sensor" können die Parameter in die Sensorliste auf der linken Seite geschrieben werden.
+In diesem Modul können Sie die definierten Sensoren der Sensorliste anzeigen und ändern. Die Liste auf der linken Seite zeigt die definierten Sensoren. Sie können einen Sensor durch Anklicken hervorheben. Mit dem Button "Delete Sensor" können Sie den ausgewählten Sensor aus der Liste löschen. Wenn Sie den Button "Sensor ->" drücken, werden die Werte des ausgewählten Sensors aus der linken Liste in die Konfigurationsfelder auf der rechten Seite geladen. Die Liste auf der rechten Seite zeigt alle Halter, die momentan vom System in der Nähe erkannt wurden. Durch Klicken auf einen Halter wird dieser hervorgehoben. Wenn Sie den "->" Button drücken, werden die Werte des ausgewählten Halters in die Konfigurationsfelder unten geladen. In den Feldern unten finden Sie die Konfigurationen des Halters für die Sensorliste. Sie können die IFT-Wert-Offsets/Faktoren des Halters in den Feldern ganz rechts ändern. Die "Sensor ID" ist jene ID, die Sie der Halterkonfiguration in der Sensorliste zuweisen möchten. Wenn diese ID bereits definiert ist, wird sie beim Speichern überschrieben. Die "MacAdr" ist die MAC-Adresse des Halters und definiert, welcher Halter verbunden wird. Der "Name" ist ein frei wählbarer Name, der auf dem "Stability"-Reiter angezeigt wird, wenn der Sensor verbunden ist. Das Feld "Description" kann beispielsweise mit Informationen über diesen Sensor gefüllt werden. Das Drop-Down Menü "Channels" wird verwendet, um festzulegen, welche Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. 
+
+![system](assets/sensorauswahl.png)
+
+Hier gibt es bereits ein paar vordefinierte Auswahlen. Wenn eine andere Sensoreinstellung gewünscht ist kann diese mittels "<Andere ...>" eingetragen werden. Nun wird eine 16-bit binäre Eingabe für die Sensorauswahl benötigt. Alle "0" vor der ersten benötigten "1" können weggelassen werden. Sensor 1 ist hierbei das LSB bit. Wenn zum Beispiel Sensoren 1,5 und 10 gewählt werden sollen muss hierfür "1000010001" eingegeben werden. Das MSB definiert hierbei die Referenzspannung. Wenn an der MSB Stelle eine "1" eingetragen wird, dann wird die 1,8V Referenzspannung verwendet.
+Mit dem Button "Add/Update Sensor" können die Parameter in die Sensorliste auf der linken Seite geschrieben werden.
 
 ### Regel-Modul
 
