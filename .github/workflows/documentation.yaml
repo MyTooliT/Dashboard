@@ -1,11 +1,7 @@
 name: Documentation
 
 on:
-  push:
-     branches:
-       - main
-       - v4_0_1_4
-       - bookdown
+  - push
 
 jobs:
 
