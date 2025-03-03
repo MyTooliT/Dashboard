@@ -4,9 +4,9 @@
 Benutzeranleitung für das ICOtronic Dashboard.
 
 # Version
-Diese Benutzeranleitung wurde für die Dashboardversion v5.3.2.16 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+Diese Benutzeranleitung wurde für die Dashboardversion v5.3.2.17 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
 
-[ältere Version](https://github.com/MyTooliT/Dashboard/blob/07021f2d55188e47bdf2cb417bd4a4016ef03118/C-RIO_Dashboard_de.md)
+[ältere Version](https://github.com/MyTooliT/Dashboard/blob/e12b933189f3a31d5540899d0332b8fbdf927a62/C-RIO_Dashboard_de.md)
 
 # ICOtronic System Komponenten 				  			
 
@@ -38,13 +38,11 @@ Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.
 # Echtzeit-Dashboard 					  			
 
 Öffnen Sie das "ICOtronicRemotePanel" um eine Verbindung zum Dashboard herzustellen. Nun sollte sich das folgende Fenster öffnen und nach der IP-Adresse des Dashboards fragen. Hier muss folgende IP-Adresse angegeben werden:
-**192.168.1.115**
+**192.168.42.115**
 
 ![Remote_IP](assets/Remote_IP.png)
 
 Durch drücken von "connect to SPU" sollte das Dashboard geöffnet werden.
-
-Durch drücken des "Sync Time" Buttons kann die aktuelle PC Zeit als die aktuelle Systemzeit der SPU gesetzt werden.
 
 Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
 

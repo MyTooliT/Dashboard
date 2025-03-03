@@ -4,10 +4,10 @@
 User manual for the ICOtronic Dashboard.
 
 # Version
-This version of the documentation was written for the Dashboard version v5.3.2.16.
+This version of the documentation was written for the Dashboard version v5.3.2.17.
 For older documentation look at the following link:
 
-[older Version](https://github.com/MyTooliT/Dashboard/blob/07021f2d55188e47bdf2cb417bd4a4016ef03118/C-RIO_Dashboard_en.md)
+[older Version](https://github.com/MyTooliT/Dashboard/blob/e12b933189f3a31d5540899d0332b8fbdf927a62/C-RIO_Dashboard_en.md)
 
 # ICOtronic System components 		  			
 
@@ -37,13 +37,11 @@ After connecting the Laptop via the Ethernet Cable to the SPU, the correct netwo
 # Real-Time-Dashboard 			  			
 
 Use the "ICOtronicRemotePanel" then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
-**192.168.1.115**
+**192.168.42.115**
 
 ![Remote_IP](assets/Remote_IP.png)
 
 With a press on "connect to SPU" the program should connect to the Dashboard.
-
-The momentary system time of the computer can be set as the momentary system time of the SPU with the "Sync Time" button.
 
 The Dashboard contains five tabs: **Stability**, **Raw data view**, **Replay**, **System** and **Database**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic logo.
 
