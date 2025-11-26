@@ -4,9 +4,9 @@
 Benutzeranleitung für das ICOtronic Dashboard.
 
 # Version
-Diese Benutzeranleitung wurde für die Dashboardversion v5.3.2.17 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
+Diese Benutzeranleitung wurde für die Dashboardversion v6.0.1.16 geschrieben. Für ältere Versionen den nachstehenden Link benutzen:
 
-[ältere Version](https://github.com/MyTooliT/Dashboard/blob/e12b933189f3a31d5540899d0332b8fbdf927a62/C-RIO_Dashboard_de.md)
+[ältere Version](https://github.com/MyTooliT/Dashboard/blob/main/Versions.md)
 
 # ICOtronic System Komponenten 				  			
 
@@ -20,7 +20,7 @@ Die nachfolgende Grafik verleiht einen Überblick über die Komponenten des ICOt
 
 # Software- und Netzwerkeinstellungen des Computers 						  			
 
-Es wird ein Computer mit Windows Betriebssystem (Windows 7 Servicepack 1; Windows 8.1 Update 1; Windows 10) und Administratorrechten benötigt. Auf diesem Computer muss "LabView Runtime“ installiert sein. 
+Es wird ein Computer mit Windows Betriebssystem (Windows 7 Servicepack 1; Windows 8.1 Update 1; Windows 10; Windows 11) und Administratorrechten benötigt. Auf diesem Computer muss "LabView Runtime“ installiert sein. 
 Download Link:
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
@@ -44,107 +44,284 @@ Anschließend, sofern notwendig, sollte der Computer neu gestartet werden.
 
 Durch drücken von "connect to SPU" sollte das Dashboard geöffnet werden.
 
-Das Dashboard verfügt über 4 Reiter: **Stability**, **Breakout detection**, **Raw data view** und **System**. Oberhalb der Reiter befindet sich, egal welcher Reiter gewählt ist, eine Anzeige zum Verbindungsstatus des Systems und das ICOTronic-Logo.
+Nun sollte sich das Dashboard in einem neuen Fenster öffnen.
+Das Dashboard verfügt über 6 Reiter. Egal welcher Reiter momentan geöffnet ist bleibt der Header immer gleich.
 
-Wenn das System mit einem sensorischen Werkzeughalter verbunden ist, ändert sich die Farbe der Verbindungsanzeige zu Blau. Wenn die Verbindung getrennt wird, ändert sich die Farbe wieder zu Weiß.
+![Header](assets/Bearbeitet/Top_bearbeitet.png)
 
-![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
+T1: Dieser Indicator gibt an ob momentan ein Halter verbunden ist oder nicht.
+![Header](assets/Bearbeitet/Indikator-bearbeitet.png)
+T2: In diesen Feldern werden, bei aktiver Verbindung zu einem Halter, Daten wie der Haltername und die MAC-Adresse des verbundenen Halter angezeigt. 
+T3: Dies sind die verschiedenen Reiter welche unterschiedliche Anzeigen einblenden können.
+T4: Dies ist das aktuelle Datum und die aktuelle Uhrzeit des c-Rio. Diese kann in einem Unterpunkt des "System"-Reiters verändert werden.
+T5: Dies ist die Versionsnummer des Systems.
 
 ## System Reiter 		
 
-Der System Reiter beinhaltet 4 Untermodule. Das Modul in der unteren rechten Ecke beinhaltet Informationen über die Signalqualität und die CPU Auslastung.
+![System-Reiter](assets/Bearbeitet/system_bearbeitet.png)
 
-![system-new](assets/system_tab.png)
+Der System Reiter verfügt über 4 Untermodule:
+S1: Verbindung Modul 
+S2: Regel & Sensor Konfigurationen Modul
+S3: Logging & Settings Modul
+S4: Information Modul
 
-### Verbindung Untermodul
+### Verbindung Modul
 
-In der oberen linken Ecke befinden sich die Funktionen für die Halterverbindung. Oberhalb gibt es ein Dropdown-Menü, um den gewünschten Verbindungstyp auszuwählen. Mit dem "->" Button kann dieser aktiviert werden. Rechts neben dem "->" Button befindet sich der momentan aktive Verbindungstyp. Der ganz rechte Button "AutoConnect Aus/Ein" kann verwendet werden, um die Notwendigkeit zu aktivieren/deaktivieren, ein TRUE-Signal an den digitalen Verbindungspin zu senden, um sich im "Static DI" Modus zu verbinden. Wenn "AutoConnect Ein" eingestellt ist, verbindet sich das System mit einem Halter, ohne dass ein TRUE-Signal am Verbindungspin anliegt. **Achtung: Die Halter-ID-Pins müssen innerhalb eines Zeitrahmens von 10 ms gesetzt werden, beginnend mit dem ersten TRUE-Signal eines Halterpins!!!**
-Die linke Liste enthält alle momentan definierten "Static DI" Sensor- und Regelkonfigurationen. Unter dieser Liste sieht man die momentan für die Digital IN ausgewählte ID.
+![Verbindung-Modul](assets/Bearbeitet/connection_bearbeitet.png)
 
-![channel_numbers](assets/Connect_request_id.png)
+Dieses Modul (S1) enthält Informationen über die Halter & Regelauswahl und dient im Fall der "Dashboard-Connection" als Einstellungstool. 
+S47: Dieses Drop-Down Menü kann genutzt werden um die gewünschte Halterauswahlmethode zu wählen.
+S48: Dieser Button schaltet beim Betätigen die gewählte Halterauswahlmethode aktiv.
+S49: Dies ist die aktuell aktivierte Halterauswahlmethode.
+S50: Diese Liste zeigt alle momentan über Bluetooth sichtbaren Halter an mit deren Rufnamen und MAC-Adresse.
+S51: Dieser Identifikator zeigt an ob die CAN-Verbindung mit der STU aktiv ist.
+S52: Diese Reiter zeigen Informationen zu den aktuell gewählten oder verbundenen Halter an.
+S53: Dieser Button dient dazu über das "Dashboard" einen Verbindungsbefehl auszugeben. (Dieser Button funktioniert nur wenn die entsprechende Checkbox in S33 gesetzt wurde)
 
-Mit dem "Delete Connect ID" Button kann die momentan hervorgehobene ID gelöscht werden. In der rechten Liste sind alle STHs aufgeführt, die vom System gefunden wurden und bereit zum Verbinden sind. Sie können den Namen und die Bluetooth-Adresse der STHs sehen. Die "STOP"- und "CONNECT"-Buttons werden verwendet, um das System im "Dashboard"-Verbindungsmodus zu verbinden/trennen. Die grünen Radio-Buttons werden verwendet, um die gewählten Sensoren auszuwählen, wenn das System im "Dashboard"-Verbindungsmodus verwendet wird.
+#### Connection-Auswahl Reiter
+
+##### Active
+
+Der Reiter "Active" in S52 gibt nähere Informationen zu dem aktuell Verbundenen Halter.
+
+![active-Reiter](assets/Bearbeitet/active.png)
+
+##### Dashboard
+
+![active-Reiter](assets/Bearbeitet/DB_connection_bearbeitet.png)
+
+Der Reiter "Dashboard" wird benutzt um Einstellungen für die Halterverbindung mittels "Dashboard" vorzunehmen.
+S54: Checkboxen um bis zu 3 Sensoren und die alternative Referenzspannung zu wählen.
+S55: Hier können für die gewählten Sensoren k-Faktoren eingestellt werden.
+S56: Dies sind einstellbare d-Faktoren für die gewählten Sensoren.
+
+##### DB cID
+
+![active-Reiter](assets/Bearbeitet/DB_cID_bearbeitet.png)
+
+Der Reiter "DB cID" wird genutzt um bei der entsprechenden Verbindungsart Einstellungen vorzunehmen.
+S57: Hier kann die gewünschte Connection-ID angegeben werden.
+S58: Hier werden die zu der in S57 gewählten Connection ID gehörigen Device und Regel IDs angezeigt.
+
+##### DB sID
+
+![active-Reiter](assets/Bearbeitet/DB_sID_bearbeitet.png)
+
+Der Reiter "DB sID" wird genutzt um bei der entsprechenden Verbindungsart Einstellungen vorzunehmen.
+S59: Hier kann die gewünschte Device ID angegeben werden.
+S60: Hier kann die gewünschte Main Rule angegeben werden.
+S61-S64: Hier können bis zu 4 gewünschte neben Regeln angegeben werden.
+
+##### Digital Input cID
+
+![active-Reiter](assets/Bearbeitet/digital-input-cid.png)
+
+Dieser Reiter enthält Informationen über die aktuellen Einstellungen, welche mittels digitaler Eingänge, in der dazugehörigen Verbindungsart aktuell angewendet werden.
+
+##### OPC-UA
+
+![active-Reiter](assets/Bearbeitet/opcua-conn.png)
+
+Dieser Reiter enthält Informationen über die aktuellen Einstellungen, welche mittels OPC-UA, in der dazugehörigen Verbindungsart aktuell angewendet werden.
+
+##### CNC
+
+![cnc-Reiter](assets/Bearbeitet/cnc-conn.png)
+
+Dieser Reiter enthält Informationen über die aktuellen Einstellungen, welche mittels einer CNC-Schnittstelle, in der dazugehörigen Verbindungsart aktuell angewendet werden.
 
 ### Regel & Sensor Konfigurationen Modul
 
-Auf der oberen rechten Seite befinden sich 2 Reiter. Diese sind "Rule Engine configs" und "Sensor configs". In diesen beiden Tabs können Sie die momentan geladenen Konfigurationen für "Static DI" im System sehen. Zusätzlich können Sie im Tab "Sensor configs" einen Halter durch Anklicken hervorheben und unten im Dropdown-Menü eine Regel auswählen sowie eine Verbindungs-ID festlegen, die Sie setzen möchten. Durch Drücken des Buttons "Load Sensor" können Sie die Sensor- und Regelkonfiguration in die Liste der geladenen Verbindungsoptionen oben links laden. Neben den beiden Tabs sehen Sie die OPC-Server-URL, die benötigt wird, wenn Sie das System über OPCUA verbinden oder steuern möchten.
+Dieses Untermodul verfügt über 3 Reiter
+
+#### Rule Engine configs
+
+![rules-Reiter](assets/Bearbeitet/Rule_list_bearbeitet.png)
+
+Hier können die aktuellen Regeln eingesehen und geladen werden.
+S10: Dies ist eine Liste aller aktuellen Regeln.
+S11: Hier werden die Details zu der aktuell in S10 ausgewählten Regeln angezeigt
+S12: Mit diesem Button kann die aktuell in S10 ausgewählte Regel in die momentan im Dashboard eingestellten nRT Rules geladen werden.
+S13: Mit diesem Button kann die aktuell in S10 ausgewählte Regel in die momentan im Dashboard eingestellte main Rule geladen werden.
+
+#### Device configs
+
+![device-Reiter](assets/Bearbeitet/sensor_list_bearbeitet.png)
+
+Hier können die aktuellen geladenen Halter und deren Einstellungen eingesehen werden und in die Dashboard-Verbindung geladen werden.
+S14: Liste aller geladenen Halter Einstellungen
+S15: Dieser Button lädt die in S14 ausgwählten Haltereinstellungen in die Verbindungseinstellungen der "Dashboard" Verbinudungsart.
+
+#### Connect ID
+
+![connect-id-Reiter](assets/Bearbeitet/Connection_list_bearbeitet.png)
+
+In diesem Reiter werden alle eingestellten Connection IDs und deren dazugehörigen Device und Rule IDs angezeigt und können hier ebenfalls geändert werden.
+S16: Diese Liste zeigt alle aktuell eingestellten Connection IDs und deren dazugehörigen Device und Rule IDs an.
+S17: Dieser Button lädt die in S18 eingestellten IDs in die momentan in S16 ausgewählte Connection ID.
+S18: Diese Drop-Down Listen werden benutzt um die IDs einzustellen welche mittels dem Button S17 in die Liste S16 aufgenommen werden. Sollte bei "Sensor" die Option "delete" verwendet werden wird bei Betätigung von S17 die markierte ID aus der Liste S16 gelöscht.
 
 ### Logging & Settings Modul
 
-Auf der unteren linken Seite finden Sie den Reiter "Logging". Dieser Tab wird zur Aufzeichnung eines Prozesses verwendet und zeigt den Status der digitalen Eingänge an. Wenn der Button "Record at connect" angeklickt wird, startet die Aufzeichnung, sobald eine Verbindung zu einem Halter hergestellt wird. Andernfalls kann die Aufzeichnung mit dem Button "Start Record" gestartet werden. Wenn das System aufzeichnet, wird dieser Button zu einem Button, um die Aufzeichnung zu stoppen. Die Statusanzeige "Storage mounted" leuchtet blau, wenn ein USB-Gerät angeschlossen ist. Darunter zeigt die Statusanzeige "Recording" rot an, wenn momentan eine Aufzeichnung gemacht wird. Darunter können Sie die Größe der aktuellen Aufzeichnung und den freien Speicherplatz des angeschlossenen USB-Geräts sehen.
+Dieses Modul verfügt über 3 Reiter
 
-**Achtung: Das System funktioniert nur mit USB-Geräten, die im FAT32-Format formatiert sind!!!**
+#### Logging
 
-Die rechte Statusanzeige zeigt an, ob der digitale Eingang für die Aufzeichnung von der Hardware gesetzt ist. (Der digitale Eingang für die Aufzeichnung kann verwendet werden, um Aufzeichnungen außerhalb des Dashboards zu starten und zu stoppen). Die drei ganz rechten Statusanzeigen zeigen an, ob der DI für die Aktivierung der momentan verwendeten Regel gesetzt ist, ob es der Regel erlaubt ist, Parameter zu ändern (was bedeutet, dass die Regel aktiv gesetzt ist), und die letzte zeigt an, ob das System momentan die Overrides aufgrund der definierten Regeln ändert.
+![logging-Reiter](assets/Bearbeitet/Logging_bearbeitet.png)
 
-![settings](assets/settings.png)
+In diesem Reiter können Einstellungen bezüglich der Datenaufnahme vorgenommen werden.
+S19: Dieser Button kann benutzt werden um eine Datenaufnahme zu starten oder zu stoppen.
+S20: Dieser Identifikator zeigt an ob über die digitalen IOs eine Datenaufnahme gewünscht wird.
+S21: Dieser Identifikator zeigt an ob ein USB-Stick für die Datenaufnahme angeschlossen ist. **Achtung: Das System funktioniert nur mit USB-Geräten, die im FAT32-Format formatiert sind!!!**
+S22: Dieser Identifikator zeigt an ob gerade eine Datenaufnahme stattfindet.
+S23: Hier wird bei einer aktiven Datenaufnahme die momentane Größe der Aufnahme angezeigt.
+S24: Hier wird der auf dem verbundenen USB-Stick verfügbare Speicherplatz angezeigt.
+S25: Hier kann eine zusätzlich gewünschter Dateiname gewählt werden, welcher nach dem Zeitstempel der Aufnahme in den Dateinamen angehängt wird.
+S26: Hier kann ein Kommentar eingefügt werden, welcher vor Beginn der Aufnahme in die Datei eingefügt wird.
+S27: Hier kann ein Kommentar eingefügt werden, welcher am Ende der Aufnahme in die Datei eingefügt wird.
+S28: Hier kann eine Teile-Nummer eingefügt werden, welche in die Datei mit eingefügt wird.
+S29: Hier kann eine NC-Programm-Nummer eingefügt werden, welche in die Datei mit eingefügt wird.
+S30: Hier kann eine Mitarbeiter-Nummer eingefügt werden, welche in die Datei mit eingefügt wird.
 
-Der Reiter "Settings" wird verwendet, um das System neu zu starten und die Systemzeit zu ändern. Unten sehen Sie den Button "Reboot System". Wenn dieser Button gedrückt wird, initialisiert die SPU einen Neustart des Systems. Der Button "Reboot STU" kann benutzt werden um einen Reset der angeschlossenen STU zu erwirken. Die "Average data OPC-SErver [ms]" Einstellung kann genutzt werden um die Datenrate bei aktiver OPCUA Verbindung einzustellen. Oben sehen Sie zwei Textfelder. Das obere dient zur Definition der neuen Systemzeit, und das untere zur Festlegung des Formats der Zeit, die im rechten oberen Bereich des Dashboards angezeigt wird. Der Button "Set Time" wird verwendet, um die im Textfeld angegebene Zeit als Systemzeit festzulegen. Der Button mit dem Kalender und der Uhr kann verwendet werden, um ein neues Fenster mit einem Kalender und einer Uhr zu öffnen und die Zeit einzustellen.
+#### Settings
+
+![settings-Reiter](assets/Bearbeitet/Settings_bearbeitet.png)
+
+In diesem Reiter können einige Einstellungen vorgenommen werden. Unter anderem über welche Methoden eine Verbindung eingeleitet werden darf.
+S31: Mit dieser Einstellung kann die Datenrate der OPC-UA Verbindung eingestellt werden.
+S32: Diese Anzeige gibt Informationen über die zuletzt vorgenommenen Lade- beziehungsweise Schreibprozesse
+S33: Diese Checkboxen werden verwendet um die angegebenen Quellen als Auslöser für eine Verbindung zuzulassen. Hierbei kann eine Verbindung von allen ausgewählten Methoden erfolgen. Solange 1 der Methoden eine Verbindung wollen bleibt die Verbindung erhalten. Nur wenn alle gewählten Methoden einen Disconnect wollen wird die Verbindung zum Halter unterbrochen. Wenn "AutoConnect" aktiviert ist dann wird sobald der gewählte Halter in Reichweite ist eine Verbindung ausgelöst. Wenn "AutoRecord" aktiviert ist dann wird automatisch bei Verbindung mit einem Halter die Datenaufnahme gestartet. Wenn "Autoenable Rule" aktiviert ist dann sind alle Regeln automatisch bei Verbindung aktiviert.
+S34: Hier kann der Speicherplatz für das Speichern und Laden von Konfigurationseinstellungen zwischen c-Rio(local) und USB gewählt werden.
+S35: Mit diesem Button werden die aktuellen Connection-Liste, Halterauswahl-Einstellungen, Verbindungsquellen und weitere Einstellungen abgespeichert.
+S36: Mit diesem Button werden die vorhandenen Einstellungen mit denen aus der abgespeicherten Konfigurationsdatei überschrieben.
+S37: Mit diesem Button kann ein Reset der STU ausgelöst werden.
+
+#### System
+
+![system-system-Reiter](assets/Bearbeitet/system_system-bearbeitet.png)
+
+In diesem Reiter können Uhrzeit und IP-Einstellungen vorgenommen werden.
+S38: Hier kann ein neues Systemdatum und Uhrzeit angegeben werden, welche mit S40 geladen werden kann.
+S39: Mit diesem Button kann ein Kalender geöffnet werden, welcher zum ausfüllen von S38 verwendet werden kann.
 
 ![clock](assets/clock.png)
 
-In diesem neuen Fenster können Sie den Button "Aktuelle Zeit verwenden" verwenden, um Datum und Uhrzeit auf die momentane Systemzeit einzustellen. Mit einem Druck auf den "OK"-Button wird die ausgewählte Zeit in das Textfeld übernommen.
+S40: Dieser Button überschreibt das aktuelle Systemdatum und die Uhrzeit mit den in S38 angegebenen Daten.
+S41: Hier kann die verwendete Zeitformatierung umgeändert werden.
+S42: Hier können die aktuellen IP-Einstellungen der linken (SYNC 0) LAN-Buchse ausgelesen werden.
+S43: Mit diesem Button können die aktuellen IP-Einstellungen der linken (SYNC 0) LAN-Buchse(S42) mit den Daten aus S45 überschrieben werden. Hierbei kann es dazu kommen, das die Verbindung abreist oder der c-Rio einen Reboot durchführt.
+S44: Mit diesem Button kann ein Reboot des c-Rio ausgelöst werden.
+S45: Hier können IP-Einstellungen angegeben werden, welche mit S43 auf die linke LAN-Buchse (SYNC 0) angewendet werden sollen.
+S46: Hier werden Informationen zu der Änderung der IP-Adresse angezeigt.
 
-### Verbindungsarten
-Auf der linken Seite kann mittels Drop-Down Liste die gewünschte Verbindungsart ausgewählt werden. Auf der rechten Seite wird die momentane Verbindungsart angezeigt. Durch das Drücken des "->" Buttons kann die ausgewählte Verbindungsart auf die aktive Verbindungsart geschrieben werden.
+### Information Modul
 
-![connection_type](assets/connection_type.png)
+Dieses Modul verfügt über 2 Reiter
 
-Sie können wählen, welche Sensoren des ausgewählten Halters Sie verwenden wollen durch die Radiobuttons unter der Liste der gefundenen Halter. Eine Ausnahme ist der "Static / DI"-Modus. Ausgewählte Sensoren sind grün markiert. Beachten Sie, dass wenn Sie mehr als einen Sensor verwenden wenn der gewählte Halter nur einen Sensor hat, die anderen beiden Kanäle nutzlose Signale von nicht angeschlossenen PINs im Halter empfangen. Das System wird im 1-Kanal-Modus verbinden, wenn nur ein Sensor ausgewählt ist. Wenn mehr als ein Sensor ausgewählt ist, wird das System im 3-Kanal-Modus verbinden. Wenn Sie mehr als 3 Sensoren auswählen, wird das System nur die ersten 3 ausgewählten Sensoren verwenden. Die Kanäle werden immer so zugewiesen, dass der Sensor mit der niedrigsten Nummer Kanal 1 ist und der Sensor mit der höchsten Nummer Kanal 3.
+#### Signal Quality
 
-![channel_numbers](assets/sensors.png)
+![signal-quality-Reiter](assets/Bearbeitet/signal_quality_bearbeitet.png)
 
-Wenn der "1,8V Ref" Radiobutton aktiv ist, benutzt der verbundene Halter anstelle der internen Versorgung (3,3V), als Referenzspannung des ADCs, eine Spannung von 1,8V. Dies wird von manchen Sensoren wie zum Beispiel vom +-40g 3-Achsen Beschleunigungssensor benötigt.
-**Achtung: Es kann immer nur 1 Referenz benutzt werden. Das bedeutet wenn mehrere Sensoren benutzt werden und diese unterschiedliche Spannungen als Referenz benutzen wird immer mindestens 1 Signal fehlerhaft sein!!!**
+S5: Hier wird die Adresse des OPC-UA Server des c-Rio angezeigt.
+S6: Hier kann bei einer aktiven Verbindung mit einem Halter die Akkuspannung des Halters, zum Zeitpunkt des Verbindungaufbaus, abgelesen werden.
+S7: Hier wird bei einer aktiven Verbindung mit einem Halter ein Graph über die Signalqualität angezeigt.
 
-#### Dashboard / OPC UA
+#### System Load
 
-Um sich mit einem Halter zu verbinden, muss der gewünschte Halter aus der "Device list" gewählt werden und danach der "Connect“ Button gedrückt werden. Mit dem "Stop“ Button kann die Verbindung zum aktuell verbundenen Halter getrennt werden. Nach Trennen einer Verbindung benötigt das Dashboard einige Sekunden, bevor es wieder nach Haltern sucht und diese listen.
+![system-load-Reiter](assets/Bearbeitet/CPU_load_bearbeitet.png)
 
-![halterauswahl](assets/Holder_Connection.png)
+S8: Hier ist ein Graph der CPU Auslastung des c-Rio zu sehen.
+S9: Hier kann die Größe des verfügbaren Speichers des c-Rio abgelesen werden.
 
-#### Static / DI
+### Halterauswahl Methoden
 
-In diesem Verbindungsmodus können Sie die vordefinierte Verbindungsliste (zu sehen im "System"-Reiter) und die digitalen Eingänge des Systems verwenden, um die Verbindung und die Parameter des Systems zu steuern. (Wie man eine Regel- & Sensorkombination zur Verbindungsliste hinzufügt, siehe Kapitel "Rule & Sensor config Modul" im "System"-Reiter-Kapitel). Die ID der Verbindungsliste entspricht den digitalen Haltereingängen des Systems in einem Binärformat. (Beispiel: ID 3 repräsentiert einen Eingang von 00000011 an den 8 Eingabepins). Um eine Verbindung zu starten, müssen Sie den digitalen Eingang für die Verbindung auf "High" setzen. In diesem Moment wird das System eine Verbindung zu dem Element der Liste herstellen, das durch die digitalen Eingänge ausgewählt wurde. Der momentan gewählte Eingang ist unter der Verbindungsliste zu sehen.
+Es gibt verschiedene Arten über die der gewünschte Halter mit den gewünschten Einstellungen ausgewählt werden kann. Die aktive Art kann mittels S47 und S48 ausgewählt werden und bei S49 abgelesen werden. Wenn mittels S48 die aktive Halterauswahl Methode gewechselt wird, ändert sich der offene Reiter S52 auf den Reiter der gewählten Methode.
 
-![channel_numbers](assets/Connect_request_id.png)
+![connection-list](assets/Bearbeitet/conn-list.png)
 
-Wenn der "AutoConnect Off/On"-Button auf "ON" gesetzt ist, wird das System eine Verbindung herstellen, ohne dass der Verbindungspin auf "High" gesetzt werden muss, sobald die ID-Pins auf TRUE gesetzt sind. (Achten Sie darauf, dass die Verbindungs-ID-Pins innerhalb von 10 ms gesetzt werden müssen.)
+#### Dashboard
 
-**Achtung: Ändern Sie niemals die vorgegebene ID, während das System mit einem Halter verbunden ist. Trennen Sie zuerst das System, ändern Sie dann die ID und starten Sie danach eine neue Verbindung!!!**
+Hierbei werden der gewählte Halter und die gewählten Sensoren mittels des Dashboards, des Reiters S52 und der Liste der verfügbaren Halter S50 ausgewählt. Die angewandten Regeln werden direkt in den Einstellungen C6 im Reiter "Stability" eingestellt und ausgelesen.
 
-#### First available /DI
+#### Dashboard cID
 
-Bei dieser Verbindungsart verbindet sich das System automatisch mit dem erstbesten Halter der in die Reichweite des Systems kommt. 
+Hierbei werden der gewünschte Halter und Regeln mittels ihrer Connection ID aus der Liste S16 ausgewählt.
+
+#### Dashboard sID
+
+Hierbei werden der gewünschte Halter und die gewünschten Regeln mittels der Device ID aus der Liste S14 und den Regel IDs aus der Liste S10 ausgewählt.
+
+#### Digital Input cID
+
+Hierbei werden der gewünschte Halter und die gewünschten Regeln mittels der digitalen IOs aus der Liste S16 ausgewählt.
+
+#### OPC-UA
+
+Hierbei erfolgen Halter- und Regelauswahl durch eingestellte Parameter der OPC-UA Verbindung.
+
+#### CNC
+
+Hierbei erfolgen Halter- und Regelauswahl durch eine CNC-Schnittstelle.
+
 
 ## Database
 
-![system](assets/Database.png)
+![system](assets/Bearbeitet/Database_bearbeitet.png)
 
-Dieser Reiter wird verwendet, um die Konfiguration von Regeln und Sensoren zu laden und zu speichern. Er kann in vier Bereiche unterteilt werden. Der erste Bereich befindet sich oben und enthält die Systemsteuerungen. Der mittlere Bereich dient zur Konfiguration der Sensoren. Der unterste Bereich unten wird zur Konfiguration der Regeln verwendet. Der ganz rechte Bereich dieses Reiters ist der Nachrichtenbildschirm. Dort werden die letzten Aktionen angezeigt, die im "Database"-Reiter ausgeführt wurden. Mit einem Klick auf den Button "Clear Messagehistory" kann der Nachrichtenverlauf gelöscht werden.
+Dieser Reiter wird verwendet, um die Konfiguration von Regeln und Sensoren zu laden und zu speichern. Er kann in 3 Module unterteilt werden. 
+D1: Das System Modul dient dazu die eingestellten Daten zu laden und speichern.
+D2: Hier kann ein Verlauf der durchgeführten Tätigkeiten in diesem Reiter nachgelesen werden.
+D3: Das Sensor Modul wird dazu verwendet die gewünschten Halter mit deren Sensorenauswahl zu erfassen.
+D4: Das Regel Modul wird dazu verwendet die gewünschten Regeln zu erfassen.
+D5: Mit diesem Button kann die History in D2 gelöscht werden.
+
 
 ### System-Modul
 
-![system](assets/Database_control.png)
+![system](assets/Bearbeitet/Database_control_bearbeitet.png)
 
-Die linken Buttons dienen dazu, die momentan erkannten Sensor- und Regel-Listen in das laufende System zu laden oder die momentan verwendeten Listen aus dem laufenden System zurück in die Listen unten zu laden. Die Listen können auch im lokalen Speicher des Systems oder auf einem USB-Stick gespeichert werden. Die Buttons "Load/Save to local Config" können verwendet werden, um eine Konfiguration auf dem lokalen System zu laden/zu speichern. Mit "Load/Save from/to file" wird nicht die lokale Konfigurationsdatei verwendet, sondern die Parameter auf der rechten Seite dieser beiden Buttons. Das Dropdown-Menü "Speicherort" kann verwendet werden, um zwischen lokalem System und USB zu wechseln. Das Textfeld "file" kann verwendet werden, um der Konfiguration einen Namen zu geben oder die zu ladende Datei zu benennen.
+Dieses Modul dient dazu die Listen zu laden und zu speichern.
+D6: Lädt die aktuell auf dem c-Rio angewendeten Listen.
+D7: Lädt die Listen in den c-Rio damit diese aktiv genutzt werden.
+D8: Lädt die auf dem c-Rio lokal gespeicherten Listen aus.
+D9: Speichert die Listen lokal auf dem c-Rio.
+D10: Lädt die Listen aus dem der in D13 gewählten Quelle mit dem in D14 gewählten Dateinamen aus.
+D11: Speichert die Listen in der in D14 gewählten Datei auf dem in D13 gewählten Medium.
+D13: Hier kann das Medium gewählt werden auf welchem die Listen mit D10 und D11 gelesen oder geschrieben werden.
+D14: Hier kann der gewünschte Dateiname für das Lesen und Schreiben mit D10 und D11 gewählt werden.
 
 ### Sensor-Modul
 
-![system](assets/Database_sensors.png)
+![system](assets/Bearbeitet/Database_devices_bearbeitet.png)
 
-In diesem Modul können Sie die definierten Sensoren der Sensorliste anzeigen und ändern. Die Liste auf der linken Seite zeigt die definierten Sensoren. Sie können einen Sensor durch Anklicken hervorheben. Mit dem Button "Delete Sensor" können Sie den ausgewählten Sensor aus der Liste löschen. Wenn Sie den Button "Sensor ->" drücken, werden die Werte des ausgewählten Sensors aus der linken Liste in die Konfigurationsfelder auf der rechten Seite geladen. Die Liste auf der rechten Seite zeigt alle Halter, die momentan vom System in der Nähe erkannt wurden. Durch Klicken auf einen Halter wird dieser hervorgehoben. Wenn Sie den "->" Button drücken, werden die Werte des ausgewählten Halters in die Konfigurationsfelder unten geladen. In den Feldern unten finden Sie die Konfigurationen des Halters für die Sensorliste. Sie können die IFT-Wert-Offsets/Faktoren des Halters in den Feldern ganz rechts ändern. Die "Sensor ID" ist jene ID, die Sie der Halterkonfiguration in der Sensorliste zuweisen möchten. Wenn diese ID bereits definiert ist, wird sie beim Speichern überschrieben. Die "MacAdr" ist die MAC-Adresse des Halters und definiert, welcher Halter verbunden wird. Der "Name" ist ein frei wählbarer Name, der auf dem "Stability"-Reiter angezeigt wird, wenn der Sensor verbunden ist. Das Feld "Description" kann beispielsweise mit Informationen über diesen Sensor gefüllt werden. Das Drop-Down Menü "Channels" wird verwendet, um festzulegen, welche Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. 
+D15: Hier wird die aktuell geladene Liste der Devices mit deren Einstellungen angezeigt.
+D16: In dieser Liste werden alle aktuell in der Umgebung gefundenen Halter angezeigt.
+D17: Mit diesem Button kann die MAC-Adresse des momentan in D16 gewählten Halters in das Einstellungsfeld D23 geladen werden.
+D18: Hier kann die ID eingestellt werden welche für das Speichern der Einstellungen von D23 nach D15 verwendet wird.
+D19: Hier kann der Name der Einstellung angegeben werden welcher in der Liste D15 angezeigt wird.
+D20: Mit diesem Button kann das aktuell in D15 markierte Element aus der Liste gelöscht werden.
+D21: Mit diesem Button können die Einstellungen des aktuell in D15 ausgewählten Elements in die Einstellungen D23 geladen werden.
+D22: Hier kann eine Beschreibung angegeben werden, welche in der Liste D15 angezeigt wird.
+D23: Hier können die Einstellungen eingetragen werden, welche durch D24 dann in die Liste D15 übertragen werden.
+Das Drop-Down Menü "Sensor Channels" wird verwendet, um festzulegen, welche Kanäle der ausgewählte Halter in diesem Sensoreintrag verwendet. 
 
-![system](assets/sensorauswahl.png)
+![sensorauswahl](assets/sensorauswahl.png)
 
-Hier gibt es bereits ein paar vordefinierte Auswahlen. Wenn eine andere Sensoreinstellung gewünscht ist kann diese mittels "<Andere ...>" eingetragen werden. Nun wird eine 16-bit binäre Eingabe für die Sensorauswahl benötigt. Alle "0" vor der ersten benötigten "1" können weggelassen werden. Sensor 1 ist hierbei das LSB bit. Wenn zum Beispiel Sensoren 1,5 und 10 gewählt werden sollen muss hierfür "1000010001" eingegeben werden. Das MSB definiert hierbei die Referenzspannung. Wenn an der MSB Stelle eine "1" eingetragen wird, dann wird die 1,8V Referenzspannung verwendet.
-Mit dem Button "Add/Update Sensor" können die Parameter in die Sensorliste auf der linken Seite geschrieben werden.
+Hier gibt es bereits ein paar vordefinierte Auswahlen. Wenn eine andere Sensoreinstellung gewünscht ist kann diese mittels "Andere ..." eingetragen werden. Nun wird eine 16-bit binäre Eingabe für die Sensorauswahl benötigt. Alle "0" vor der ersten benötigten "1" können weggelassen werden. Sensor 1 ist hierbei das LSB bit. Wenn zum Beispiel Sensoren 1,5 und 10 gewählt werden sollen muss hierfür "1000010001" eingegeben werden. Das MSB definiert hierbei die Referenzspannung. Wenn an der MSB Stelle eine "1" eingetragen wird, dann wird die 1,8V Referenzspannung verwendet.
+D24: Dieser Button überträgt die aktuell in D19, D22 und D23 eingetragenen Werte in die Liste D15 wobei die ID aus D18 herangezogen wird.
 
 ### Regel-Modul
 
-![system](assets/Database_rule.png)
+![system](assets/Bearbeitet/Database_rules_bearbeitet.png)
 
-Dieses Modul enthält eine Liste aller definierten Regeln auf der linken Seite. Die Regel "0" ist immer vorhanden, kann nicht gelöscht werden und verwendet die aktuellen Parameter des Dashboards anstelle von vordefinierten Parametern. Das Feld "Parameters" zeigt eine Liste aller Parameter der ausgewählten Regel. Mit dem Button "Delete Rule" wird die hervorgehobene Regel gelöscht. Wenn Sie den Button "Rule ->" drücken, werden die Parameter der ausgewählten Regel in die Konfigurationsfelder auf der rechten Seite geladen. In den Feldern auf der rechten Seite können Sie eine "Rule ID" auswählen und ihr einen Namen geben. In den Feldern darunter können Sie die Parameter für den "Stability"-Reiter festlegen. Eine Beschreibung dieser Parameter finden Sie in diesem Handbuch im Kapitel "Stability Reiter". Zusätzlich können Sie hier eine "Base Rule ID" auswählen. Wenn Sie eine andere Regel als "0" wählen, werden alle Parameter, die wie folgt angegeben sind, die Parameter der gewählten "Base Rule" laden:
+In diesem Modul können die angewandten Regeln eingestellt werden.
+
+D25: Dies ist eine Liste aller aktuell eingestellten Regeln.
+D26: Hier werden die Details der momentan in D25 markierten Regel angezeigt.
+D27: Hier kann die Rule ID eingestellt werden unter der die Einstellungen mit D32 abgespeichert werden sollen.
+D28: Hier kann die Art der Regel ausgewählt werden.
+D29: Hier kann die Base Rule ausgewählt werden. Wenn Sie eine andere Regel als "0" wählen, werden alle Parameter, die wie folgt in D35 angegeben sind, die Parameter der gewählten "Base Rule" laden:
 
 - mode: "from Baserule" option
 - window length: 0
@@ -157,79 +334,104 @@ Dieses Modul enthält eine Liste aller definierten Regeln auf der linken Seite. 
 - feed/spindle Reduction Factor: >125
 - low/high-pass filter: <0
 
-Dies kann verwendet werden, wenn Sie denselben Parameter aus einem vordefinierten Satz verwenden möchten und nur diese Regel ändern müssen, um automatisch mehrere Regeln zu ändern. Im Feld "Description" kann der Regel eine Beschreibung gegeben werden. Mit dem Button "Add/Update Rule" kann die Konfiguration in die Liste geschrieben werden. Wenn eine Regel mit der gewählten "Rule ID" bereits existiert, wird sie mit den neuen Werten überschrieben.
+Dies kann verwendet werden, wenn Sie denselben Parameter aus einem vordefinierten Satz verwenden möchten und nur diese Regel ändern müssen, um automatisch mehrere Regeln zu ändern. 
+
+D30: Hier kann der Name der Regel eingestellt werden, welcher in die Liste D25 übernommen wird.
+D31: Hier kann eine Beschreibung der Regel angegeben werden, welche in die Liste D25 übernommen wird.
+D32: Dieser Button überträgt die Daten aus D28-D31 und D35 in die Liste D25 ein.
+D33: Dieser Button löscht das aktuelle markierte Element aus der Liste D25.
+D34: Dieser Button lädt die Einstellungen des aktuell markierten Element aus der Liste D25 in die Felder D27-D31 und D35.
+D35: Hier können die Parameter der Regel eingestellt werden.
+Eine Beschreibung dieser Parameter finden Sie in diesem Handbuch im Kapitel "Stability Reiter"
 
 ## Replay Reiter
 
-![system](assets/Replay_filled.png)
+![system](assets/Bearbeitet/Replay_bearbeitet.png)
 
-In diesem Reiter werden alle alte aufgezeichnete Dateien vom angeschlossenen USB-Gerät angezeigt. Außerdem ermöglicht er die Neuberechnung des IFT-Werts  für die gespeicherten Dateien.
+Dieser Reiter wird verwendet um aufgenommene Daten auf dem momentan angeschlossenen USB-Stick einsehen zu können.
 
-Sie sehen eine Liste aller Aufzeichnungen, die auf dem verbundenen USB-Gerät gespeichert sind. Wählen Sie die gewünschte Aufzeichnung aus, markieren Sie sie durch Anklicken und drücken Sie anschließend den Button "Load File", um die Wiedergabe zu starten. Die ausgewählte Datei wird nun geladen.
+R1: Hier wird eine Liste aller auf dem USB-Stick gefundenen aufgenommen Daten angezeigt.
+R2: Mit diesem Button wird die Aufnahme des aktuell in R1 markierten Elements geöffnet.
 
-![system](assets/Replay.png)
+![system](assets/Bearbeitet/Replay_loaded_bearbeitet.png)
 
-Oben sehen Sie die Informationen zur ausgewählten Aufzeichnung (wie die Startzeit der Aufzeichnung, Dateiname, Gerätename usw.). Mit dem Button "Close File" können Sie die Aufzeichnung schließen und zur Liste der Aufzeichnungen zurückkehren. Auf der linken Seite werden die Parameter angezeigt, die aktiv waren, als die Aufzeichnung gemacht wurde.
+R3: Hier wird der Dateiname der aktuell geöffneten Aufzeichnung angezeigt.
+R4: Mit diesem Button kann die aktuell geöffnete Datei wieder geschlossen werden. **Achtung: Wenn der USB-Stick entfernt wird während eine Datei geöffnet ist, wird der USB-Anschluss unterbrochen und der c-Rio muss neu gestartet werden, damit dieser wieder aktiviert wird!!!**
+R5: Dieser Marker gibt den Startpunkt der in R8 angezeigten Daten an.
+R6: Dies ist ein Graph der den Verlauf der IFT-Wertes in der geöffneten Datei anzeigt.
+R7: Hier können die in der Datei eingetragenen Informationen zu der Aufnahme ausgelesen werden. Es gibt 2 Reiter, "Systemsettings" und Rules
+R8: Hier werden bis zu 2 Sekunden der Daten im Detail angezeigt. Der Startpunkt der Anzeige wird mittels R5 ausgewählt und mittels R17 geladen.
 
-Darunter befindet sich ein Feld, in dem Sie den "IFT value factor", "IFT value offset", den "Stability Channel" und die "WindowLength" ändern können. Wenn Sie diese Parameter ändern und den Button "Recalculate" drücken, berechnet das System einen neuen IFT-Wert für die gesamte Datei und zeigt diesen zusammen mit der ursprünglichen Aufzeichnung an.
+### Systemsettings Reiter
 
-![system](assets/Replay_recalc.png)
+![Recalc](assets/Bearbeitet/Replay_systemsettings_bearbeitet.png)
 
-Auf der rechten Seite befinden sich zwei Grafiken. Die obere zeigt die Zeitleiste. Die rote Linie kann per Drag & Drop verschoben werden und symbolisiert den Startpunkt des "Zooms" unten. Die untere Grafik zeigt den IFT-Wert vom gewählten Startpunkt bis 20 Sekunden danach. Nachdem Sie den Startpunkt geändert haben, müssen Sie den Button "Recalculate" drücken, um die Grafik für den ausgewählten Zeitraum neu zu laden.
+R9: Hier können der Name und die MAC-Adresse des verwendeten Halters ausgelesen werden.
+R10: Hier kann die Startzeit der Aufnahme abgelesen werden.
+R11: Hier kann der Akkustand welcher zum Start der Aufnahme vorhanden war ausgelesen werden.
+R12: Hier können die in der Aufnahme verwendeten Sensoren und Referenzspannung abgelesen werden.
+R13: Hier können die für die 3 Kanäle gewählten k und d Faktoren ausgelesen werden.
+R14: Hier können die vom Benutzer in die Aufnahmen hinzugefügten Informationen ausgelesen werden.
+
+### Rules Reiter
+
+![Recalc](assets/Bearbeitet/Replay_rules_bearbeitet.png)
+
+R15: Hier kann ausgewählt werden, welche Regeleinstellungen in den Daten R16 ausgelesen werden sollen.
+R16: Hier werden die Regeleinstellungen der in R15 ausgewählten Regel angezeigt.
+R17: Mit diesem Button können die IFT-Werte in R8 neu berechnet werden mit dem Startpunkt R5, den k und d Faktoren R18, der Windowlength R19 und dem Channel R20.
+R18: Hier können neue k und d Faktoren für die Neuberechnung mit R17 eingestellt werden.
+R19: Hier kann eine neue Fensterbreite zum Neuberechnen der Daten mit R17 ausgewählt werden.
+R20: Hier kann der Channel, für die Neuberechnung der IFT-Werte in R8 herangezogen wird, eingestellt werden.
+
+## IFT Value Reiter
+
+![IFT_Value_Reiter](assets/Bearbeitet/IFT_Value_bearbeitet.png)
+
+In diesem Reiter kann der aktuelle Verlauf des IFT-Wertes für die verschiedenen eingestellten Regeln bei einer aktiven Verbindung angezeigt werden.
+V1: Hier kann ausgewählt werden aus welcher der Regeln die Thresholds in V2 angezeigt werden sollen.
+V2: Hier werden die Verläufe der IFT-Werte der Regeln und die Thresholds der in V1 eingestellten Regel angezeigt.
+
+## nRT Rule Reiter
+
+![nRT_Rule_Reiter](assets/Bearbeitet/NTR_Rule_bearbeitet.png)
+
+In diesem Reiter können die nRT Regeln ausgelesen werden und im Fall der "Dashboard" Halterauswahl auch adaptiert werden.
+N1: Die hier eingestellten Parameter können mittels der Buttons N3 in die dazugehörigen Regeln geladen werden.
+N2: Hier können die Einstellungen der momentan aktiven nRT Regeln ausgelesen werden.
+N3: Diese Buttons laden bei Betätigung die Daten aus N1 in die dazugehörige Regel in N2.
+N4: Diese Buttons können benutzt werden um die dazugehörigen Regeln zu aktivieren.
+N5: Mit diesen Identifikatoren kann erkannt werden welche nRT Regeln gerade aktiviert sind und welche Regeln gerade einen "Eingriff" auslösen.
 
 ## Stability Reiter 		
 
-![stability-tab](assets/stability-tab.png)
+![stability-tab](assets/Bearbeitet/Stability_bearbeitet.png)
 
-Im Stability Reiter des Dashboards können die Parameter der Regelung eingestellt, verschiedene Modi des Systems eingestellt und ein Graph der Echtzeitdaten eingesehen werden.
+Im Stability Reiter des Dashboards können die Parameter der Regelung für die Dashboard Halterauswahl eingestellt werden, die aktuellen Regeln ausgelesen werden und ein Graph der Echtzeitdaten der Main-Rule eingesehen werden.
 
-ACHTUNG: Die Reiter Stability und System sind nicht miteinander verbunden. Sollten Einstellungen für die Regelung vorgenommen und das System vom aktuellen Halter getrennt werden, behält das Dashboard seine Einstellungen auch beim Verbinden eines neuen Halters (nur im Modus "Dashboard Connection", im "Static DI" Modus werden die in den Regeln definierten Parameter übernommen). Die Einstellungen werden nur zurückgesetzt, wenn die SPU neu gestartet wird.
+C1: Hier kann der gewünschte Regelalgorithmus ausgewählt werden.
+C2: Hier wird der von der Main-Rule aktuell verwendete Regelalgorithmus angezeigt.
+C3: Dieser Identifikator zeigt an ob gerade eine Datenaufnahme stattfindet.
+C4: Mit diesem Schieberegler kann die in C7, C8 und C16 angezeigte Zeit eingestellt werden.
+C5: Mit diesem Button können die Graphen C7, C8 und C16 pausiert werden oder die Pausierung quittiert werden.
+C6: Hier können die Regelparameter der Main-Rule eingestellt werden und die aktuellen Parameter ausgelesen werden.
+C7: Dieser Graph zeigt die Echtzeitdaten des IFT-Wertes und die eingestellten Thresholds.
+C8: Dieser Graph zeigt die Echtzeitdaten der momentan vom c-Rio geregelten Overrides.
+C9: Dieser Button lädt die in C6 eingetragenen Parameter der Main-Rule in die aktivierten Parameter.
+C10: Dieser Button aktiviert und deaktiviert die Main-Rule bei den "Dashboard" Verbindungsarten.
+C11: Dieser Button ermöglicht das Rücksetzen einer ausgelösten Regel, sollte diese durch ihren Algorithmus eine manuelle Quittierung erfordern.
+C12: Dieser Identifikator zeigt an ob die Main-Rule gerade aktiviert ist.
+C13: Dieser Identifikator zeigt an ob die Main-Rule gerade auslöst und die Overrides adaptiert.
+C14: Dieser Identifikator zeigt an ob die Daten aktuell aufgenommen werden.
+C15: Diese Identifikatoren zeigen an welche nRT-Regeln gerade aktiviert sind und welche auslösen. Hierbei wird der innere Kreis eingefärbt wenn die Regel aktiviert ist und der äußere Ring wird eingefärbt wenn die Regel eingreift.
+![Header](assets/Bearbeitet/nRT-Indikator-bearbeitet.png)
+C16: In diesem Graph wird der Zeitliche Verlauf der Aktivierung und des Eingreifens der Main-Rule angezeigt.
 
-Oben wird eine Grafik angezeigt, die die Signalqualität darstellt. Dieser Prozentwert zeigt an, wie viele Datenpakete erfolgreich empfangen werden. Wenn die Verbindung schlecht ist und es zu Paketverlusten kommt, sinkt dieser Wert unter die 100%-Marke. Rechts neben der Grafik befinden sich fünf Felder. "STH Name" zeigt den Namen des verbundenen Halters an. "STH Rule" zeigt die Nummer und den Namen der gewählten Regel an. "MO Number", "NC Program Number" und "Part Number" werden in der Aufzeichnungsdatei gespeichert, falls sie ausgefüllt werden.
+### Parameter 					  			
 
-Links können Sie den aktiven Modus ändern (Für detaillierte Beschreibungen der Modi siehe Kapitel "Modi").
+Je nachdem, welcher Algorithmus gerade aktiv geschalten ist, können unterschiedliche Parameter eingestellt werden. Um die neuen Werte der Parameter zu übernehmen muss der "update“ Button gedrückt werden, welcher sich unterhalb der Parameter befindet. Die einzige Ausnahme ist die "Window length“ Einstellung, welche im "watch“ Modus auch ohne Update in Echtzeit verändert werden kann.
 
-![modeauswahl](assets/modeauswahl.png)
-
-Unterhalb der Modusauswahl befinden sich die Parameter Einstellungen (für eine genauere Beschreibung der verschiedenen Parameter siehe das Kapitel “Parameter”).
-
-Auf der rechten Seite sehen Sie die Live-Daten des Systems und können die angezeigte Zeitfensterlänge (in Sekunden) ändern. Sie können auch die Datenanzeige stoppen. Es gibt außerdem einen Indikator, der anzeigt, ob das System gerade aufzeichnet. Wenn das System aufzeichnet, wird der Indikator blau.
-
-![recording-off](assets/record-off.png) <-------> ![recording-on](assets/record-on.png)
-
-Der neueste Datenpunkt befindet sich auf der rechten Seite des Schriebs, der Älteste auf der linken Seite. 
-
-![grafhistory](assets/grafhistory.png)
-
-
-
-### IFT-Wert 				  			
-
-Der IFT-Wert ist ein Systemparameter, mit dessen Hilfe erkannt werden kann, ob das System stabil oder instabil ist. Wenn der Modus einer der Regelungsmodi ist und der IFT-Wert über einen eingestellten Parameter hinaussteigt, stellt das System anhand eingegebener Parameter neue Werte für Vorschub und Drehzahl Overrides ein, um das System wieder stabil zu bekommen.
-
-![signal](assets/signal.png)
-
-### Overrides 				  			
-
-Der Override Graph zeigt die momentan angelegten Vorschub und Drehzahl Overrides des Systems.
-
-![overrides](assets/overrides.png)
-
-### Kontrollindikatoren 			  			
-
-Dieser Graph zeigt 2 Linien, Sens (Blau) und Active (Rot). Bei jenen Werten handelt es sich um digitale Signale. Bei einem Wert von 1 ist das Signal aktiv, bei einem Wert von 0 inaktiv. Der Sens Indikator gibt an, ob von der Maschine ein Signal ankommt (der M-Befehl ist gesetzt), um die Regelung des Systems einzuschalten und eine Regelung zu ermöglichen. Der Active Indikator gibt an, ob die IFT-Wert Schwelle überschritten ist und das System die Override Werte der Maschine anpasst. Der Active Indikator kann nur 1 werden wenn auch der Sens Indikator 1 ist.
-
-![active](assets/active.png)
-
-### Controls for the rule
-
-Am unteren Bildschirmrand befinden sich zwei Buttons. Der "Update"-Button lädt die Parameter von der linken Seite in die laufenden Werte auf der rechten Seite. Der "Rule Reset"-Button kann im "Stop"-Modus verwendet werden, um die Overrides wieder auf 0 % Reduktion zurückzusetzen.
-
-### Stabilitäts-Parameter 					  			
-
-Je nachdem, welcher Modus gerade aktiv geschalten ist, können unterschiedliche Parameter eingestellt werden. Um die neuen Werte der Parameter zu übernehmen muss der "update“ Button gedrückt werden, welcher sich unterhalb der Parameter befindet. Die einzige Ausnahme ist die "Window length“ Einstellung, welche im "watch“ Modus auch ohne Update in Echtzeit verändert werden kann.
-
-![parameter](assets/parameter.png)
+![parameter](assets/Bearbeitet/parameter.png)
 
 #### Window length 			  			
 
@@ -346,33 +548,21 @@ Dieser Parameter dient zur Einstellung der Grenzfrequenz des Tiefpassfilters bei
 
 Dieser Parameter dient zur Einstellung der Grenzfrequenz des Hochpassfilters bei der Berechnung der IFT-Werte. Das Textfeld wird verwendet, um die Grenzfrequenz anzugeben, und der Kreis ist ein Button, um den Hochpassfilter zu aktivieren. Der Button leuchtet blau, wenn der Filter aktiv ist.
 
-#### Auf ungefiltert skalieren
+#### Scale to unfiltered
 
 {-} aktiv/inaktiv
 
 Dieser kreisförmige Button leuchtet blau, wenn die Funktion aktiviert ist. Das gefilterte Signal (mit Hoch- und Tiefpassfilter) wird im Verhältnis zum ungefilterten Signal gesetzt, wenn diese Funktion aktiviert ist. Ist die Funktion aktiv, kann der IFT-Wert maximal "1" betragen. **Wenn sowohl der Tiefpass- als auch der Hochpassfilter deaktiviert sind, beträgt der Signalwert immer "1".**
 
-#### IFT value factor 				
-
-{-} IFT-Wert Faktor
-
-Dies ist ein multiplikativer Faktor für den IFT-Wert in der korrespondierenden Grafik und dem analogen Port 0 auf der SPU (NI 9263). Mit diesem Faktor kann das Signal auf einen gewünschten Wert eingestellt werden. Die Werte für die verschiedenen Kanäle können einzeln eingestellt werden.
-
-#### IFT value offset 			  			
-
-{-} IFT-Wert Offset
-
-Dies ist ein additiver Faktor für den IFT-Wert in der korrespondierenden Grafik und dem analogen Port 0 auf der SPU (NI 9263). Mit diesem Faktor kann das Signal auf einen gewünschten Wert eingestellt werden. Die Werte für die verschiedenen Kanäle können einzeln eingestellt werden.
-
-### Modi 		
+### Regelalgorithmen 		
 
 Die verschiedenen Modi sind folgende:
 
-![modes](assets/modes.png)
+![modes](assets/Bearbeitet/modes.png)
 
 #### WATCH 			  			
 
-In diesem Modus sind STU und STH miteinander verbunden. Des Weiteren wird der IFT-Wert in diesem Modus berechnet, damit das generierte Signal eines Schnittes eingesehen werden kann. Dieser Modus ist aber kein Regelmodus und greift somit auch nicht in den Maschinenprozess ein. Daher ist dieser Modus dafür geeignet, die Verbindung zwischen STH und STU zu testen. In diesem Modus können der "IFT value factor“ und der "IFT value offset“ verändert werden. Dies ist der einzige Modus, in dem die "Window length“ geändert werden kann, ohne den "Update“ Button klicken zu müssen.
+In diesem Modus sind STU und STH miteinander verbunden. Des Weiteren wird der IFT-Wert in diesem Modus berechnet, damit das generierte Signal eines Schnittes eingesehen werden kann. Dieser Modus ist aber kein Regelmodus und greift somit auch nicht in den Maschinenprozess ein. Daher ist dieser Modus dafür geeignet, die Verbindung zwischen STH und STU zu testen. Dies ist der einzige Modus, in dem die "Window length“ geändert werden kann, ohne den "Update“ Button klicken zu müssen.
 
 #### STABILITY 2 LEVEL 			  			
 
@@ -389,6 +579,10 @@ Dieser Modus wird vorrangig bei der Installation des Systems benutzt. Neben dem 
 #### STOP
 
 Dieser Modus ist nahezu ident zu "stability 2 level". Der einzige Unterschied besteht darin, dass dieser Modus keinen "lower threshold" benutzt. Wenn das System die Overrides verändert, bleiben diese Overrides aktiv bis entweder der digitale Eingang für die Regelung auf "0" zurück gesetzt wird oder der "Reset Regler" Button gedrückt wird.
+
+#### FROM nRT1
+
+Dieser Modus nutzt anstelle der Main-Rule die Einstellungen der nRT1 Rule für die Regelung der Overrides.
 
 ## Anwendungsbeispiel 			  			
 
