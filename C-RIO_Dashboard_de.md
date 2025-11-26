@@ -61,12 +61,12 @@ T5: Dies ist die Versionsnummer des Systems.
 ![System-Reiter](assets/Bearbeitet/system_bearbeitet.png)
 
 Der System Reiter verfügt über 4 Untermodule:
-S1: Verbindung Modul 
-S2: Regel & Sensor Konfigurationen Modul
-S3: Logging & Settings Modul
-S4: Information Modul
+S1: Modul Verbindung 
+S2: Modul Regel & Sensor Konfigurationen
+S3: Modul Logging & Settings
+S4: Modul Information
 
-### Verbindung Modul
+### Modul Verbindung
 
 ![Verbindung-Modul](assets/Bearbeitet/connection_bearbeitet.png)
 
@@ -111,7 +111,7 @@ S58: Hier werden die zu der in S57 gewählten Connection ID gehörigen Device un
 Der Reiter "DB sID" wird genutzt um bei der entsprechenden Verbindungsart Einstellungen vorzunehmen.
 S59: Hier kann die gewünschte Device ID angegeben werden.
 S60: Hier kann die gewünschte Main Rule angegeben werden.
-S61-S64: Hier können bis zu 4 gewünschte neben Regeln angegeben werden.
+S61-S64: Hier können bis zu 4 gewünschte Nebenegeln angegeben werden.
 
 ##### Digital Input cID
 
@@ -131,7 +131,7 @@ Dieser Reiter enthält Informationen über die aktuellen Einstellungen, welche m
 
 Dieser Reiter enthält Informationen über die aktuellen Einstellungen, welche mittels einer CNC-Schnittstelle, in der dazugehörigen Verbindungsart aktuell angewendet werden.
 
-### Regel & Sensor Konfigurationen Modul
+### Modul Regel & Sensor Konfigurationen
 
 Dieses Untermodul verfügt über 3 Reiter
 
@@ -160,9 +160,9 @@ S15: Dieser Button lädt die in S14 ausgwählten Haltereinstellungen in die Verb
 In diesem Reiter werden alle eingestellten Connection IDs und deren dazugehörigen Device und Rule IDs angezeigt und können hier ebenfalls geändert werden.
 S16: Diese Liste zeigt alle aktuell eingestellten Connection IDs und deren dazugehörigen Device und Rule IDs an.
 S17: Dieser Button lädt die in S18 eingestellten IDs in die momentan in S16 ausgewählte Connection ID.
-S18: Diese Drop-Down Listen werden benutzt um die IDs einzustellen welche mittels dem Button S17 in die Liste S16 aufgenommen werden. Sollte bei "Sensor" die Option "delete" verwendet werden wird bei Betätigung von S17 die markierte ID aus der Liste S16 gelöscht.
+S18: Diese Drop-Down Listen werden benutzt um die IDs einzustellen welche mittels dem Button S17 in die Liste S16 aufgenommen werden. Sollte bei "Sensor" die Option "delete" verwendet werden wird bei Betätigung von S17 die markierte ID aus der Liste S16 gelöscht. Die Main Rule ist in der Lage die Overrides zu steuern. Die 4 nRT-Rules können nur die dafür vorgesehenen digitalen IOs steuern um einen Eingriff anzuzeigen, haben aber keinen Zugriff auf die analogen Overrides.
 
-### Logging & Settings Modul
+### Modul Logging & Settings
 
 Dieses Modul verfügt über 3 Reiter
 
@@ -215,7 +215,7 @@ S44: Mit diesem Button kann ein Reboot des c-Rio ausgelöst werden.
 S45: Hier können IP-Einstellungen angegeben werden, welche mit S43 auf die linke LAN-Buchse (SYNC 0) angewendet werden sollen.
 S46: Hier werden Informationen zu der Änderung der IP-Adresse angezeigt.
 
-### Information Modul
+### Modul Information
 
 Dieses Modul verfügt über 2 Reiter
 
@@ -270,14 +270,14 @@ Hierbei erfolgen Halter- und Regelauswahl durch eine CNC-Schnittstelle.
 ![system](assets/Bearbeitet/Database_bearbeitet.png)
 
 Dieser Reiter wird verwendet, um die Konfiguration von Regeln und Sensoren zu laden und zu speichern. Er kann in 3 Module unterteilt werden. 
-D1: Das System Modul dient dazu die eingestellten Daten zu laden und speichern.
+D1: Das Modul System dient dazu die eingestellten Daten zu laden und speichern.
 D2: Hier kann ein Verlauf der durchgeführten Tätigkeiten in diesem Reiter nachgelesen werden.
-D3: Das Sensor Modul wird dazu verwendet die gewünschten Halter mit deren Sensorenauswahl zu erfassen.
-D4: Das Regel Modul wird dazu verwendet die gewünschten Regeln zu erfassen.
+D3: Das Modul Sensor wird dazu verwendet die gewünschten Halter mit deren Sensorenauswahl zu erfassen.
+D4: Das Modul Regel wird dazu verwendet die gewünschten Regeln zu erfassen.
 D5: Mit diesem Button kann die History in D2 gelöscht werden.
 
 
-### System-Modul
+### Modul System
 
 ![system](assets/Bearbeitet/Database_control_bearbeitet.png)
 
@@ -291,7 +291,7 @@ D11: Speichert die Listen in der in D14 gewählten Datei auf dem in D13 gewählt
 D13: Hier kann das Medium gewählt werden auf welchem die Listen mit D10 und D11 gelesen oder geschrieben werden.
 D14: Hier kann der gewünschte Dateiname für das Lesen und Schreiben mit D10 und D11 gewählt werden.
 
-### Sensor-Modul
+### Modul Sensor
 
 ![system](assets/Bearbeitet/Database_devices_bearbeitet.png)
 
@@ -311,7 +311,7 @@ Das Drop-Down Menü "Sensor Channels" wird verwendet, um festzulegen, welche Kan
 Hier gibt es bereits ein paar vordefinierte Auswahlen. Wenn eine andere Sensoreinstellung gewünscht ist kann diese mittels "Andere ..." eingetragen werden. Nun wird eine 16-bit binäre Eingabe für die Sensorauswahl benötigt. Alle "0" vor der ersten benötigten "1" können weggelassen werden. Sensor 1 ist hierbei das LSB bit. Wenn zum Beispiel Sensoren 1,5 und 10 gewählt werden sollen muss hierfür "1000010001" eingegeben werden. Das MSB definiert hierbei die Referenzspannung. Wenn an der MSB Stelle eine "1" eingetragen wird, dann wird die 1,8V Referenzspannung verwendet.
 D24: Dieser Button überträgt die aktuell in D19, D22 und D23 eingetragenen Werte in die Liste D15 wobei die ID aus D18 herangezogen wird.
 
-### Regel-Modul
+### Modul Regel
 
 ![system](assets/Bearbeitet/Database_rules_bearbeitet.png)
 
