@@ -1,150 +1,327 @@
 # (PART\*) [English] {-}
 
-# Dashboard user manual {-}
-User manual for the ICOtronic Dashboard.
+# Dashboard User Guide {-}
+User guide for the ICOtronic Dashboard.
 
 # Version
-This version of the documentation was written for the Dashboard version v5.3.2.17.
-For older documentation look at the following link:
+This user guide was written for Dashboard version v6.0.1.16. For older versions, use the link below:
 
-[older Version](https://github.com/MyTooliT/Dashboard/blob/e12b933189f3a31d5540899d0332b8fbdf927a62/C-RIO_Dashboard_en.md)
+[older version](https://github.com/MyTooliT/Dashboard/blob/main/Versions.md)
 
-# ICOtronic System components 		  			
+# ICOtronic System Components
 
-The graphic below provides an overview about the ICOtronic system components. It consists of the following main parts:
+The following diagram provides an overview of the components of the ICOtronic system. The main components are:
 
 - Sensory Tool Holder (STH)
-- Stationary Transceiver Unit (STU)
 - Signal Processing Unit (SPU)
+- Stationary Transceiver Unit (STU)
 
-![Komponenten](assets/Komponenten.png)
+![Components](assets/Komponenten.png)
 
-# Software and network Settings for your PC			  			
-First, you need a Laptop running Windows and administrator privileges. You need the “LabView Runtime” installed on the Laptop, download link ->
+# Computer software and network settings
+
+A computer with a Windows operating system (Windows 7 Service Pack 1; Windows 8.1 Update 1; Windows 10; Windows 11) and administrator rights is required. "LabView Runtime" must be installed on this computer.
+Download link:
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
-CAUTION: it has to be the 2021 SP1 (32-bit) version !!!
+**ATTENTION: The 2021 SP1 (32-bit) version must be selected !!!**
 
-You have to use the ICOtronicRemotePanel to connect to the Dashboard.
+The ICOtronicRemotePanel program must be used to connect to the dashboard.
 
-After connecting the Laptop via the Ethernet Cable to the SPU, the correct network settings have to be configured. Therefore, set the network configuration of the interface that is going to be used with the SPU as illustrated below.
+Before connecting the computer to the SPU via Ethernet cable, the computer's network settings must be configured. To do this, the IP address of the computer that will be connected to the SPU must be set as follows.
 
 ![ip](assets/ip.png)
 
- If required, please reboot your Laptop after changing the network settings.
+Then, if necessary, the computer should be restarted.
 
-# Real-Time-Dashboard 			  			
+# Real-time dashboard
 
-Use the "ICOtronicRemotePanel" then open the program. Now it will open the following window in which you have to input the IP-Address of the Dashboard. The input should be:
+Open the "ICOtronicRemotePanel" to connect to the dashboard. The following window should now open and ask for the IP address of the dashboard. The following IP address must be entered here:
 **192.168.42.115**
 
 ![Remote_IP](assets/Remote_IP.png)
 
-With a press on "connect to SPU" the program should connect to the Dashboard.
+Press "connect to SPU" to open the dashboard.
 
-The Dashboard contains five tabs: **Stability**, **Raw data view**, **Replay**, **System** and **Database**. The header of the Dashboard, which is active on all the mentioned tabs, has a Connection identifier and the ICOtronic logo.
+The dashboard should now open in a new window.
+The dashboard has 6 tabs. Regardless of which tab is currently open, the header always remains the same.
 
-If the system is connected to a sensory tool holder, the identifier turns blue. After disconnection, it turns white again.
+![Header](assets/Bearbeitet/Top_bearbeitet.png)
 
-![connected_w](assets/disconnected.png)   <------->   ![connected_b](assets/connected.png)
+T1: This indicator shows whether a holder is currently connected or not.
+![Header](assets/Bearbeitet/Indikator-bearbeitet.png)
+T2: When a connection to a holder is active, these fields display data such as the holder name and the MAC address of the connected holder.
+T3: These are the various tabs that can display different information.
+T4: This is the current date and time of the c-Rio. This can be changed in a sub-item of the "System" tab.
+T5: This is the version number of the system.
 
-## System Tab 	
+## System tab
 
-The system tab consists of 4 quarters. The lower right corner containing information about the signal quality and the CPU load.
+![System tab](assets/Bearbeitet/system_bearbeitet.png)
 
-![system](assets/system_tab.png)
+The System tab has 4 sub-modules:
+S1: Connection module
+S2: Rule & Sensor Configurations module
+S3: Logging & Settings module
+S4: Information module
 
-### Connection sub part
+### Connection Module
 
-In the upper left corner are the functions for the holder connection. On the top is a drop-down menu to choose the wanted connection type. With the "->" button it can be activated. On the right side of the "->" button is the momentary active connection type. The right most button "AutoConnect Off/On" can be used to deactivate and activate the need for putting a TRUE to the digital connection pin for connecting in the "Static DI" mode. If it is set to "AutoConnect On" the system will connect to a holder without a TRUE on the connection pin. **Attention: The holder ID pins have to be set within the time frame of 10ms starting with the first TRUE of a holder pin!!!**
-The left list contains all the momentary defined "Static DI" sensor&rule configurations. Below this list you can see the momentary per Digital IN chosen ID.
+![Connection Module](assets/Bearbeitet/connection_bearbeitet.png)
 
-![channel_numbers](assets/Connect_request_id.png)
+This module (S1) contains information about the holder and rule selection and serves as a setting tool in the case of the "Dashboard Connection".
+S47: This drop-down menu can be used to select the desired holder selection method.
+S48: Pressing this button activates the selected holder selection method.
+S49: This is the currently activated holder selection method.
+S50: This list shows all holders currently visible via Bluetooth with their call names and MAC addresses.
+S51: This identifier indicates whether the CAN connection with the STU is active.
+S52: These tabs display information about the currently selected or connected holders.
+S53: This button is used to issue a connection command via the "Dashboard". (This button only works if the corresponding checkbox in S33 has been selected).
 
-With the "Delete Connect ID" button you can delete the momentary highlighted ID. In the right list all STHs are listed that are found by the system and are ready to connect. You can see the name and the Bluetooth address of the STHs. The "STOP" , "CONNECT" buttons are used to connect/disconnect the system in the "Dashboard" connection mode. The multiple green radio-buttons are used to select the chosen Sensors if the system is used in the "Dashboard" connection mode.
+#### Connection selection tab
 
-### Rule & Sensor config sub part
+##### Active
 
-2 tabs can be found on the upper right side. These are the "Rule Engine configs" and "Sensor configs". In these 2 tabs you can see the momentary loaded configurations for "Static DI" on the system. Additionally in the "Sensor configs" tab you can highlight a holder by clicking on it and at the bottom below you can choose a rule from the drop-down menu and choose a connection ID you want to set. When pressing the "Load Sensor" button you can load the sensor&rule config into the list of loaded connection options on the top left. Beside the 2 tabs you can see the OPC server URL which is needed if you want to connect/control the system via OPCUA.
+The "Active" tab in S52 provides more detailed information about the currently connected holder.
 
-### Logging & Settings sub part
+![active tab](assets/Bearbeitet/active.png)
 
-On the lower left side you can find the "Logging" tab. This tab is used for recording a process and shows the status of the digital inputs. If the "Record at connect" button is clicked, it will start the recording when connected to a holder. If not it can be started with the "Start Record" button. When the system is recording this button will become a button to stop the recording. The Identifier "Storage mounted" shows blue if a USB-device is connected. Below it shows the "Recording" identifier which is red if a record is being made at the moment. Below you can see the size of the momentary recording and the free space of the mounted USB. 
+##### Dashboard
 
-**Attention: the system only works with USB-devices formatted to FAT32-format!!!**
+![active tab](assets/Bearbeitet/DB_connection_bearbeitet.png)
 
-The one identifier to the right show if the digital input for recording is set by the hardware. (The digital input for recording can be used to start and stop recordings outside of the dashboard). The 3 rightmost status identifier show if the DI for the activation of the momentary used rule is set, the rule is allowed to change parameters (meaning the rule is set to active) and the last one shows if the system is momentary changing the overrides because of the defined rules.
+The "Dashboard" tab is used to configure settings for the holder connection via the "Dashboard".
+S54: Checkboxes to select up to 3 sensors and the alternative reference voltage.
+S55: k-factors can be set here for the selected sensors.
+S56: These are adjustable d-factors for the selected sensors.
 
-![settings](assets/settings.png)
+##### DB cID
 
-The "Settings" tab is used to reboot the system and to change the system time. On the bottom you can see the "Reboot System" button. The SPU will initialise a reboot of the system when this button is pressed. The "Reboot STU" button can be used to reset the connected Transceiver Unit. The "Average data OPC-SErver [ms]" configuration is used to change the datarate of the system if the OPCUA connection is used. On top you can 2 text-fields. The upper one is to define the new system time and the lower one is to set the format of the time, shown on the topmost right part of the dashboard. The button "Set Time" is used to set the time given in the text-field to the system time. The button with the calendar and clock can be used to open a new window with a calendar and the clock to set the time.
+![active tab](assets/Bearbeitet/DB_cID_bearbeitet.png)
+
+The "DB cID" tab is used to configure settings for the corresponding connection type.
+S57: The desired connection ID can be specified here.
+S58: The device and rule IDs associated with the connection ID selected in S57 are displayed here.
+
+##### DB sID
+
+![active tab](assets/Bearbeitet/DB_sID_bearbeitet.png)
+
+The "DB sID" tab is used to configure settings for the corresponding connection type.
+S59: The desired device ID can be specified here.
+S60: The desired main rule can be specified here.
+S61-S64: Up to 4 desired secondary rules can be specified here.
+
+##### Digital Input cID
+
+![active-tab](assets/Bearbeitet/digital-input-cid.png)
+
+This tab contains information about the current settings that are currently applied via digital inputs in the corresponding connection type.
+
+##### OPC-UA
+
+![active tab](assets/Bearbeitet/opcua-conn.png)
+
+This tab contains information about the current settings that are currently applied via OPC-UA in the corresponding connection type.
+
+##### CNC
+
+![cnc-tab](assets/Bearbeitet/cnc-conn.png)
+
+This tab contains information about the current settings that are currently applied via a CNC interface in the corresponding connection type.
+
+### Module Rule & Sensor Configurations
+
+This submodule has 3 tabs
+
+#### Rule Engine Configurations
+
+![rules tab](assets/Bearbeitet/Rule_list_bearbeitet.png)
+
+The current rules can be viewed and loaded here.
+S10: This is a list of all current rules.
+S11: The details of the rule currently selected in S10 are displayed here.
+S12: This button can be used to load the rule currently selected in S10 into the nRT rules currently set in the dashboard.
+S13: This button can be used to load the rule currently selected in S10 into the main rule currently set in the dashboard.
+
+#### Device configs
+
+![device tab](assets/Bearbeitet/sensor_list_bearbeitet.png)
+
+Here, the currently loaded holders and their settings can be viewed and loaded into the dashboard connection.
+S14: List of all loaded holder settings
+S15: This button loads the holder settings selected in S14 into the connection settings of the "Dashboard" connection type.
+
+#### Connect ID
+
+![connect-id-tab](assets/Bearbeitet/Connection_list_bearbeitet.png)
+
+This tab displays all configured connection IDs and their associated device and rule IDs, which can also be changed here.
+S16: This list shows all currently configured connection IDs and their associated device and rule IDs.
+S17: This button loads the IDs set in S18 into the connection ID currently selected in S16.
+S18: These drop-down lists are used to set the IDs that are added to the list S16 using the S17 button. If the "delete" option is used for "Sensor", the selected ID is deleted from the list S16 when S17 is pressed. The main rule is able to control the overrides. The 4 nRT rules can only control the digital IOs. Their purpose is to indicate an intervention, but they do not have access to the analogue overrides.
+
+### Module Logging & Settings
+
+This module has 3 tabs
+
+#### Logging
+
+![logging tab](assets/Bearbeitet/Logging_bearbeitet.png)
+
+In this tab, settings relating to data recording can be made.
+S19: This button can be used to start or stop data recording.
+S20: This identifier indicates whether data recording is desired via the digital IOs.
+S21: This identifier indicates whether a USB stick is connected for data recording. **Please note: The system only works with USB devices that are formatted in FAT32 format!**
+S22: This identifier indicates whether data recording is currently taking place.
+S23: When data recording is active, the current size of the recording is displayed here.
+S24: The available storage space on the connected USB stick is displayed here.
+S25: An additional desired file name can be selected here, which is appended to the file name after the time stamp of the recording.
+S26: A comment can be inserted here, which will be added to the file before recording begins.
+S27: A comment can be inserted here, which will be added to the file at the end of the recording.
+S28: A part number can be inserted here, which will be added to the file.
+S29: Here you can insert an NC programme number, which will be inserted into the file.
+S30: Here you can insert an employee number, which will be inserted into the file.
+
+#### Settings
+
+![settings tab](assets/Bearbeitet/Settings_bearbeitet.png)
+
+Several settings can be configured in this tab. These include the methods that may be used to establish a connection.
+S31: This setting can be used to configure the data rate of the OPC-UA connection.
+S32: This display provides information about the most recent reading and writing processes.
+S33: These checkboxes are used to allow the specified sources to trigger a connection. A connection can be established using any of the selected methods. As long as one of the methods wants a connection, the connection remains active. Only when all selected methods want to disconnect will the connection to the holder be interrupted. If "AutoConnect" is activated, a connection is triggered as soon as the selected holder is within range. If “AutoRecord” is activated, data recording starts automatically when a connection to a holder is established. If "Autoenable Rule" is activated, all rules are automatically activated when a connection is established.
+S34: Here you can select the storage location for saving and loading configuration settings between c-Rio(local) and USB.
+S35: This button saves the current connection list, holder selection settings, connection sources and other settings.
+S36: This button overwrites the existing settings with those from the saved configuration file.
+S37: This button can be used to trigger a reset of the STU.
+
+#### System
+
+![system-system tab](assets/Bearbeitet/system_system-bearbeitet.png)
+
+The time and IP settings can be configured in this tab.
+S38: A new system date and time can be specified here, which can be loaded with S40.
+S39: This button opens a calendar that can be used to fill in S38.
 
 ![clock](assets/clock.png)
 
-In this new window you can use the "Aktuelle Zeit verwenden" button to set the date and time to the momentary system time. With a press of the "OK" button will the selected time be written into the text-field.
+S40: This button overwrites the current system date and time with the data specified in S38.
+S41: The time format used can be changed here.
+S42: The current IP settings of the left (SYNC 0) LAN socket can be read out here.
+S43: This button can be used to overwrite the current IP settings of the left (SYNC 0) LAN socket (S42) with the data from S45. This may cause the connection to be lost or the c-Rio to reboot.
+S44: This button can be used to trigger a reboot of the c-Rio.
+S45: Here you can specify IP settings that are to be applied to the left LAN socket (SYNC 0) with S43.
+S46: Information about the change to the IP address is displayed here.
 
-### Connection types
+### Module Information
 
-On the left side you can choose a connection type with the drop down menu. On the right side you can see the momentary active connection type. By pressing the "->" button between these two you can update the active type to the chosen type.
+This module has 2 tabs
 
-![connection_type](assets/connection_type.png)
+#### Signal Quality
 
-You can chose which sensors of the chosen holder you want to use with the radio buttons below the list of found holders, with the exception of the "Static / DI" mode. Chosen sensors are green. Note that if you use more than one sensor with a holder which only has one sensor the other two channels will be useless signals from not connected PINs inside the holder. The system will connect in the 1-channel mode if only 1 sensor is selected. The system will connect in the 3-channel mode if more than 1 sensors are selected. If you select more than 3 sensors will the system only use the first 3 selected sensors. The channels are always from the lowest sensor number as channel 1 and the highest channel number as channel 3. 
+![signal-quality-tab](assets/Bearbeitet/signal_quality_bearbeitet.png)
 
-![channel_numbers](assets/sensors.png)
+S5: The address of the c-Rio's OPC-UA server is displayed here.
+S6: If there is an active connection to a holder, the battery voltage of the holder at the time the connection was established can be read here.
+S7: If there is an active connection to a holder, a graph showing the signal quality is displayed here.
 
-If the radio button "1,8V Ref" is used to change the ADC-reference Value of the connected holder from the VDD(3,3V) to 1,8V. This has to be used when you for example use the +-40g 3-axis accelerometer.
-**Attention: The holder can only use 1 reference voltage at the same time so if you use multiple sensors which have different needed reference voltages then at least 1 will always give wrong values!!!**
+#### System Load
 
-#### Dashboard / OPC UA
+![system-load-tab](assets/Bearbeitet/CPU_load_bearbeitet.png)
 
-In this mode you can select the STH of your choice from the "Device list" and press “Connect”. With “Stop”, you can disconnect from the STH. After disconnection the Dashboard needs a few seconds before it starts searching for STHs again.
+S8: A graph of the CPU Load of the c-Rio can be seen here.
+S9: The size of the available memory of the c-Rio can be read here.
 
-![halterauswahl](assets/Holder_Connection.png)
+### Holder selection methods
 
-#### Static / DI
+There are various ways in which the desired holder with the desired settings can be selected. The active type can be selected using S47 and S48 and read at S49. If the active holder selection method is changed using S48, the open tab S52 changes to the tab of the selected method.
 
-In this connection mode you can use the predefined connection list (seen on the "System" tab) and the digital inputs of the system to control the connection and parameters of the system. (How to add a rule&sensor combination to the connection list see the chapter "Rule & Sensor config sub part" of the "System tab" chapter) The ID of the connection list corresponds to the digital holder inputs of the system in a binary format. (Example: ID 3 represents an input of 00000011 on the 8 input pins) To start a connection you need to set the digital input for connection to high. At this moment the system will connect to the element of the list chosen by the digital inputs. The momentary chosen input can be seen below the connection list. 
+![connection-list](assets/Bearbeitet/conn-list.png)
 
-![channel_numbers](assets/Connect_request_id.png)
+#### Dashboard
 
-If the "AutoConnect Off/On" button is set to "ON" then the system will connect without the need to set the connection pin to high the moment the ID pins are set to TRUE. (Be careful that the connection ID pins have to be set in a time frame of 10ms)
+Here, the selected holder and sensors are selected using the dashboard, the S52 tab and the list of available holders S50. The rules applied are set and read directly in the C6 settings in the "Stability" tab.
 
-**Attention: Never change the given ID while the system is connected to a holder. First disconnect the system, then change the ID and after that start a new connection!!!**
+#### Dashboard cID
 
-#### First available /DI
+Here, the desired holder and rules are selected from list S16 using their connection ID.
 
-In this mode the system will connect to the first holder it finds within its range the moment the connection pin is set to high.
+#### Dashboard sID
+
+Here, the desired holder and rules are selected from list S14 using the device ID and from list S10 using the rule IDs.
+
+#### Digital Input cID
+
+Here, the desired holder and rules are selected from list S16 using the digital IOs.
+
+#### OPC-UA
+
+Here, the holder and rules are selected using the parameters set for the OPC-UA connection.
+
+#### CNC
+
+Here, the holder and rules are selected using a CNC interface.
+
 
 ## Database
 
-![system](assets/Database.png)
+![system](assets/Bearbeitet/Database_bearbeitet.png)
 
-This tab is used to load and save the configuration of rules and sensors. It can be split into 4 parts. The first part is on the top and has the system controls. The middle part is used to configure the sensors. The bottom part on the bottom is used to configure the rules. The right most part of this sub part is the message screen. It shows the last few operations done in the "Database" tab. With a click on the "Clear Messagehistory" button the message history can be cleared.
+This tab is used to load and save the configuration of rules and sensors. It can be divided into three modules.
+D1: The System module is used to load and save the set data.
+D2: Here you can view a history of the activities carried out in this tab.
+D3: The Sensor module is used to define the desired holders with their sensor selection.
+D4: The Rule module is used to define the desired rules.
+D5: This button can be used to delete the history in D2.
+  
 
-### System sub part
+### System module
 
-![system](assets/Database_control.png)
+![system](assets/Bearbeitet/Database_control_bearbeitet.png)
 
-The leftmost buttons are used to load the momentary detected sensor and rule lists into the running system or load the momentary used lists from the running system back to the lists below. The lists can also be saved to the local memory of the system or an USB-stick. The "Load/Save to local Config" buttons can be used to load/save a configuration on the local system. With "Load/Save from/to file" it will not use the local config file but the parameters on the right side of these 2 buttons. The "Speicherort" drop down can be used to change between local system and USB. The "file" text field can be used to give a name to the configuration or name the to be loaded file.
+This module is used to load and save the lists.
+D6: Loads the lists currently applied on the c-Rio.
+D7: Loads the lists into the c-Rio so that they can be actively used.
+D8: Loads the lists stored locally on the c-Rio.
+D9: Saves the lists locally on the c-Rio.
+D10: Loads the lists from the source selected in D13 with the file name selected in D14.
+D11: Saves the lists in the file selected in D14 on the medium selected in D13.
+D13: Here you can select the medium on which the lists are read or written with D10 and D11.
+D14: Here you can select the desired file name for reading and writing with D10 and D11.
 
-### Sensor sub part
+### Sensor module
 
-![system](assets/Database_sensors.png)
+![system](assets/Bearbeitet/Database_devices_bearbeitet.png)
 
-In this subpart you can see the defined sensors of the sensor list and change them. The list on the left side shows the defined sensors. You can highlight a sensor by clicking on it. With the "Delete Sensor" button you can delete the chosen sensor from the list. If you press the "Sensor ->" button the values of the chosen sensor will be loaded from the left list into the configuration fields on the right side. The list on the right side shows all holders momentary found by the system in close proximity. By clicking one holder it will be highlighted. If you press the "->" button the values of the chosen holder will be loaded into the configuration fields below. In the fields below you can find the configurations of the holder for the sensor list. You can change the IFT value offsets/factors of the holder on the rightmost fields. The "Sensor ID" is the ID you want to give the holder configuration in the sensor list. If this ID is already defined will it be overwritten when saving. The "MacAdr" is the MAC-Address of the holder and defines which holder will be connected. The "name" is a name which can be given to the sensor which will be shown on the "Stability" tab when the sensor is connected and can be chosen freely. The "description" can be filled for example with information about this sensor. The "Channels" drop-down menu is used to define which channels the chosen holder uses in this sensor entry. 
+D15: The currently loaded list of devices and their settings is displayed here.
+D16: This list shows all holders currently found in the environment.
+D17: This button can be used to load the MAC address of the holder currently selected in D16 into the D23 settings field.
+D18: The ID used to save the settings from D23 to D15 can be set here.
+D19: Here you can enter the name of the setting that is displayed in list D15.
+D20: This button can be used to delete the item currently selected in D15 from the list.
+D21: This button can be used to load the settings of the item currently selected in D15 into the settings in D23.
+D22: Here you can enter a description that will be displayed in the D15 list.
+D23: Here you can enter the settings that will then be transferred to the list D15 by pressing the button D24.
+The "Sensor Channels" drop-down menu is used to specify which channels the selected holder uses in this sensor entry.
 
-![system](assets/sensorauswahl.png)
+![sensor selection](assets/sensorauswahl.png)
 
-There are some predefined selections. Different selections can be made by choosing the "<Andere...>" option. Now it will want an binary 16-bit input for the chosen senors. All "0" before the first used "1" kann be left out. The sensor 1 is here the LSB. So for example if you want to connect to the 1st, 5th and 10th sensor you have to type in "1000010001". The MSB bit is used to define the Reference voltage. If it is "1" the 1,8V reference voltage will be used. 
-With the "Add/Update Sensor" button the parameters can be written into the sensor list on the left. 
+There are already a few predefined selections here. If a different sensor setting is desired, this can be entered using "Andere ...". Now a 16-bit binary input is required for the sensor selection. All "0"s before the first required "1" can be omitted. Sensor 1 is the LSB bit. For example, if sensors 1, 5 and 10 are to be selected, "1000010001" must be entered. The MSB defines the reference voltage. If a "1" is entered at the MSB position, the 1.8V reference voltage is used.
+D24: This button transfers the values currently entered in D19, D22 and D23 to list D15, using the ID from D18.
 
-### Rule sub part
+### Module Rule
 
-![system](assets/Database_rule.png)
+![system](assets/Bearbeitet/Database_rules_bearbeitet.png)
 
-This sub part has a list of all defined rules on the left side. The rule "0" is always there, can not be deleted and is using the momentary parameters of the dashboard instead of predefined parameters. The "Parameters" box shows a list of all the parameters of the chosen rule. With the button "Delete Rule" the highlighted rule will be deleted. When pressing the "Rule ->" button the parameter of the chosen rule will be loaded into the configuration fields on the right side. In the fields on the right side you can chose a "Rule ID" and give it a name. In the fields below you can set the parameters for the "Stability" tab. A description of these parameters can be found in this manual in the chapter "Stability tab". Additionally you can chose a "Base Rule ID" here. If you choose a rule different from "0" then all parameters which are given as follows will load parameters of the chosen "Base Rule":
+The rules applied can be set in this module.
+
+D25: This is a list of all currently set rules.
+D26: The details of the rule currently selected in D25 are displayed here.
+D27: Here you can set the rule ID under which the settings are to be saved with D32.
+D28: Here you can select the type of rule.
+D29: Here you can select the base rule. If you select a rule other than "0", all parameters specified in D35 will load the parameters of the selected "base rule" if their value is set per the following list:
 
 - mode: "from Baserule" option
 - window length: 0
@@ -157,76 +334,106 @@ This sub part has a list of all defined rules on the left side. The rule "0" is 
 - feed/spindle Reduction Factor: >125
 - low/high-pass filter: <0
 
-This can be used if you want to use the same parameter from a predefined set and only have to change this rule to change more rules automatically. In the "description" field the rule can be given a description. With the "Add/Update Rule" button the configuration can be written into the list. If a rule with the chosen "Rule ID" already exists, it will be overwritten with the new values.
+This can be used if you want to use the same parameter from a predefined set and only need to change this rule to automatically change multiple rules.
 
-## Replay Tab
+D30: Here you can set the name of the rule, which will be transferred to list D25.
+D31: Here you can enter a description of the rule, which will be transferred to list D25.
+D32: This button transfers the data from D28-D31 and D35 to list D25.
+D33: This button deletes the currently selected item from list D25.
+D34: This button loads the settings of the currently selected item from list D25 into fields D27-D31 and D35.
+D35: Here you can set the parameters of the rule.
+A description of these parameters can be found in this manual in the chapter "Stability Tab".
 
-![system](assets/Replay_filled.png)
+## Replay tab
 
-In this tab old recorded files from the USB are shown. Furthermore it allows you to recalculate the IFT value for the stored files.
+![system](assets/Bearbeitet/Replay_bearbeitet.png)
 
-You will see a list with all the recordings stored on the connected USB. Choose the recording you want to see, highlight it by pressing it and the press the "Load File" button to start the replay. Now the chosen file will be loaded.
+This tab is used to view recorded data on the currently connected USB stick.
 
-![system](assets/Replay.png)
+R1: A list of all recorded data found on the USB stick is displayed here.
+R2: This button opens the recording of the item currently selected in R1.
 
-You can see the information of the chosen recording (like the recording start time, filename, device name,...) on the top side. With the "Close File" button you can close the recording and go back to the list of recordings.
-On the left side are the parameters which were active when the recording was taken.
-Right below the recorded parameters is a box in which you can change the "IFT value factor", "IFT value offset", "Stability Channel" and the "WindowLength". When you change these parameters and press the "Recalculate" button the system will calculate a new IFT value recalc for the whole file and print it together with the original recording.
+![system](assets/Bearbeitet/Replay_loaded_bearbeitet.png)
 
-![system](assets/Replay_recalc.png)
+R3: The file name of the currently opened recording is displayed here.
+R4: This button closes the currently opened file. **Caution: If the USB stick is removed while a file is open, the USB connection is interrupted and the c-Rio must be restarted to reactivate it!!!**
+R5: This marker indicates the starting point of the data displayed in R8.
+R6: This is a graph showing the progression of the IFT value in the open file.
+R7: Here you can read the information about the recording that is stored in the file. There are two tabs, "System Settings" and "Rules".
+R8: Up to 2 seconds of data are displayed here in detail. The starting point of the display is selected using R5 and loaded using R17.
 
-On the right side are two graphs. The top one shows the timeline. The red line can be moved via drag and drop and symbolises the starting point of the "Zoom" below. The lower graph shows the IFT value from the chosen starting point till 20 seconds thereafter. After changing the starting point you have to press the "Recalculate" button to reload this graph to the chosen timeframe.
+### System Settings Tab
 
-## Stability Tab 						  			
+![Recalc](assets/Bearbeitet/Replay_systemsettings_bearbeitet.png)
 
-![stability-tab](assets/stability-tab.png)
+R9: Here you can read the name and MAC address of the holder used.
+R10: Here you can read the start time of the recording.
+R11: Here you can read the battery level that existed at the start of the recording.
+R12: Here you can read the sensors and reference voltage used in the recording.
+R13: Here you can read the k and d factors selected for the 3 channels.
+R14: Here you can read the information added to the recordings by the user.
 
-In the Stability tab, you can change the mode of the system, the parameter of the in-process control and you can view the system’s live data.
+### Rules tab
 
-CAUTION: The tabs System and Stability tab are not connected. Therefore, if you disconnect the STH, the mode and the parameter set up in the Stability tab stay the same, even if you connect a new STH (in "Dashboard Connection" Mode, in "Static DI" Mode the chosen rule parameters are loaded). These parameters only reset when the SPU got a reset.
+![Recalc](assets/Bearbeitet/Replay_rules_bearbeitet.png)
 
-On the top is a graph showing the Signal Quality. This percentage value shows how many packets are successfully received. If the connection is bad and it comes to packet loss then this value will fall below the 100% mark. There are 5 fields on the right side of this graph. "STH Name" shows the name of the connected holder. "STH Rule" shows the number and name of the rule which is chosen. "MO Number", "NC Program Number" and "Part Number" will be saved in the recording file, if filled in.
+R15: Here you can select which rule settings should be read in the R16 data.
+R16: The rule settings for the rule selected in R15 are displayed here.
+R17: This button can be used to recalculate the IFT values in R8 using the starting point R5, the k and d factors R18, the window length R19 and the channel R20.
+R18: New k and d factors for recalculation with R17 can be set here.
+R19: Here, a new window width can be selected for recalculating the data with R17.
+R20: Here, the channel used for recalculating the IFT values in R8 can be set.
 
-On the left, you can change the active mode (For detailed descriptions of the modes, see chapter “Modes”).
+## IFT Value Tab
 
-![modeauswahl](assets/modeauswahl.png)
+![IFT_Value_Tab](assets/Bearbeitet/IFT_Value_bearbeitet.png)
 
-Below the mode selection are the configuration parameters (For detailed descriptions of the parameters, see chapter “Parameters”).
+This tab displays the current history of the IFT value for the various rules set for an active connection.
+V1: Here you can select from which of the rules the thresholds in V2 should be displayed.
+V2: Here you can see the history of the IFT values of the rules and the thresholds of the rule set in V1.
 
-On the right-hand side you can see the live data of the system, change the shown time window length (in seconds). You can also choose to stop the data-print. There is also an indicator which shows, if the system is recording at the moment. If the system is recording the indicator will turn blue. 
+## nRT Rule tab
 
-![recording-off](assets/record-off.png) <-------> ![recording-on](assets/record-on.png)
+![nRT_Rule_Reiter](assets/Bearbeitet/NTR_Rule_bearbeitet.png)
 
-The newest data point is on the right-hand side. The oldest one to the left.
+In this tab, the nRT rules can be read out and, in the case of the "Dashboard" holder selection, also adapted.
+N1: The parameters set here can be loaded into the corresponding rules using the N3 buttons.
+N2: Here, the settings of the currently active nRT rules can be read out.
+N3: When pressed, these buttons load the data from N1 into the corresponding rule in N2.
+N4: These buttons can be used to activate the corresponding rules.
+N5: These identifiers can be used to identify which nRT rules are currently activated and which rules are currently triggering an "intervention".
 
-![grafhistory](assets/grafhistory.png)
+## Stability tab
 
-### IFT-Value 		  			
+![stability-tab](assets/Bearbeitet/Stability_bearbeitet.png)
 
-The IFT-Value is the system's criteria to find out if the process is stable or instable. If the value is above a chosen threshold and an in-process control mode is selected, the system generates new setpoints for the overrides feed rate and spindle speed in order to stabilize the process again.
+In the Stability tab of the dashboard, you can set the parameters for the dashboard holder selection, read the current rules and view a graph of the real-time data for the main rule.
 
-![signal](assets/signal.png)
+C1: Here you can select the desired control algorithm.
+C2: Here you can see the control algorithm currently used by the main rule.
+C3: This identifier shows whether data is currently being recorded.
+C4: With this slider you can set the time displayed in C7, C8 and C16.
+C5: This button can be used to pause graphs C7, C8 and C16 or to restart them.
+C6: Here, the control parameters of the main rule can be set and the current parameters can be read out.
+C7: This graph shows the real-time data of the IFT value and the set thresholds.
+C8: This graph shows the real-time data of the overrides currently controlled by the c-Rio.
+C9: This button loads the main rule parameters entered in C6 into the activated parameters.
+C10: This button activates and deactivates the main rule for the "Dashboard" connection types.
+C11: This button allows you to reset a triggered rule if its algorithm requires a manual reset.
+C12: This identifier indicates whether the main rule is currently activated.
+C13: This identifier indicates whether the main rule is currently triggering and adapting the overrides.
+C14: This identifier indicates whether data is currently being recorded.
+C15: These identifiers indicate which nRT rules are currently activated and which are triggering. The inner circle is coloured when the rule is activated and the outer ring is coloured when the rule intervenes.
 
-### Overrides 		
+![Header](assets/Bearbeitet/nRT-Indikator-bearbeitet.png)
 
-The override graph shows the active override values of the system.
+C16: This graph shows the timeline of the activation and intervention of the main rule.
 
-![overrides](assets/overrides.png)
-
-### Control indicators 				  			
-
-This graph shows the Sens and the Active lines. These are digital information. If the values are 1 they are active and if the values are 0 they are inactive. Sens indicates that the M-command is set to activate the adaptive control loop. The Active signal shows if the IFT-Value is above the given threshold and the overrides are actively changed by the system. The Active value can only become 1 if the Sens value is 1 too.
-
-![active](assets/active.png)
-
-### Controls for the rule
-There are two buttons at the bottom of the screen. The "Update" Button loads the left side of the parameters into the running values on the right side. The "Rule Reset" button can be used when using the "Stop" Mode to reset the overrides back to 0% reduction.
-
-### Stability-Parameters 					  			
+### Parameters
 
 Depending on which mode is set active, different parameters can be changed. To change these parameters to new values, press the "update" button on the bottom. An exception is the window length in watch mode. It can always be changed.
 
-![parameter](assets/parameter.png)
+![parameter](assets/Bearbeitet/parameter.png)
 
 #### Window length 			  			
 
@@ -309,7 +516,6 @@ Reduction step 2: Reduction from 95 % to 90 %
 {ms} deadtime
 
 This parameter is only used in the “Stability reduction” mode. This value equals the time in ms the system pauses before checking if it should reduce the spindle speed and feed rate again. The smaller this value, the quicker the ICOtronic system reduces the speed. As a reference value for first tests 300 ms can be mentioned. This means, each 300 ms feed rate and/or spindle speed are adapted as long as the IFT value exceeds the threshold.
-**<u>Note:</u>** if this value is to low it can happen that the machine needs longer to set the new parameters than the system waits to see if something changed. This would have the problem that even it the process stabilises the machine still changes values from the last instance and the process gets unstable again. 
 
 **Examples**:
 
@@ -345,23 +551,11 @@ This parameter is used as high-pass filter cutoff frequency when calculating the
 
 This circle shaped button shines blue if activated. The filtered (high-pass and low-pass filtered) signal will be set in relation to the unfiltered signal if the function is activated. Following the activation the IFT value can be at maximum a "1". **If the low-pass AND high-pass filters are deactivated the signal will always be a "1".**
 
-#### IFT value factor 		  			
-
-{-} IFT value factor
-
-This is a multiplicative factor for the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI 9263). With it, the signal can be set to a desired value. The values for the different channels can be changed separately.
-
-#### IFT value offset 					
-
-{-} IFT value offset
-
-This is an additive value, to the IFT-Value in the corresponding diagram and for the analogue port number 0 of the SPU (NI9263). With it, the signal can be set to a desired offset. The values for the different channels can be changed separately.
-
 ### Modes 					
 
 The modes are:
 
-![modes](assets/modes.png)
+![modes](assets/Bearbeitet/modes.png)
 
 #### WATCH 				
 
@@ -383,9 +577,13 @@ This mode is primary used while installing the system. Beside the “IFT value f
 
 This mode works nearly identical to "stability 2 level" mode. The only difference is that the system doesn't use the "lower threshold". If the system changed the overrides these overrides will stay active until ether the digital input of rule enable is reset to "0" or the "Reset Regler" button was pressed.
 
+#### FROM nRT1
+
+This mode uses the settings of the nRT1 rule instead of the main rule to control the overrides.
+
 ## Example use-case 			  			
 
-Open the Remote Control Panel and connect to the Dashboard. After the page is loaded, go to the “System” tab and wait for the holder inside the machine to be listed. Now press “Connect” and go to the “Stability” tab. The STH’s LED should start blinking and the STU’s LEDs in the corners should stop blinking and instead shine continuously. After a short moment, the IFT-Value graph should start to display values different from zero. Change the mode to “Watch” and choose a “Window length” with about 70 ms as a first orientation. Change the “Graph History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order to take look at the whole process, press the “pause graph” button after the process. Remember that the seconds below the graphs show how many seconds in the past this point was. The following figure represents an example cut in the watch mode.
+Open the Remote Control Panel and connect to the Dashboard. After the page is loaded, go to the “System” tab and wait for the holder inside the machine to be listed. Now press “Connect” and go to the “Stability” tab. The STH's LED should start blinking and the STU's LEDs in the corners should stop blinking and instead shine continuously. After a short moment, the IFT-Value graph should start to display values different from zero. Change the mode to “Watch” and choose a “Window length” with about 70 ms as a first orientation. Change the “Graph History” to a desired time window. Now, perform a cut in this watch mode with deactivated adaptive control and examine the IFT-Value. In order to take look at the whole process, press the “pause graph” button after the process. Remember that the seconds below the graphs show how many seconds in the past this point was. The following figure represents an example cut in the watch mode.
 
 ![example](assets/example.png)
 

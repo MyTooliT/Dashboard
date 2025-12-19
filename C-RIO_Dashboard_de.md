@@ -25,7 +25,7 @@ Download Link:
 
 http://www.ni.com/download/labview-run-time-engine-2018/7383/en/
 
-ACHTUNG: Es muss die 2021 SP1 (32-bit) Version gewählt werden !!!
+**ACHTUNG: Es muss die 2021 SP1 (32-bit) Version gewählt werden !!!**
 
 Für die Verbindung zum Dashboard muss das ICOtronicRemotePanel Programm verwendet werden.
 
@@ -141,7 +141,7 @@ Dieses Untermodul verfügt über 3 Reiter
 
 Hier können die aktuellen Regeln eingesehen und geladen werden.
 S10: Dies ist eine Liste aller aktuellen Regeln.
-S11: Hier werden die Details zu der aktuell in S10 ausgewählten Regeln angezeigt
+S11: Hier werden die Details zu der aktuell in S10 ausgewählten Regel angezeigt
 S12: Mit diesem Button kann die aktuell in S10 ausgewählte Regel in die momentan im Dashboard eingestellten nRT Rules geladen werden.
 S13: Mit diesem Button kann die aktuell in S10 ausgewählte Regel in die momentan im Dashboard eingestellte main Rule geladen werden.
 
@@ -424,8 +424,10 @@ C12: Dieser Identifikator zeigt an ob die Main-Rule gerade aktiviert ist.
 C13: Dieser Identifikator zeigt an ob die Main-Rule gerade auslöst und die Overrides adaptiert.
 C14: Dieser Identifikator zeigt an ob die Daten aktuell aufgenommen werden.
 C15: Diese Identifikatoren zeigen an welche nRT-Regeln gerade aktiviert sind und welche auslösen. Hierbei wird der innere Kreis eingefärbt wenn die Regel aktiviert ist und der äußere Ring wird eingefärbt wenn die Regel eingreift.
+
 ![Header](assets/Bearbeitet/nRT-Indikator-bearbeitet.png)
-C16: In diesem Graph wird der Zeitliche Verlauf der Aktivierung und des Eingreifens der Main-Rule angezeigt.
+
+C16: In diesem Graph wird der zeitliche Verlauf der Aktivierung und des Eingreifens der Main-Rule angezeigt.
 
 ### Parameter 					  			
 
@@ -518,7 +520,7 @@ Reduzierungsschritt 2: Reduktion von 95% auf 90%
 
 Dieser Parameter wird nur im "Stability reduction“ Modus verwendet. Dieser Wert entspricht jener Zeit, die das System abwartet, bevor es erneut überprüft, ob eine Reduktion der Overrides erforderlich ist. Je kleiner dieser Wert, umso schneller reduziert das System den Vorschub und die Drehzahl. Als Referenzwert für erste Versuche kann eine Totzeit von 300ms gewählt werden. Dies bedeutet, dass alle 300ms der Vorschub und die Drehzahl reduziert werden, solange sich der IFT-Wert oberhalb der oberen Schwelle befindet.
 
-Beispiele:
+**Beispiele**:
 
 In den nachfolgenden Grafiken sind 2 verschiedene Totzeiten eingestellt, mit der kürzeren Totzeit in der ersten Grafik. Es ist zu bemerken, dass die minimalen Overrides bei kürzerer Totzeit schneller erreicht werden.
 
